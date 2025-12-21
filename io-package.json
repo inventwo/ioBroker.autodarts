@@ -57,6 +57,7 @@
     },
     "platform": "Javascript/Node.js",
     "icon": "autodarts.svg",
+    "extIcon": "https://raw.githubusercontent.com/inventwo/ioBroker.autodarts/main/admin/autodarts.svg",
     "enabled": true,
     "loglevel": "info",
     "mode": "daemon",
