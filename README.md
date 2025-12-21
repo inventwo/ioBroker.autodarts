@@ -47,6 +47,9 @@ In the adapter settings, enter:
 <!--
 	### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+- fix - Adapter Checker
+
 ### 0.0.5 (2025-12-21)
 - Update Description
 

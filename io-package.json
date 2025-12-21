@@ -54,19 +54,6 @@
         "pl": "początkowe zwolnienie",
         "uk": "початковий реліз",
         "zh-cn": "初步释放"
-      },
-      "0.0.1": {
-        "en": "Initial release",
-        "de": "Erstveröffentlichung",
-        "ru": "Первый релиз",
-        "pt": "Lançamento inicial",
-        "nl": "Eerste release",
-        "fr": "Version initiale",
-        "it": "Versione iniziale",
-        "es": "Lanzamiento inicial",
-        "pl": "Pierwsze wydanie",
-        "uk": "Початковий випуск",
-        "zh-cn": "初始版本"
       }
     },
     "titleLang": {
@@ -83,17 +70,17 @@
       "zh-cn": "Autodarts 集成"
     },
     "desc": {
-      "en": "Connects the ioBroker to the local Autodarts Board Manager (running in your network).  \nProvides states and events for current game so you can trigger lights, sounds, TTS, or other automations.",
-      "de": "Verbindet den ioBroker mit dem lokalen Autodarts Board Manager (der in Ihrem Netzwerk läuft).\nBietet Zustände und Ereignisse für das aktuelle Spiel, sodass Sie Lichter, Töne, TTS oder andere Automatisierungen auslösen können.",
-      "ru": "Подключает ioBroker к локальному менеджеру досок Autodarts (работающему в вашей сети).\nПредоставляет состояния и события для текущей игры, позволяя запускать свет, звуки, синтезатор речи или другие средства автоматизации.",
-      "pt": "Conecta o ioBroker ao Autodarts Board Manager local (executado em sua rede).\nFornece estados e eventos para o jogo atual, permitindo que você acione luzes, sons, TTS (texto para fala) ou outras automações.",
-      "nl": "Verbindt de ioBroker met de lokale Autodarts Board Manager (die in uw netwerk draait).\nBiedt statussen en gebeurtenissen voor het huidige spel, zodat je lichten, geluiden, tekst-naar-spraak of andere automatiseringen kunt activeren.",
-      "fr": "Connecte l'ioBroker au gestionnaire de plateau Autodarts local (exécuté sur votre réseau).\nFournit les états et les événements du jeu en cours afin que vous puissiez déclencher des lumières, des sons, la synthèse vocale ou d'autres automatisations.",
-      "it": "Collega ioBroker al gestore locale di Autodarts Board (in esecuzione sulla tua rete).\nFornisce stati ed eventi per il gioco in corso, così puoi attivare luci, suoni, TTS o altre automazioni.",
-      "es": "Conecta ioBroker al Autodarts Board Manager local (que se ejecuta en su red).\nProporciona estados y eventos para el juego actual para que puedas activar luces, sonidos, TTS u otras automatizaciones.",
-      "pl": "Łączy ioBroker z lokalnym menedżerem płyt Autodarts (działającym w Twojej sieci).\nZawiera stany i zdarzenia dla bieżącej gry, dzięki czemu możesz uruchamiać światła, dźwięki, TTS i inne automatyzacje.",
-      "uk": "Підключає ioBroker до локального менеджера дощок Autodarts (що працює у вашій мережі).\nНадає стани та події для поточної гри, щоб ви могли активувати світло, звуки, синтезатор мовлення або інші автоматизації.",
-      "zh-cn": "将 ioBroker 连接到本地 Autodarts Board Manager（在您的网络中运行）。\n为当前游戏提供状态和事件，以便您可以触发灯光、声音、TTS 或其他自动化功能。"
+        "en": "Connects the ioBroker to the local Autodarts Board Manager.\n\nProvides states and events for the current game, allowing to trigger lights, sounds, text-to-speech, or other automations.",
+        "de": "Verbindet den ioBroker mit dem lokalen Autodarts Board Manager.\n\nBietet Zustände und Ereignisse für das aktuelle Spiel, wodurch Lichter, Töne, Text-zu-Sprache oder andere Automatisierungen ausgelöst werden können.",
+        "ru": "Обеспечивает связь ioBroker с локальным менеджером досок Autodarts.\n\nПредоставляет состояния и события для текущей игры, позволяя запускать световые эффекты, звуки, преобразование текста в речь или другие автоматизированные действия.",
+        "pt": "Conecta o ioBroker ao Gerenciador de Tabuleiro Autodarts local.\n\nFornece estados e eventos para o jogo atual, permitindo acionar luzes, sons, conversão de texto em fala ou outras automações.",
+        "nl": "Verbindt de ioBroker met de lokale Autodarts Board Manager.\n\nBiedt statussen en gebeurtenissen voor het huidige spel, waardoor het mogelijk is om lichten, geluiden, tekst-naar-spraak of andere automatiseringen te activeren.",
+        "fr": "Connecte l'ioBroker au gestionnaire de plateau Autodarts local.\n\nFournit les états et les événements du jeu en cours, permettant de déclencher des lumières, des sons, la synthèse vocale ou d'autres automatisations.",
+        "it": "Collega ioBroker al gestore locale del tabellone Autodarts.\n\nFornisce stati ed eventi per il gioco in corso, consentendo di attivare luci, suoni, sintesi vocale o altre automazioni.",
+        "es": "Conecta el ioBroker al administrador de tablero Autodarts local.\n\nProporciona estados y eventos para el juego actual, lo que permite activar luces, sonidos, texto a voz u otras automatizaciones.",
+        "pl": "Łączy ioBroker z lokalnym menadżerem płyt Autodarts.\n\nZawiera stany i zdarzenia dla bieżącej gry, umożliwiając aktywację świateł, dźwięków, zamiany tekstu na mowę lub innych automatyzacji.",
+        "uk": "Підключає ioBroker до локального менеджера дошки Autodarts.\n\nНадає стани та події для поточної гри, дозволяючи запускати світло, звуки, перетворення тексту в мовлення або інші автоматизації.",
+        "zh-cn": "将 ioBroker 连接到本地 Autodarts 棋盘管理器。\n\n为当前游戏提供状态和事件，允许触发灯光、声音、文本转语音或其他自动化功能。"
     },
     "authors": [
       "skvarel <skvarel@inventwo.com>"
@@ -101,6 +88,8 @@
     "keywords": [
       "dart",
       "scoring",
+      "game",
+      "automations",
       "autodarts"
     ],
     "licenseInformation": {
@@ -129,7 +118,7 @@
     ],
     "globalDependencies": [
       {
-        "admin": ">=7.0.23"
+        "admin": ">=7.6.17"
       }
     ]
   },
