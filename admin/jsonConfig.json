@@ -1,0 +1,132 @@
+{
+  "i18n": true,
+  "type": "panel",
+  "items": {
+    "intro": {
+          "type": "staticText",
+          "text": {
+              "en": "Autodarts adapter configuration.<br>Please enter host and port from Boardmanager as well as the polling interval.",
+              "de": "Autodarts-Adapterkonfiguration.<br> Bitte gebe die IP und den Port von Boardmanager sowie den Abfrageintervall ein.",
+              "ru": "Настройка адаптера Autodarts.<br> Пожалуйста, введите хост и порт из Boardmanager, а также интервал опроса.",
+              "pt": "Configuração do adaptador Autodarts.<br> Por favor, insira o host e a porta do Boardmanager, bem como o intervalo de polling.",
+              "nl": "Configuratie van de Autodarts-adapter.<br> Voer de host en poort van Boardmanager in, evenals het pollinginterval.",
+              "fr": "Configuration de l&#39;adaptateur Autodarts.<br> Veuillez saisir l&#39;hôte et le port depuis Boardmanager ainsi que l&#39;intervalle d&#39;interrogation.",
+              "it": "Configurazione dell&#39;adattatore Autodarts.<br> Inserisci l&#39;host e la porta da Boardmanager, nonché l&#39;intervallo di polling.",
+              "es": "Configuración del adaptador Autodarts.<br> Ingrese el host y el puerto de Boardmanager, así como el intervalo de sondeo.",
+              "pl": "Konfiguracja adaptera Autodarts.<br> Proszę wprowadzić hosta i port z Boardmanager&#39;a, a także interwał odpytywania.",
+              "uk": "Конфігурація адаптера Autodarts.<br> Будь ласка, введіть хост і порт з Boardmanager, а також інтервал опитування.",
+              "zh-cn": "Autodarts适配器配置。<br>请从 Boardmanager 输入主机和端口以及轮询间隔。"
+          },
+          "newLine": true,
+          "sm": 12,
+          "xs": 12,
+          "md": 8,
+          "lg": 6,
+          "xl": 4,
+          "style": {
+            "border": "1px solid #ccc",
+            "borderRadius": "0px",
+            "padding": "8px",
+            "marginBottom": "10px",
+            "textAlign": "center",
+            "font-size": "larger"
+          }
+        },
+    "host": {
+      "type": "text",
+      "label": {
+        "en": "Autodarts (Boardmanager) Host / IP",
+        "de": "Autodarts (Boardmanager) Host / IP",
+        "ru": "Autodarts (Boardmanager) Хост / IP",
+        "pt": "Host/IP do Autodarts (Boardmanager)",
+        "nl": "Autodarts (Boardmanager) Host / IP",
+        "fr": "Hôte/IP d'Autodarts (Boardmanager)",
+        "it": "Autodarts (Boardmanager) Host / IP",
+        "es": "Host / IP de Autodarts (Boardmanager)",
+        "pl": "Autodarts (Boardmanager) Host / IP",
+        "uk": "Хост / IP-адреса Autodarts (Boardmanager)",
+        "zh-cn": "自动飞镖（棋盘管理器）主机/IP"
+      },
+      "newLine": true,
+			"sm": 12,
+			"xs": 12,
+			"md": 8,
+			"lg": 6,
+			"xl": 4
+    },
+    "port": {
+      "type": "number",
+      "label": {
+        "en": "Autodarts (Boardmanager) Port",
+        "de": "Autodarts (Boardmanager) Port",
+        "ru": "Порт Autodarts (Boardmanager)",
+        "pt": "Autodarts (Boardmanager) Port",
+        "nl": "Autodarts (Boardmanager) Port",
+        "fr": "Port Autodarts (Boardmanager)",
+        "it": "Autodarts (Boardmanager) Port",
+        "es": "Puerto de Autodarts (Boardmanager)",
+        "pl": "Autodarts (Boardmanager) Port",
+        "uk": "Порт Autodarts (менеджер дощок)",
+        "zh-cn": "自动飞镖（Boardmanager）端口"
+      },
+      "newLine": true,
+			"sm": 12,
+			"xs": 12,
+			"md": 8,
+			"lg": 6,
+			"xl": 4
+    },
+    "interval": {
+      "type": "number",
+      "label": {
+        "en": "Polling interval (ms)",
+        "de": "Abfrageintervall (ms)",
+        "ru": "Интервал опроса (мс)",
+        "pt": "Intervalo de pesquisa (ms)",
+        "nl": "Polling-interval (ms)",
+        "fr": "Intervalle d'interrogation (ms)",
+        "it": "Intervallo di polling (ms)",
+        "es": "Intervalo de sondeo (ms)",
+        "pl": "Interwał odpytywania (ms)",
+        "uk": "Інтервал опитування (мс)",
+        "zh-cn": "轮询间隔（毫秒）"
+      },
+      "newLine": true,
+			"sm": 12,
+			"xs": 12,
+			"md": 8,
+			"lg": 6,
+			"xl": 4
+    },
+    "outro": {
+          "type": "staticText",
+          "text": {
+              "en": "Team inventwo •  <a href=\"https://github.com/inventwo\">https://github.com/inventwo</a>",
+              "de": "Team inventwo • <a href=\"https://github.com/inventwo\">https://github.com/inventwo</a>",
+              "ru": "Команда inventwo • <a href=\"https://github.com/inventwo\">https://github.com/inventwo</a>",
+              "pt": "Equipe Inventwo • <a href=\"https://github.com/inventwo\">https://github.com/inventwo</a>",
+              "nl": "Team inventwo • <a href=\"https://github.com/inventwo\">https://github.com/inventwo</a>",
+              "fr": "Équipe inventwo • <a href=\"https://github.com/inventwo\">https://github.com/inventwo</a>",
+              "it": "Team inventwo • <a href=\"https://github.com/inventwo\">https://github.com/inventwo</a>",
+              "es": "Equipo invento • <a href=\"https://github.com/inventwo\">https://github.com/inventwo</a>",
+              "pl": "Zespół inventwo • <a href=\"https://github.com/inventwo\">https://github.com/inventwo</a>",
+              "uk": "Команда inventwo • <a href=\"https://github.com/inventwo\">https://github.com/inventwo</a>",
+              "zh-cn": "inventwo 团队 • <a href=\"https://github.com/inventwo\">https://github.com/inventwo</a>"
+          },
+          "newLine": true,
+          "sm": 12,
+          "xs": 12,
+          "md": 8,
+          "lg": 6,
+          "xl": 4,
+          "style": {
+            "border": "1px solid #ccc",
+            "borderRadius": "0px",
+            "padding": "8px",
+            "marginBottom": "10px",
+            "textAlign": "center",
+            "font-size": "larger"
+          }
+        }
+  }
+}

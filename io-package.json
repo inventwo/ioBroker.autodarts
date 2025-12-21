@@ -1,0 +1,90 @@
+{
+  "common": {
+    "name": "autodarts",
+    "version": "0.0.1",
+    "news": {
+      "0.0.1": {
+        "en": "Initial release",
+        "de": "Erstveröffentlichung",
+        "ru": "Первый релиз",
+        "pt": "Lançamento inicial",
+        "nl": "Eerste release",
+        "fr": "Version initiale",
+        "it": "Versione iniziale",
+        "es": "Lanzamiento inicial",
+        "pl": "Pierwsze wydanie",
+        "uk": "Початковий випуск",
+        "zh-cn": "初始版本"
+      }
+    },
+    "titleLang": {
+      "en": "Autodarts Integration",
+      "de": "Autodarts-Integration",
+      "ru": "Интеграция Autodarts",
+      "pt": "Integração com Autodarts",
+      "nl": "AutoDART-integratie",
+      "fr": "Intégration d'Autodarts",
+      "it": "Integrazione Autodarts",
+      "es": "Integración de Autodarts",
+      "pl": "Integracja Autodarts",
+      "uk": "Інтеграція з AutoDarts",
+      "zh-cn": "Autodarts 集成"
+    },
+    "desc": {
+      "en": "Autodarts Autoscoring via API",
+      "de": "Autodarts-Autoscoring über API",
+      "ru": "Автоматическая подсчет очков в Autodarts через API",
+      "pt": "Autodarts Autoscoring via API",
+      "nl": "AutoDarts automatische scoreberekening via API",
+      "fr": "Autodarts : système de notation automatique via API",
+      "it": "Punteggio automatico di Autodarts tramite API",
+      "es": "Puntuación automática de Autodarts mediante API",
+      "pl": "Autoscore w Autodarts za pośrednictwem API",
+      "uk": "Автопідрахунок очок Autodarts через API",
+      "zh-cn": "通过 API 实现自动计分"
+    },
+    "authors": [
+      "skvarel <skvarel@inventwo.com>"
+    ],
+    "keywords": [
+      "dart",
+      "scoring",
+      "autodarts"
+    ],
+    "licenseInformation": {
+      "type": "free",
+      "license": "MIT"
+    },
+    "platform": "Javascript/Node.js",
+    "icon": "autodarts.svg",
+    "enabled": true,
+    "loglevel": "info",
+    "mode": "daemon",
+    "tier": 3,
+    "type": "protocols",
+    "compact": true,
+    "connectionType": "local",
+    "dataSource": "poll",
+    "adminUI": {
+      "config": "json"
+    },
+    "eraseOnUpload": true,
+    "dependencies": [
+      {
+        "js-controller": ">=6.0.11"
+      }
+    ],
+    "globalDependencies": [
+      {
+        "admin": ">=7.0.23"
+      }
+    ]
+  },
+  "native": {
+    "host": "127.0.0.1",
+    "port": 3180,
+    "interval": 1000
+  },
+  "objects": [],
+  "instanceObjects": []
+}
