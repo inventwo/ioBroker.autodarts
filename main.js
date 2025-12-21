@@ -38,8 +38,8 @@ class Autodarts extends utils.Adapter {
 			type: "state",
 			common: {
 				name: {
-					en: "Visit score (Total of the last 3 darts)",
-					de: "Visit-Punkte (Summe der letzten 3 Darts)",
+					en: "Visit score (Total of 3 darts)",
+					de: "Visit-Punkte (Summe der 3 Darts)",
 				},
 				type: "number",
 				role: "value",

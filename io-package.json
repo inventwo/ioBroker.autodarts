@@ -83,7 +83,7 @@
   "native": {
     "host": "127.0.0.1",
     "port": 3180,
-    "interval": 1000
+    "interval": 2000
   },
   "objects": [],
   "instanceObjects": []
