@@ -1,8 +1,21 @@
 {
   "common": {
     "name": "autodarts",
-    "version": "0.0.6",
+    "version": "0.0.7",
     "news": {
+      "0.0.7": {
+        "en": "fix - Adapter Checker",
+        "de": "fix - Adapter Checker",
+        "ru": "обсуждение Adapter Checker",
+        "pt": "correção - Adapter Checker",
+        "nl": "fix - Adapterchecker",
+        "fr": "correction - Vérificateur d'adaptateur",
+        "it": "correzione - Adattatore Checker",
+        "es": "fijado - Adaptador Checker",
+        "pl": "fix - Kontrola adaptera",
+        "uk": "виправити - Перевірювач адаптера",
+        "zh-cn": "修补 - 适配器检查器"
+      },
       "0.0.6": {
         "en": "fix - Adapter Checker",
         "de": "fix - Adapter Checker",
