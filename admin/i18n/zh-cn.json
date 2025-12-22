@@ -1,7 +1,13 @@
 {
+    "board_online": "在线自动飞镖板",
+    "board_online_desc": "true = 董事会可访问，false = 不可访问",
     "host_ip": "Autodarts (Boardmanager) 主机/IP",
     "host_port": "Autodarts（Boardmanager）端口",
     "intro_txt": "Autodarts 适配器配置。<br>请输入 Boardmanager 中的主机和端口以及轮询间隔。",
     "outro_txt": "团队 inventwo • <a href=\"https://github.com/inventwo\">https://github.com/inventwo</a>",
-    "polling": "轮询间隔（毫秒）"
+    "polling": "轮询间隔（毫秒）",
+    "software_version": "董事会经理版本",
+    "software_version_desc": "董事会经理版本",
+    "visit_score": "访问分数（共 3 飞镖）",
+    "visit_score_dec": "上次完整访问的总计"
 }

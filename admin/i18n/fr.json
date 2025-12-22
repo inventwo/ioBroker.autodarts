@@ -1,7 +1,13 @@
 {
+    "board_online": "Tableau d'Autodarts en ligne",
+    "board_online_desc": "true = Tableau accessible, false = non accessible",
     "host_ip": "Hôte / IP Autodarts (Boardmanager)",
     "host_port": "Port Autodarts (Boardmanager)",
     "intro_txt": "Configuration de l'adaptateur Autodarts.<br>Veuillez saisir l'hôte et le port de Boardmanager ainsi que l'intervalle d'interrogation.",
     "outro_txt": "Équipe inventwo • <a href=\"https://github.com/inventwo\">https://github.com/inventwo</a>",
-    "polling": "Intervalle d'interrogation (ms)"
+    "polling": "Intervalle d'interrogation (ms)",
+    "software_version": "Version du gestionnaire de forum",
+    "software_version_desc": "Version du gestionnaire du conseil d'administration",
+    "visit_score": "Score de visite (Total de 3 fléchettes)",
+    "visit_score_dec": "Total de la dernière visite complète"
 }

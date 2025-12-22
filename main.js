@@ -17,6 +17,7 @@ class Autodarts extends utils.Adapter {
 		this.lastThrowsCount = 0; // Anzahl Darts im aktuellen Visit
 		this.lastSignature = ""; // Verhindert doppelte Verarbeitung gleicher Würfe
 		this.offline = false;
+		this.versionTimer = null; // Timer für Versionsabfrage
 	}
 
 	async onReady() {
@@ -37,18 +38,12 @@ class Autodarts extends utils.Adapter {
 		await this.setObjectNotExistsAsync("visit.score", {
 			type: "state",
 			common: {
-				name: {
-					en: "Visit score (Total of 3 darts)",
-					de: "Visit-Punkte (Summe der 3 Darts)",
-				},
+				name: "visit_score",
 				type: "number",
 				role: "value",
 				read: true,
 				write: false,
-				desc: {
-					en: "Total of the last complete visit",
-					de: "Summe des letzten vollständigen Visit",
-				},
+				desc: "visit_score_dec",
 			},
 			native: {},
 		});
@@ -57,18 +52,32 @@ class Autodarts extends utils.Adapter {
 		await this.setObjectNotExistsAsync("online", {
 			type: "state",
 			common: {
-				name: {
-					en: "Autodarts Board online",
-					de: "Autodarts Board online",
-				},
+				name: "board_online",
 				type: "boolean",
 				role: "indicator.reachable",
 				read: true,
 				write: false,
-				desc: {
-					en: "true = Board reachable, false = not reachable",
-					de: "true = Board erreichbar, false = nicht erreichbar",
-				},
+				desc: "board_online_desc",
+			},
+			native: {},
+		});
+
+		// System-Channel und BoardVersion-Datenpunkt anlegen
+		await this.setObjectNotExistsAsync("system", {
+			type: "channel",
+			common: { name: "System" },
+			native: {},
+		});
+
+		await this.setObjectNotExistsAsync("system.boardVersion", {
+			type: "state",
+			common: {
+				name: "software_version",
+				type: "string",
+				role: "info.version",
+				read: true,
+				write: false,
+				desc: "software_version_desc",
 			},
 			native: {},
 		});
@@ -80,6 +89,10 @@ class Autodarts extends utils.Adapter {
 		// Polling starten
 		this.pollTimer = setInterval(() => this.fetchState(), this.config.interval);
 		this.fetchState();
+
+		// Boardmanager-Version abfragen und alle 5 Minuten aktualisieren
+		this.fetchVersion();
+		this.versionTimer = setInterval(() => this.fetchVersion(), 5 * 60 * 1000);
 	}
 
 	/**
@@ -176,10 +189,51 @@ class Autodarts extends utils.Adapter {
 		req.end();
 	}
 
+	/**
+	 * Boardmanager Version abfragen
+	 */
+	fetchVersion() {
+		const options = {
+			host: this.config.host,
+			port: this.config.port,
+			path: "/api/version",
+			method: "GET",
+			timeout: 1500,
+		};
+
+		const req = http.request(options, res => {
+			let data = "";
+			res.on("data", chunk => (data += chunk));
+			res.on("end", () => {
+				try {
+					const version = data.trim();
+					this.setState("system.boardVersion", { val: version, ack: true });
+				} catch (e) {
+					this.log.warn(`Fehler beim Lesen der Version: ${e.message}`);
+				}
+			});
+		});
+
+		req.on("error", () => {
+			this.log.warn("Version-API nicht erreichbar");
+			this.setState("system.boardVersion", { val: "", ack: true });
+		});
+
+		req.on("timeout", () => {
+			req.destroy();
+			this.setState("system.boardVersion", { val: "", ack: true });
+		});
+
+		req.end();
+	}
+
 	onUnload(callback) {
 		try {
 			if (this.pollTimer) {
 				clearInterval(this.pollTimer);
+			}
+			if (this.versionTimer) {
+				clearInterval(this.versionTimer);
 			}
 			callback();
 			// eslint-disable-next-line @typescript-eslint/no-unused-vars

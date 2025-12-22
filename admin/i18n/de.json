@@ -1,7 +1,13 @@
 {
+    "board_online": "Autodarts-Board online",
+    "board_online_desc": "true = Board erreichbar, false = nicht erreichbar",
     "host_ip": "Autodarts (Boardmanager) Host / IP",
     "host_port": "Autodarts (Boardmanager) Port",
     "intro_txt": "Autodarts-Adapterkonfiguration.<br>Bitte geben Sie Host und Port aus dem Boardmanager sowie das Abfrageintervall ein.",
     "outro_txt": "Team inventwo • <a href=\"https://github.com/inventwo\">https://github.com/inventwo</a>",
-    "polling": "Abfrageintervall (ms)"
+    "polling": "Abfrageintervall (ms)",
+    "software_version": "Board-Manager-Version",
+    "software_version_desc": "Version des Boardmanager",
+    "visit_score": "Aufnahme (insgesamt 3 Darts)",
+    "visit_score_dec": "Gesamtsumme der letzten vollständigen Aufnahme"
 }

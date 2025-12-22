@@ -1,7 +1,13 @@
 {
+    "board_online": "Gioco di freccette automatiche online",
+    "board_online_desc": "true = scheda raggiungibile, false = non raggiungibile",
     "host_ip": "Host/IP Autodarts (Boardmanager).",
     "host_port": "Porta Autodarts (Boardmanager).",
     "intro_txt": "Configurazione dell'adattatore Autodarts.<br>Inserisci host e porta da Boardmanager nonché l'intervallo di polling.",
     "outro_txt": "Team inventtwo • <a href=\"https://github.com/inventtwo\">https://github.com/inventtwo</a>",
-    "polling": "Intervallo di polling (ms)"
+    "polling": "Intervallo di polling (ms)",
+    "software_version": "Versione del direttore del consiglio",
+    "software_version_desc": "Versione del consiglio di amministrazione",
+    "visit_score": "Punteggio della visita (totale di 3 freccette)",
+    "visit_score_dec": "Totale dell'ultima visita completa"
 }
