@@ -1,13 +1,7 @@
 {
-    "board_online": "Доска автодартс онлайн",
-    "board_online_desc": "true = доска доступна, false = недоступна",
     "host_ip": "Autodarts (Boardmanager) Хост/IP",
     "host_port": "Порт Autodarts (Boardmanager)",
     "intro_txt": "Конфигурация адаптера Autodarts.<br>Укажите хост и порт из Boardmanager, а также интервал опроса.",
     "outro_txt": "Команда inventwo • <a href=\"https://github.com/inventwo\">https://github.com/inventwo</a>",
-    "polling": "Интервал опроса (мс)",
-    "software_version": "Версия менеджера совета",
-    "software_version_desc": "Версия менеджера форума",
-    "visit_score": "Оценка посещения (всего 3 дротика)",
-    "visit_score_desc": "Всего за последнее полное посещение"
+    "polling": "Интервал опроса (мс)"
 }

@@ -31,19 +31,30 @@ class Autodarts extends utils.Adapter {
 		// Visit-Struktur anlegen
 		await this.setObjectNotExistsAsync("visit", {
 			type: "channel",
-			common: { name: "Current visit" },
+			common: {
+				name: {
+					en: "Current visit",
+					de: "Aktuelle Aufnahme",
+				},
+			},
 			native: {},
 		});
 
 		await this.setObjectNotExistsAsync("visit.score", {
 			type: "state",
 			common: {
-				name: "visit_score",
+				name: {
+					en: "Visit score (Total of 3 darts)",
+					de: "Aufnahme (Summe dreier Darts)",
+				},
 				type: "number",
 				role: "value",
 				read: true,
 				write: false,
-				desc: "visit_score_dec",
+				desc: {
+					en: "Total of the last complete visit",
+					de: "Summe der letzten vollständigen Aufnahme",
+				},
 			},
 			native: {},
 		});
@@ -52,12 +63,18 @@ class Autodarts extends utils.Adapter {
 		await this.setObjectNotExistsAsync("online", {
 			type: "state",
 			common: {
-				name: "board_online",
+				name: {
+					en: "Autodarts board online",
+					de: "Autodarts Board online",
+				},
 				type: "boolean",
 				role: "indicator.reachable",
 				read: true,
 				write: false,
-				desc: "board_online_desc",
+				desc: {
+					en: "true = Board reachable, false = Board not reachable",
+					de: "true = Board erreichbar, false = Board nicht erreichbar",
+				},
 			},
 			native: {},
 		});
@@ -65,19 +82,30 @@ class Autodarts extends utils.Adapter {
 		// System-Channel und BoardVersion-Datenpunkt anlegen
 		await this.setObjectNotExistsAsync("system", {
 			type: "channel",
-			common: { name: "System" },
+			common: {
+				name: {
+					en: "Information about the system",
+					de: "Informationen zum System",
+				},
+			},
 			native: {},
 		});
 
 		await this.setObjectNotExistsAsync("system.boardVersion", {
 			type: "state",
 			common: {
-				name: "software_version",
+				name: {
+					en: "Board manager version",
+					de: "Version des Board-Manager",
+				},
 				type: "string",
 				role: "info.version",
 				read: true,
 				write: false,
-				desc: "software_version_desc",
+				desc: {
+					en: "Version of the board manager",
+					de: "Version des Board-Manager",
+				},
 			},
 			native: {},
 		});

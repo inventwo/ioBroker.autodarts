@@ -1,13 +1,7 @@
 {
-    "board_online": "Tablica Autodarts online",
-    "board_online_desc": "true = tablica osiągalna, false = nieosiągalna",
     "host_ip": "Autodarts (Boardmanager) Host / IP",
     "host_port": "Port Autodarts (Boardmanager).",
     "intro_txt": "Konfiguracja adaptera Autodarts.<br>Wprowadź host i port z Boardmanager oraz interwał odpytywania.",
     "outro_txt": "Zespół inventwo • <a href=\"https://github.com/inventwo\">https://github.com/inventwo</a>",
-    "polling": "Interwał odpytywania (ms)",
-    "software_version": "Wersja menadżera zarządu",
-    "software_version_desc": "Wersja menadżera zarządu",
-    "visit_score": "Wynik wizyty (łącznie 3 rzutki)",
-    "visit_score_desc": "Suma ostatniej pełnej wizyty"
+    "polling": "Interwał odpytywania (ms)"
 }

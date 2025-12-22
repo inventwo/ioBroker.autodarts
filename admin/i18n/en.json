@@ -3,11 +3,5 @@
     "outro_txt": "Team inventwo •  <a href=\"https://github.com/inventwo\">https://github.com/inventwo</a>",
     "host_ip": "Autodarts (Boardmanager) Host / IP",
     "host_port": "Autodarts (Boardmanager) Port",
-    "polling": "Polling interval (ms)",
-    "visit_score": "Visit score (Total of 3 darts)",
-    "visit_score_desc": "Total of the last complete visit",
-    "board_online": "Autodarts Board online",
-    "board_online_desc": "true = Board reachable, false = not reachable",
-    "software_version": "Board manager version",
-    "software_version_desc": "Version of the board manager"
+    "polling": "Polling interval (ms)"
 }

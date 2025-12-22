@@ -1,13 +1,7 @@
 {
-    "board_online": "Autodartsbord online",
-    "board_online_desc": "true = Board bereikbaar, false = niet bereikbaar",
     "host_ip": "Autodarts (Boardmanager) Host / IP",
     "host_port": "Autodarts (Bestuursmanager) Port",
     "intro_txt": "Autodarts-adapterconfiguratie.<br>Voer de host en poort van Boardmanager in, evenals het polling-interval.",
     "outro_txt": "Team inventwo • <a href=\"https://github.com/inventwo\">https://github.com/inventwo</a>",
-    "polling": "Polling-interval (ms)",
-    "software_version": "Bestuursmanager versie",
-    "software_version_desc": "Versie van de bestuursmanager",
-    "visit_score": "Bezoekscore (totaal 3 darts)",
-    "visit_score_desc": "Totaal van het laatste volledige bezoek"
+    "polling": "Polling-interval (ms)"
 }

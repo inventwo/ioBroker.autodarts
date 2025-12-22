@@ -1,13 +1,7 @@
 {
-    "board_online": "Placa Autodarts on-line",
-    "board_online_desc": "verdadeiro = placa acessível, falso = não acessível",
     "host_ip": "Host/IP do Autodarts (Boardmanager)",
     "host_port": "Porto Autodarts (Boardmanager)",
     "intro_txt": "Configuração do adaptador Autodarts.<br>Insira o host e a porta do Boardmanager, bem como o intervalo de pesquisa.",
     "outro_txt": "Equipe inventtwo • <a href=\"https://github.com/inventwo\">https://github.com/inventwo</a>",
-    "polling": "Intervalo de pesquisa (ms)",
-    "software_version": "Versão do gerente do conselho",
-    "software_version_desc": "Versão do gerenciador do conselho",
-    "visit_score": "Pontuação da visita (Total de 3 dardos)",
-    "visit_score_desc": "Total da última visita completa"
+    "polling": "Intervalo de pesquisa (ms)"
 }

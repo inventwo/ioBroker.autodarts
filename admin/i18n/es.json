@@ -1,13 +1,7 @@
 {
-    "board_online": "Tablero de dardos en línea",
-    "board_online_desc": "verdadero = Tablero accesible, falso = no accesible",
     "host_ip": "Autodarts (Boardmanager) Host/IP",
     "host_port": "Puerto Autodarts (Boardmanager)",
     "intro_txt": "Configuración del adaptador Autodarts.<br>Ingrese el host y el puerto de Boardmanager, así como el intervalo de sondeo.",
     "outro_txt": "Equipo inventwo • <a href=\"https://github.com/inventwo\">https://github.com/inventwo</a>",
-    "polling": "Intervalo de sondeo (ms)",
-    "software_version": "Versión del administrador de la junta",
-    "software_version_desc": "Versión del administrador de la junta",
-    "visit_score": "Puntuación de visita (Total de 3 dardos)",
-    "visit_score_desc": "Total de la última visita completa"
+    "polling": "Intervalo de sondeo (ms)"
 }

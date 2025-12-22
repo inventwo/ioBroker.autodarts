@@ -3,19 +3,6 @@
     "name": "autodarts",
     "version": "0.0.13",
     "news": {
-      "0.0.13": {
-        "en": "translate",
-        "de": "übersetzung",
-        "ru": "переводить",
-        "pt": "traduzir",
-        "nl": "vertalen",
-        "fr": "traduire",
-        "it": "tradurre",
-        "es": "traducción",
-        "pl": "przetłumacz",
-        "uk": "переклад",
-        "zh-cn": "翻译"
-      },
       "0.0.12": {
         "en": "fix",
         "de": "fixieren",
