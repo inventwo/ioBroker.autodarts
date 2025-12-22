@@ -1,8 +1,21 @@
 {
   "common": {
     "name": "autodarts",
-    "version": "0.0.12",
+    "version": "0.0.13",
     "news": {
+      "0.0.13": {
+        "en": "translate",
+        "de": "übersetzung",
+        "ru": "переводить",
+        "pt": "traduzir",
+        "nl": "vertalen",
+        "fr": "traduire",
+        "it": "tradurre",
+        "es": "traducción",
+        "pl": "przetłumacz",
+        "uk": "переклад",
+        "zh-cn": "翻译"
+      },
       "0.0.12": {
         "en": "fix",
         "de": "fixieren",
@@ -80,19 +93,6 @@
         "pl": "fix - Kontrola adaptera",
         "uk": "виправити - Перевірювач адаптера",
         "zh-cn": "修补 - 适配器检查器"
-      },
-      "0.0.5": {
-        "en": "Update Description",
-        "de": "Update Beschreibung",
-        "ru": "Обновленное описание",
-        "pt": "Atualizar Descrição",
-        "nl": "Beschrijving bijwerken",
-        "fr": "Mettre à jour la description",
-        "it": "Descrizione dell'aggiornamento",
-        "es": "Actualización",
-        "pl": "Aktualizacja opisu",
-        "uk": "Опис оновлення",
-        "zh-cn": "更新描述"
       }
     },
     "titleLang": {
