@@ -1,8 +1,21 @@
 {
   "common": {
     "name": "autodarts",
-    "version": "0.0.9",
+    "version": "0.0.10",
     "news": {
+      "0.0.10": {
+        "en": "fix",
+        "de": "fixieren",
+        "ru": "исправлять",
+        "pt": "corrigir",
+        "nl": "fix",
+        "fr": "correction",
+        "it": "correzione",
+        "es": "arregle",
+        "pl": "fix",
+        "uk": "фіксація",
+        "zh-cn": "固定"
+      },
       "0.0.9": {
         "en": "fix",
         "de": "fixieren",
@@ -80,19 +93,6 @@
         "pl": "Obsługa prywatności i danych",
         "uk": "Конфіденційність та обробка даних",
         "zh-cn": "隐私和数据处理"
-      },
-      "0.0.3": {
-        "en": "init",
-        "de": "init",
-        "ru": "вводить",
-        "pt": "init",
-        "nl": "init",
-        "fr": "init",
-        "it": "init",
-        "es": "init",
-        "pl": "init",
-        "uk": "увійти",
-        "zh-cn": "输入"
       }
     },
     "titleLang": {
