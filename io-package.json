@@ -1,8 +1,21 @@
 {
   "common": {
     "name": "autodarts",
-    "version": "0.0.14",
+    "version": "0.1.0",
     "news": {
+      "0.1.0": {
+        "en": "Added datapoints for visit score, current dart score, triple-hit flag with configurable minimum score, and camera configuration (cam0–cam2).\nCleaned up adapter logic and internal polling/timing.\nUpdated translations.",
+        "de": "Weitere Datenpunkte für Besuchscore, aktuelle Dart-Score, Tripel-hit-Flag mit konfigurierbaren minimalen Punktzahl und Kamerakonfiguration (cam0–cam2).\nAufgereinigte Adapterlogik und interne Abfrage/timing.\nAktualisierte Übersetzungen.",
+        "ru": "Добавлены точки данных для оценки посещений, текущая оценка дарта, флаг тройного удара с настраиваемым минимальным баллом и конфигурация камеры (cam0-cam2).\nОчищена адаптерная логика и внутренний опрос/настройка.\nОбновленные переводы.",
+        "pt": "Adicionados pontos de dados para a pontuação de visita, pontuação de dardo atual, bandeira de triplo hit com pontuação mínima configurável, e configuração da câmera (cam0–cam2).\nLimpei a lógica do adaptador e as pesquisas internas.\nTradução atualizada.",
+        "nl": "Toegevoegd datapoints voor bezoek score, huidige dart score, triple-hit vlag met configureerbare minimum score, en camera configuratie (cam0.\nOpgeruimd adapter logica en interne peiling / timing.\nBijgewerkte vertalingen.",
+        "fr": "Ajout de points de données pour le score de visite, le score de fléchette actuel, le drapeau triple-hit avec le score minimum configurable et la configuration de la caméra (cam0–cam2).\nNettoyer la logique de l'adaptateur et effectuer des sondages internes/timing.\nTraductions actualisées.",
+        "it": "Aggiunti i datapoint per il punteggio di visita, il punteggio di freccette corrente, la bandiera a triplo punto con il punteggio minimo configurabile e la configurazione della fotocamera (cam0–cam2).\nPulito logica adattatore e polling/timing interno.\nTraduzione aggiornata.",
+        "es": "Puntos de datos añadidos para la puntuación de la visita, puntaje del dardo actual, bandera triple con puntaje mínimo configurable, y configuración de la cámara (cam0–cam2).\nLógica del adaptador limpiado y polinización interna / estimulación.\nTraducciones actualizadas.",
+        "pl": "Dodano punkty datapointowe dla wyniku odwiedzin, aktualny wynik dart, flagę trójuderzeniową z konfigurowalnym minimalnym wynikiem oraz konfigurację kamery (cam0- cam2).\nOczyszczona logika adaptera i wewnętrzny sondaż / czas.\nAktualizacja tłumaczeń.",
+        "uk": "Додано точки даних для облікового запису, поточний запис dart, потрійний прапор з налаштуванням мінімального балу та конфігурації камери (cam0–cam2).\nЗнімання логіки адаптера та внутрішнього опитування / термінів.\nОновлені переклади.",
+        "zh-cn": "添加了访问分数的数据点,当前飞镖分数,三重击旗可配置最小分数,以及相机配置(cam0–cam2).\n清理适配器逻辑和内部投票/计时.\n最新译名."
+      },
       "0.0.14": {
         "en": "fix",
         "de": "fixieren",
@@ -69,19 +82,6 @@
         "zh-cn": "修补 - 适配器检查器"
       },
       "0.0.7": {
-        "en": "fix - Adapter Checker",
-        "de": "fix - Adapter Checker",
-        "ru": "обсуждение Adapter Checker",
-        "pt": "correção - Adapter Checker",
-        "nl": "fix - Adapterchecker",
-        "fr": "correction - Vérificateur d'adaptateur",
-        "it": "correzione - Adattatore Checker",
-        "es": "fijado - Adaptador Checker",
-        "pl": "fix - Kontrola adaptera",
-        "uk": "виправити - Перевірювач адаптера",
-        "zh-cn": "修补 - 适配器检查器"
-      },
-      "0.0.6": {
         "en": "fix - Adapter Checker",
         "de": "fix - Adapter Checker",
         "ru": "обсуждение Adapter Checker",

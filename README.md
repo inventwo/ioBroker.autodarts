@@ -55,11 +55,11 @@ In the adapter settings, enter:
 <!--
 	### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 0.1.0 (2025-12-23)
 - Added datapoints for visit score, current dart score, triple-hit flag with configurable minimum score, and camera configuration (cam0–cam2).
 - Cleaned up adapter logic and internal polling/timing.
 - Updated translations.
- 
+
 ### 0.0.14 (2025-12-22)
 - fix
 
