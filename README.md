@@ -56,7 +56,7 @@ In the adapter settings, enter:
 <!--
 	### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 0.2.2 (2025-12-25)
 - bugfix
 
 ### 0.2.1 (2025-12-25)
