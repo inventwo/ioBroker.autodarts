@@ -1,8 +1,21 @@
 {
   "common": {
     "name": "autodarts",
-    "version": "0.2.2",
+    "version": "0.3.0",
     "news": {
+      "0.3.0": {
+        "en": "Added traffic light datapoints (`status.trafficLightColor`, `status.trafficLightState`) mapped from Board Manager status (`Throw` / `Takeout` / connection errors).\nRefactored code: visit handling, throw handling (triple / bull) and traffic light logic moved to separate modules.",
+        "de": "Es wurden Verkehrslichtdatenpunkte (`status.trafficLightColor`, `status.trafficLightState`) aus dem Status Board Manager (`Throw` / `Takeout` / Verbindungsfehler) abgebildet.\nRefactored Code: Besuchen Sie Handling, Wurf Handling (Triple / Bull) und Ampellogik in separate Module bewegt.",
+        "ru": "Добавлены точки данных светофора («status.trafficLightColor», «status.trafficLightState»), отображаемые из статуса менеджера совета директоров («Бросить» / «Выбрать» / ошибки подключения).\nРефакторированный код: обработка посещений, обработка бросков (тройной / бычий) и логика светофора перемещаются в отдельные модули.",
+        "pt": "Pontos de dados de semáforo adicionados (`status.trafficLightColor`, `status.trafficLightState`) mapeados a partir do status do Board Manager (`Throw` / `Takeout` / erros de conexão).\nCódigo refatorizado: manipulação de visita, manuseio de arremesso (triplo / touro) e lógica de semáforo movido para módulos separados.",
+        "nl": "Toegevoegd verkeerslicht datapoints (.\nRefactored code: bezoeken handling, gooien handling (triple / stier) en verkeerslicht logica verplaatst naar aparte modules.",
+        "fr": "Ajout de points de données de feux de circulation (`status.trafficLightColor`, `status.trafficLightState`) cartographié à partir de l'état du gestionnaire du conseil d'administration (`Throw` / `Takeout` / erreurs de connexion).\nCode refactoré: visite de la manipulation, la manipulation de lancer (triple / taureau) et la logique du feu de circulation déplacé vers des modules séparés.",
+        "it": "Aggiunti i datapoint del semaforo (`status.trafficLightColor`, `status.trafficLightState`) mappati dallo stato del Board Manager (`Throw` / `Takeout` / errori di connessione).\nCodice Refactored: visit handling, pitch handling (triple / bull) e logica del semaforo spostato a moduli separati.",
+        "es": "Los puntos de datos de la luz de tráfico ( \"status.trafficLightColor \" , \"status.trafficLightState \" ) se mapearon con el estado de administrador de la Junta ( \" THrow \" / \" Takeout \" / errores de conexión).\nCódigo refactorizado: manejo de visitas, manejo de tiro (triple / toro) y lógica de tráfico se movió a módulos separados.",
+        "pl": "Dodano punkty danych świateł drogowych (\"status.traffic LightColor\", \"status.traffic LightState\"), które zostały odwzorowane ze statusu zarządu (\"Throw\" / \"Takeout\" / błędy połączeń).\nZmieniony kod: obsługa odwiedzin, obsługa rzutów (potrójny / byk) i logika światła drogowego przeniesiona do oddzielnych modułów.",
+        "uk": "Додано точки світла трафіку (`status.trafficLightColor`, `status.trafficLightState`) на карті Board Manager (`Throw` / `Takeout` / помилки підключення).\nРефакторний код: візитна обробка, кидання (стриптиз / бик) і логіка трафіку переходить на окремі модулі.",
+        "zh-cn": "增加从董事会管理者身份绘制的交通灯数据点(`Status.trafficLightColor ' ,`Status.trafficLight Station ' ) (`扔'/`Takeout ' /连接错误).\n重构代码:访问处理,投掷处理(三重/公牛)和交通灯逻辑移动到单独的模块."
+      },
       "0.2.2": {
         "en": "bugfix",
         "de": "fehlerbehebung",
@@ -69,19 +82,6 @@
         "zh-cn": "固定"
       },
       "0.0.12": {
-        "en": "fix",
-        "de": "fixieren",
-        "ru": "исправлять",
-        "pt": "corrigir",
-        "nl": "fix",
-        "fr": "correction",
-        "it": "correzione",
-        "es": "arregle",
-        "pl": "fix",
-        "uk": "фіксація",
-        "zh-cn": "固定"
-      },
-      "0.0.10": {
         "en": "fix",
         "de": "fixieren",
         "ru": "исправлять",
