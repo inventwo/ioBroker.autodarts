@@ -23,10 +23,13 @@ It also provides:
 
 - `visit.score`: Total score of the last complete visit (3 darts).
 - `throw.current`: Numeric score of the last thrown dart.
-- `throw.isTriple`: Boolean flag that only turns true for triple hits above a configurable score threshold.
+- `throw.isTriple`: Boolean flag that turns true for triple hits within a configurable segment range (e.g. 1–20)
 - `throw.isBullseye`: Boolean flag that only turns true for bullseye hits.
 - `system.boardVersion`: Reported Board Manager version.
 - `system.cam0/1/2`: JSON with camera settings (width, height, fps).
+- `status.trafficLightColor`: HEX color of the current board status.
+- `status.trafficLightState`: `green` (player may throw), `yellow` (remove darts), `red` (board error).
+
 
 ## What this adapter does NOT do
 
@@ -56,6 +59,10 @@ In the adapter settings, enter:
 <!--
 	### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+- Added traffic light datapoints (`status.trafficLightColor`, `status.trafficLightState`) mapped from Board Manager status (`Throw` / `Takeout` / connection errors).
+- Refactored code: visit handling, throw handling (triple / bull) and traffic light logic moved to separate modules.
+
 ### 0.2.2 (2025-12-25)
 - bugfix
 

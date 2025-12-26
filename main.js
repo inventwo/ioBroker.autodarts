@@ -2,6 +2,9 @@
 
 const utils = require("@iobroker/adapter-core");
 const http = require("http");
+const throwLogic = require("./lib/throw");
+const visit = require("./lib/visit");
+const trafficLight = require("./lib/trafficLight");
 
 class Autodarts extends utils.Adapter {
 	constructor(options) {
@@ -23,7 +26,7 @@ class Autodarts extends utils.Adapter {
 		this.tripleMinScoreRuntime = null; // Laufzeitwert für Triple-Minschwelle
 		this.tripleMaxScoreRuntime = null; // Laufzeitwert für Triple-Maxschwelle
 
-		// NEU: Reset-Timeout + Timer für isTriple/isBulleye
+		// NEU: Reset-Timeout + Timer für isTriple/isBullseye
 		this.triggerResetMsRuntime = null;
 		this.tripleResetTimer = null;
 		this.bullResetTimer = null;
@@ -46,105 +49,11 @@ class Autodarts extends utils.Adapter {
 		/** @ts-expect-error triggerResetMs is defined in io-package.json/jsonConfig but not in AdapterConfig */
 		this.config.triggerResetMs ??= 0; // 0 = kein Auto-Reset
 
-		// Visit-Struktur anlegen
-		await this.setObjectNotExistsAsync("visit", {
-			type: "channel",
-			common: {
-				name: {
-					en: "Current visit",
-					de: "Aktuelle Aufnahme",
-				},
-			},
-			native: {},
-		});
+		// Visit-Struktur anlegen (ausgelagert)
+		await visit.init(this);
 
-		await this.setObjectNotExistsAsync("visit.score", {
-			type: "state",
-			common: {
-				name: {
-					en: "Visit score (Total of 3 darts)",
-					de: "Aufnahme (Summe dreier Darts)",
-				},
-				type: "number",
-				role: "value",
-				read: true,
-				write: false,
-				desc: {
-					en: "Total of the last complete visit",
-					de: "Summe der letzten vollständigen Aufnahme",
-				},
-			},
-			native: {},
-		});
-
-		// Throw-Channel und States
-		await this.setObjectNotExistsAsync("throw", {
-			type: "channel",
-			common: {
-				name: {
-					en: "Current throw",
-					de: "Aktueller Wurf",
-				},
-			},
-			native: {},
-		});
-
-		await this.setObjectNotExistsAsync("throw.current", {
-			type: "state",
-			common: {
-				name: {
-					en: "Current dart score",
-					de: "Punkte aktueller Dart",
-				},
-				type: "number",
-				role: "value",
-				read: true,
-				write: false,
-				desc: {
-					en: "Score of the last dart",
-					de: "Punktzahl des letzten Dart",
-				},
-			},
-			native: {},
-		});
-
-		await this.setObjectNotExistsAsync("throw.isTriple", {
-			type: "state",
-			common: {
-				name: {
-					en: "Triple hit",
-					de: "Triple getroffen",
-				},
-				type: "boolean",
-				role: "indicator",
-				read: true,
-				write: false,
-				desc: {
-					en: "true if the dart hit a triple segment (and passes score range)",
-					de: "true, wenn ein Dart ein Triple-Segment getroffen hat (und innerhalb der Punkterange liegt)",
-				},
-			},
-			native: {},
-		});
-
-		await this.setObjectNotExistsAsync("throw.isBulleye", {
-			type: "state",
-			common: {
-				name: {
-					en: "Bulleye hit",
-					de: "Bulleye getroffen",
-				},
-				type: "boolean",
-				role: "indicator",
-				read: true,
-				write: false,
-				desc: {
-					en: "true if the dart hit the bull or bullseye",
-					de: "true, wenn ein Dart Bull oder Bulleye getroffen hat",
-				},
-			},
-			native: {},
-		});
+		// Throw-Channel und States anlegen (ausgelagert)
+		await throwLogic.init(this);
 
 		// Online-Datenpunkt
 		await this.setObjectNotExistsAsync("online", {
@@ -317,8 +226,8 @@ class Autodarts extends utils.Adapter {
 				read: true,
 				write: true,
 				desc: {
-					en: "Time in ms after which isTriple and isBulleye are reset to false",
-					de: "Zeit in ms, nach der isTriple und isBulleye wieder auf false gesetzt werden",
+					en: "Time in ms after which isTriple and isBullseye are reset to false",
+					de: "Zeit in ms, nach der isTriple und isBullseye wieder auf false gesetzt werden",
 				},
 			},
 			native: {},
@@ -343,10 +252,14 @@ class Autodarts extends utils.Adapter {
 			val: this.tripleMaxScoreRuntime,
 			ack: true,
 		});
+
 		await this.setStateAsync("config.triggerResetMs", {
 			val: this.triggerResetMsRuntime,
 			ack: true,
 		});
+
+		// Ampel-States anlegen
+		await trafficLight.init(this);
 
 		// Auf Änderungen am Config-State hören
 		this.subscribeStates("config.tripleMinScore");
@@ -459,12 +372,19 @@ class Autodarts extends utils.Adapter {
 			let data = "";
 
 			res.on("data", chunk => (data += chunk));
-			res.on("end", () => {
+			res.on("end", async () => {
 				this.offline = false;
 				this.setState("online", true, true); // Server erreichbar
 
 				try {
 					const state = JSON.parse(data);
+					const boardStatus = state.status || ""; // z.B. "Throw" oder "Takeout"
+
+					if (boardStatus === "Throw") {
+						await trafficLight.setStatus(this, "green");
+					} else if (boardStatus === "Takeout") {
+						await trafficLight.setStatus(this, "yellow");
+					}
 
 					// Nur weiter, wenn throws existieren, Array ist und nicht leer
 					if (!state.throws || !Array.isArray(state.throws) || state.throws.length === 0) {
@@ -472,7 +392,6 @@ class Autodarts extends utils.Adapter {
 					}
 
 					const currentThrows = state.throws;
-					const currentCount = currentThrows.length;
 
 					// Prüfen, ob sich die Würfe geändert haben
 					const signature = JSON.stringify(
@@ -487,94 +406,12 @@ class Autodarts extends utils.Adapter {
 					}
 					this.lastSignature = signature;
 
-					// letzten Dart in States schreiben
+					// letzten Dart in States schreiben (ausgelagert)
 					const lastDart = currentThrows[currentThrows.length - 1];
-					const score = this.calcScore(lastDart);
-					const segment = lastDart?.segment?.number || 0;
+					await throwLogic.updateThrow(this, lastDart);
 
-					// Konfigurierte Score-Range für Triple-Flag:
-					// zuerst Laufzeitwerte, Fallback auf Adapter-Config
-					let minScore = this.tripleMinScoreRuntime;
-					let maxScore = this.tripleMaxScoreRuntime;
-
-					if (!Number.isFinite(minScore)) {
-						// eslint-disable-next-line jsdoc/check-tag-names
-						/** @ts-expect-error tripleMinScore is defined in io-package.json but not in AdapterConfig */
-						minScore = Number(this.config.tripleMinScore) || 1;
-					}
-					if (!Number.isFinite(maxScore)) {
-						// eslint-disable-next-line jsdoc/check-tag-names
-						/** @ts-expect-error tripleMaxScore is defined in io-package.json but not in AdapterConfig */
-						maxScore = Number(this.config.tripleMaxScore) || 20;
-					}
-
-					if (minScore > maxScore) {
-						const tmp = minScore;
-						minScore = maxScore;
-						maxScore = tmp;
-					}
-
-					// Triple nur, wenn:
-					// - multiplier === 3
-					// - score >= minScore
-					// - score <= maxScore
-					const isTriple =
-						!!lastDart?.segment &&
-						lastDart.segment.multiplier === 3 &&
-						segment >= minScore &&
-						segment <= maxScore;
-
-					// Bulleye-Erkennung:
-					// je nach Autodarts-API typischerweise über segment.name ("BULL", "DBULL", "SBULL")
-					const segName = (lastDart?.segment?.name || "").toUpperCase();
-					const isBulleye = segName.includes("BULL") || lastDart?.segment?.number === 25; // Fallback
-
-					this.setState("throw.current", { val: score, ack: true });
-
-					// vorhandene Timer abbrechen, damit der Reset immer ab letztem Treffer zählt
-					if (this.tripleResetTimer) {
-						clearTimeout(this.tripleResetTimer);
-						this.tripleResetTimer = null;
-					}
-					if (this.bullResetTimer) {
-						clearTimeout(this.bullResetTimer);
-						this.bullResetTimer = null;
-					}
-
-					// Flags setzen
-					this.setState("throw.isTriple", { val: isTriple, ack: true });
-					this.setState("throw.isBulleye", { val: isBulleye, ack: true });
-
-					// Auto-Reset nach triggerResetMs (0 = kein Auto-Reset)
-					const timeoutMs = Number(this.triggerResetMsRuntime) || 0;
-					if (timeoutMs > 0) {
-						if (isTriple) {
-							this.tripleResetTimer = setTimeout(() => {
-								this.setState("throw.isTriple", { val: false, ack: true });
-								this.tripleResetTimer = null;
-							}, timeoutMs);
-						}
-						if (isBulleye) {
-							this.bullResetTimer = setTimeout(() => {
-								this.setState("throw.isBulleye", { val: false, ack: true });
-								this.bullResetTimer = null;
-							}, timeoutMs);
-						}
-					}
-
-					// Nur schreiben, wenn:
-					// - genau 3 Darts geworfen wurden
-					// - vorher weniger als 3 waren (Visit gerade abgeschlossen)
-					if (currentCount === 3 && this.lastThrowsCount < 3) {
-						const lastThrows = currentThrows.slice(-3);
-						const visitSum = lastThrows.reduce((sum, dart) => sum + this.calcScore(dart), 0);
-
-						// WICHTIG: Immer schreiben, auch wenn Wert gleich bleibt
-						this.setState("visit.score", { val: visitSum, ack: true });
-					}
-
-					// Zustand speichern
-					this.lastThrowsCount = currentCount;
+					// Visit-Summe aktualisieren (ausgelagert)
+					this.lastThrowsCount = await visit.updateVisit(this, currentThrows, this.lastThrowsCount);
 				} catch (e) {
 					this.log.warn(`Autodarts API Fehler: ${e.message} | Daten: ${data.substring(0, 200)}...`);
 					// Bei JSON-Fehler: Board war erreichbar, aber Antwort kaputt
@@ -583,20 +420,22 @@ class Autodarts extends utils.Adapter {
 			});
 		});
 
-		req.on("error", () => {
+		req.on("error", async () => {
 			if (!this.offline) {
 				this.log.warn("Autodarts not reachable");
 				this.offline = true;
 			}
+			await trafficLight.setStatus(this, "red"); // Ampel = rot
 			this.setState("online", false, true); // Server offline
 		});
 
-		req.on("timeout", () => {
+		req.on("timeout", async () => {
 			req.destroy();
 			if (!this.offline) {
 				this.log.warn("Autodarts not reachable");
 				this.offline = true;
 			}
+			await trafficLight.setStatus(this, "red"); // Ampel = rot
 			this.setState("online", false, true); // Server offline bei Timeout
 		});
 
