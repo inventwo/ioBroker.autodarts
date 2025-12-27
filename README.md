@@ -59,6 +59,9 @@ In the adapter settings, enter:
 <!--
 	### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+- Changed: Object creation now uses extendObjectAsync with proper roles and types instead of setObjectNotExistsAsync.
+
 ### 0.3.0 (2025-12-26)
 - Added traffic light datapoints (`status.trafficLightColor`, `status.trafficLightState`) mapped from Board Manager status (`Throw` / `Takeout` / connection errors).
 - Refactored code: visit handling, throw handling (triple / bull) and traffic light logic moved to separate modules.

@@ -56,7 +56,7 @@ class Autodarts extends utils.Adapter {
 		await throwLogic.init(this);
 
 		// Online-Datenpunkt
-		await this.setObjectNotExistsAsync("online", {
+		await this.extendObjectAsync("online", {
 			type: "state",
 			common: {
 				name: {
@@ -76,7 +76,7 @@ class Autodarts extends utils.Adapter {
 		});
 
 		// System-Channel und BoardVersion-Datenpunkt anlegen
-		await this.setObjectNotExistsAsync("system", {
+		await this.extendObjectAsync("system", {
 			type: "channel",
 			common: {
 				name: {
@@ -87,7 +87,7 @@ class Autodarts extends utils.Adapter {
 			native: {},
 		});
 
-		await this.setObjectNotExistsAsync("system.boardVersion", {
+		await this.extendObjectAsync("system.boardVersion", {
 			type: "state",
 			common: {
 				name: {
@@ -107,7 +107,7 @@ class Autodarts extends utils.Adapter {
 		});
 
 		// Kamera-Infos als JSON-States
-		await this.setObjectNotExistsAsync("system.cam0", {
+		await this.extendObjectAsync("system.cam0", {
 			type: "state",
 			common: {
 				name: {
@@ -126,7 +126,7 @@ class Autodarts extends utils.Adapter {
 			native: {},
 		});
 
-		await this.setObjectNotExistsAsync("system.cam1", {
+		await this.extendObjectAsync("system.cam1", {
 			type: "state",
 			common: {
 				name: {
@@ -145,7 +145,7 @@ class Autodarts extends utils.Adapter {
 			native: {},
 		});
 
-		await this.setObjectNotExistsAsync("system.cam2", {
+		await this.extendObjectAsync("system.cam2", {
 			type: "state",
 			common: {
 				name: {
@@ -165,7 +165,7 @@ class Autodarts extends utils.Adapter {
 		});
 
 		// Config-Channel und States für tripleMinScore / tripleMaxScore / triggerResetMs (zur Laufzeit änderbar)
-		await this.setObjectNotExistsAsync("config", {
+		await this.extendObjectAsync("config", {
 			type: "channel",
 			common: {
 				name: {
@@ -176,7 +176,7 @@ class Autodarts extends utils.Adapter {
 			native: {},
 		});
 
-		await this.setObjectNotExistsAsync("config.tripleMinScore", {
+		await this.extendObjectAsync("config.tripleMinScore", {
 			type: "state",
 			common: {
 				name: {
@@ -195,7 +195,7 @@ class Autodarts extends utils.Adapter {
 			native: {},
 		});
 
-		await this.setObjectNotExistsAsync("config.tripleMaxScore", {
+		await this.extendObjectAsync("config.tripleMaxScore", {
 			type: "state",
 			common: {
 				name: {
@@ -214,7 +214,7 @@ class Autodarts extends utils.Adapter {
 			native: {},
 		});
 
-		await this.setObjectNotExistsAsync("config.triggerResetMs", {
+		await this.extendObjectAsync("config.triggerResetMs", {
 			type: "state",
 			common: {
 				name: {
