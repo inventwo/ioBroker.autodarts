@@ -1,8 +1,21 @@
 {
   "common": {
     "name": "autodarts",
-    "version": "0.3.2",
+    "version": "0.3.3",
     "news": {
+      "0.3.3": {
+        "en": "Changed: Configuration fields interval and triggerReset now use seconds instead of milliseconds in the admin UI.",
+        "de": "Geändert: Konfiguration Felder Intervall und TriggerReset verwenden jetzt Sekunden statt Millisekunden im Admin UI.",
+        "ru": "Изменение: интервалы полей конфигурации и триггер сброс теперь используют секунды вместо миллисекунд в пользовательском интерфейсе администратора.",
+        "pt": "Modificado: Intervalo de campos de configuração e gatilhoReset agora use segundos em vez de milissegundos na interface de administração.",
+        "nl": "Gewijzigd: Configuratievelden interval en triggerReset gebruikt nu seconden in plaats van milliseconden in de admin UI.",
+        "fr": "Changed: Champs de configuration intervalle et triggerReset maintenant utiliser secondes au lieu de millisecondes dans l'interface utilisateur admin.",
+        "it": "Modificato: intervallo di campi di configurazione e triggerReset ora utilizzare secondi invece di millisecondi nell'interfaccia utente di amministrazione.",
+        "es": "Cambio: intervalo de campos de configuración y gatilloReset ahora use segundos en lugar de milisegundos en la interfaz de administración.",
+        "pl": "Zmieniony: Przedział pól konfiguracyjnych i tryggerReset używają teraz sekund zamiast milisekund w interfejsu administratora.",
+        "uk": "Змінено: інтервал конфігураційних полів і тригерЗмінити зараз за допомогою секунд замість мілісекундів в адмін UI.",
+        "zh-cn": "已更改: 配置字段间隔和触发 Reset 现在在管理员UI中使用秒而不是毫秒 ."
+      },
       "0.3.2": {
         "en": "**ENHANCED**: Fixed all TypeScript type errors by adding proper type definitions for config properties\n**ENHANCED**: Refactored HTTP request handling - created reusable httpHelper module to eliminate code duplication\n**ENHANCED**: Converted HTTP callback-based requests to async/await pattern for better error handling\n**ENHANCED**: Improved connection state logging - now logs when connection is restored after being offline\n**ENHANCED**: Standardized async/await usage across all state change handlers for consistency\n**FIXED**: Removed unused error variable in fetchVersion method\n**FIXED**: Added proper error type checking in fetchConfig to prevent runtime errors\n**TESTING**: Added comprehensive unit tests for httpHelper module covering success, timeout, and error scenarios",
         "de": "**ENHANCED**: Alle TypeScript-Typfehler behoben, indem richtige Typendefinitionen für config-Eigenschaften hinzugefügt wurden\n**ENHANCED**: Refactored HTTP Request Handling - erstelltes wiederverwendbares httpHelper Modul zur Beseitigung der Codevervielfachung\n**ENHANCED**: Konvertierte HTTP-Requests auf async/await-Muster für eine bessere Fehlerbehandlung\n**ENHANCED**: Verbesserte Verbindungszustandsprotokollierung - protokolliert nun, wenn die Verbindung nach Offline wiederhergestellt wird\n**ENHANCED**: Standardisierte async/await Nutzung über alle State Change-Handler für Konsistenz\n**FIXED**: Ungenutzte Fehlervariable in fetchVersion Methode entfernt\n**FIXED**: Es wurde eine ordnungsgemäße Fehlersuche im fetchConfig hinzugefügt, um Laufzeitfehler zu verhindern\n**TESTING**: Ergänzende Unit-Tests für das httpHelper-Modul für Erfolgs-, Timeout- und Fehlerszenarien",
@@ -80,19 +93,6 @@
         "pl": "Dodano punkt danych dla byków\nDodano wynik flagi maximun triplehit\nAktualizuj konfigurację\nOstrzeżenie w dzienniku wyczyszczonym",
         "uk": "Додано точку даних для биків-хіт\nДодано максимальний потрійний-hit прапорець бал\nНалаштування оновлення\nПопередження в журналі",
         "zh-cn": "给 bull- hit 添加数据点\n增加最大值的三重旗分\n更新配置\n清除日志中的警告"
-      },
-      "0.1.0": {
-        "en": "Added datapoints for visit score, current dart score, triple-hit flag with configurable minimum score, and camera configuration (cam0–cam2).\nCleaned up adapter logic and internal polling/timing.\nUpdated translations.",
-        "de": "Weitere Datenpunkte für Besuchscore, aktuelle Dart-Score, Tripel-hit-Flag mit konfigurierbaren minimalen Punktzahl und Kamerakonfiguration (cam0–cam2).\nAufgereinigte Adapterlogik und interne Abfrage/timing.\nAktualisierte Übersetzungen.",
-        "ru": "Добавлены точки данных для оценки посещений, текущая оценка дарта, флаг тройного удара с настраиваемым минимальным баллом и конфигурация камеры (cam0-cam2).\nОчищена адаптерная логика и внутренний опрос/настройка.\nОбновленные переводы.",
-        "pt": "Adicionados pontos de dados para a pontuação de visita, pontuação de dardo atual, bandeira de triplo hit com pontuação mínima configurável, e configuração da câmera (cam0–cam2).\nLimpei a lógica do adaptador e as pesquisas internas.\nTradução atualizada.",
-        "nl": "Toegevoegd datapoints voor bezoek score, huidige dart score, triple-hit vlag met configureerbare minimum score, en camera configuratie (cam0.\nOpgeruimd adapter logica en interne peiling / timing.\nBijgewerkte vertalingen.",
-        "fr": "Ajout de points de données pour le score de visite, le score de fléchette actuel, le drapeau triple-hit avec le score minimum configurable et la configuration de la caméra (cam0–cam2).\nNettoyer la logique de l'adaptateur et effectuer des sondages internes/timing.\nTraductions actualisées.",
-        "it": "Aggiunti i datapoint per il punteggio di visita, il punteggio di freccette corrente, la bandiera a triplo punto con il punteggio minimo configurabile e la configurazione della fotocamera (cam0–cam2).\nPulito logica adattatore e polling/timing interno.\nTraduzione aggiornata.",
-        "es": "Puntos de datos añadidos para la puntuación de la visita, puntaje del dardo actual, bandera triple con puntaje mínimo configurable, y configuración de la cámara (cam0–cam2).\nLógica del adaptador limpiado y polinización interna / estimulación.\nTraducciones actualizadas.",
-        "pl": "Dodano punkty datapointowe dla wyniku odwiedzin, aktualny wynik dart, flagę trójuderzeniową z konfigurowalnym minimalnym wynikiem oraz konfigurację kamery (cam0- cam2).\nOczyszczona logika adaptera i wewnętrzny sondaż / czas.\nAktualizacja tłumaczeń.",
-        "uk": "Додано точки даних для облікового запису, поточний запис dart, потрійний прапор з налаштуванням мінімального балу та конфігурації камери (cam0–cam2).\nЗнімання логіки адаптера та внутрішнього опитування / термінів.\nОновлені переклади.",
-        "zh-cn": "添加了访问分数的数据点,当前飞镖分数,三重击旗可配置最小分数,以及相机配置(cam0–cam2).\n清理适配器逻辑和内部投票/计时.\n最新译名."
       }
     },
     "titleLang": {
