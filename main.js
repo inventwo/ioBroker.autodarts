@@ -27,7 +27,7 @@ class Autodarts extends utils.Adapter {
 		this.tripleMaxScoreRuntime = null; // Laufzeitwert für Triple-Maxschwelle
 
 		// NEU: Reset-Timeout + Timer für isTriple/isBullseye
-		this.triggerResetMsRuntime = null;
+		this.triggerResetSecRuntime = null;
 		this.tripleResetTimer = null;
 		this.bullResetTimer = null;
 	}
@@ -38,10 +38,10 @@ class Autodarts extends utils.Adapter {
 		// Defaults aus io-package.json absichern
 		this.config.host ??= "127.0.0.1";
 		this.config.port ??= 3180;
-		this.config.interval ??= 1000;
-		this.config.tripleMinScore ??= 1; // Mindestpunktzahl für Triple-Flag
-		this.config.tripleMaxScore ??= 20; // Maximalpunktzahl für Triple-Flag
-		this.config.triggerResetMs ??= 0; // 0 = kein Auto-Reset
+		this.config.intervalSec ??= 1; // Sekunden
+		this.config.tripleMinScore ??= 1;
+		this.config.tripleMaxScore ??= 20;
+		this.config.triggerResetSec ??= 0; // 0 = kein Auto-Reset
 
 		// Visit-Struktur anlegen (ausgelagert)
 		await visit.init(this);
@@ -158,7 +158,7 @@ class Autodarts extends utils.Adapter {
 			native: {},
 		});
 
-		// Config-Channel und States für tripleMinScore / tripleMaxScore / triggerResetMs (zur Laufzeit änderbar)
+		// Config-Channel und States für tripleMinScore / tripleMaxScore / triggerResetSec (zur Laufzeit änderbar)
 		await this.extendObjectAsync("config", {
 			type: "channel",
 			common: {
@@ -208,20 +208,20 @@ class Autodarts extends utils.Adapter {
 			native: {},
 		});
 
-		await this.extendObjectAsync("config.triggerResetMs", {
+		await this.extendObjectAsync("config.triggerResetSec", {
 			type: "state",
 			common: {
 				name: {
-					en: "Triple/Bull reset (ms)",
-					de: "Triple/Bull Reset (ms)",
+					en: "Triple/Bull reset (s)",
+					de: "Triple/Bull Reset (s)",
 				},
 				type: "number",
 				role: "value",
 				read: true,
 				write: true,
 				desc: {
-					en: "Time in ms after which isTriple and isBullseye are reset to false",
-					de: "Zeit in ms, nach der isTriple und isBullseye wieder auf false gesetzt werden",
+					en: "Time in seconds after which isTriple and isBullseye are reset to false",
+					de: "Zeit in Sekunden, nach der isTriple und isBullseye wieder auf false gesetzt werden",
 				},
 			},
 			native: {},
@@ -230,7 +230,7 @@ class Autodarts extends utils.Adapter {
 		// Laufzeitwerte initial aus Adapter-Config setzen
 		this.tripleMinScoreRuntime = Number(this.config.tripleMinScore) || 1;
 		this.tripleMaxScoreRuntime = Number(this.config.tripleMaxScore) || 20;
-		this.triggerResetMsRuntime = Number(this.config.triggerResetMs) || 0; // 0 = kein Auto-Reset
+		this.triggerResetSecRuntime = Number(this.config.triggerResetSec) || 0; // 0 = kein Auto-Reset
 
 		await this.setStateAsync("config.tripleMinScore", {
 			val: this.tripleMinScoreRuntime,
@@ -241,8 +241,8 @@ class Autodarts extends utils.Adapter {
 			ack: true,
 		});
 
-		await this.setStateAsync("config.triggerResetMs", {
-			val: this.triggerResetMsRuntime,
+		await this.setStateAsync("config.triggerResetSec", {
+			val: this.triggerResetSecRuntime,
 			ack: true,
 		});
 
@@ -252,14 +252,17 @@ class Autodarts extends utils.Adapter {
 		// Auf Änderungen am Config-State hören
 		this.subscribeStates("config.tripleMinScore");
 		this.subscribeStates("config.tripleMaxScore");
-		this.subscribeStates("config.triggerResetMs");
+		this.subscribeStates("config.triggerResetSec");
 
 		// Zustand zurücksetzen
 		this.lastThrowsCount = 0;
 		this.lastSignature = "";
 
+		// Polling-Intervall aus Sekunden in Millisekunden umrechnen
+		const pollIntervalMs = (Number(this.config.intervalSec) || 1) * 1000;
+
 		// Polling starten
-		this.pollTimer = setInterval(() => this.fetchState(), this.config.interval);
+		this.pollTimer = setInterval(() => this.fetchState(), pollIntervalMs);
 		this.fetchState();
 
 		// Boardmanager-Version und Kameras abfragen und alle 5 Minuten aktualisieren
@@ -288,7 +291,7 @@ class Autodarts extends utils.Adapter {
 	}
 
 	/**
-	 * Reaktion auf State-Änderungen (z. B. config.tripleMinScore / config.tripleMaxScore / config.triggerResetMs)
+	 * Reaktion auf State-Änderungen (z. B. config.tripleMinScore / config.tripleMaxScore / config.triggerResetSec)
 	 *
 	 * @param {string} id  Full state id
 	 * @param {ioBroker.State | null | undefined} state  New state value (ack=false on user write)
@@ -329,18 +332,18 @@ class Autodarts extends utils.Adapter {
 
 			// Wert mit ack bestätigen
 			await this.setStateAsync("config.tripleMaxScore", { val, ack: true });
-		} else if (idShort === "config.triggerResetMs") {
+		} else if (idShort === "config.triggerResetSec") {
 			const val = Number(state.val);
 			if (!Number.isFinite(val) || val < 0) {
-				this.log.warn(`Invalid triggerResetMs value: ${state.val}`);
+				this.log.warn(`Invalid triggerResetSec value: ${state.val}`);
 				return;
 			}
 
-			this.triggerResetMsRuntime = val;
-			this.log.info(`Runtime triggerResetMs updated to ${val} ms`);
+			this.triggerResetSecRuntime = val;
+			this.log.info(`Runtime triggerResetSec updated to ${val} s`);
 
 			// Wert mit ack bestätigen
-			await this.setStateAsync("config.triggerResetMs", { val, ack: true });
+			await this.setStateAsync("config.triggerResetSec", { val, ack: true });
 		}
 	}
 

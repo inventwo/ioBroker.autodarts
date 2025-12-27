@@ -4,12 +4,12 @@
     "host_port": "Autodarts (Boardmanager) Port",
     "host_port_help": "Port number of the local Autodarts Boardmanager.",
     "intro_txt": "Autodarts adapter configuration.",
-    "polling": "Polling interval (ms)",
-    "polling_help": "Polling interval in milliseconds to retrieve data from the Autodarts Boardmanager.",
+    "polling": "Polling interval (s)",
+    "polling_help": "Polling interval in seconds to retrieve data from the Autodarts Boardmanager.",
     "triple_flag": "Minimum field for the triple trigger",
     "triple_flag2": "Maximum field for the triple trigger",
     "triple_flag2_help": "Maximum score field for the triple trigger. Darts with a score above this value will not trigger the Triple-Trigger datapoint.",
     "triple_flag_help": "Minimum score field for the triple trigger. Darts with a score below this value will not trigger the Triple-Trigger datapoint.",
-    "reset": "Trigger-Reset (ms)",
-    "reset_help": "Reset the triple and bullseye trigger after x ms (0 = no reset)."
+    "reset": "Trigger-Reset (s)",
+    "reset_help": "Reset the triple and bullseye trigger after x seconds (0 = no reset)."
 }

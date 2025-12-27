@@ -59,6 +59,9 @@ In the adapter settings, enter:
 <!--
 	### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+- Changed: Configuration fields interval and triggerReset now use seconds instead of milliseconds in the admin UI.
+
 ### 0.3.2 (2025-12-27)
 - (DrozmotiX) **ENHANCED**: Fixed all TypeScript type errors by adding proper type definitions for config properties
 - (DrozmotiX) **ENHANCED**: Refactored HTTP request handling - created reusable httpHelper module to eliminate code duplication

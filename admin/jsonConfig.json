@@ -126,7 +126,7 @@
         "marginBottom": "10px"
       }
     },
-    "triggerResetMs": {
+    "triggerResetSec": {
       "type": "number",
       "label": "reset",
       "help": "reset_help",
@@ -142,11 +142,11 @@
         "marginBottom": "10px"
       }
     },
-    "interval": {
+    "intervalSec": {
       "type": "number",
       "label": "polling",
       "help": "polling_help",
-      "default": 1000,
+      "default": 1,
       "newLine": true,
 			"sm": 12,
 			"xs": 12,

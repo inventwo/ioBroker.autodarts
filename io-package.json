@@ -164,7 +164,10 @@
   "native": {
     "host": "127.0.0.1",
     "port": 3180,
-    "interval": 1000
+    "intervalSec": 1,
+    "triggerResetSec": 0,
+    "tripleMinScore": 1,
+    "tripleMaxScore": 20
   },
   "objects": [],
   "instanceObjects": []
