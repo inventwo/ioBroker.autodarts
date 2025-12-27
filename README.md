@@ -59,7 +59,7 @@ In the adapter settings, enter:
 <!--
 	### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 0.3.1 (2025-12-27)
 - Changed: Object creation now uses extendObjectAsync with proper roles and types instead of setObjectNotExistsAsync.
 
 ### 0.3.0 (2025-12-26)

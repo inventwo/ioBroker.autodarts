@@ -1,8 +1,21 @@
 {
   "common": {
     "name": "autodarts",
-    "version": "0.3.0",
+    "version": "0.3.1",
     "news": {
+      "0.3.1": {
+        "en": "Changed: Object creation now uses extendObjectAsync with proper roles and types instead of setObjectNotExistsAsync.",
+        "de": "Geändert: Objekt-Erstellung verwendet jetzt ExtendedObjectAsync mit richtigen Rollen und Typen anstelle von Set ObjectNotExistsAsync.",
+        "ru": "Изменилось: Создание объектов теперь использует extendObjectAsync с правильными ролями и типами вместо набора ObjectNotExistsAsync.",
+        "pt": "Alterado: Criação de objetos agora usa extendObjectAsync com papéis e tipos apropriados em vez de set ObjectNotExistsAsync.",
+        "nl": "Gewijzigd: Objectcreatie maakt nu gebruik van extendObjectAsync met juiste rollen en typen in plaats van set ObjectNietBestaatAsync.",
+        "fr": "Changement : La création d'objet utilise désormais extensionObjectAsync avec des rôles et types appropriés au lieu de set ObjetNotExistsAsync.",
+        "it": "Cambiato: Creazione oggetti ora utilizza extendObjectAsync con ruoli e tipi appropriati invece di set ObjectNotExistsAsync.",
+        "es": "Cambio: La creación de objetos ahora utiliza ExtendObjectAsync con roles y tipos adecuados en lugar de conjunto ObjectNoExistsAsync.",
+        "pl": "Zmieniono: Tworzenie obiektu wykorzystuje teraz extendObjectAsync z odpowiednimi rolami i typami zamiast zestawu ObjectNotExistsAsync.",
+        "uk": "Змінено: Створення об'єктів тепер використовує розширенняObjectAsync з відповідними ролями та типами замість набору Об'єктNotExistsAsync.",
+        "zh-cn": "已更改 : 对象创建现在使用扩展对象Async , 并配有合适的角色和类型而不是设定 Object NotExists Async. (原始内容存档于2018-09-31)."
+      },
       "0.3.0": {
         "en": "Added traffic light datapoints (`status.trafficLightColor`, `status.trafficLightState`) mapped from Board Manager status (`Throw` / `Takeout` / connection errors).\nRefactored code: visit handling, throw handling (triple / bull) and traffic light logic moved to separate modules.",
         "de": "Es wurden Verkehrslichtdatenpunkte (`status.trafficLightColor`, `status.trafficLightState`) aus dem Status Board Manager (`Throw` / `Takeout` / Verbindungsfehler) abgebildet.\nRefactored Code: Besuchen Sie Handling, Wurf Handling (Triple / Bull) und Ampellogik in separate Module bewegt.",
@@ -69,19 +82,6 @@
         "zh-cn": "添加了访问分数的数据点,当前飞镖分数,三重击旗可配置最小分数,以及相机配置(cam0–cam2).\n清理适配器逻辑和内部投票/计时.\n最新译名."
       },
       "0.0.14": {
-        "en": "fix",
-        "de": "fixieren",
-        "ru": "исправлять",
-        "pt": "corrigir",
-        "nl": "fix",
-        "fr": "correction",
-        "it": "correzione",
-        "es": "arregle",
-        "pl": "fix",
-        "uk": "фіксація",
-        "zh-cn": "固定"
-      },
-      "0.0.12": {
         "en": "fix",
         "de": "fixieren",
         "ru": "исправлять",
