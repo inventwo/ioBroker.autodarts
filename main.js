@@ -1,10 +1,10 @@
 "use strict";
 
 const utils = require("@iobroker/adapter-core");
-const http = require("http");
 const throwLogic = require("./lib/throw");
 const visit = require("./lib/visit");
 const trafficLight = require("./lib/trafficLight");
+const httpHelper = require("./lib/httpHelper");
 
 class Autodarts extends utils.Adapter {
 	constructor(options) {
@@ -39,14 +39,8 @@ class Autodarts extends utils.Adapter {
 		this.config.host ??= "127.0.0.1";
 		this.config.port ??= 3180;
 		this.config.interval ??= 1000;
-		// eslint-disable-next-line jsdoc/check-tag-names
-		/** @ts-expect-error tripleMinScore is defined in io-package.json but not in AdapterConfig */
 		this.config.tripleMinScore ??= 1; // Mindestpunktzahl für Triple-Flag
-		// eslint-disable-next-line jsdoc/check-tag-names
-		/** @ts-expect-error tripleMaxScore is defined in io-package.json but not in AdapterConfig */
 		this.config.tripleMaxScore ??= 20; // Maximalpunktzahl für Triple-Flag
-		// eslint-disable-next-line jsdoc/check-tag-names
-		/** @ts-expect-error triggerResetMs is defined in io-package.json/jsonConfig but not in AdapterConfig */
 		this.config.triggerResetMs ??= 0; // 0 = kein Auto-Reset
 
 		// Visit-Struktur anlegen (ausgelagert)
@@ -234,14 +228,8 @@ class Autodarts extends utils.Adapter {
 		});
 
 		// Laufzeitwerte initial aus Adapter-Config setzen
-		// eslint-disable-next-line jsdoc/check-tag-names
-		/** @ts-expect-error tripleMinScore is defined in io-package.json but not in AdapterConfig */
 		this.tripleMinScoreRuntime = Number(this.config.tripleMinScore) || 1;
-		// eslint-disable-next-line jsdoc/check-tag-names
-		/** @ts-expect-error tripleMaxScore is defined in io-package.json but not in AdapterConfig */
 		this.tripleMaxScoreRuntime = Number(this.config.tripleMaxScore) || 20;
-		// eslint-disable-next-line jsdoc/check-tag-names
-		/** @ts-expect-error triggerResetMs is defined in io-package.json/jsonConfig but not in AdapterConfig */
 		this.triggerResetMsRuntime = Number(this.config.triggerResetMs) || 0; // 0 = kein Auto-Reset
 
 		await this.setStateAsync("config.tripleMinScore", {
@@ -305,7 +293,7 @@ class Autodarts extends utils.Adapter {
 	 * @param {string} id  Full state id
 	 * @param {ioBroker.State | null | undefined} state  New state value (ack=false on user write)
 	 */
-	onStateChange(id, state) {
+	async onStateChange(id, state) {
 		if (!state) {
 			return;
 		}
@@ -328,7 +316,7 @@ class Autodarts extends utils.Adapter {
 			this.log.info(`Runtime tripleMinScore updated to ${val}`);
 
 			// Wert mit ack bestätigen
-			this.setState("config.tripleMinScore", { val, ack: true });
+			await this.setStateAsync("config.tripleMinScore", { val, ack: true });
 		} else if (idShort === "config.tripleMaxScore") {
 			const val = Number(state.val);
 			if (!Number.isFinite(val) || val <= 0) {
@@ -340,7 +328,7 @@ class Autodarts extends utils.Adapter {
 			this.log.info(`Runtime tripleMaxScore updated to ${val}`);
 
 			// Wert mit ack bestätigen
-			this.setState("config.tripleMaxScore", { val, ack: true });
+			await this.setStateAsync("config.tripleMaxScore", { val, ack: true });
 		} else if (idShort === "config.triggerResetMs") {
 			const val = Number(state.val);
 			if (!Number.isFinite(val) || val < 0) {
@@ -352,182 +340,120 @@ class Autodarts extends utils.Adapter {
 			this.log.info(`Runtime triggerResetMs updated to ${val} ms`);
 
 			// Wert mit ack bestätigen
-			this.setState("config.triggerResetMs", { val, ack: true });
+			await this.setStateAsync("config.triggerResetMs", { val, ack: true });
 		}
 	}
 
 	/**
 	 * Autodarts API abfragen und Visit-Summe schreiben
 	 */
-	fetchState() {
-		const options = {
-			host: this.config.host,
-			port: this.config.port,
-			path: "/api/state",
-			method: "GET",
-			timeout: 1500,
-		};
+	async fetchState() {
+		try {
+			const data = await httpHelper.makeRequest(this, "/api/state");
 
-		const req = http.request(options, res => {
-			let data = "";
+			// Log wenn Verbindung wiederhergestellt wurde
+			if (this.offline) {
+				this.log.info("Autodarts connection restored");
+			}
+			this.offline = false;
+			await this.setStateAsync("online", true, true); // Server erreichbar
 
-			res.on("data", chunk => (data += chunk));
-			res.on("end", async () => {
-				this.offline = false;
-				this.setState("online", true, true); // Server erreichbar
+			try {
+				const state = JSON.parse(data);
+				const boardStatus = state.status || ""; // z.B. "Throw" oder "Takeout"
 
-				try {
-					const state = JSON.parse(data);
-					const boardStatus = state.status || ""; // z.B. "Throw" oder "Takeout"
-
-					if (boardStatus === "Throw") {
-						await trafficLight.setStatus(this, "green");
-					} else if (boardStatus === "Takeout") {
-						await trafficLight.setStatus(this, "yellow");
-					}
-
-					// Nur weiter, wenn throws existieren, Array ist und nicht leer
-					if (!state.throws || !Array.isArray(state.throws) || state.throws.length === 0) {
-						return;
-					}
-
-					const currentThrows = state.throws;
-
-					// Prüfen, ob sich die Würfe geändert haben
-					const signature = JSON.stringify(
-						currentThrows.map(d => ({
-							name: d.segment?.name || "",
-							mult: d.segment?.multiplier || 0,
-						})),
-					);
-
-					if (signature === this.lastSignature) {
-						return;
-					}
-					this.lastSignature = signature;
-
-					// letzten Dart in States schreiben (ausgelagert)
-					const lastDart = currentThrows[currentThrows.length - 1];
-					await throwLogic.updateThrow(this, lastDart);
-
-					// Visit-Summe aktualisieren (ausgelagert)
-					this.lastThrowsCount = await visit.updateVisit(this, currentThrows, this.lastThrowsCount);
-				} catch (e) {
-					this.log.warn(`Autodarts API Fehler: ${e.message} | Daten: ${data.substring(0, 200)}...`);
-					// Bei JSON-Fehler: Board war erreichbar, aber Antwort kaputt
-					this.setState("online", true, true);
+				if (boardStatus === "Throw") {
+					await trafficLight.setStatus(this, "green");
+				} else if (boardStatus === "Takeout") {
+					await trafficLight.setStatus(this, "yellow");
 				}
-			});
-		});
 
-		req.on("error", async () => {
+				// Nur weiter, wenn throws existieren, Array ist und nicht leer
+				if (!state.throws || !Array.isArray(state.throws) || state.throws.length === 0) {
+					return;
+				}
+
+				const currentThrows = state.throws;
+
+				// Prüfen, ob sich die Würfe geändert haben
+				const signature = JSON.stringify(
+					currentThrows.map(d => ({
+						name: d.segment?.name || "",
+						mult: d.segment?.multiplier || 0,
+					})),
+				);
+
+				if (signature === this.lastSignature) {
+					return;
+				}
+				this.lastSignature = signature;
+
+				// letzten Dart in States schreiben (ausgelagert)
+				const lastDart = currentThrows[currentThrows.length - 1];
+				await throwLogic.updateThrow(this, lastDart);
+
+				// Visit-Summe aktualisieren (ausgelagert)
+				this.lastThrowsCount = await visit.updateVisit(this, currentThrows, this.lastThrowsCount);
+			} catch (e) {
+				this.log.warn(`Autodarts API Fehler: ${e.message} | Daten: ${data.substring(0, 200)}...`);
+				// Bei JSON-Fehler: Board war erreichbar, aber Antwort kaputt
+				await this.setStateAsync("online", true, true);
+			}
+		} catch (error) {
 			if (!this.offline) {
-				this.log.warn("Autodarts not reachable");
+				this.log.warn(`Autodarts not reachable: ${error.message}`);
 				this.offline = true;
 			}
 			await trafficLight.setStatus(this, "red"); // Ampel = rot
-			this.setState("online", false, true); // Server offline
-		});
-
-		req.on("timeout", async () => {
-			req.destroy();
-			if (!this.offline) {
-				this.log.warn("Autodarts not reachable");
-				this.offline = true;
-			}
-			await trafficLight.setStatus(this, "red"); // Ampel = rot
-			this.setState("online", false, true); // Server offline bei Timeout
-		});
-
-		req.end();
+			await this.setStateAsync("online", false, true); // Server offline
+		}
 	}
 
 	/**
 	 * Boardmanager Version abfragen
 	 */
-	fetchVersion() {
-		const options = {
-			host: this.config.host,
-			port: this.config.port,
-			path: "/api/version",
-			method: "GET",
-			timeout: 1500,
-		};
-
-		const req = http.request(options, res => {
-			let data = "";
-			res.on("data", chunk => (data += chunk));
-			res.on("end", () => {
-				try {
-					const version = data.trim();
-					this.setState("system.boardVersion", { val: version, ack: true });
-				} catch (e) {
-					this.log.warn(`Fehler beim Lesen der Version: ${e.message}`);
-				}
-			});
-		});
-
-		req.on("error", () => {
-			// Keine Log-Warnung, nur State leeren
-			this.setState("system.boardVersion", { val: "", ack: true });
-		});
-
-		req.on("timeout", () => {
-			req.destroy();
-			// Keine Log-Warnung, nur State leeren
-			this.setState("system.boardVersion", { val: "", ack: true });
-		});
-
-		req.end();
+	async fetchVersion() {
+		try {
+			const data = await httpHelper.makeRequest(this, "/api/version");
+			const version = data.trim();
+			await this.setStateAsync("system.boardVersion", { val: version, ack: true });
+		} catch {
+			// Bei Fehler State leeren (keine Log-Warnung)
+			await this.setStateAsync("system.boardVersion", { val: "", ack: true });
+		}
 	}
 
 	/**
 	 * Board-Konfiguration abfragen (Kameras)
 	 */
-	fetchConfig() {
-		const options = {
-			host: this.config.host,
-			port: this.config.port,
-			path: "/api/config",
-			method: "GET",
-			timeout: 1500,
-		};
+	async fetchConfig() {
+		try {
+			const data = await httpHelper.makeRequest(this, "/api/config");
+			const cfg = JSON.parse(data);
 
-		const req = http.request(options, res => {
-			let data = "";
-			res.on("data", chunk => (data += chunk));
-			res.on("end", () => {
-				try {
-					const cfg = JSON.parse(data);
+			const cam = cfg.cam || {};
+			const camInfo = {
+				width: cam.width ?? 1280,
+				height: cam.height ?? 720,
+				fps: cam.fps ?? 20,
+			};
 
-					const cam = cfg.cam || {};
-					const camInfo = {
-						width: cam.width ?? 1280,
-						height: cam.height ?? 720,
-						fps: cam.fps ?? 20,
-					};
+			const json = JSON.stringify(camInfo);
 
-					const json = JSON.stringify(camInfo);
-
-					this.setState("system.cam0", { val: json, ack: true });
-					this.setState("system.cam1", { val: json, ack: true });
-					this.setState("system.cam2", { val: json, ack: true });
-				} catch (e) {
-					this.log.warn(`Fehler beim Lesen der Config: ${e.message} | Daten: ${data.substring(0, 200)}...`);
-				}
-			});
-		});
-
-		req.on("error", () => {
-			// Keine Log-Warnung mehr
-		});
-
-		req.on("timeout", () => {
-			req.destroy();
-			// Keine Log-Warnung mehr
-		});
-
-		req.end();
+			await this.setStateAsync("system.cam0", { val: json, ack: true });
+			await this.setStateAsync("system.cam1", { val: json, ack: true });
+			await this.setStateAsync("system.cam2", { val: json, ack: true });
+		} catch (error) {
+			// Bei Fehler keine Log-Warnung
+			if (
+				error &&
+				typeof error === "object" &&
+				typeof error.message === "string" &&
+				error.message.includes("JSON")
+			) {
+				this.log.debug(`Could not parse camera config: ${error.message}`);
+			}
+		}
 	}
 
 	onUnload(callback) {

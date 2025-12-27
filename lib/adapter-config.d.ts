@@ -10,7 +10,10 @@ type _AdapterConfig = typeof native;
 declare global {
 	namespace ioBroker {
 		interface AdapterConfig extends _AdapterConfig {
-			// Do not enter anything here!
+			// Additional properties defined in jsonConfig but not in io-package.json native
+			tripleMinScore?: number;
+			tripleMaxScore?: number;
+			triggerResetMs?: number;
 		}
 	}
 }
