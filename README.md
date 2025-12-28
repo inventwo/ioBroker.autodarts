@@ -16,7 +16,7 @@
 - Exposes ioBroker states and events so you can:
   - Turn on lights when a game starts.
   - Play a sound on a bullseye.
-  - Announce the current player via TTS.
+  - The next throw will be announced via text-to-speech (TTS).
   - Trigger other automations in ioBroker.
 
 It also provides:
