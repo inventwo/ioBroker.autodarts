@@ -424,13 +424,17 @@ class Autodarts extends utils.Adapter {
 		this.subscribeStates("config.tripleMaxScore");
 		this.subscribeStates("config.triggerResetSec");
 
-		// Auf Hardware-Schalter hören
+		// Auf Hardware-Schalter hören (eigene States)
 		this.subscribeStates("system.hardware.light");
 		this.subscribeStates("system.hardware.power");
 
-		// Ziel-States (0_userdata) ebenfalls beobachten
-		this.subscribeForeignStates("0_userdata.0.LICHT");
-		this.subscribeForeignStates("0_userdata.0.STROM");
+		// Ziel-States (0_userdata o.ä.) nur abonnieren, wenn konfiguriert
+		if (this.config.lightTargetId) {
+			this.subscribeForeignStates(this.config.lightTargetId);
+		}
+		if (this.config.powerTargetId) {
+			this.subscribeForeignStates(this.config.powerTargetId);
+		}
 
 		// Zustand zurücksetzen
 		this.lastThrowsCount = 0;
@@ -479,12 +483,22 @@ class Autodarts extends utils.Adapter {
 			return;
 		}
 
-		// Nur auf Schreibaktionen reagieren (ack === false)
-		if (state.ack) {
+		const idShort = id.replace(`${this.namespace}.`, "");
+
+		// 1) Rückrichtung: Foreign-States -> eigene Schalter (immer reagieren)
+		if (this.config.lightTargetId && id === this.config.lightTargetId) {
+			await this.setStateAsync("system.hardware.light", { val: state.val, ack: true });
+			return;
+		}
+		if (this.config.powerTargetId && id === this.config.powerTargetId) {
+			await this.setStateAsync("system.hardware.power", { val: state.val, ack: true });
 			return;
 		}
 
-		const idShort = id.replace(`${this.namespace}.`, "");
+		// 2) Ab hier nur noch eigene States: nur bei ack === false reagieren
+		if (state.ack) {
+			return;
+		}
 
 		if (idShort === "config.tripleMinScore") {
 			const val = Number(state.val);
@@ -495,8 +509,6 @@ class Autodarts extends utils.Adapter {
 
 			this.tripleMinScoreRuntime = val;
 			this.log.info(`Runtime tripleMinScore updated to ${val}`);
-
-			// Wert mit ack bestätigen
 			await this.setStateAsync("config.tripleMinScore", { val, ack: true });
 		} else if (idShort === "config.tripleMaxScore") {
 			const val = Number(state.val);
@@ -507,7 +519,6 @@ class Autodarts extends utils.Adapter {
 
 			this.tripleMaxScoreRuntime = val;
 			this.log.info(`Runtime tripleMaxScore updated to ${val}`);
-
 			await this.setStateAsync("config.tripleMaxScore", { val, ack: true });
 		} else if (idShort === "config.triggerResetSec") {
 			const val = Number(state.val);
@@ -518,10 +529,7 @@ class Autodarts extends utils.Adapter {
 
 			this.triggerResetSecRuntime = val;
 			this.log.info(`Runtime triggerResetSec updated to ${val} s`);
-
 			await this.setStateAsync("config.triggerResetSec", { val, ack: true });
-
-			// Weiterleitung für Licht und Power
 		} else if (idShort === "system.hardware.light") {
 			if (this.config.lightTargetId) {
 				await this.setForeignStateAsync(this.config.lightTargetId, state.val, false);
@@ -534,12 +542,6 @@ class Autodarts extends utils.Adapter {
 			} else {
 				this.log.warn("Power state changed, but no powerTargetId configured");
 			}
-
-			// Rückrichtung: 0_userdata -> eigene Schalter
-		} else if (id === "0_userdata.0.LICHT") {
-			await this.setStateAsync("system.hardware.light", { val: state.val, ack: true });
-		} else if (id === "0_userdata.0.STROM") {
-			await this.setStateAsync("system.hardware.power", { val: state.val, ack: true });
 		}
 	}
 
