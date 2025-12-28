@@ -68,8 +68,8 @@ In the adapter settings, enter:
 - **Polling interval (s)**: How often to check for new throws (default: 1s)
 
 ### Optional: Hardware Control Mapping
-- **Light Target ID**: ioBroker state ID to sync with `system.hardware.light` (e.g., `0_userdata.0.LICHT`)
-- **Power Target ID**: ioBroker state ID to sync with `system.hardware.power` (e.g., `0_userdata.0.STROM`)
+- **Light Target ID**: ioBroker state ID to sync with `system.hardware.light` (e.g., `0_userdata.0.LIGHT`)
+- **Power Target ID**: ioBroker state ID to sync with `system.hardware.power` (e.g., `0_userdata.0.POWER`)
 
 When configured, changes to either the adapter states or external states are synchronized bidirectionally.
 
