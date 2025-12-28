@@ -476,7 +476,6 @@ class Autodarts extends utils.Adapter {
 			this.tripleMaxScoreRuntime = val;
 			this.log.info(`Runtime tripleMaxScore updated to ${val}`);
 
-			// Wert mit ack bestätigen
 			await this.setStateAsync("config.tripleMaxScore", { val, ack: true });
 		} else if (idShort === "config.triggerResetSec") {
 			const val = Number(state.val);
@@ -488,7 +487,6 @@ class Autodarts extends utils.Adapter {
 			this.triggerResetSecRuntime = val;
 			this.log.info(`Runtime triggerResetSec updated to ${val} s`);
 
-			// Wert mit ack bestätigen
 			await this.setStateAsync("config.triggerResetSec", { val, ack: true });
 		}
 	}

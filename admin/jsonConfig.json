@@ -3,34 +3,34 @@
   "type": "panel",
   "items": {
     "intro": {
-          "type": "staticText",
-          "text": "intro_txt",
-          "newLine": true,
-          "sm": 12,
-          "xs": 12,
-          "md": 12,
-          "lg": 12,
-          "xl": 12,
-          "style": {
-            "border": "1px solid",
-            "borderRadius": "0px",
-            "padding": "8px",
-            "marginTop": "10px",
-            "marginBottom": "10px",
-            "textAlign": "center",
-            "font-size": "20px"
-          }
-        },
+      "type": "staticText",
+      "text": "intro_txt",
+      "newLine": true,
+      "sm": 12,
+      "xs": 12,
+      "md": 12,
+      "lg": 12,
+      "xl": 12,
+      "style": {
+        "border": "1px solid",
+        "borderRadius": "0px",
+        "padding": "8px",
+        "marginTop": "10px",
+        "marginBottom": "10px",
+        "textAlign": "center",
+        "font-size": "20px"
+      }
+    },
     "host": {
       "type": "text",
       "label": "host_ip",
       "help": "host_ip_help",
       "newLine": true,
-			"sm": 12,
-			"xs": 12,
-			"md": 6,
-			"lg": 6,
-			"xl": 6,
+      "sm": 12,
+      "xs": 12,
+      "md": 6,
+      "lg": 6,
+      "xl": 6,
       "style": {
         "marginTop": "10px",
         "marginBottom": "10px"
@@ -40,11 +40,11 @@
       "type": "number",
       "label": "host_port",
       "newLine": false,
-			"sm": 12,
-			"xs": 12,
-			"md": 6,
-			"lg": 6,
-			"xl": 6,
+      "sm": 12,
+      "xs": 12,
+      "md": 6,
+      "lg": 6,
+      "xl": 6,
       "style": {
         "marginTop": "10px",
         "marginBottom": "10px"
@@ -56,33 +56,93 @@
       "help": "triple_flag_help",
       "default": 1,
       "options": [
-        { "label": "1",  "value": 1 },
-        { "label": "2",  "value": 2 },
-        { "label": "3",  "value": 3 },
-        { "label": "4",  "value": 4 },
-        { "label": "5",  "value": 5 },
-        { "label": "6",  "value": 6 },
-        { "label": "7",  "value": 7 },
-        { "label": "8",  "value": 8 },
-        { "label": "9",  "value": 9 },
-        { "label": "10", "value": 10 },
-        { "label": "11", "value": 11 },
-        { "label": "12", "value": 12 },
-        { "label": "13", "value": 13 },
-        { "label": "14", "value": 14 },
-        { "label": "15", "value": 15 },
-        { "label": "16", "value": 16 },
-        { "label": "17", "value": 17 },
-        { "label": "18", "value": 18 },
-        { "label": "19", "value": 19 },
-        { "label": "20", "value": 20 }
-     ],
+        {
+          "label": "1",
+          "value": 1
+        },
+        {
+          "label": "2",
+          "value": 2
+        },
+        {
+          "label": "3",
+          "value": 3
+        },
+        {
+          "label": "4",
+          "value": 4
+        },
+        {
+          "label": "5",
+          "value": 5
+        },
+        {
+          "label": "6",
+          "value": 6
+        },
+        {
+          "label": "7",
+          "value": 7
+        },
+        {
+          "label": "8",
+          "value": 8
+        },
+        {
+          "label": "9",
+          "value": 9
+        },
+        {
+          "label": "10",
+          "value": 10
+        },
+        {
+          "label": "11",
+          "value": 11
+        },
+        {
+          "label": "12",
+          "value": 12
+        },
+        {
+          "label": "13",
+          "value": 13
+        },
+        {
+          "label": "14",
+          "value": 14
+        },
+        {
+          "label": "15",
+          "value": 15
+        },
+        {
+          "label": "16",
+          "value": 16
+        },
+        {
+          "label": "17",
+          "value": 17
+        },
+        {
+          "label": "18",
+          "value": 18
+        },
+        {
+          "label": "19",
+          "value": 19
+        },
+        {
+          "label": "20",
+          "value": 20
+        }
+      ],
       "newLine": true,
-			"sm": 12,
-			"xs": 12,
-			"md": 6,
-			"lg": 6,
-			"xl": 6,
+      "sm": 12,
+      "xs": 12,
+      "md": 6,
+      "lg": 6,
+      "xl": 6,
       "style": {
         "marginTop": "10px",
         "marginBottom": "10px"
@@ -94,33 +154,93 @@
       "help": "triple_flag2_help",
       "default": 20,
       "options": [
-        { "label": "1",  "value": 1 },
-        { "label": "2",  "value": 2 },
-        { "label": "3",  "value": 3 },
-        { "label": "4",  "value": 4 },
-        { "label": "5",  "value": 5 },
-        { "label": "6",  "value": 6 },
-        { "label": "7",  "value": 7 },
-        { "label": "8",  "value": 8 },
-        { "label": "9",  "value": 9 },
-        { "label": "10", "value": 10 },
-        { "label": "11", "value": 11 },
-        { "label": "12", "value": 12 },
-        { "label": "13", "value": 13 },
-        { "label": "14", "value": 14 },
-        { "label": "15", "value": 15 },
-        { "label": "16", "value": 16 },
-        { "label": "17", "value": 17 },
-        { "label": "18", "value": 18 },
-        { "label": "19", "value": 19 },
-        { "label": "20", "value": 20 }
-     ],
+        {
+          "label": "1",
+          "value": 1
+        },
+        {
+          "label": "2",
+          "value": 2
+        },
+        {
+          "label": "3",
+          "value": 3
+        },
+        {
+          "label": "4",
+          "value": 4
+        },
+        {
+          "label": "5",
+          "value": 5
+        },
+        {
+          "label": "6",
+          "value": 6
+        },
+        {
+          "label": "7",
+          "value": 7
+        },
+        {
+          "label": "8",
+          "value": 8
+        },
+        {
+          "label": "9",
+          "value": 9
+        },
+        {
+          "label": "10",
+          "value": 10
+        },
+        {
+          "label": "11",
+          "value": 11
+        },
+        {
+          "label": "12",
+          "value": 12
+        },
+        {
+          "label": "13",
+          "value": 13
+        },
+        {
+          "label": "14",
+          "value": 14
+        },
+        {
+          "label": "15",
+          "value": 15
+        },
+        {
+          "label": "16",
+          "value": 16
+        },
+        {
+          "label": "17",
+          "value": 17
+        },
+        {
+          "label": "18",
+          "value": 18
+        },
+        {
+          "label": "19",
+          "value": 19
+        },
+        {
+          "label": "20",
+          "value": 20
+        }
+      ],
       "newLine": false,
-			"sm": 12,
-			"xs": 12,
-			"md": 6,
-			"lg": 6,
-			"xl": 6,
+      "sm": 12,
+      "xs": 12,
+      "md": 6,
+      "lg": 6,
+      "xl": 6,
       "style": {
         "marginTop": "10px",
         "marginBottom": "10px"
@@ -132,11 +252,11 @@
       "help": "reset_help",
       "default": 0,
       "newLine": true,
-			"sm": 12,
-			"xs": 12,
-			"md": 12,
-			"lg": 12,
-			"xl": 12,
+      "sm": 12,
+      "xs": 12,
+      "md": 12,
+      "lg": 12,
+      "xl": 12,
       "style": {
         "marginTop": "10px",
         "marginBottom": "10px"
@@ -148,43 +268,64 @@
       "help": "polling_help",
       "default": 1,
       "options": [
-        { "label": "0.5 s", "value": 0.5 },
-        { "label": "0.75 s", "value": 0.75 },
-        { "label": "1 s", "value": 1 },
-        { "label": "1.5 s", "value": 1.5 },
-        { "label": "2 s", "value": 2 },
-        { "label": "2.5 s", "value": 2.5 },
-        { "label": "3 s", "value": 3 }
+        {
+          "label": "0.5 s",
+          "value": 0.5
+        },
+        {
+          "label": "0.75 s",
+          "value": 0.75
+        },
+        {
+          "label": "1 s",
+          "value": 1
+        },
+        {
+          "label": "1.5 s",
+          "value": 1.5
+        },
+        {
+          "label": "2 s",
+          "value": 2
+        },
+        {
+          "label": "2.5 s",
+          "value": 2.5
+        },
+        {
+          "label": "3 s",
+          "value": 3
+        }
       ],
       "newLine": true,
-			"sm": 12,
-			"xs": 12,
-			"md": 12,
-			"lg": 12,
-			"xl": 12,
+      "sm": 12,
+      "xs": 12,
+      "md": 12,
+      "lg": 12,
+      "xl": 12,
       "style": {
         "marginTop": "10px",
         "marginBottom": "10px"
       }
     },
     "outro": {
-          "type": "staticText",
-          "text": "Team inventwo •  <a href=\"https://github.com/inventwo\">https://github.com/inventwo</a> • by skvarel",
-          "newLine": true,
-          "sm": 12,
-          "xs": 12,
-          "md": 12,
-          "lg": 12,
-          "xl": 12,
-          "style": {
-            "border": "1px solid",
-            "borderRadius": "0px",
-            "padding": "8px",
-            "marginTop": "10px",
-            "marginBottom": "10px",
-            "textAlign": "center",
-            "font-size": "larger"
-          }
-        }
+      "type": "staticText",
+      "text": "Team inventwo •  <a href=\"https://github.com/inventwo\">https://github.com/inventwo</a> • by skvarel",
+      "newLine": true,
+      "sm": 12,
+      "xs": 12,
+      "md": 12,
+      "lg": 12,
+      "xl": 12,
+      "style": {
+        "border": "1px solid",
+        "borderRadius": "0px",
+        "padding": "8px",
+        "marginTop": "10px",
+        "marginBottom": "10px",
+        "textAlign": "center",
+        "font-size": "larger"
+      }
+    }
   }
 }

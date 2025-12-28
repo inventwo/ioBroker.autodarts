@@ -25,11 +25,11 @@ It also provides:
 - `throw.current`: Numeric score of the last thrown dart.
 - `throw.isTriple`: Boolean flag that turns true for triple hits within a configurable segment range (e.g. 1–20)
 - `throw.isBullseye`: Boolean flag that only turns true for bullseye hits.
-- `system.boardVersion`: Reported Board Manager version.
-- `system.cam0/1/2`: JSON with camera settings (width, height, fps).
+- `system.cams.cam0/1/2`: JSON with camera settings (width, height, fps).
 - `status.trafficLightColor`: HEX color of the current board status.
 - `status.trafficLightState`: `green` (player may throw), `yellow` (remove darts), `red` (board error).
-
+- `system.software.*`: OS and Autodarts host details (incl. boardVersion & desktopVersion).
+- `system.hardware.*`: CPU, architecture and hostname information.
 
 ## What this adapter does NOT do
 
@@ -46,7 +46,7 @@ In the adapter settings, enter:
 
 - **Board Manager IP**: IP address of your Autodarts Board Manager (e.g. `192.168.178.50`).
 - **Port**: Usually `3180` (default for Board Manager).
-- **Polling interval (ms)**: (default for 2000ms)
+- **Polling interval (s)**: (default for 1s)
 
 ## Privacy & Data Handling
 
@@ -60,7 +60,11 @@ In the adapter settings, enter:
 	### **WORK IN PROGRESS**
 -->
 ### **WORK IN PROGRESS**
-- Changed: Configuration fields interval to dropdown
+- Changed: Restructured system information into dedicated `system.hardware`, `system.software` and `system.cams` channels.
+- Added: New software info states (`desktopVersion`, `boardVersion`, `platform`, `os`) and hardware info states (`kernelArch`, `cpuModel`, `hostname`).
+- Added: Camera configuration states `system.cams.cam0/1/2` containing JSON with width, height and fps.
+- Changed: Adapter configuration for polling interval and triple trigger thresholds is now fully driven via jsonConfig (dropdowns and number fields).
+- Removed: Experimental light/power alias mapping from internal logic (no user-visible feature was released).
 
 ### 0.3.3 (2025-12-27)
 - Changed: Configuration fields interval and triggerReset now use seconds instead of milliseconds in the admin UI.
