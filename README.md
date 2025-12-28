@@ -26,8 +26,9 @@ Connects to your local Autodarts Board Manager (via IP and port, e.g. `192.168.x
 - **`visit.score`**: Total score of the last complete visit (3 darts)
 - **`throw.current`**: Numeric score of the last thrown dart
 - **`throw.isTriple`**: Boolean flag for triple hits within configurable segment range (default: 1–20)
+- **`throw.isDouble`**: Boolean flag for double hits only (all segments)
 - **`throw.isBullseye`**: Boolean flag for bullseye hits only
-- **`throw.isMiss`**: Boolean flag that is true when the dart does not hit any valid scoring segment (no score / miss only).
+- **`throw.isMiss`**: Boolean flag that is true when the dart does not hit any valid scoring segment (no score / miss only)
 
 ### Board Status
 - **`status.trafficLightColor`**: HEX color of current board status
