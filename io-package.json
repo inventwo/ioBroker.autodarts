@@ -1,8 +1,21 @@
 {
   "common": {
     "name": "autodarts",
-    "version": "0.5.1",
+    "version": "0.6.0",
     "news": {
+      "0.6.0": {
+        "en": "Added: New throw.isMiss state to detect and trigger automations on missed darts (including auto-reset via triggerResetSec).\nAdded: New throw.isDouble state to detect and trigger automations on double segments (including auto-reset via triggerResetSec).",
+        "de": "Hinzugefügt: Neue Wurf. isMiss-Zustand zu erkennen und Automatisierungen auf verpassten Darts auszulösen (einschließlich Auto-Reset über triggerResetSec).\nHinzugefügt: Neue Wurf. ist doppelter Zustand, um Automatisierungen auf Doppelsegmenten zu erkennen und auszulösen (einschließlich Auto-Reset über triggerResetSec).",
+        "ru": "Добавлено: Новый бросок. состояние Мисс для обнаружения и запуска автоматизации на пропущенных дротиках (включая автоматическое сброс через триггерResetSec).\nДобавлено: Новый бросок. Двойное состояние для обнаружения и запуска автоматизации в двойных сегментах (включая автоперезагрузку через триггерResetSec).",
+        "pt": "Adicionado: Novo lançamento. isMiss estado para detectar e ativar automações em dardos perdidos (incluindo auto-reset via triggerResetSec).\nAdicionado: Novo lançamento. isDouble state to detect and active automations in double segments (incluindo auto-reset via triggerResetSec).",
+        "nl": "Toegevoegd: Nieuwe worp. isMiss staat te detecteren en te triggeren automatisering op gemiste darts (inclusief auto-reset via triggerResetSec).\nToegevoegd: Nieuwe worp. isDubbele toestand te detecteren en te triggeren automatiseringen op dubbele segmenten (inclusief auto-reset via triggerResetSec).",
+        "fr": "Ajouté : Nouveau lancer. isMiss state pour détecter et déclencher les automatismes sur les fléchettes oubliées (y compris auto-reset via triggerResetSec).\nAjouté : Nouveau lancer. est l'état double pour détecter et déclencher les automatismes sur les doubles segments (y compris auto-reset via triggerResetSec).",
+        "it": "Aggiunto: Nuovo tiro. isMiss stato per rilevare e attivare le automazioni sulle freccette mancate (compreso il ripristino automatico tramite triggerResetSec).\nAggiunto: Nuovo tiro. isDouble state per rilevare e attivare le automazioni su due segmenti (compreso il ripristino automatico tramite triggerResetSec).",
+        "es": "Añadido: Nuevo lanzamiento. isMiss state para detectar y desencadenar automatizaciones en dardos perdidos (incluyendo el ajuste automático a través de triggerResetSec).\nAñadido: Nuevo lanzamiento. isDoble estado para detectar y desencadenar automatizaciones en segmentos dobles (incluyendo el ajuste automático a través de triggerResetSec).",
+        "pl": "Dodano: nowy rzut. isMiss stan do wykrywania i uruchamiania automatyzacji na nieodebranych rzutki (w tym auto- reset poprzez triggerResetSec).\nDodano: nowy rzut. isDouble state do wykrywania i uruchamiania automatyzacji na podwójnych segmentach (w tym auto- reset poprzez triggerResetSec).",
+        "uk": "Доданий: Новий кицька. isMiss держава для виявлення та запуску автоматизації на пропущених darts (включаючи автозавантаження через тригерResetSec).\nДоданий: Новий кицька. єподвійним станом для виявлення та запуску автоматизації на подвійних сегментах (включаючи автозавантаження через тригерResetSec).",
+        "zh-cn": "添加:新掷. 是Miss State,用于检测和触发对丢失的飞镖的自动化(包括通过触发器ResetSec自动重置).\n添加:新掷. isDouble状态在双片段上检测和触发自动化(包括通过触发ResetSec自动重置)."
+      },
       "0.5.1": {
         "en": "Fixed: Hardware light/power mapping now respects configured target IDs and works on all systems.",
         "de": "Behoben: Hardware-Licht/Strom-Mapping respektiert nun konfigurierte Ziel-IDs und arbeitet an allen Systemen.",
@@ -80,19 +93,6 @@
         "pl": "Zmieniono: Tworzenie obiektu wykorzystuje teraz extendObjectAsync z odpowiednimi rolami i typami zamiast zestawu ObjectNotExistsAsync.",
         "uk": "Змінено: Створення об'єктів тепер використовує розширенняObjectAsync з відповідними ролями та типами замість набору Об'єктNotExistsAsync.",
         "zh-cn": "已更改 : 对象创建现在使用扩展对象Async , 并配有合适的角色和类型而不是设定 Object NotExists Async. (原始内容存档于2018-09-31)."
-      },
-      "0.3.0": {
-        "en": "Added traffic light datapoints (`status.trafficLightColor`, `status.trafficLightState`) mapped from Board Manager status (`Throw` / `Takeout` / connection errors).\nRefactored code: visit handling, throw handling (triple / bull) and traffic light logic moved to separate modules.",
-        "de": "Es wurden Verkehrslichtdatenpunkte (`status.trafficLightColor`, `status.trafficLightState`) aus dem Status Board Manager (`Throw` / `Takeout` / Verbindungsfehler) abgebildet.\nRefactored Code: Besuchen Sie Handling, Wurf Handling (Triple / Bull) und Ampellogik in separate Module bewegt.",
-        "ru": "Добавлены точки данных светофора («status.trafficLightColor», «status.trafficLightState»), отображаемые из статуса менеджера совета директоров («Бросить» / «Выбрать» / ошибки подключения).\nРефакторированный код: обработка посещений, обработка бросков (тройной / бычий) и логика светофора перемещаются в отдельные модули.",
-        "pt": "Pontos de dados de semáforo adicionados (`status.trafficLightColor`, `status.trafficLightState`) mapeados a partir do status do Board Manager (`Throw` / `Takeout` / erros de conexão).\nCódigo refatorizado: manipulação de visita, manuseio de arremesso (triplo / touro) e lógica de semáforo movido para módulos separados.",
-        "nl": "Toegevoegd verkeerslicht datapoints (.\nRefactored code: bezoeken handling, gooien handling (triple / stier) en verkeerslicht logica verplaatst naar aparte modules.",
-        "fr": "Ajout de points de données de feux de circulation (`status.trafficLightColor`, `status.trafficLightState`) cartographié à partir de l'état du gestionnaire du conseil d'administration (`Throw` / `Takeout` / erreurs de connexion).\nCode refactoré: visite de la manipulation, la manipulation de lancer (triple / taureau) et la logique du feu de circulation déplacé vers des modules séparés.",
-        "it": "Aggiunti i datapoint del semaforo (`status.trafficLightColor`, `status.trafficLightState`) mappati dallo stato del Board Manager (`Throw` / `Takeout` / errori di connessione).\nCodice Refactored: visit handling, pitch handling (triple / bull) e logica del semaforo spostato a moduli separati.",
-        "es": "Los puntos de datos de la luz de tráfico ( \"status.trafficLightColor \" , \"status.trafficLightState \" ) se mapearon con el estado de administrador de la Junta ( \" THrow \" / \" Takeout \" / errores de conexión).\nCódigo refactorizado: manejo de visitas, manejo de tiro (triple / toro) y lógica de tráfico se movió a módulos separados.",
-        "pl": "Dodano punkty danych świateł drogowych (\"status.traffic LightColor\", \"status.traffic LightState\"), które zostały odwzorowane ze statusu zarządu (\"Throw\" / \"Takeout\" / błędy połączeń).\nZmieniony kod: obsługa odwiedzin, obsługa rzutów (potrójny / byk) i logika światła drogowego przeniesiona do oddzielnych modułów.",
-        "uk": "Додано точки світла трафіку (`status.trafficLightColor`, `status.trafficLightState`) на карті Board Manager (`Throw` / `Takeout` / помилки підключення).\nРефакторний код: візитна обробка, кидання (стриптиз / бик) і логіка трафіку переходить на окремі модулі.",
-        "zh-cn": "增加从董事会管理者身份绘制的交通灯数据点(`Status.trafficLightColor ' ,`Status.trafficLight Station ' ) (`扔'/`Takeout ' /连接错误).\n重构代码:访问处理,投掷处理(三重/公牛)和交通灯逻辑移动到单独的模块."
       }
     },
     "titleLang": {
