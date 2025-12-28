@@ -59,6 +59,9 @@ In the adapter settings, enter:
 <!--
 	### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+- Changed: Configuration fields interval to dropdown
+
 ### 0.3.3 (2025-12-27)
 - Changed: Configuration fields interval and triggerReset now use seconds instead of milliseconds in the admin UI.
 

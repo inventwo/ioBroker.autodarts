@@ -68,7 +68,6 @@ class Autodarts extends utils.Adapter {
 			},
 			native: {},
 		});
-
 		// System-Channel und BoardVersion-Datenpunkt anlegen
 		await this.extendObjectAsync("system", {
 			type: "channel",
@@ -80,8 +79,60 @@ class Autodarts extends utils.Adapter {
 			},
 			native: {},
 		});
+		// NEU: Unter-Channels für Hardware und Software
+		await this.extendObjectAsync("system.hardware", {
+			type: "channel",
+			common: {
+				name: {
+					en: "Hardware",
+					de: "Hardware",
+				},
+			},
+			native: {},
+		});
 
-		await this.extendObjectAsync("system.boardVersion", {
+		await this.extendObjectAsync("system.software", {
+			type: "channel",
+			common: {
+				name: {
+					en: "Software",
+					de: "Software",
+				},
+			},
+			native: {},
+		});
+		await this.extendObjectAsync("system.cams", {
+			type: "channel",
+			common: {
+				name: {
+					en: "Camera configuration",
+					de: "Kamera-Konfiguration",
+				},
+			},
+			native: {},
+		});
+
+		// Software-Infos
+		await this.extendObjectAsync("system.software.desktopVersion", {
+			type: "state",
+			common: {
+				name: {
+					en: "Desktop version",
+					de: "Desktop-Version",
+				},
+				type: "string",
+				role: "info.version",
+				read: true,
+				write: false,
+				desc: {
+					en: "Version of the Autodarts desktop application",
+					de: "Version der Autodarts Desktop-Anwendung",
+				},
+			},
+			native: {},
+		});
+
+		await this.extendObjectAsync("system.software.boardVersion", {
 			type: "state",
 			common: {
 				name: {
@@ -100,8 +151,103 @@ class Autodarts extends utils.Adapter {
 			native: {},
 		});
 
+		await this.extendObjectAsync("system.software.platform", {
+			type: "state",
+			common: {
+				name: {
+					en: "Platform",
+					de: "Plattform",
+				},
+				type: "string",
+				role: "info.name",
+				read: true,
+				write: false,
+				desc: {
+					en: "Operating system platform",
+					de: "Betriebssystem-Plattform",
+				},
+			},
+			native: {},
+		});
+		await this.extendObjectAsync("system.software.os", {
+			type: "state",
+			common: {
+				name: {
+					en: "Operating system",
+					de: "Betriebssystem",
+				},
+				type: "string",
+				role: "info.name",
+				read: true,
+				write: false,
+				desc: {
+					en: "Operating system name as reported by Autodarts host",
+					de: "Vom Autodarts-Host gemeldetes Betriebssystem",
+				},
+			},
+			native: {},
+		});
+
+		// Hardware-Infos
+		await this.extendObjectAsync("system.hardware.kernelArch", {
+			type: "state",
+			common: {
+				name: {
+					en: "Kernel architecture",
+					de: "Kernel-Architektur",
+				},
+				type: "string",
+				role: "info.name",
+				read: true,
+				write: false,
+				desc: {
+					en: "System kernel architecture (e.g., x86_64, arm64)",
+					de: "System-Kernel-Architektur (z.B. x86_64, arm64)",
+				},
+			},
+			native: {},
+		});
+
+		await this.extendObjectAsync("system.hardware.cpuModel", {
+			type: "state",
+			common: {
+				name: {
+					en: "CPU model",
+					de: "CPU-Modell",
+				},
+				type: "string",
+				role: "info.name",
+				read: true,
+				write: false,
+				desc: {
+					en: "CPU model name",
+					de: "CPU-Modellbezeichnung",
+				},
+			},
+			native: {},
+		});
+
+		await this.extendObjectAsync("system.hardware.hostname", {
+			type: "state",
+			common: {
+				name: {
+					en: "Hostname",
+					de: "Hostname",
+				},
+				type: "string",
+				role: "info.name",
+				read: true,
+				write: false,
+				desc: {
+					en: "Hostname of the Autodarts system",
+					de: "Hostname des Autodarts-Systems",
+				},
+			},
+			native: {},
+		});
+
 		// Kamera-Infos als JSON-States
-		await this.extendObjectAsync("system.cam0", {
+		await this.extendObjectAsync("system.cams.cam0", {
 			type: "state",
 			common: {
 				name: {
@@ -120,7 +266,7 @@ class Autodarts extends utils.Adapter {
 			native: {},
 		});
 
-		await this.extendObjectAsync("system.cam1", {
+		await this.extendObjectAsync("system.cams.cam1", {
 			type: "state",
 			common: {
 				name: {
@@ -139,7 +285,7 @@ class Autodarts extends utils.Adapter {
 			native: {},
 		});
 
-		await this.extendObjectAsync("system.cam2", {
+		await this.extendObjectAsync("system.cams.cam2", {
 			type: "state",
 			common: {
 				name: {
@@ -265,12 +411,12 @@ class Autodarts extends utils.Adapter {
 		this.pollTimer = setInterval(() => this.fetchState(), pollIntervalMs);
 		this.fetchState();
 
-		// Boardmanager-Version und Kameras abfragen und alle 5 Minuten aktualisieren
-		this.fetchVersion();
+		// Host-Informationen und Kameras abfragen und alle 5 Minuten aktualisieren
+		this.fetchHost();
 		this.fetchConfig();
 		this.versionTimer = setInterval(
 			() => {
-				this.fetchVersion();
+				this.fetchHost();
 				this.fetchConfig();
 			},
 			5 * 60 * 1000,
@@ -413,20 +559,6 @@ class Autodarts extends utils.Adapter {
 	}
 
 	/**
-	 * Boardmanager Version abfragen
-	 */
-	async fetchVersion() {
-		try {
-			const data = await httpHelper.makeRequest(this, "/api/version");
-			const version = data.trim();
-			await this.setStateAsync("system.boardVersion", { val: version, ack: true });
-		} catch {
-			// Bei Fehler State leeren (keine Log-Warnung)
-			await this.setStateAsync("system.boardVersion", { val: "", ack: true });
-		}
-	}
-
-	/**
 	 * Board-Konfiguration abfragen (Kameras)
 	 */
 	async fetchConfig() {
@@ -443,9 +575,9 @@ class Autodarts extends utils.Adapter {
 
 			const json = JSON.stringify(camInfo);
 
-			await this.setStateAsync("system.cam0", { val: json, ack: true });
-			await this.setStateAsync("system.cam1", { val: json, ack: true });
-			await this.setStateAsync("system.cam2", { val: json, ack: true });
+			await this.setStateAsync("system.cams.cam0", { val: json, ack: true });
+			await this.setStateAsync("system.cams.cam1", { val: json, ack: true });
+			await this.setStateAsync("system.cams.cam2", { val: json, ack: true });
 		} catch (error) {
 			// Bei Fehler keine Log-Warnung
 			if (
@@ -455,6 +587,61 @@ class Autodarts extends utils.Adapter {
 				error.message.includes("JSON")
 			) {
 				this.log.debug(`Could not parse camera config: ${error.message}`);
+			}
+		}
+	}
+	/**
+	 * Host-Informationen abfragen
+	 */
+	async fetchHost() {
+		try {
+			const data = await httpHelper.makeRequest(this, "/api/host");
+			const host = JSON.parse(data);
+
+			// clientVersion als boardVersion schreiben
+			await this.setStateAsync("system.software.boardVersion", {
+				val: host.clientVersion || "",
+				ack: true,
+			});
+			// desktopVersion
+			await this.setStateAsync("system.software.desktopVersion", {
+				val: host.desktopVersion || "",
+				ack: true,
+			});
+			// platform
+			await this.setStateAsync("system.software.platform", {
+				val: host.platform || "",
+				ack: true,
+			});
+			// os (Software)
+			await this.setStateAsync("system.software.os", {
+				val: host.os || "",
+				ack: true,
+			});
+			// kernelArch
+			await this.setStateAsync("system.hardware.kernelArch", {
+				val: host.kernelArch || "",
+				ack: true,
+			});
+			// cpuModel (aus cpu.model)
+			await this.setStateAsync("system.hardware.cpuModel", {
+				val: host.cpu?.model || "",
+				ack: true,
+			});
+			// hostname (Hardware)
+			await this.setStateAsync("system.hardware.hostname", {
+				val: host.hostname || "",
+				ack: true,
+			});
+		} catch (error) {
+			// Bei Fehler keine Log-Warnung
+			if (
+				error &&
+				typeof error === "object" &&
+				typeof error.message === "string" &&
+				error.message.includes("JSON")
+			) {
+				this.log.debug(`Could not parse host info: ${error.message}`);
 			}
 		}
 	}
