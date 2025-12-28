@@ -11,5 +11,9 @@
     "triple_flag2_help": "Maximum score field for the triple trigger. Darts with a score above this value will not trigger the Triple-Trigger datapoint.",
     "triple_flag_help": "Minimum score field for the triple trigger. Darts with a score below this value will not trigger the Triple-Trigger datapoint.",
     "reset": "Trigger-Reset (s)",
-    "reset_help": "Reset the triple and bullseye trigger after x seconds (0 = no reset)."
+    "reset_help": "Reset the triple and bullseye trigger after x seconds (0 = no reset).",
+    "light_target": "Light Target ID",
+    "light_target_help": "ID of the light target to control lights via Autodarts (e.g., 'light.living_room'). Leave empty to disable light control.",
+    "power_target": "Power Target ID",
+    "power_target_help": "ID of the power target to control power via Autodarts (e.g., 'switch.darts_socket'). Leave empty to disable power control."
 }

@@ -245,6 +245,30 @@ class Autodarts extends utils.Adapter {
 			},
 			native: {},
 		});
+		// LED State anlegen
+		await this.extendObjectAsync("system.hardware.light", {
+			type: "state",
+			common: {
+				name: { en: "Board light", de: "Board-Beleuchtung" },
+				type: "boolean",
+				role: "switch.light",
+				read: true,
+				write: true,
+			},
+			native: {},
+		});
+		// POWER State anlegen
+		await this.extendObjectAsync("system.hardware.power", {
+			type: "state",
+			common: {
+				name: { en: "Board power", de: "Board-Strom" },
+				type: "boolean",
+				role: "switch.power",
+				read: true,
+				write: true,
+			},
+			native: {},
+		});
 
 		// Kamera-Infos als JSON-States
 		await this.extendObjectAsync("system.cams.cam0", {
@@ -400,6 +424,14 @@ class Autodarts extends utils.Adapter {
 		this.subscribeStates("config.tripleMaxScore");
 		this.subscribeStates("config.triggerResetSec");
 
+		// Auf Hardware-Schalter hören
+		this.subscribeStates("system.hardware.light");
+		this.subscribeStates("system.hardware.power");
+
+		// Ziel-States (0_userdata) ebenfalls beobachten
+		this.subscribeForeignStates("0_userdata.0.LICHT");
+		this.subscribeForeignStates("0_userdata.0.STROM");
+
 		// Zustand zurücksetzen
 		this.lastThrowsCount = 0;
 		this.lastSignature = "";
@@ -488,6 +520,26 @@ class Autodarts extends utils.Adapter {
 			this.log.info(`Runtime triggerResetSec updated to ${val} s`);
 
 			await this.setStateAsync("config.triggerResetSec", { val, ack: true });
+
+			// Weiterleitung für Licht und Power
+		} else if (idShort === "system.hardware.light") {
+			if (this.config.lightTargetId) {
+				await this.setForeignStateAsync(this.config.lightTargetId, state.val, false);
+			} else {
+				this.log.warn("Light state changed, but no lightTargetId configured");
+			}
+		} else if (idShort === "system.hardware.power") {
+			if (this.config.powerTargetId) {
+				await this.setForeignStateAsync(this.config.powerTargetId, state.val, false);
+			} else {
+				this.log.warn("Power state changed, but no powerTargetId configured");
+			}
+
+			// Rückrichtung: 0_userdata -> eigene Schalter
+		} else if (id === "0_userdata.0.LICHT") {
+			await this.setStateAsync("system.hardware.light", { val: state.val, ack: true });
+		} else if (id === "0_userdata.0.STROM") {
+			await this.setStateAsync("system.hardware.power", { val: state.val, ack: true });
 		}
 	}
 

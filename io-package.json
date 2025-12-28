@@ -167,7 +167,9 @@
     "intervalSec": 1,
     "triggerResetSec": 0,
     "tripleMinScore": 1,
-    "tripleMaxScore": 20
+    "tripleMaxScore": 20,
+    "lightTargetId": "",
+    "powerTargetId": ""
   },
   "objects": [],
   "instanceObjects": []

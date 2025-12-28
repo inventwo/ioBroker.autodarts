@@ -11,42 +11,68 @@
 
 
 ## What this adapter does
-<!-- - Reads current game state, active player, and dart throws (e.g. `T20`, `D1`, `S19`). -->
-- Connects to your local Autodarts Board Manager (via IP and port, e.g. `192.168.x.x:3180`).
-- Exposes ioBroker states and events so you can:
-  - Turn on lights when a game starts.
-  - Play a sound on a bullseye.
-  - The next throw will be announced via text-to-speech (TTS).
-  - Trigger other automations in ioBroker.
 
-It also provides:
+Connects to your local Autodarts Board Manager (via IP and port, e.g. `192.168.x.x:3180`) and exposes ioBroker states for home automation:
 
-- `visit.score`: Total score of the last complete visit (3 darts).
-- `throw.current`: Numeric score of the last thrown dart.
-- `throw.isTriple`: Boolean flag that turns true for triple hits within a configurable segment range (e.g. 1–20)
-- `throw.isBullseye`: Boolean flag that only turns true for bullseye hits.
-- `system.cams.cam0/1/2`: JSON with camera settings (width, height, fps).
-- `status.trafficLightColor`: HEX color of the current board status.
-- `status.trafficLightState`: `green` (player may throw), `yellow` (remove darts), `red` (board error).
-- `system.software.*`: OS and Autodarts host details (incl. boardVersion & desktopVersion).
-- `system.hardware.*`: CPU, architecture and hostname information.
+- Turn on lights when a game starts
+- Play a sound on a bullseye
+- Announce the next throw via text-to-speech (TTS)
+- Control board hardware (lighting, power)
+- Trigger any other ioBroker automation based on dart events
+
+## Features
+
+### Game State & Throws
+- **`visit.score`**: Total score of the last complete visit (3 darts)
+- **`throw.current`**: Numeric score of the last thrown dart
+- **`throw.isTriple`**: Boolean flag for triple hits within configurable segment range (default: 1–20)
+- **`throw.isBullseye`**: Boolean flag for bullseye hits only
+
+### Board Status
+- **`status.trafficLightColor`**: HEX color of current board status
+- **`status.trafficLightState`**: Status indicator
+  - `green` = Player may throw
+  - `yellow` = Remove darts
+  - `red` = Board offline/error
+
+### System Information
+- **`system.software.*`**: Autodarts versions (boardVersion, desktopVersion), OS and platform details
+- **`system.hardware.*`**: CPU model, kernel architecture, hostname
+- **`system.cams.cam0/1/2`**: Camera configuration (width, height, fps) as JSON
+
+### Hardware Control
+- **`system.hardware.light`**: Control board lighting (bidirectional with external states)
+- **`system.hardware.power`**: Control board power (bidirectional with external states)
+
+### Runtime Configuration
+- **`config.tripleMinScore/tripleMaxScore`**: Adjust triple trigger thresholds during runtime
+- **`config.triggerResetSec`**: Auto-reset time for triple/bullseye flags
 
 ## What this adapter does NOT do
 
-- ❌ No data is sent to the internet or to third-party servers.
-- ❌ No history, statistics, or personal data is stored or shared.
-- ❌ No access to other people’s boards or remote boards over the internet.
-- ❌ No cloud features or analytics.
+- ❌ No data is sent to the internet or to third-party servers
+- ❌ No history, statistics, or personal data is stored or shared
+- ❌ No access to other people's boards or remote boards over the internet
+- ❌ No cloud features or analytics
 
 All data stays local on your ioBroker system.
 
 ## Configuration
 
+![Configuration Screenshot](docs/config-screenshot.png)
+
 In the adapter settings, enter:
 
-- **Board Manager IP**: IP address of your Autodarts Board Manager (e.g. `192.168.178.50`).
-- **Port**: Usually `3180` (default for Board Manager).
-- **Polling interval (s)**: (default for 1s)
+- **Board Manager IP**: IP address of your Autodarts Board Manager (e.g. `192.168.178.50`)
+- **Port**: Usually `3180` (default for Board Manager)
+- **Polling interval (s)**: How often to check for new throws (default: 1s)
+
+### Optional: Hardware Control Mapping
+- **Light Target ID**: ioBroker state ID to sync with `system.hardware.light` (e.g., `0_userdata.0.LICHT`)
+- **Power Target ID**: ioBroker state ID to sync with `system.hardware.power` (e.g., `0_userdata.0.STROM`)
+
+When configured, changes to either the adapter states or external states are synchronized bidirectionally.
+
 
 ## Privacy & Data Handling
 
@@ -59,15 +85,20 @@ In the adapter settings, enter:
 <!--
 	### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+- (skvarel) Added: Bidirectional hardware control states `system.hardware.light` and `system.hardware.power`
+- (skvarel) Added: Configuration options to map light/power states to external ioBroker states (e.g., 0_userdata)
+- (skvarel) Changed: Hardware states now support read/write operations for full automation integration
+
 ### 0.4.0 (2025-12-28)
-- Changed: Restructured system information into dedicated `system.hardware`, `system.software` and `system.cams` channels.
-- Added: New software info states (`desktopVersion`, `boardVersion`, `platform`, `os`) and hardware info states (`kernelArch`, `cpuModel`, `hostname`).
-- Added: Camera configuration states `system.cams.cam0/1/2` containing JSON with width, height and fps.
-- Changed: Adapter configuration for polling interval and triple trigger thresholds is now fully driven via jsonConfig (dropdowns and number fields).
-- Removed: Experimental light/power alias mapping from internal logic (no user-visible feature was released).
+- (skvarel) Changed: Restructured system information into dedicated `system.hardware`, `system.software` and `system.cams` channels.
+- (skvarel) Added: New software info states (`desktopVersion`, `boardVersion`, `platform`, `os`) and hardware info states (`kernelArch`, `cpuModel`, `hostname`).
+- (skvarel) Added: Camera configuration states `system.cams.cam0/1/2` containing JSON with width, height and fps.
+- (skvarel) Changed: Adapter configuration for polling interval and triple trigger thresholds is now fully driven via jsonConfig (dropdowns and number fields).
+- (skvarel) Removed: Experimental light/power alias mapping from internal logic (no user-visible feature was released).
 
 ### 0.3.3 (2025-12-27)
-- Changed: Configuration fields interval and triggerReset now use seconds instead of milliseconds in the admin UI.
+- (skvarel) Changed: Configuration fields interval and triggerReset now use seconds instead of milliseconds in the admin UI.
 
 ### 0.3.2 (2025-12-27)
 - (DrozmotiX) **ENHANCED**: Fixed all TypeScript type errors by adding proper type definitions for config properties
@@ -80,67 +111,32 @@ In the adapter settings, enter:
 - (DrozmotiX) **TESTING**: Added comprehensive unit tests for httpHelper module covering success, timeout, and error scenarios
 
 ### 0.3.1 (2025-12-27)
-- Changed: Object creation now uses extendObjectAsync with proper roles and types instead of setObjectNotExistsAsync.
+- (skvarel) Changed: Object creation now uses extendObjectAsync with proper roles and types instead of setObjectNotExistsAsync.
 
 ### 0.3.0 (2025-12-26)
-- Added traffic light datapoints (`status.trafficLightColor`, `status.trafficLightState`) mapped from Board Manager status (`Throw` / `Takeout` / connection errors).
-- Refactored code: visit handling, throw handling (triple / bull) and traffic light logic moved to separate modules.
+- (skvarel) Added traffic light datapoints (`status.trafficLightColor`, `status.trafficLightState`) mapped from Board Manager status (`Throw` / `Takeout` / connection errors).
+- (skvarel) Refactored code: visit handling, throw handling (triple / bull) and traffic light logic moved to separate modules.
 
 ### 0.2.2 (2025-12-25)
-- bugfix
+- (skvarel) bugfix
 
 ### 0.2.1 (2025-12-25)
-- Reset for triple and bullseye trigger added
+- (skvarel) Reset for triple and bullseye trigger added
 
 ### 0.2.0 (2025-12-25)
-- Added datapoint for bulls-hit
-- Added maximun triple-hit flag score
-- Update config
-- Warning in log cleared
+- (skvarel) Added datapoint for bulls-hit
+- (skvarel) Added maximun triple-hit flag score
+- (skvarel) Update config
+- (skvarel) Warning in log cleared
 
 ### 0.1.0 (2025-12-23)
-- Added datapoints for visit score, current dart score, triple-hit flag with configurable minimum score, and camera configuration (cam0–cam2).
-- Cleaned up adapter logic and internal polling/timing.
-- Updated translations.
+- (skvarel) Added: Datapoints for visit score, current dart score, triple-hit flag with configurable minimum score
+- (skvarel) Added: Camera configuration states (cam0–cam2)
+- (skvarel) Changed: Cleaned up adapter logic and internal polling/timing
+- (skvarel) Changed: Updated translations
 
-### 0.0.14 (2025-12-22)
-- fix
-
-### 0.0.13 (2025-12-22)
-- translate
-
-### 0.0.12 (2025-12-22)
-- fix
-
-### 0.0.11 (2025-12-22)
-- fix
-
-### 0.0.10 (2025-12-22)
-- fix
-
-### 0.0.9 (2025-12-22)
-- fix
-
-### 0.0.8 (2025-12-21)
-- fix - Adapter Checker
-
-### 0.0.7 (2025-12-21)
-- fix - Adapter Checker
-
-### 0.0.6 (2025-12-21)
-- fix - Adapter Checker
-
-### 0.0.5 (2025-12-21)
-- Update Description
-
-### 0.0.4 (2025-12-21)
-- Privacy & Data Handling
-
-### 0.0.3 (2025-12-21)
-- init
-
-### 0.0.2 (2025-12-21)
-- initial release
+### 0.0.14 - 0.0.2 (2025-12-21 - 2025-12-22)
+- (skvarel) Initial release with multiple fixes for adapter checker compliance and documentation improvements
 
 ## License
 MIT License

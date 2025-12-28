@@ -12,13 +12,12 @@
       "lg": 12,
       "xl": 12,
       "style": {
-        "border": "1px solid",
+        "border-bottom": "1px solid",
         "borderRadius": "0px",
         "padding": "8px",
-        "marginTop": "10px",
         "marginBottom": "10px",
         "textAlign": "center",
-        "font-size": "20px"
+        "font-size": "24px"
       }
     },
     "host": {
@@ -308,6 +307,28 @@
         "marginBottom": "10px"
       }
     },
+    "lightTargetId": {
+      "type": "objectId",
+      "label": "light_target",
+      "help": "light_target_help",
+      "newLine": true,
+      "sm": 12,
+      "xs": 12,
+      "md": 6,
+      "lg": 6,
+      "xl": 6
+    },
+    "powerTargetId": {
+      "type": "objectId",
+      "label": "power_target",
+      "help": "power_target_help",
+      "newLine": false,
+      "sm": 12,
+      "xs": 12,
+      "md": 6,
+      "lg": 6,
+      "xl": 6
+    },
     "outro": {
       "type": "staticText",
       "text": "Team inventwo •  <a href=\"https://github.com/inventwo\">https://github.com/inventwo</a> • by skvarel",
@@ -318,11 +339,10 @@
       "lg": 12,
       "xl": 12,
       "style": {
-        "border": "1px solid",
+        "border-top": "1px solid",
         "borderRadius": "0px",
         "padding": "8px",
         "marginTop": "10px",
-        "marginBottom": "10px",
         "textAlign": "center",
         "font-size": "larger"
       }
