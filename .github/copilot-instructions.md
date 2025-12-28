@@ -888,7 +888,7 @@ class Autodarts extends utils.Adapter {
         super(options);
         this.pollTimer = null;
         this.versionTimer = null;
-        this.tripleResetTimer = null;
+        this.resetTimer = null;
         this.bullResetTimer = null;
     }
 
@@ -896,7 +896,7 @@ class Autodarts extends utils.Adapter {
         try {
             if (this.pollTimer) clearTimeout(this.pollTimer);
             if (this.versionTimer) clearTimeout(this.versionTimer);
-            if (this.tripleResetTimer) clearTimeout(this.tripleResetTimer);
+            if (this.resetTimer) clearTimeout(this.resetTimer);
             if (this.bullResetTimer) clearTimeout(this.bullResetTimer);
             callback();
         } catch (e) {

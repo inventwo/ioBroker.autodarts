@@ -11,7 +11,7 @@
     "power_target": "ID do alvo avançado",
     "power_target_help": "ID do alvo de potência para controlar a potência por meio de Autodarts (por exemplo, 'switch.darts_socket'). Deixe em branco para desativar o controle de energia.",
     "reset": "Redefinição(ões) de gatilho",
-    "reset_help": "Redefina o gatilho triplo, alvo e erro após x segundos (0 = sem reinicialização).",
+    "reset_help": "Redefina o disparo triplo, duplo, alvo e erro após x segundos (0 = sem reinicialização).",
     "triple_flag": "Campo mínimo para o disparo triplo",
     "triple_flag2": "Campo máximo para o disparo triplo",
     "triple_flag2_help": "Campo de pontuação máxima para o disparo triplo. Dardos com pontuação acima deste valor não acionarão o ponto de dados Triple-Trigger.",

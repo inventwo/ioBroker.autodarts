@@ -11,7 +11,7 @@
     "power_target": "Identyfikator celu mocy",
     "power_target_help": "Identyfikator celu mocy do kontrolowania mocy za pomocą Autodarts (np. „switch.darts_socket”). Pozostaw puste, aby wyłączyć kontrolę mocy.",
     "reset": "Reset wyzwalacza (s)",
-    "reset_help": "Zresetuj wyzwalacz potrójny, strzał w dziesiątkę i spudłowanie po x sekundach (0 = brak resetu).",
+    "reset_help": "Zresetuj wyzwalacz potrójny, podwójny, strzał w dziesiątkę i spudłowanie po x sekundach (0 = brak resetu).",
     "triple_flag": "Minimalne pole dla potrójnego wyzwalacza",
     "triple_flag2": "Maksymalne pole dla potrójnego wyzwalacza",
     "triple_flag2_help": "Pole maksymalnego wyniku dla potrójnego wyzwalacza. Rzutki z wynikiem powyżej tej wartości nie uruchomią punktu danych Triple-Trigger.",

@@ -88,6 +88,7 @@ When configured, changes to either the adapter states or external states are syn
 -->
 ### **WORK IN PROGRESS**
 - (skvarel) Added: New throw.isMiss state to detect and trigger automations on missed darts (including auto-reset via triggerResetSec).
+- (skvarel) Added: New throw.isDouble state to detect and trigger automations on double segments (including auto-reset via triggerResetSec).
 
 ### 0.5.1 (2025-12-28)
 - (skvarel) Fixed: Hardware light/power mapping now respects configured target IDs and works on all systems.

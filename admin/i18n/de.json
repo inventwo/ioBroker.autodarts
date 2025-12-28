@@ -11,7 +11,7 @@
     "power_target": "Power-Datenpunkt",
     "power_target_help": "Datenpunkt der Server- oder Bildschirm-Steckdose zur Steuerung innerhalb des Autodarts-Adapters. Lasse das Feld leer, um die Leistungssteuerung zu deaktivieren.",
     "reset": "Trigger-Reset (s)",
-    "reset_help": "Setzt den Triple- ,Bullseye und Miss-Trigger nach x Sekunden zurück (0 = kein Reset).",
+    "reset_help": "Setzt den Triple-, Doppel-, Bullseye und Miss-Trigger nach x Sekunden zurück (0 = kein Reset).",
     "triple_flag": "Minimales Feld für den Triple-Trigger",
     "triple_flag2": "Maximales Feld für den Triple-Trigger",
     "triple_flag2_help": "Feld „Maximale Punktzahl“ für den Triple-Trigger. Darts mit einer Punktzahl über diesem Wert lösen den Triple-Trigger-Datenpunkt nicht aus.",

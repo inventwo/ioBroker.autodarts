@@ -11,7 +11,7 @@
     "power_target": "Power Target-ID",
     "power_target_help": "ID van het powertarget om de power te regelen via Autodarts (bijvoorbeeld 'switch.darts_socket'). Laat dit leeg om de stroomregeling uit te schakelen.",
     "reset": "Trigger-reset (s)",
-    "reset_help": "Reset de drievoudige, bullseye- en miss-trigger na x seconden (0 = geen reset).",
+    "reset_help": "Reset de drievoudige, dubbele, bullseye- en miss-trigger na x seconden (0 = geen reset).",
     "triple_flag": "Minimumveld voor de drievoudige trigger",
     "triple_flag2": "Maximaal veld voor de drievoudige trigger",
     "triple_flag2_help": "Maximaal scoreveld voor de drievoudige trigger. Darten met een score boven deze waarde activeren het Triple-Trigger-datapunt niet.",

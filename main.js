@@ -1,3 +1,4 @@
+// main.js
 "use strict";
 
 const utils = require("@iobroker/adapter-core");
@@ -26,11 +27,9 @@ class Autodarts extends utils.Adapter {
 		this.tripleMinScoreRuntime = null; // Laufzeitwert für Triple-Minschwelle
 		this.tripleMaxScoreRuntime = null; // Laufzeitwert für Triple-Maxschwelle
 
-		// NEU: Reset-Timeout + Timer für isTriple/isBullseye
+		// Reset-Timeout + Timer für isTriple/isBullseye/isDouble/isMiss
 		this.triggerResetSecRuntime = null;
-		this.tripleResetTimer = null;
-		this.bullResetTimer = null;
-		this.missResetTimer = null;
+		this.resetTimer = null;
 	}
 
 	async onReady() {
@@ -707,14 +706,8 @@ class Autodarts extends utils.Adapter {
 			if (this.versionTimer) {
 				clearInterval(this.versionTimer);
 			}
-			if (this.tripleResetTimer) {
-				clearTimeout(this.tripleResetTimer);
-			}
-			if (this.bullResetTimer) {
-				clearTimeout(this.bullResetTimer);
-			}
-			if (this.missResetTimer) {
-				clearTimeout(this.missResetTimer);
+			if (this.resetTimer) {
+				clearTimeout(this.resetTimer);
 			}
 			callback();
 		} catch {
