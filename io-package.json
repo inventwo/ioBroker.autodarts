@@ -1,8 +1,21 @@
 {
   "common": {
     "name": "autodarts",
-    "version": "0.4.0",
+    "version": "0.5.0",
     "news": {
+      "0.5.0": {
+        "en": "Added: Bidirectional hardware control states `system.hardware.light` and `system.hardware.power`\nAdded: Configuration options to map light/power states to external ioBroker states (e.g., 0_userdata)\nChanged: Hardware states now support read/write operations for full automation integration",
+        "de": "Hinzugefügt: Bidirektionale Hardware-Steuerzustände `system.hardware.light` und `system.hardware.power `\nHinzugefügt: Konfigurationsoptionen zur Abbildung von Licht/Leistungszuständen zu externen ioBroker Zuständen (z.B. 0_userdata)\nGeändert: Hardware-Staaten unterstützen nun Lese- und Schreibvorgänge für die vollständige Automatisierungsintegration",
+        "ru": "Добавлено: Двунаправленное аппаратное управление состояниями «system.hardware.light» и «system.hardware.power» пункт\nДобавлено: Варианты конфигурации для отображения состояний света/мощности на внешние состояния ioBroker (например, 0_userdata)\nИзменены: штаты оборудования теперь поддерживают операции чтения / записи для полной интеграции автоматизации",
+        "pt": "Adicionado: estados de controle de hardware bidirecional `system.hardware.light' e `system.hardware.power `\nAdicionado: Opções de configuração para mapear estados de luz/poder para estados de ioBroker externos (por exemplo, 0_userdata)\nModificado: Os estados de hardware agora suportam operações de leitura/escrita para integração completa de automação",
+        "nl": "Toegevoegd: Bidirectionele hardware-besturing staat voor  Wat\nToegevoegd: Configuratie-opties voor het in kaart brengen van licht/krachttoestanden naar externe ioBroker-toestanden (bijv. 0_userdata)\nGewijzigd: Hardware toestanden ondersteunen nu lezen/schrijven bewerkingen voor volledige automatisering integratie",
+        "fr": "Ajouté : Les états de contrôle du matériel bidirectionnel `system.hardware.light` et `system.hardware.power \"\nAjouté: Options de configuration pour cartographier les états de lumière/puissance vers les états externes ioBroker (par exemple, 0_userdata)\nChanged: Les états matériels prennent désormais en charge les opérations de lecture/écriture pour l'intégration complète de l'automatisation",
+        "it": "Aggiunto: Bidirectional hardware control stati `system.hardware.light` e `system.hardware.power #\nAggiunto: Opzioni di configurazione per mappare gli stati di luce/potenza agli stati ioBroker esterni (ad esempio, 0_userdata)\nCambiato: gli stati hardware ora supportano le operazioni di lettura/scrittura per l'integrazione completa dell'automazione",
+        "es": "Añadido: Bidirectional hardware control states `system.hardware.light` y `system.hardware.power `\nAñadido: Opciones de configuración para mapear estados de luz/poder a estados de yoBroker externos (por ejemplo, 0_userdata)\nCambio: Los estados de Hardware ahora apoyan operaciones de lectura/escritura para la integración de la automatización completa",
+        "pl": "Dodano: dwukierunkowa kontrola sprzętowa stanów 'system.hardware.light' i 'system.hardware.power'\nDodano: Opcje konfiguracji do mapowania stanów światła / mocy do zewnętrznych stanów jOBroker (np. 0 _ userdata)\nZmiana: Stan sprzętu obsługuje teraz operacje odczytu / zapisu dla pełnej automatyzacji integracji",
+        "uk": "Додано: Двосторонні стани керування обладнанням `system.hardware.light` і `system.hardware.power й\nДодано: Параметри конфігурації для мапи світло/потужних станів на зовнішні стани ioBroker (наприклад, 0_userdata)\nЗмінено: Апаратні стани, які зараз підтримують операції читання/запису для повної інтеграції автоматизації",
+        "zh-cn": "添加:双向硬件控制状态为‘system.hardware.light'和‘system.hardware.power. `\n添加: 将光/ 电状态映射到外部 ioBroker 状态的配置选项( 如 0_ userdata)\n更改: 硬件状态现在支持读/写操作,以便完全自动化集成"
+      },
       "0.4.0": {
         "en": "Changed: Restructured system information into dedicated `system.hardware`, `system.software` and `system.cams` channels.\nAdded: New software info states (`desktopVersion`, `boardVersion`, `platform`, `os`) and hardware info states (`kernelArch`, `cpuModel`, `hostname`).\nAdded: Camera configuration states `system.cams.cam0/1/2` containing JSON with width, height and fps.\nChanged: Adapter configuration for polling interval and triple trigger thresholds is now fully driven via jsonConfig (dropdowns and number fields).\nRemoved: Experimental light/power alias mapping from internal logic (no user-visible feature was released).",
         "de": "Geändert: Restrukturierte Systeminformationen in dedizierte `system.hardware`, `system.software` und `system.cams` Kanäle.\nHinzugefügt: Neue Software-Info-Zustände (`desktopVersion`, `boardVersion`, `platform`, `os`) und Hardware-Info-Zustände (`kernelArch`, `cpuModel`, `hostname`).\nHinzugefügt: Kamera-Konfigurationszustände `system.cams.cam0/1/2` mit JSON mit Breite, Höhe und fps.\nGeändert: Adapterkonfiguration für das Abfrageintervall und die dreifachen Triggerschwellen werden nun über jsonConfig (Dropdowns und Nummernfelder) voll angesteuert.\nEntfernt: Experimentelles Licht/Power Alias Mapping aus interner Logik (keine Benutzersichtbarkeit wurde freigegeben).",
@@ -80,19 +93,6 @@
         "pl": "bugfix",
         "uk": "панчохи",
         "zh-cn": "错误修正"
-      },
-      "0.2.1": {
-        "en": "Reset for triple and bullseye trigger added",
-        "de": "Zurücksetzen für Triple und Bullseye Trigger hinzugefügt",
-        "ru": "Сброс тройного и бычьего триггера добавлен",
-        "pt": "Reiniciar para gatilho triplo e bullseye adicionado",
-        "nl": "Reset voor drievoudige en bullseye trigger toegevoegd",
-        "fr": "Réinitialiser pour triple et bullseye déclencheur ajouté",
-        "it": "Reset per trigger triple e bullseye aggiunto",
-        "es": "Reiniciar para triple y disparador de toros",
-        "pl": "Reset dla triple i bulseye wyzwalacz dodany",
-        "uk": "Зміщено переадресацію для тридцятого і буклесу",
-        "zh-cn": "重置三重和牛眼触发器"
       }
     },
     "titleLang": {

@@ -85,7 +85,7 @@ When configured, changes to either the adapter states or external states are syn
 <!--
 	### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 0.5.0 (2025-12-28)
 - (skvarel) Added: Bidirectional hardware control states `system.hardware.light` and `system.hardware.power`
 - (skvarel) Added: Configuration options to map light/power states to external ioBroker states (e.g., 0_userdata)
 - (skvarel) Changed: Hardware states now support read/write operations for full automation integration
