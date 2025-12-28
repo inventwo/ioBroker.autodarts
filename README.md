@@ -59,7 +59,7 @@ In the adapter settings, enter:
 <!--
 	### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 0.4.0 (2025-12-28)
 - Changed: Restructured system information into dedicated `system.hardware`, `system.software` and `system.cams` channels.
 - Added: New software info states (`desktopVersion`, `boardVersion`, `platform`, `os`) and hardware info states (`kernelArch`, `cpuModel`, `hostname`).
 - Added: Camera configuration states `system.cams.cam0/1/2` containing JSON with width, height and fps.
