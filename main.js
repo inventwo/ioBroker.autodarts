@@ -30,6 +30,7 @@ class Autodarts extends utils.Adapter {
 		this.triggerResetSecRuntime = null;
 		this.tripleResetTimer = null;
 		this.bullResetTimer = null;
+		this.missResetTimer = null;
 	}
 
 	async onReady() {
@@ -711,6 +712,9 @@ class Autodarts extends utils.Adapter {
 			}
 			if (this.bullResetTimer) {
 				clearTimeout(this.bullResetTimer);
+			}
+			if (this.missResetTimer) {
+				clearTimeout(this.missResetTimer);
 			}
 			callback();
 		} catch {

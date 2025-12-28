@@ -11,7 +11,7 @@
     "power_target": "功率目标 ID",
     "power_target_help": "通过 Autodarts 控制电源的电源目标的 ID（例如“switch.darts_socket”）。留空以禁用电源控制。",
     "reset": "触发-复位",
-    "reset_help": "x 秒后重置三重触发器和靶心触发器（0 = 不重置）。",
+    "reset_help": "x 秒后重置三重、靶心和未触发（0 = 不重置）。",
     "triple_flag": "三重触发器的最小字段",
     "triple_flag2": "三重触发器的最大字段",
     "triple_flag2_help": "三重触发器的最大分数字段。分数高于此值的飞镖将不会触发三重触发数据点。",

@@ -11,7 +11,7 @@
     "power_target": "ID de cible de puissance",
     "power_target_help": "ID de la cible d'alimentation pour contrôler l'alimentation via Autodarts (par exemple, « switch.darts_socket »). Laissez vide pour désactiver le contrôle de l’alimentation.",
     "reset": "Déclencheur-Réinitialisation(s)",
-    "reset_help": "Réinitialisez le déclencheur triple et bullseye après x secondes (0 = pas de réinitialisation).",
+    "reset_help": "Réinitialisez les déclencheurs triple, bullseye et miss après x secondes (0 = pas de réinitialisation).",
     "triple_flag": "Champ minimum pour le triple déclencheur",
     "triple_flag2": "Champ maximum pour le triple déclencheur",
     "triple_flag2_help": "Champ de score maximum pour le triple déclencheur. Les fléchettes avec un score supérieur à cette valeur ne déclencheront pas le point de données Triple-Trigger.",

@@ -11,7 +11,7 @@
     "power_target": "ID de objetivo de potencia",
     "power_target_help": "ID del objetivo de energía para controlar la energía a través de Autodarts (por ejemplo, 'switch.darts_socket'). Déjelo vacío para desactivar el control de energía.",
     "reset": "Restablecimiento de disparador (s)",
-    "reset_help": "Restablezca el disparador triple y de diana después de x segundos (0 = sin reinicio).",
+    "reset_help": "Restablezca el disparador triple, diana y fallido después de x segundos (0 = sin reinicio).",
     "triple_flag": "Campo mínimo para el triple disparador",
     "triple_flag2": "Campo máximo para el triple disparador",
     "triple_flag2_help": "Campo de puntuación máxima para el triple disparador. Los dardos con una puntuación superior a este valor no activarán el punto de datos Triple-Trigger.",
