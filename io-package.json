@@ -1,8 +1,21 @@
 {
   "common": {
     "name": "autodarts",
-    "version": "0.5.0",
+    "version": "0.5.1",
     "news": {
+      "0.5.1": {
+        "en": "Fixed: Hardware light/power mapping now respects configured target IDs and works on all systems.",
+        "de": "Behoben: Hardware-Licht/Strom-Mapping respektiert nun konfigurierte Ziel-IDs und arbeitet an allen Systemen.",
+        "ru": "Фиксированный: аппаратное отображение света/мощности теперь учитывает настроенные идентификаторы цели и работает на всех системах.",
+        "pt": "Fixo: O mapeamento de luz/potência de hardware agora respeita IDs de destino configurados e funciona em todos os sistemas.",
+        "nl": "Vast: Hardware licht/kracht mapping respecteert nu geconfigureerde doel ID's en werkt op alle systemen.",
+        "fr": "Correction : La cartographie matérielle de la lumière/puissance respecte désormais les identifiants de cible configurés et fonctionne sur tous les systèmes.",
+        "it": "Risolto: la mappatura della luce/potenza hardware ora rispetta gli ID di destinazione configurati e funziona su tutti i sistemi.",
+        "es": "Fijo: Hardware light/power mapping respeta ahora los IDs de destino configurados y funciona en todos los sistemas.",
+        "pl": "Naprawiono: Hardware light / Power mapowanie teraz szanuje skonfigurowane identyfikatory docelowe i działa na wszystkich systemach.",
+        "uk": "Виправлено: Апаратне освітлення / живлення тепер поважає налаштовувати цільові ідентифікатори і працює на всіх системах.",
+        "zh-cn": "固定:硬件光电映射现在尊重已配置的目标ID,并在所有系统中工作."
+      },
       "0.5.0": {
         "en": "Added: Bidirectional hardware control states `system.hardware.light` and `system.hardware.power`\nAdded: Configuration options to map light/power states to external ioBroker states (e.g., 0_userdata)\nChanged: Hardware states now support read/write operations for full automation integration",
         "de": "Hinzugefügt: Bidirektionale Hardware-Steuerzustände `system.hardware.light` und `system.hardware.power `\nHinzugefügt: Konfigurationsoptionen zur Abbildung von Licht/Leistungszuständen zu externen ioBroker Zuständen (z.B. 0_userdata)\nGeändert: Hardware-Staaten unterstützen nun Lese- und Schreibvorgänge für die vollständige Automatisierungsintegration",
@@ -80,19 +93,6 @@
         "pl": "Dodano punkty danych świateł drogowych (\"status.traffic LightColor\", \"status.traffic LightState\"), które zostały odwzorowane ze statusu zarządu (\"Throw\" / \"Takeout\" / błędy połączeń).\nZmieniony kod: obsługa odwiedzin, obsługa rzutów (potrójny / byk) i logika światła drogowego przeniesiona do oddzielnych modułów.",
         "uk": "Додано точки світла трафіку (`status.trafficLightColor`, `status.trafficLightState`) на карті Board Manager (`Throw` / `Takeout` / помилки підключення).\nРефакторний код: візитна обробка, кидання (стриптиз / бик) і логіка трафіку переходить на окремі модулі.",
         "zh-cn": "增加从董事会管理者身份绘制的交通灯数据点(`Status.trafficLightColor ' ,`Status.trafficLight Station ' ) (`扔'/`Takeout ' /连接错误).\n重构代码:访问处理,投掷处理(三重/公牛)和交通灯逻辑移动到单独的模块."
-      },
-      "0.2.2": {
-        "en": "bugfix",
-        "de": "fehlerbehebung",
-        "ru": "исправление ошибок",
-        "pt": "correção de erros",
-        "nl": "bugfix",
-        "fr": "correction du bug",
-        "it": "bugfix",
-        "es": "bugfix",
-        "pl": "bugfix",
-        "uk": "панчохи",
-        "zh-cn": "错误修正"
       }
     },
     "titleLang": {

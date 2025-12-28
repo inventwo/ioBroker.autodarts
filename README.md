@@ -85,7 +85,7 @@ When configured, changes to either the adapter states or external states are syn
 <!--
 	### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 0.5.1 (2025-12-28)
 - (skvarel) Fixed: Hardware light/power mapping now respects configured target IDs and works on all systems.
 
 ### 0.5.0 (2025-12-28)
