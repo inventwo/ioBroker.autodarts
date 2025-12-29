@@ -6,7 +6,7 @@
     "intro_txt": "Autodarts-adapterconfiguratie.",
     "light_target": "Lichtdoel-ID",
     "light_target_help": "ID van het lichtdoel om lampen te bedienen via Autodarts (bijvoorbeeld 'light.living_room'). Laat dit leeg om de lichtregeling uit te schakelen.",
-    "mappings": "In kaart brengen",
+    "mappings": "Toewijzingen",
     "options": "Opties",
     "options_connection": "Verbindingsopties",
     "options_logic": "Logische opties",

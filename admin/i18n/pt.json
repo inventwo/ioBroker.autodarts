@@ -6,7 +6,7 @@
     "intro_txt": "Configuração do adaptador Autodarts.",
     "light_target": "ID do alvo claro",
     "light_target_help": "ID do alvo de luz para controlar luzes via Autodarts (por exemplo, 'light.living_room'). Deixe em branco para desativar o controle de luz.",
-    "mappings": "Mapeamento",
+    "mappings": "Mapeamentos",
     "options": "Opções",
     "options_connection": "Opções de conexão",
     "options_logic": "Opções lógicas",

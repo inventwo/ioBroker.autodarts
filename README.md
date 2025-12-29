@@ -28,7 +28,7 @@ Connects to your local Autodarts Board Manager (via IP and port, e.g. `192.168.x
 - **`throw.isTriple`**: Boolean flag for triple hits within configurable segment range (default: 1–20)
 - **`throw.isDouble`**: Boolean flag for double hits only (all segments)
 - **`throw.isBullseye`**: Boolean flag for bullseye hits only
-- **`throw.isMiss`**: Boolean flag that is true when the dart does not hit any valid scoring segment (no score / miss only)
+- **`throw.isMiss`**: Boolean flag that is true when the dart does not hit any valid scoring segment (pure miss, no score)
 
 ### Board Status
 - **`status.trafficLightColor`**: HEX color of current board status
@@ -48,7 +48,7 @@ Connects to your local Autodarts Board Manager (via IP and port, e.g. `192.168.x
 
 ### Runtime Configuration
 - **`config.tripleMinScore/tripleMaxScore`**: Adjust triple trigger thresholds during runtime
-- **`config.triggerResetSec`**: Auto-reset time for triple/bullseye flags
+- **`config.triggerResetSec`**: Auto-reset time for triple/double/bullseye/miss flags
 
 ## What this adapter does NOT do
 
@@ -63,17 +63,42 @@ All data stays local on your ioBroker system.
 
 ![Configuration Screenshot](docs/config-screenshot.png)
 
-In the adapter settings, enter:
+The adapter settings are split into two tabs: **OPTIONS** and **MAPPINGS**.
 
-- **Board Manager IP**: IP address of your Autodarts Board Manager (e.g. `192.168.178.50`)
-- **Port**: Usually `3180` (default for Board Manager)
-- **Polling interval (s)**: How often to check for new throws (default: 1s)
+### Tab: OPTIONS
 
-### Optional: Hardware Control Mapping
-- **Light Target ID**: ioBroker state ID to sync with `system.hardware.light` (e.g., `0_userdata.0.LIGHT`)
-- **Power Target ID**: ioBroker state ID to sync with `system.hardware.power` (e.g., `0_userdata.0.POWER`)
+In **OPTIONS** you configure how the adapter connects to your local Autodarts Board Manager and how often it polls data:
 
-When configured, changes to either the adapter states or external states are synchronized bidirectionally.
+- **Board Manager IP**  
+  IP address of your Autodarts Board Manager (e.g. `192.168.178.50` or `127.0.0.1`).
+
+- **Port**  
+  TCP port of the Board Manager (usually `3180`).
+
+- **Triple trigger range**  
+  Two dropdowns to define the **minimum** and **maximum** field number (1–20) that should be considered for `throw.isTriple`.  
+  Triples outside this range will not trigger the flag.
+
+- **Trigger reset (s)**  
+  Time in seconds after which triple, double, bullseye and miss flags are reset.  
+  `0` means no automatic reset.
+
+- **Polling interval (s)**  
+  How often the adapter polls the Board Manager for new data (e.g. `0.5`, `1`, `2` seconds).
+
+### Tab: MAPPINGS
+
+In **MAPPINGS** you can link existing ioBroker states to the hardware related adapter states:
+
+- **Light Target ID**  
+  ioBroker state ID that is synchronized with `system.hardware.light`  
+  (e.g. `0_userdata.0.Autodarts.LIGHT` or a state of a smart light/LED ring).
+
+- **Power Target ID**  
+  ioBroker state ID that is synchronized with `system.hardware.power`  
+  (e.g. `0_userdata.0.Autodarts.POWER` or a state of a smart plug).
+
+When configured, changes on either side (adapter state or external state) are synchronized bidirectionally so you can both control the board from ioBroker and react on board events.
 
 
 ## Privacy & Data Handling
@@ -87,6 +112,12 @@ When configured, changes to either the adapter states or external states are syn
 <!--
 	### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+- (skvarel) New: Settings page reworked to use two tabs (`OPTIONS` and `MAPPINGS`) for better clarity.
+- (skvarel) New: Mapping of ioBroker objects for board light and board power in the **MAPPINGS** tab.
+- (skvarel) Improved: Layout of the configuration page (field widths, spacing, texts) for a more symmetric and clean UI.
+- (skvarel) Improved: Updated option descriptions in the admin UI.
+
 ### 0.6.0 (2025-12-28)
 - (skvarel) Added: New throw.isMiss state to detect and trigger automations on missed darts (including auto-reset via triggerResetSec).
 - (skvarel) Added: New throw.isDouble state to detect and trigger automations on double segments (including auto-reset via triggerResetSec).

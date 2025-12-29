@@ -6,7 +6,7 @@
     "intro_txt": "Autodarts 适配器配置。",
     "light_target": "光目标ID",
     "light_target_help": "通过 Autodarts 控制灯光的灯光目标的 ID（例如“light.living_room”）。留空以禁用灯光控制。",
-    "mappings": "测绘",
+    "mappings": "映射",
     "options": "选项",
     "options_connection": "连接选项",
     "options_logic": "逻辑选项",

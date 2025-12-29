@@ -17,7 +17,7 @@
     "power_target": "Power Target ID",
     "power_target_help": "ID of the power target to control power via Autodarts (e.g., 'switch.darts_socket'). Leave empty to disable power control.",
     "options": "Options",
-    "mappings":"Mapping",
+    "mappings":"Mappings",
     "options_connection": "Connection Options",
     "options_logic": "Logic Options"
 }

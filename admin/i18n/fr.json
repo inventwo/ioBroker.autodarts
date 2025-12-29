@@ -6,7 +6,7 @@
     "intro_txt": "Configuration de l'adaptateur Autodarts.",
     "light_target": "ID de cible lumineuse",
     "light_target_help": "ID de la cible lumineuse pour contrôler les lumières via Autodarts (par exemple, « light.living_room »). Laissez vide pour désactiver le contrôle de la lumière.",
-    "mappings": "Cartographie",
+    "mappings": "Mappages",
     "options": "Possibilités",
     "options_connection": "Options de connexion",
     "options_logic": "Options logiques",
