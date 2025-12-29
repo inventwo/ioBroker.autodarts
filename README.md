@@ -100,6 +100,10 @@ In **MAPPINGS** you can link existing ioBroker states to the hardware related ad
 
 When configured, changes on either side (adapter state or external state) are synchronized bidirectionally so you can both control the board from ioBroker and react on board events.
 
+### Tab: HELP & FAQ
+
+In **HELP & FAQ** you will find general information and help about the adapter and its configuration.
+
 
 ## Privacy & Data Handling
 
