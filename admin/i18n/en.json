@@ -15,5 +15,9 @@
     "light_target": "Light Target ID",
     "light_target_help": "ID of the light target to control lights via Autodarts (e.g., 'light.living_room'). Leave empty to disable light control.",
     "power_target": "Power Target ID",
-    "power_target_help": "ID of the power target to control power via Autodarts (e.g., 'switch.darts_socket'). Leave empty to disable power control."
+    "power_target_help": "ID of the power target to control power via Autodarts (e.g., 'switch.darts_socket'). Leave empty to disable power control.",
+    "options": "Options",
+    "mappings":"Mapping",
+    "options_connection": "Connection Options",
+    "options_logic": "Logic Options"
 }
