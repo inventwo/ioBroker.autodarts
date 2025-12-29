@@ -3,7 +3,7 @@
     "host_ip_help": "IP address of the local Autodarts Boardmanager.",
     "host_port": "Autodarts (Boardmanager) Port",
     "host_port_help": "Port number of the local Autodarts Boardmanager.",
-    "intro_txt": "Autodarts adapter configuration.",
+    "intro_txt": "Help & FAQ.",
     "polling": "Polling interval (s)",
     "polling_help": "Polling interval in seconds to retrieve data from the Autodarts Boardmanager.",
     "triple_flag": "Minimum field for the triple trigger",
@@ -19,5 +19,11 @@
     "options": "Options",
     "mappings":"Mappings",
     "options_connection": "Connection Options",
-    "options_logic": "Logic Options"
+    "options_logic": "Logic Options",
+    "first_txt": "... comming soon!",
+    "light_txt": "Light Control Mapping",
+    "light_txt_desc": "Get your lighting data points into the adapter objects.",
+    "power_txt": "Power Control Mapping",
+    "power_txt_desc": "Get your power data points into the adapter objects.",
+    "helps": "Help & FAQ"
 }
