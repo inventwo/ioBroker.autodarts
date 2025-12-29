@@ -116,7 +116,7 @@ In **HELP & FAQ** you will find general information and help about the adapter a
 <!--
 	### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 0.6.2 (2025-12-29)
 - (skvarel) Improved: Settings page reworked to use three tabs (`OPTIONS`, `MAPPINGS` and `HELP & FAQ`) for better clarity.
 
 ### 0.6.1 (2025-12-29)
