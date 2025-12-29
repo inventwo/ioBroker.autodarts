@@ -1,5 +1,4 @@
 {
-    "first_txt": "... kommt bald!",
     "helps": "Hilfe & FAQ",
     "host_ip": "Autodarts (Boardmanager) Host/IP",
     "host_ip_help": "IP-Adresse des lokalen Autodarts Boardmanagers.",
@@ -25,5 +24,7 @@
     "triple_flag": "Minimales Feld für den Triple-Trigger",
     "triple_flag2": "Maximales Feld für den Triple-Trigger",
     "triple_flag2_help": "Feld „Maximale Punktzahl“ für den Triple-Trigger. Darts mit einer Punktzahl über diesem Wert lösen den Triple-Trigger-Datenpunkt nicht aus.",
-    "triple_flag_help": "Feld „Mindestpunktzahl“ für den Triple-Trigger. Darts mit einer Punktzahl unter diesem Wert lösen den Triple-Trigger-Datenpunkt nicht aus."
+    "triple_flag_help": "Feld „Mindestpunktzahl“ für den Triple-Trigger. Darts mit einer Punktzahl unter diesem Wert lösen den Triple-Trigger-Datenpunkt nicht aus.",
+    "txt_one": "<b>Dieser Adapter verbindet den lokalen Autodarts Board-Manager mit dem ioBroker.</b><br><br>1) Konfiguriere die Verbindung unter <b>OPTIONEN</b> (Host, Port, Intervall, Triple Range).<br>2) Ordne Licht- und Powerziele unter <b>ZUWEISUNGEN</b> zu.<br>3) Nutze die erstellten Zustände (Würfe, Ampel, Hardware) in der Visualisierungen, den Skripten und Szenen.",
+    "txt_two": "... weitere Informationen folgen in Kürze!"
 }

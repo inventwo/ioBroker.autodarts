@@ -1,5 +1,4 @@
 {
-    "first_txt": "...即将推出！",
     "helps": "帮助和常见问题解答",
     "host_ip": "Autodarts (Boardmanager) 主机/IP",
     "host_ip_help": "本地 Autodarts Boardmanager 的 IP 地址。",
@@ -25,5 +24,7 @@
     "triple_flag": "三重触发器的最小字段",
     "triple_flag2": "三重触发器的最大字段",
     "triple_flag2_help": "三重触发器的最大分数字段。分数高于此值的飞镖将不会触发三重触发数据点。",
-    "triple_flag_help": "三重触发器的最低分数字段。分数低于此值的飞镖将不会触发三重触发数据点。"
+    "triple_flag_help": "三重触发器的最低分数字段。分数低于此值的飞镖将不会触发三重触发数据点。",
+    "txt_one": "该适配器将您本地的 Autodarts Board Manager 连接到 ioBroker。\n\n1) 在选项（主机、端口、轮询、三重范围）下配置连接。\n2) 在 MAPPINGS 下绘制灯光和功率目标。\n3) 在可视化、脚本和场景中使用创建的状态（投掷、交通灯、硬件）。",
+    "txt_two": "...更多信息即将推出！"
 }

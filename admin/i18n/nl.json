@@ -1,5 +1,4 @@
 {
-    "first_txt": "... binnenkort beschikbaar!",
     "helps": "Hulp en veelgestelde vragen",
     "host_ip": "Autodarts (Bestuursmanager) Host/IP",
     "host_ip_help": "IP-adres van de lokale Autodarts Boardmanager.",
@@ -25,5 +24,7 @@
     "triple_flag": "Minimumveld voor de drievoudige trigger",
     "triple_flag2": "Maximaal veld voor de drievoudige trigger",
     "triple_flag2_help": "Maximaal scoreveld voor de drievoudige trigger. Darten met een score boven deze waarde activeren het Triple-Trigger-datapunt niet.",
-    "triple_flag_help": "Minimumscoreveld voor de drievoudige trigger. Darten met een score onder deze waarde activeren het Triple-Trigger-datapunt niet."
+    "triple_flag_help": "Minimumscoreveld voor de drievoudige trigger. Darten met een score onder deze waarde activeren het Triple-Trigger-datapunt niet.",
+    "txt_one": "Deze adapter verbindt uw lokale Autodarts Board Manager met ioBroker.\n\n1) Configureer de verbinding onder OPTIES (host, poort, polling, drievoudig bereik).\n2) Breng licht- en krachtdoelen in kaart onder KAARTEN.\n3) Gebruik de gecreëerde toestanden (worpen, stoplicht, hardware) in uw visualisaties, scripts en scènes.",
+    "txt_two": "... binnenkort meer informatie!"
 }

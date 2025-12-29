@@ -12,9 +12,9 @@
           "label": "options_connection",
           "xs": 12,
           "sm": 12,
-          "md": 6,
-          "lg": 6,
-          "xl": 6,
+          "md": 12,
+          "lg": 12,
+          "xl": 12,
           "items": {
             "host": {
               "type": "text",
@@ -334,7 +334,7 @@
           "lg": 6,
           "xl": 6,
           "style": {
-            "font-size": "18px",
+            "fontSize": "18px",
             "marginTop": "30px"
           }
         },
@@ -348,7 +348,7 @@
           "lg": 6,
           "xl": 6,
           "style": {
-            "font-size": "14px",
+            "fontSize": "14px",
             "marginBottom": "20px"
           }
         },
@@ -373,7 +373,7 @@
           "lg": 6,
           "xl": 6,
           "style": {
-            "font-size": "18px",
+            "fontSize": "18px",
             "marginTop": "30px"
           }
         },
@@ -387,7 +387,7 @@
           "lg": 6,
           "xl": 6,
           "style": {
-            "font-size": "14px",
+            "fontSize": "14px",
             "marginBottom": "20px"
           }
         },
@@ -420,12 +420,12 @@
           "xl": 10,
           "style": {
             "marginBottom": "10px",
-            "font-size": "24px"
+            "fontSize": "24px"
           }
         },
-        "firstTxt": {
+        "txtOne": {
           "type": "staticText",
-          "text": "first_txt",
+          "text": "txt_one",
           "newLine": true,
           "xs": 12,
           "sm": 12,
@@ -433,7 +433,22 @@
           "lg": 6,
           "xl": 6,
           "style": {
-            "marginTop": "50px"
+            "marginTop": "50px",
+            "fontSize": "14px"
+          }
+        },
+        "txtTwo": {
+          "type": "staticText",
+          "text": "txt_two",
+          "newLine": true,
+          "xs": 12,
+          "sm": 12,
+          "md": 6,
+          "lg": 6,
+          "xl": 6,
+          "style": {
+            "marginTop": "50px",
+            "fontSize": "12px"
           }
         },
         "outro": {
@@ -446,7 +461,7 @@
           "lg": 12,
           "xl": 12,
           "style": {
-            "border-top": "1px solid",
+            "borderTop": "1px solid",
             "borderRadius": "0px",
             "marginTop": "50px",
             "fontSize": "14px"

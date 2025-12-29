@@ -1,5 +1,4 @@
 {
-    "first_txt": "...à venir !",
     "helps": "Aide et FAQ",
     "host_ip": "Autodarts (Boardmanager) Hôte/IP",
     "host_ip_help": "Adresse IP du Boardmanager Autodarts local.",
@@ -25,5 +24,7 @@
     "triple_flag": "Champ minimum pour le triple déclencheur",
     "triple_flag2": "Champ maximum pour le triple déclencheur",
     "triple_flag2_help": "Champ de score maximum pour le triple déclencheur. Les fléchettes avec un score supérieur à cette valeur ne déclencheront pas le point de données Triple-Trigger.",
-    "triple_flag_help": "Champ de score minimum pour le triple déclencheur. Les fléchettes avec un score inférieur à cette valeur ne déclencheront pas le point de données Triple-Trigger."
+    "triple_flag_help": "Champ de score minimum pour le triple déclencheur. Les fléchettes avec un score inférieur à cette valeur ne déclencheront pas le point de données Triple-Trigger.",
+    "txt_one": "Cet adaptateur connecte votre Autodarts Board Manager local à ioBroker.\n\n1) Configurez la connexion sous OPTIONS (hôte, port, polling, triple range).\n2) Cartographiez les cibles de lumière et de puissance sous CARTOGRAPHIES.\n3) Utilisez les états créés (lancements, feux de signalisation, matériel) dans vos visualisations, scripts et scènes.",
+    "txt_two": "... plus d'informations à venir !"
 }

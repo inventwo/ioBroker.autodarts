@@ -1,5 +1,4 @@
 {
-    "first_txt": "...już wkrótce!",
     "helps": "Pomoc i często zadawane pytania",
     "host_ip": "Autodarts (Boardmanager) Host/IP",
     "host_ip_help": "Adres IP lokalnego zarządcy Autodarts.",
@@ -25,5 +24,7 @@
     "triple_flag": "Minimalne pole dla potrójnego wyzwalacza",
     "triple_flag2": "Maksymalne pole dla potrójnego wyzwalacza",
     "triple_flag2_help": "Pole maksymalnego wyniku dla potrójnego wyzwalacza. Rzutki z wynikiem powyżej tej wartości nie uruchomią punktu danych Triple-Trigger.",
-    "triple_flag_help": "Pole minimalnego wyniku dla potrójnego wyzwalacza. Rzutki z wynikiem poniżej tej wartości nie uruchomią punktu danych Triple-Trigger."
+    "triple_flag_help": "Pole minimalnego wyniku dla potrójnego wyzwalacza. Rzutki z wynikiem poniżej tej wartości nie uruchomią punktu danych Triple-Trigger.",
+    "txt_one": "Ten adapter łączy lokalnego menedżera tablicy Autodarts z ioBrokerem.\n\n1) Skonfiguruj połączenie w OPCJACH (host, port, odpytywanie, potrójny zasięg).\n2) Mapuj cele świetlne i energetyczne w sekcji MAPOWANIA.\n3) Wykorzystaj utworzone stany (rzuty, sygnalizacja świetlna, sprzęt) w swoich wizualizacjach, skryptach i scenach.",
+    "txt_two": "...więcej informacji już wkrótce!"
 }

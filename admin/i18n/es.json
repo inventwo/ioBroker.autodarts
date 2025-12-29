@@ -1,5 +1,4 @@
 {
-    "first_txt": "... ¡próximamente!",
     "helps": "Ayuda y preguntas frecuentes",
     "host_ip": "Host/IP de Autodarts (Boardmanager)",
     "host_ip_help": "Dirección IP del administrador local de Autodarts Board.",
@@ -25,5 +24,7 @@
     "triple_flag": "Campo mínimo para el triple disparador",
     "triple_flag2": "Campo máximo para el triple disparador",
     "triple_flag2_help": "Campo de puntuación máxima para el triple disparador. Los dardos con una puntuación superior a este valor no activarán el punto de datos Triple-Trigger.",
-    "triple_flag_help": "Campo de puntuación mínima para el triple disparador. Los dardos con una puntuación inferior a este valor no activarán el punto de datos Triple-Trigger."
+    "triple_flag_help": "Campo de puntuación mínima para el triple disparador. Los dardos con una puntuación inferior a este valor no activarán el punto de datos Triple-Trigger.",
+    "txt_one": "Este adaptador conecta su administrador de tablero Autodarts local a ioBroker.\n\n1) Configure la conexión en OPCIONES (host, puerto, sondeo, rango triple).\n2) Mapear objetivos de luz y energía en MAPAS.\n3) Utilice los estados creados (tiros, semáforo, hardware) en sus visualizaciones, guiones y escenas.",
+    "txt_two": "... ¡más información próximamente!"
 }
