@@ -112,7 +112,7 @@ When configured, changes on either side (adapter state or external state) are sy
 <!--
 	### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 0.6.1 (2025-12-29)
 - (skvarel) New: Settings page reworked to use two tabs (`OPTIONS` and `MAPPINGS`) for better clarity.
 - (skvarel) New: Mapping of ioBroker objects for board light and board power in the **MAPPINGS** tab.
 - (skvarel) Improved: Layout of the configuration page (field widths, spacing, texts) for a more symmetric and clean UI.
