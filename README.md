@@ -116,7 +116,7 @@ In **HELP & FAQ** you will find general information and help about the adapter a
 <!--
 	### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 0.6.3 (2025-12-30)
 - (skvarel) Improved: Connection handling now uses `info.connection` and clearly marks the adapter as offline when the Autodarts Board Manager is not reachable (including better timeout/ECONNRESET handling).
 - (skvarel) Changed: Reduced log noise when the board is offline – only one warning is logged when the connection is lost, subsequent timeouts are written as debug messages.
 - (skvarel) Improved: Minor tweaks to the HELP & FAQ tab texts and configuration descriptions.
