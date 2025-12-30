@@ -14,11 +14,15 @@ class Autodarts extends utils.Adapter {
 			name: "autodarts",
 		});
 
+		this.isConnected = false;
+		this.pollTimer = null;
+		this.onlineIntervalMs = 1000; // Platzhalter, wird in onReady gesetzt
+		this.offlineIntervalMs = 60000; // z.B. 60 s
+
 		this.on("ready", this.onReady.bind(this));
 		this.on("stateChange", this.onStateChange.bind(this));
 		this.on("unload", this.onUnload.bind(this));
 
-		this.pollTimer = null;
 		this.lastThrowsCount = 0; // Anzahl Darts im aktuellen Visit
 		this.lastSignature = ""; // Verhindert doppelte Verarbeitung gleicher Würfe
 		this.offline = false;
@@ -35,6 +39,20 @@ class Autodarts extends utils.Adapter {
 	async onReady() {
 		this.log.info("Autodarts adapter started");
 
+		// Initial connection state
+		await this.extendObjectAsync("info.connection", {
+			type: "state",
+			common: {
+				name: "Connected to Autodarts Board Manager",
+				type: "boolean",
+				role: "indicator.connected",
+				read: true,
+				write: false,
+			},
+			native: {},
+		});
+		await this.setStateAsync("info.connection", false, true);
+
 		// Defaults aus io-package.json absichern
 		this.config.host ??= "127.0.0.1";
 		this.config.port ??= 3180;
@@ -42,6 +60,8 @@ class Autodarts extends utils.Adapter {
 		this.config.tripleMinScore ??= 1;
 		this.config.tripleMaxScore ??= 20;
 		this.config.triggerResetSec ??= 0; // 0 = kein Auto-Reset
+		// Polling-Intervall aus Sekunden in Millisekunden berechnen
+		this.onlineIntervalMs = (Number(this.config.intervalSec) || 1) * 1000;
 
 		// Visit-Struktur anlegen (ausgelagert)
 		await visit.init(this);
@@ -440,12 +460,8 @@ class Autodarts extends utils.Adapter {
 		this.lastThrowsCount = 0;
 		this.lastSignature = "";
 
-		// Polling-Intervall aus Sekunden in Millisekunden umrechnen
-		const pollIntervalMs = (Number(this.config.intervalSec) || 1) * 1000;
-
 		// Polling starten
-		this.pollTimer = setInterval(() => this.fetchState(), pollIntervalMs);
-		this.fetchState();
+		this.pollLoop();
 
 		// Host-Informationen und Kameras abfragen und alle 5 Minuten aktualisieren
 		this.fetchHost();
@@ -553,11 +569,14 @@ class Autodarts extends utils.Adapter {
 			const data = await httpHelper.makeRequest(this, "/api/state");
 
 			// Log wenn Verbindung wiederhergestellt wurde
-			if (this.offline) {
+			if (this.offline || !this.isConnected) {
 				this.log.info("Autodarts connection restored");
 			}
 			this.offline = false;
-			await this.setStateAsync("online", true, true); // Server erreichbar
+			this.isConnected = true;
+
+			await this.setStateAsync("online", true, true); // eigener Online-State
+			await this.setStateAsync("info.connection", true, true); // Admin-Status
 
 			try {
 				const state = JSON.parse(data);
@@ -601,13 +620,44 @@ class Autodarts extends utils.Adapter {
 				await this.setStateAsync("online", true, true);
 			}
 		} catch (error) {
-			if (!this.offline) {
-				this.log.warn(`Autodarts not reachable: ${error.message}`);
-				this.offline = true;
+			const msg = error?.message || String(error);
+			const code = error?.code;
+
+			const isNetErr =
+				code === "ECONNREFUSED" ||
+				code === "ETIMEDOUT" ||
+				code === "EHOSTUNREACH" ||
+				msg.includes("timeout") ||
+				msg.includes("ECONNRESET");
+
+			if (isNetErr) {
+				if (!this.offline) {
+					this.log.warn(`Autodarts not reachable (Board Manager offline or wrong IP): ${msg}`);
+					this.offline = true;
+				} else {
+					this.log.debug(`Autodarts still offline: ${msg}`);
+				}
+			} else {
+				this.log.error(`Autodarts request failed: ${msg}`);
 			}
-			await trafficLight.setStatus(this, "red"); // Ampel = rot
-			await this.setStateAsync("online", false, true); // Server offline
+
+			this.isConnected = false;
+			await trafficLight.setStatus(this, "red");
+			await this.setStateAsync("online", false, true);
+			await this.setStateAsync("info.connection", false, true);
 		}
+	}
+
+	scheduleNextPoll() {
+		const delay = this.isConnected ? this.onlineIntervalMs : this.offlineIntervalMs;
+		this.pollTimer = this.setTimeout(() => this.pollLoop(), delay);
+	}
+
+	async pollLoop() {
+		await this.fetchState().catch(() => {
+			// Fehler werden in fetchState geloggt
+		});
+		this.scheduleNextPoll();
 	}
 
 	/**
@@ -701,7 +751,7 @@ class Autodarts extends utils.Adapter {
 	onUnload(callback) {
 		try {
 			if (this.pollTimer) {
-				clearInterval(this.pollTimer);
+				clearTimeout(this.pollTimer);
 			}
 			if (this.versionTimer) {
 				clearInterval(this.versionTimer);
