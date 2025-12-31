@@ -117,7 +117,7 @@ In **HELP & FAQ** you will find general information and help about the adapter a
 <!--
 	### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 0.7.1 (2025-12-31)
 - (skvarel) Changed: Reduced reconnect delay after offline.
 
 ### 0.7.0 (2025-12-31)

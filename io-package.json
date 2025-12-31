@@ -1,8 +1,21 @@
 {
   "common": {
     "name": "autodarts",
-    "version": "0.7.0",
+    "version": "0.7.1",
     "news": {
+      "0.7.1": {
+        "en": "Changed: Reduced reconnect delay after offline.",
+        "de": "Geändert: Reduzierte Reconnect-Verzögerung nach Offline.",
+        "ru": "Изменение: снижение задержки повторного подключения после офлайна.",
+        "pt": "Alterado: Reconectar atraso reduzido após offline.",
+        "nl": "Veranderd: Verminderde reconnect vertraging na offline.",
+        "fr": "Changed: Réduction du délai de reconnect après hors ligne.",
+        "it": "Cambiato: Riduzione del ritardo di ricollegamento dopo offline.",
+        "es": "Cambio: Reducir el retraso de reconexión después de fuera de línea.",
+        "pl": "Zmiana: Zmniejszone opóźnienie ponownego połączenia po offline.",
+        "uk": "Змінено: Зменшення затримки відключення після вимкнення.",
+        "zh-cn": "更改:下线后减少重联延迟."
+      },
       "0.7.0": {
         "en": "Added: New `status.boardStatus` state. Status indicator of board event (e.g. `\"Stopped\"`, `\"Calibration finished\"`, `\"Started\"`).",
         "de": "Hinzugefügt: Neu `status.boardStatus` Zustand. Statusanzeige des Board-Events (z.B. \"Stopped\", \"Calibration fertig\", \"Started\"\").",
@@ -80,19 +93,6 @@
         "pl": "Naprawiono: Hardware light / Power mapowanie teraz szanuje skonfigurowane identyfikatory docelowe i działa na wszystkich systemach.",
         "uk": "Виправлено: Апаратне освітлення / живлення тепер поважає налаштовувати цільові ідентифікатори і працює на всіх системах.",
         "zh-cn": "固定:硬件光电映射现在尊重已配置的目标ID,并在所有系统中工作."
-      },
-      "0.5.0": {
-        "en": "Added: Bidirectional hardware control states `system.hardware.light` and `system.hardware.power`\nAdded: Configuration options to map light/power states to external ioBroker states (e.g., 0_userdata)\nChanged: Hardware states now support read/write operations for full automation integration",
-        "de": "Hinzugefügt: Bidirektionale Hardware-Steuerzustände `system.hardware.light` und `system.hardware.power `\nHinzugefügt: Konfigurationsoptionen zur Abbildung von Licht/Leistungszuständen zu externen ioBroker Zuständen (z.B. 0_userdata)\nGeändert: Hardware-Staaten unterstützen nun Lese- und Schreibvorgänge für die vollständige Automatisierungsintegration",
-        "ru": "Добавлено: Двунаправленное аппаратное управление состояниями «system.hardware.light» и «system.hardware.power» пункт\nДобавлено: Варианты конфигурации для отображения состояний света/мощности на внешние состояния ioBroker (например, 0_userdata)\nИзменены: штаты оборудования теперь поддерживают операции чтения / записи для полной интеграции автоматизации",
-        "pt": "Adicionado: estados de controle de hardware bidirecional `system.hardware.light' e `system.hardware.power `\nAdicionado: Opções de configuração para mapear estados de luz/poder para estados de ioBroker externos (por exemplo, 0_userdata)\nModificado: Os estados de hardware agora suportam operações de leitura/escrita para integração completa de automação",
-        "nl": "Toegevoegd: Bidirectionele hardware-besturing staat voor  Wat\nToegevoegd: Configuratie-opties voor het in kaart brengen van licht/krachttoestanden naar externe ioBroker-toestanden (bijv. 0_userdata)\nGewijzigd: Hardware toestanden ondersteunen nu lezen/schrijven bewerkingen voor volledige automatisering integratie",
-        "fr": "Ajouté : Les états de contrôle du matériel bidirectionnel `system.hardware.light` et `system.hardware.power \"\nAjouté: Options de configuration pour cartographier les états de lumière/puissance vers les états externes ioBroker (par exemple, 0_userdata)\nChanged: Les états matériels prennent désormais en charge les opérations de lecture/écriture pour l'intégration complète de l'automatisation",
-        "it": "Aggiunto: Bidirectional hardware control stati `system.hardware.light` e `system.hardware.power #\nAggiunto: Opzioni di configurazione per mappare gli stati di luce/potenza agli stati ioBroker esterni (ad esempio, 0_userdata)\nCambiato: gli stati hardware ora supportano le operazioni di lettura/scrittura per l'integrazione completa dell'automazione",
-        "es": "Añadido: Bidirectional hardware control states `system.hardware.light` y `system.hardware.power `\nAñadido: Opciones de configuración para mapear estados de luz/poder a estados de yoBroker externos (por ejemplo, 0_userdata)\nCambio: Los estados de Hardware ahora apoyan operaciones de lectura/escritura para la integración de la automatización completa",
-        "pl": "Dodano: dwukierunkowa kontrola sprzętowa stanów 'system.hardware.light' i 'system.hardware.power'\nDodano: Opcje konfiguracji do mapowania stanów światła / mocy do zewnętrznych stanów jOBroker (np. 0 _ userdata)\nZmiana: Stan sprzętu obsługuje teraz operacje odczytu / zapisu dla pełnej automatyzacji integracji",
-        "uk": "Додано: Двосторонні стани керування обладнанням `system.hardware.light` і `system.hardware.power й\nДодано: Параметри конфігурації для мапи світло/потужних станів на зовнішні стани ioBroker (наприклад, 0_userdata)\nЗмінено: Апаратні стани, які зараз підтримують операції читання/запису для повної інтеграції автоматизації",
-        "zh-cn": "添加:双向硬件控制状态为‘system.hardware.light'和‘system.hardware.power. `\n添加: 将光/ 电状态映射到外部 ioBroker 状态的配置选项( 如 0_ userdata)\n更改: 硬件状态现在支持读/写操作,以便完全自动化集成"
       }
     },
     "titleLang": {
