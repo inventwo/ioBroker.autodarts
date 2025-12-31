@@ -17,7 +17,7 @@ class Autodarts extends utils.Adapter {
 		this.isConnected = false;
 		this.pollTimer = null;
 		this.onlineIntervalMs = 1000; // Platzhalter, wird in onReady gesetzt
-		this.offlineIntervalMs = 60000; // z.B. 60 s
+		this.offlineIntervalMs = 2000; // z.B. 2s
 
 		this.on("ready", this.onReady.bind(this));
 		this.on("stateChange", this.onStateChange.bind(this));
