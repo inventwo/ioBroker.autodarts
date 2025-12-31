@@ -117,7 +117,7 @@ In **HELP & FAQ** you will find general information and help about the adapter a
 <!--
 	### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 0.7.0 (2025-12-31)
 - Added: New `status.boardStatus` state. Status indicator of board event (e.g. `"Stopped"`, `"Calibration finished"`, `"Started"`).
 
 ### 0.6.3 (2025-12-30)
