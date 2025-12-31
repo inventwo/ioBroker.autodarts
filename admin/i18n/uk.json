@@ -15,6 +15,7 @@
     "options": "Опції",
     "options_connection": "Параметри підключення",
     "options_logic": "Параметри логіки",
+    "paypal_donate": "Пожертвуйте за допомогою PayPal",
     "polling": "Інтервал опитування (с)",
     "polling_help": "Інтервал опитування в секундах для отримання даних із Autodarts Boardmanager.",
     "power_target": "LED-Target Power ID",

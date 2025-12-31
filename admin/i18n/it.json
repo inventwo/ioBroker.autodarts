@@ -15,6 +15,7 @@
     "options": "Opzioni",
     "options_connection": "Opzioni di connessione",
     "options_logic": "Opzioni logiche",
+    "paypal_donate": "Dona con PayPal",
     "polling": "Intervallo di polling (s)",
     "polling_help": "Intervallo di polling in secondi per recuperare i dati da Autodarts Boardmanager.",
     "power_target": "ID alimentazione target LED",

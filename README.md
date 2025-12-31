@@ -31,6 +31,7 @@ Connects to your local Autodarts Board Manager (via IP and port, e.g. `192.168.x
 - **`throw.isMiss`**: Boolean flag that is true when the dart does not hit any valid scoring segment (pure miss, no score)
 
 ### Board Status
+- **`status.boardStatus`**: Status indicator of board event (e.g. `"Stopped"`, `"Calibration finished"`, `"Started"`).
 - **`status.trafficLightColor`**: HEX color of current board status
 - **`status.trafficLightState`**: Status indicator
   - `green` = Player may throw
@@ -116,6 +117,9 @@ In **HELP & FAQ** you will find general information and help about the adapter a
 <!--
 	### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+- Added: New `status.boardStatus` state. Status indicator of board event (e.g. `"Stopped"`, `"Calibration finished"`, `"Started"`).
+
 ### 0.6.3 (2025-12-30)
 - (skvarel) Improved: Connection handling now uses `info.connection` and clearly marks the adapter as offline when the Autodarts Board Manager is not reachable (including better timeout/ECONNRESET handling).
 - (skvarel) Changed: Reduced log noise when the board is offline – only one warning is logged when the connection is lost, subsequent timeouts are written as debug messages.

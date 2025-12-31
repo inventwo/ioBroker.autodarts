@@ -15,6 +15,7 @@
     "options": "Параметры",
     "options_connection": "Варианты подключения",
     "options_logic": "Логические параметры",
+    "paypal_donate": "Пожертвовать через PayPal",
     "polling": "Интервал опроса (с)",
     "polling_help": "Интервал опроса в секундах для получения данных из Autodarts Boardmanager.",
     "power_target": "Идентификатор мощности светодиодной мишени",

@@ -88,6 +88,25 @@ class Autodarts extends utils.Adapter {
 			},
 			native: {},
 		});
+		// status.board als String-Datenpunkt im bestehenden status-Channel anlegen
+		await this.extendObjectAsync("status.boardStatus", {
+			type: "state",
+			common: {
+				name: {
+					en: "Board event status",
+					de: "Board-Ereignis-Status",
+				},
+				type: "string",
+				role: "info",
+				read: true,
+				write: false,
+				desc: {
+					en: "Current event value from /api/state",
+					de: "Aktueller event-Wert aus /api/state",
+				},
+			},
+			native: {},
+		});
 		// System-Channel und BoardVersion-Datenpunkt anlegen
 		await this.extendObjectAsync("system", {
 			type: "channel",
@@ -588,6 +607,14 @@ class Autodarts extends utils.Adapter {
 					await trafficLight.setStatus(this, "yellow");
 				}
 
+				// Nur event-Wert in status.boardStatus schreiben
+				if (state.event !== undefined) {
+					await this.setStateAsync("status.boardStatus", {
+						val: state.event,
+						ack: true,
+					});
+				}
+
 				// Nur weiter, wenn throws existieren, Array ist und nicht leer
 				if (!state.throws || !Array.isArray(state.throws) || state.throws.length === 0) {
 					return;
@@ -632,19 +659,25 @@ class Autodarts extends utils.Adapter {
 
 			if (isNetErr) {
 				if (!this.offline) {
-					this.log.warn(`Autodarts not reachable (Board Manager offline or wrong IP): ${msg}`);
+					this.log.warn(`Autodarts not reachable: ${msg}`);
 					this.offline = true;
 				} else {
 					this.log.debug(`Autodarts still offline: ${msg}`);
 				}
+
+				this.isConnected = false;
+				await trafficLight.setStatus(this, "red");
+				await this.setStateAsync("online", false, true);
+				await this.setStateAsync("info.connection", false, true);
+				await this.setStateAsync("status.boardStatus", {
+					val: "offline",
+					ack: true,
+				});
 			} else {
 				this.log.error(`Autodarts request failed: ${msg}`);
+				// Bei anderen Fehlern (z.B. Syntax) nicht auf "offline" setzen
+				// Optional: hier trotzdem online = false setzen, wenn gewünscht
 			}
-
-			this.isConnected = false;
-			await trafficLight.setStatus(this, "red");
-			await this.setStateAsync("online", false, true);
-			await this.setStateAsync("info.connection", false, true);
 		}
 	}
 

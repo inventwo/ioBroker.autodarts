@@ -15,6 +15,7 @@
     "options": "Optionen",
     "options_connection": "Verbindungsoptionen",
     "options_logic": "Logikoptionen",
+    "paypal_donate": "Falls du uns unterstützen möchtest.",
     "polling": "Abfrageintervall (s)",
     "polling_help": "Abfrageintervall in Sekunden zum Abrufen von Daten vom Autodarts Boardmanager.",
     "power_target": "Power-Datenpunkt",

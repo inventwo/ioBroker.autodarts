@@ -28,5 +28,6 @@
     "helps": "Help & FAQ",
     "txt_two": "... more information coming soon!",
     "light_target_brightness": "LED-Target Brightness ID",
-    "light_target_color": "LED-Target Color ID"
+    "light_target_color": "LED-Target Color ID",
+    "paypal_donate": "Donate with PayPal"
 }
