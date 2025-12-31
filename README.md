@@ -118,7 +118,7 @@ In **HELP & FAQ** you will find general information and help about the adapter a
 	### **WORK IN PROGRESS**
 -->
 ### **WORK IN PROGRESS**
-- (skvarel) Changed: Reduced reconnect delay after offline – adapter now polls every 2 seconds when board is unreachable (was 60 seconds), so instance turns green much faster after board restart.
+- (skvarel) Changed: Reduced reconnect delay after offline.
 
 ### 0.7.0 (2025-12-31)
 - (skvarel) Added: New `status.boardStatus` state. Status indicator of board event (e.g. `"Stopped"`, `"Calibration finished"`, `"Started"`).
