@@ -117,7 +117,7 @@ In **HELP & FAQ** you will find general information and help about the adapter a
 <!--
 	### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 0.7.2 (2026-01-03)
 - (skvarel) Fix Copyright Year
 
 ### 0.7.1 (2025-12-31)

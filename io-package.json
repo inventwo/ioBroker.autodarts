@@ -1,8 +1,21 @@
 {
   "common": {
     "name": "autodarts",
-    "version": "0.7.1",
+    "version": "0.7.2",
     "news": {
+      "0.7.2": {
+        "en": "Fix Copyright Year",
+        "de": "Urheberrecht Jahr",
+        "ru": "Год исправления авторских прав",
+        "pt": "Corrigir o Ano de Direitos Autorais",
+        "nl": "Copyrightjaar repareren",
+        "fr": "Fixer l'année du droit d'auteur",
+        "it": "Fissare l'Anno Copyright",
+        "es": "Ejercicio de derechos de autor",
+        "pl": "Napraw rok Copyright",
+        "uk": "Фіксація авторського права",
+        "zh-cn": "修复版权年"
+      },
       "0.7.1": {
         "en": "Changed: Reduced reconnect delay after offline.",
         "de": "Geändert: Reduzierte Reconnect-Verzögerung nach Offline.",
@@ -80,19 +93,6 @@
         "pl": "Dodano: nowy rzut. isMiss stan do wykrywania i uruchamiania automatyzacji na nieodebranych rzutki (w tym auto- reset poprzez triggerResetSec).\nDodano: nowy rzut. isDouble state do wykrywania i uruchamiania automatyzacji na podwójnych segmentach (w tym auto- reset poprzez triggerResetSec).",
         "uk": "Доданий: Новий кицька. isMiss держава для виявлення та запуску автоматизації на пропущених darts (включаючи автозавантаження через тригерResetSec).\nДоданий: Новий кицька. єподвійним станом для виявлення та запуску автоматизації на подвійних сегментах (включаючи автозавантаження через тригерResetSec).",
         "zh-cn": "添加:新掷. 是Miss State,用于检测和触发对丢失的飞镖的自动化(包括通过触发器ResetSec自动重置).\n添加:新掷. isDouble状态在双片段上检测和触发自动化(包括通过触发ResetSec自动重置)."
-      },
-      "0.5.1": {
-        "en": "Fixed: Hardware light/power mapping now respects configured target IDs and works on all systems.",
-        "de": "Behoben: Hardware-Licht/Strom-Mapping respektiert nun konfigurierte Ziel-IDs und arbeitet an allen Systemen.",
-        "ru": "Фиксированный: аппаратное отображение света/мощности теперь учитывает настроенные идентификаторы цели и работает на всех системах.",
-        "pt": "Fixo: O mapeamento de luz/potência de hardware agora respeita IDs de destino configurados e funciona em todos os sistemas.",
-        "nl": "Vast: Hardware licht/kracht mapping respecteert nu geconfigureerde doel ID's en werkt op alle systemen.",
-        "fr": "Correction : La cartographie matérielle de la lumière/puissance respecte désormais les identifiants de cible configurés et fonctionne sur tous les systèmes.",
-        "it": "Risolto: la mappatura della luce/potenza hardware ora rispetta gli ID di destinazione configurati e funziona su tutti i sistemi.",
-        "es": "Fijo: Hardware light/power mapping respeta ahora los IDs de destino configurados y funciona en todos los sistemas.",
-        "pl": "Naprawiono: Hardware light / Power mapowanie teraz szanuje skonfigurowane identyfikatory docelowe i działa na wszystkich systemach.",
-        "uk": "Виправлено: Апаратне освітлення / живлення тепер поважає налаштовувати цільові ідентифікатори і працює на всіх системах.",
-        "zh-cn": "固定:硬件光电映射现在尊重已配置的目标ID,并在所有系统中工作."
       }
     },
     "titleLang": {
