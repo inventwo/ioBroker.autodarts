@@ -1,8 +1,21 @@
 {
   "common": {
     "name": "autodarts",
-    "version": "0.7.2",
+    "version": "0.7.3",
     "news": {
+      "0.7.3": {
+        "en": "Fix Adapter Checker Warnings",
+        "de": "Fix Adapter Checker Warnungen",
+        "ru": "Fix Adapter Checker Предупреждения",
+        "pt": "Corrigir avisos de verificação do adaptador",
+        "nl": "Waarschuwingen voor adaptercontrole herstellen",
+        "fr": "Correction des avertissements du vérificateur d'adaptateur",
+        "it": "Risolvere le avvertenze dell'adattatore",
+        "es": "Advertencias de adaptador de fijación",
+        "pl": "Napraw ostrzeżenia dotyczące kontroli adaptera",
+        "uk": "Перевірити попередження адаптера",
+        "zh-cn": "修正适配器检查器警告"
+      },
       "0.7.2": {
         "en": "Fix Copyright Year",
         "de": "Urheberrecht Jahr",
@@ -80,19 +93,6 @@
         "pl": "Nowy: Strona Ustawienia przepracowała, aby użyć dwóch kart (\"OPTIONS\" i \"MAPPINGS\") dla większej jasności.\nNowy: Mapowanie obiektów jOBroker dla oświetlenia planszy i mocy planszy w zakładce ** MAPPINGS* *. \nUlepszony: Układ strony konfiguracji (szerokość pola, odstępy, teksty) dla bardziej symetrycznego i czystego interfejsu użytkownika.\nUlepszone: Aktualizacja opisów opcji w Interfejsie administracyjnym.",
         "uk": "Новинка: Настроювання сторінки, що перетворюються на використання двох вкладок (`OPTIONS` і `MAPPINGS`) для кращої чіткості.\nНовий: Mapping of ioBroker об'єктів для плати світла і потужності дошки в вкладці **MAPPINGS***.\nПокращується: Схема розміщення сторінки конфігурації (ширині поля, інтервали, тексти) для більш симетричного і чистого інтерфейсу.\nПокращено: Оновлено описи опцій в адмін UI.",
         "zh-cn": "新建: 设置页面重修, 使用两个标签( \" OPTIONS \" 和 \" MAPPINGS \" ) , 以便更加清晰.\nNew:在**MAPPINGS**标签中绘制用于板光和板电的ioBroker对象的映射.\n改进:配置页面的布局(字段宽度,间距,文本),用于更加对称和干净的UI.\n改进:更新了管理员UI中的选项描述."
-      },
-      "0.6.0": {
-        "en": "Added: New throw.isMiss state to detect and trigger automations on missed darts (including auto-reset via triggerResetSec).\nAdded: New throw.isDouble state to detect and trigger automations on double segments (including auto-reset via triggerResetSec).",
-        "de": "Hinzugefügt: Neue Wurf. isMiss-Zustand zu erkennen und Automatisierungen auf verpassten Darts auszulösen (einschließlich Auto-Reset über triggerResetSec).\nHinzugefügt: Neue Wurf. ist doppelter Zustand, um Automatisierungen auf Doppelsegmenten zu erkennen und auszulösen (einschließlich Auto-Reset über triggerResetSec).",
-        "ru": "Добавлено: Новый бросок. состояние Мисс для обнаружения и запуска автоматизации на пропущенных дротиках (включая автоматическое сброс через триггерResetSec).\nДобавлено: Новый бросок. Двойное состояние для обнаружения и запуска автоматизации в двойных сегментах (включая автоперезагрузку через триггерResetSec).",
-        "pt": "Adicionado: Novo lançamento. isMiss estado para detectar e ativar automações em dardos perdidos (incluindo auto-reset via triggerResetSec).\nAdicionado: Novo lançamento. isDouble state to detect and active automations in double segments (incluindo auto-reset via triggerResetSec).",
-        "nl": "Toegevoegd: Nieuwe worp. isMiss staat te detecteren en te triggeren automatisering op gemiste darts (inclusief auto-reset via triggerResetSec).\nToegevoegd: Nieuwe worp. isDubbele toestand te detecteren en te triggeren automatiseringen op dubbele segmenten (inclusief auto-reset via triggerResetSec).",
-        "fr": "Ajouté : Nouveau lancer. isMiss state pour détecter et déclencher les automatismes sur les fléchettes oubliées (y compris auto-reset via triggerResetSec).\nAjouté : Nouveau lancer. est l'état double pour détecter et déclencher les automatismes sur les doubles segments (y compris auto-reset via triggerResetSec).",
-        "it": "Aggiunto: Nuovo tiro. isMiss stato per rilevare e attivare le automazioni sulle freccette mancate (compreso il ripristino automatico tramite triggerResetSec).\nAggiunto: Nuovo tiro. isDouble state per rilevare e attivare le automazioni su due segmenti (compreso il ripristino automatico tramite triggerResetSec).",
-        "es": "Añadido: Nuevo lanzamiento. isMiss state para detectar y desencadenar automatizaciones en dardos perdidos (incluyendo el ajuste automático a través de triggerResetSec).\nAñadido: Nuevo lanzamiento. isDoble estado para detectar y desencadenar automatizaciones en segmentos dobles (incluyendo el ajuste automático a través de triggerResetSec).",
-        "pl": "Dodano: nowy rzut. isMiss stan do wykrywania i uruchamiania automatyzacji na nieodebranych rzutki (w tym auto- reset poprzez triggerResetSec).\nDodano: nowy rzut. isDouble state do wykrywania i uruchamiania automatyzacji na podwójnych segmentach (w tym auto- reset poprzez triggerResetSec).",
-        "uk": "Доданий: Новий кицька. isMiss держава для виявлення та запуску автоматизації на пропущених darts (включаючи автозавантаження через тригерResetSec).\nДоданий: Новий кицька. єподвійним станом для виявлення та запуску автоматизації на подвійних сегментах (включаючи автозавантаження через тригерResetSec).",
-        "zh-cn": "添加:新掷. 是Miss State,用于检测和触发对丢失的飞镖的自动化(包括通过触发器ResetSec自动重置).\n添加:新掷. isDouble状态在双片段上检测和触发自动化(包括通过触发ResetSec自动重置)."
       }
     },
     "titleLang": {

@@ -117,7 +117,7 @@ In **HELP & FAQ** you will find general information and help about the adapter a
 <!--
 	### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 0.7.3 (2026-01-03)
 - (skvarel) Fix Adapter Checker Warnings
 
 ### 0.7.2 (2026-01-03)
