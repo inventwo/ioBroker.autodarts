@@ -117,6 +117,9 @@ In **HELP & FAQ** you will find general information and help about the adapter a
 <!--
 	### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+- (skvarel) Fix Copyright Year
+
 ### 0.7.1 (2025-12-31)
 - (skvarel) Changed: Reduced reconnect delay after offline.
 
@@ -200,7 +203,7 @@ In **HELP & FAQ** you will find general information and help about the adapter a
 ## License
 MIT License
 
-Copyright (c) 2025 skvarel <sk@inventwo.com>
+Copyright (c) 2026 skvarel <sk@inventwo.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
