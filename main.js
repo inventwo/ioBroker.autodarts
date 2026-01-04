@@ -5,6 +5,7 @@ const utils = require("@iobroker/adapter-core");
 const throwLogic = require("./lib/throw");
 const visit = require("./lib/visit");
 const trafficLight = require("./lib/trafficLight");
+const tools = require("./lib/tools");
 const httpHelper = require("./lib/httpHelper");
 
 class Autodarts extends utils.Adapter {
@@ -60,6 +61,12 @@ class Autodarts extends utils.Adapter {
 		this.config.tripleMinScore ??= 1;
 		this.config.tripleMaxScore ??= 20;
 		this.config.triggerResetSec ??= 0; // 0 = kein Auto-Reset
+
+		// NEU: Defaults für Tools-URLs
+		this.config.toolsIp ??= "";
+		this.config.toolsPort ??= 8087;
+		this.config.toolsInstance ??= 0;
+
 		// Polling-Intervall aus Sekunden in Millisekunden berechnen
 		this.onlineIntervalMs = (Number(this.config.intervalSec) || 1) * 1000;
 
@@ -88,6 +95,7 @@ class Autodarts extends utils.Adapter {
 			},
 			native: {},
 		});
+
 		// status.board als String-Datenpunkt im bestehenden status-Channel anlegen
 		await this.extendObjectAsync("status.boardStatus", {
 			type: "state",
@@ -107,7 +115,13 @@ class Autodarts extends utils.Adapter {
 			},
 			native: {},
 		});
-		// System-Channel und BoardVersion-Datenpunkt anlegen
+
+		// WICHTIG: Grundzustand setzen, bevor Polling startet
+		await this.setStateAsync("online", false, true);
+		await this.setStateAsync("info.connection", false, true);
+		await this.setStateAsync("status.boardStatus", { val: "offline", ack: true });
+
+		// System-Channel und Unter-Channels
 		await this.extendObjectAsync("system", {
 			type: "channel",
 			common: {
@@ -118,7 +132,7 @@ class Autodarts extends utils.Adapter {
 			},
 			native: {},
 		});
-		// NEU: Unter-Channels für Hardware und Software
+
 		await this.extendObjectAsync("system.hardware", {
 			type: "channel",
 			common: {
@@ -140,6 +154,7 @@ class Autodarts extends utils.Adapter {
 			},
 			native: {},
 		});
+
 		await this.extendObjectAsync("system.cams", {
 			type: "channel",
 			common: {
@@ -208,6 +223,7 @@ class Autodarts extends utils.Adapter {
 			},
 			native: {},
 		});
+
 		await this.extendObjectAsync("system.software.os", {
 			type: "state",
 			common: {
@@ -284,6 +300,7 @@ class Autodarts extends utils.Adapter {
 			},
 			native: {},
 		});
+
 		// LED State anlegen
 		await this.extendObjectAsync("system.hardware.light", {
 			type: "state",
@@ -296,6 +313,7 @@ class Autodarts extends utils.Adapter {
 			},
 			native: {},
 		});
+
 		// POWER State anlegen
 		await this.extendObjectAsync("system.hardware.power", {
 			type: "state",
@@ -367,7 +385,7 @@ class Autodarts extends utils.Adapter {
 			native: {},
 		});
 
-		// Config-Channel und States für tripleMinScore / tripleMaxScore / triggerResetSec (zur Laufzeit änderbar)
+		// Config-Channel und States für tripleMinScore / tripleMaxScore / triggerResetSec
 		await this.extendObjectAsync("config", {
 			type: "channel",
 			common: {
@@ -436,6 +454,145 @@ class Autodarts extends utils.Adapter {
 			native: {},
 		});
 
+		// tools-Channel und States anlegen
+		const toolsIpTrimmed = (this.config.toolsIp || "").trim();
+		if (toolsIpTrimmed) {
+			await this.extendObjectAsync("tools", {
+				type: "channel",
+				common: {
+					name: {
+						en: "Tools for Autodarts integration",
+						de: "Tools for Autodarts Integration",
+					},
+				},
+				native: {},
+			});
+
+			await this.extendObjectAsync("tools.RAW", {
+				type: "state",
+				common: {
+					name: {
+						en: "RAW event from Tools for Autodarts",
+						de: "RAW-Ereignis von Tools for Autodarts",
+					},
+					type: "string",
+					role: "text",
+					read: true,
+					write: true,
+				},
+				native: {},
+			});
+
+			await this.extendObjectAsync("tools.busted", {
+				type: "state",
+				common: {
+					name: {
+						en: "Busted (trigger)",
+						de: "Busted (Trigger)",
+					},
+					type: "boolean",
+					role: "indicator",
+					read: true,
+					write: false,
+				},
+				native: {},
+			});
+
+			await this.extendObjectAsync("tools.gameon", {
+				type: "state",
+				common: {
+					name: {
+						en: "Game on (trigger)",
+						de: "Game on (Trigger)",
+					},
+					type: "boolean",
+					role: "indicator",
+					read: true,
+					write: false,
+				},
+				native: {},
+			});
+
+			await this.extendObjectAsync("tools.gameshot", {
+				type: "state",
+				common: {
+					name: {
+						en: "Gameshot (trigger)",
+						de: "Gameshot (Trigger)",
+					},
+					type: "boolean",
+					role: "indicator",
+					read: true,
+					write: false,
+				},
+				native: {},
+			});
+			// NEU: Unter-Channel für URL-Infos
+			await this.extendObjectAsync("tools.config", {
+				type: "channel",
+				common: {
+					name: {
+						en: "Tools configuration",
+						de: "Tools-Konfiguration",
+					},
+				},
+				native: {},
+			});
+
+			await this.extendObjectAsync("tools.config.urlBusted", {
+				type: "state",
+				common: {
+					name: {
+						en: "URL for Busted",
+						de: "URL für Busted",
+					},
+					type: "string",
+					role: "text.url",
+					read: true,
+					write: false,
+				},
+				native: {},
+			});
+
+			await this.extendObjectAsync("tools.config.urlGameon", {
+				type: "state",
+				common: {
+					name: {
+						en: "URL for Game on",
+						de: "URL für Game on",
+					},
+					type: "string",
+					role: "text.url",
+					read: true,
+					write: false,
+				},
+				native: {},
+			});
+
+			await this.extendObjectAsync("tools.config.urlGameshot", {
+				type: "state",
+				common: {
+					name: {
+						en: "URL for Gameshot",
+						de: "URL für Gameshot",
+					},
+					type: "string",
+					role: "text.url",
+					read: true,
+					write: false,
+				},
+				native: {},
+			});
+
+			// Tools-Integration initialisieren
+			await tools.init(this);
+
+			// Tools-URLs aus Config generieren (für Admin-Tab)
+			await this.updateToolsUrls();
+		} else {
+			this.log.info("Tools integration disabled: no toolsIp configured");
+		}
+
 		// Laufzeitwerte initial aus Adapter-Config setzen
 		this.tripleMinScoreRuntime = Number(this.config.tripleMinScore) || 1;
 		this.tripleMaxScoreRuntime = Number(this.config.tripleMaxScore) || 20;
@@ -449,7 +606,6 @@ class Autodarts extends utils.Adapter {
 			val: this.tripleMaxScoreRuntime,
 			ack: true,
 		});
-
 		await this.setStateAsync("config.triggerResetSec", {
 			val: this.triggerResetSecRuntime,
 			ack: true,
@@ -508,7 +664,7 @@ class Autodarts extends utils.Adapter {
 	}
 
 	/**
-	 * Reaktion auf State-Änderungen (z. B. config.tripleMinScore / config.tripleMaxScore / config.triggerResetSec)
+	 * Reaktion auf State-Änderungen
 	 *
 	 * @param {string} id  Full state id
 	 * @param {ioBroker.State | null | undefined} state  New state value (ack=false on user write)
@@ -519,6 +675,12 @@ class Autodarts extends utils.Adapter {
 		}
 
 		const idShort = id.replace(`${this.namespace}.`, "");
+
+		// Tools-RAW zuerst behandeln (nur eigene States, nur bei ack=false)
+		if (!state.ack && idShort.startsWith("tools.")) {
+			await tools.handleStateChange(this, idShort, state);
+			return;
+		}
 
 		// 1) Rückrichtung: Foreign-States -> eigene Schalter (immer reagieren)
 		if (this.config.lightTargetId && id === this.config.lightTargetId) {
@@ -532,6 +694,22 @@ class Autodarts extends utils.Adapter {
 
 		// 2) Ab hier nur noch eigene States: nur bei ack === false reagieren
 		if (state.ack) {
+			return;
+		}
+
+		// Tools-Config (IP/Port/Instanz)
+		if (idShort === "toolsIp" || idShort === "toolsPort" || idShort === "toolsInstance") {
+			const val = state.val;
+
+			if (idShort === "toolsIp") {
+				this.config.toolsIp = String(val || "");
+			} else if (idShort === "toolsPort") {
+				this.config.toolsPort = Number(val) || 8087;
+			} else if (idShort === "toolsInstance") {
+				this.config.toolsInstance = Number(val) || 0;
+			}
+
+			await this.updateToolsUrls();
 			return;
 		}
 
@@ -578,6 +756,41 @@ class Autodarts extends utils.Adapter {
 				this.log.warn("Power state changed, but no powerTargetId configured");
 			}
 		}
+	}
+
+	/**
+	 * Aus toolsIp/toolsPort/toolsInstance drei fertige URLs erzeugen
+	 * und in native.toolsUrl* schreiben (für die Admin-Config-Anzeige).
+	 */
+	/**
+	 * Aus toolsIp/toolsPort/toolsInstance drei fertige URLs erzeugen
+	 * und in tools.config.url* schreiben.
+	 */
+	async updateToolsUrls() {
+		const ip = (this.config.toolsIp || "").trim();
+		const port = Number(this.config.toolsPort) || 8087;
+		const inst = Number(this.config.toolsInstance) || 0;
+
+		// Wenn keine IP gesetzt ist: URLs leeren
+		if (!ip) {
+			await this.setStateAsync("tools.config.urlBusted", { val: "", ack: true });
+			await this.setStateAsync("tools.config.urlGameon", { val: "", ack: true });
+			await this.setStateAsync("tools.config.urlGameshot", { val: "", ack: true });
+			return;
+		}
+
+		const base = `http://${ip}:${port}`;
+		const id = `autodarts.${inst}`;
+
+		const urlBusted = `${base}/set/${id}.tools.RAW?value=busted`;
+		const urlGameon = `${base}/set/${id}.tools.RAW?value=gameon`;
+		const urlGameshot = `${base}/set/${id}.tools.RAW?value=gameshot`;
+
+		await this.setStateAsync("tools.config.urlBusted", { val: urlBusted, ack: true });
+		await this.setStateAsync("tools.config.urlGameon", { val: urlGameon, ack: true });
+		await this.setStateAsync("tools.config.urlGameshot", { val: urlGameshot, ack: true });
+
+		this.log.debug(`Updated Tools URLs: ${urlBusted}, ${urlGameon}, ${urlGameshot}`);
 	}
 
 	/**
@@ -675,8 +888,6 @@ class Autodarts extends utils.Adapter {
 				});
 			} else {
 				this.log.error(`Autodarts request failed: ${msg}`);
-				// Bei anderen Fehlern (z.B. Syntax) nicht auf "offline" setzen
-				// Optional: hier trotzdem online = false setzen, wenn gewünscht
 			}
 		}
 	}
@@ -714,7 +925,6 @@ class Autodarts extends utils.Adapter {
 			await this.setStateAsync("system.cams.cam1", { val: json, ack: true });
 			await this.setStateAsync("system.cams.cam2", { val: json, ack: true });
 		} catch (error) {
-			// Bei Fehler keine Log-Warnung
 			if (
 				error &&
 				typeof error === "object" &&
@@ -725,6 +935,7 @@ class Autodarts extends utils.Adapter {
 			}
 		}
 	}
+
 	/**
 	 * Host-Informationen abfragen
 	 */
@@ -769,7 +980,6 @@ class Autodarts extends utils.Adapter {
 				ack: true,
 			});
 		} catch (error) {
-			// Bei Fehler keine Log-Warnung
 			if (
 				error &&
 				typeof error === "object" &&

@@ -1,11 +1,9 @@
 ![Logo](admin/autodarts.svg)
 ## Adapter for Autodarts Integration
 
-![Number of Installations](https://iobroker.live/badges/autodarts-installed.svg)
-![Current version in stable repository](https://iobroker.live/badges/autodarts-stable.svg)
+![Number of Installations](https://iobroker.live/badges/autodarts-installed.svg)<!--![Current version in stable repository](https://iobroker.live/badges/autodarts-stable.svg)-->
 [![NPM Version](https://nodei.co/npm/iobroker.autodarts.svg?style=shields&data=v,u,d&color=orange)](https://www.npmjs.com/package/iobroker.autodarts)
-
-[![Downloads](https://img.shields.io/npm/dm/iobroker.autodarts.svg)](https://www.npmjs.com/package/iobroker.autodarts)
+<!--[![Downloads](https://img.shields.io/npm/dm/iobroker.autodarts.svg)](https://www.npmjs.com/package/iobroker.autodarts)-->
 
 [![Paypal Donation](https://img.shields.io/badge/paypal-donate%20|%20spenden-green.svg)](https://www.paypal.com/donate/?hosted_button_id=7W6M3TFZ4W9LW)
 
@@ -51,6 +49,11 @@ Connects to your local Autodarts Board Manager (via IP and port, e.g. `192.168.x
 - **`config.tripleMinScore/tripleMaxScore`**: Adjust triple trigger thresholds during runtime
 - **`config.triggerResetSec`**: Auto-reset time for triple/double/bullseye/miss flags
 
+### Tools Addon Integration
+- **`tools.RAW`**: Input state used to receive events from browser tools (e.g. busted, gameon, gameshot).
+- **`tools.busted/tools.gameon/tools.gameshot`**: Read-only trigger flags that are set when the corresponding event is received via tools.RAW.
+- **`tools.config.urlBusted/urlGameon/urlGameshot`**: Pre-generated HTTP URLs (simple-api calls) that can be copied into the Tools for Autodarts browser extension.
+
 ## What this adapter does NOT do
 
 - ❌ No data is sent to the internet or to third-party servers
@@ -64,7 +67,7 @@ All data stays local on your ioBroker system.
 
 ![Configuration Screenshot](docs/config-screenshot.png)
 
-The adapter settings are split into two tabs: **OPTIONS** and **MAPPINGS**.
+### The adapter settings are split into four tabs: **OPTIONS**, **MAPPINGS**, **TOOLS ADDON INTEGRATION** and **HELPS**.
 
 ### Tab: OPTIONS
 
@@ -99,7 +102,13 @@ In **MAPPINGS** you can link existing ioBroker states to the hardware related ad
   ioBroker state ID that is synchronized with `system.hardware.power`  
   (e.g. `0_userdata.0.Autodarts.POWER` or a state of a smart plug).
 
+
 When configured, changes on either side (adapter state or external state) are synchronized bidirectionally so you can both control the board from ioBroker and react on board events.
+
+### Tab: TOOLS ADDON INTEGRATION
+- Configure IP, port and instance so the adapter can generate HTTP URLs that point to your ioBroker simple-api endpoint.
+​
+- The final URLs for Busted, Game On and Gameshot are exposed as states under autodarts.X.tools.config.urlBusted/urlGameon/urlGameshot and can be copied into the Tools for Autodarts browser extension.
 
 ### Tab: HELP & FAQ
 
@@ -117,6 +126,9 @@ In **HELP & FAQ** you will find general information and help about the adapter a
 <!--
 	### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+- (skvarel) Added: New **TOOLS ADDON INTEGRATION** tab and runtime-generated URL states under `tools.config.*` for browser-based integrations (e.g. Tools for Autodarts).
+
 ### 0.7.3 (2026-01-03)
 - (skvarel) Fix Adapter Checker Warnings
 

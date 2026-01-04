@@ -169,7 +169,13 @@
     "tripleMinScore": 1,
     "tripleMaxScore": 20,
     "lightTargetId": "",
-    "powerTargetId": ""
+    "powerTargetId": "",
+    "toolsIp": "",
+    "toolsPort": 8087,
+    "toolsInstance": 0,
+    "toolsUrlBusted": "",
+    "toolsUrlGameon": "",
+    "toolsUrlGameshot": ""
   },
   "objects": [],
   "instanceObjects": []

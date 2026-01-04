@@ -17,10 +17,10 @@
     "power_target": "LED-Target Power ID",
     "power_target_help": "ID of the power target to control power via Autodarts (e.g., 'switch.darts_socket'). Leave empty to disable power control.",
     "options": "Options",
-    "mappings":"Mappings",
+    "mappings": "Hardware Mappings",
     "options_connection": "Connection Options",
     "options_logic": "Logic Options",
-    "txt_one": "This adapter connects your local Autodarts Board Manager to ioBroker.\n\n1) Configure the connection under OPTIONS (host, port, polling, triple range).\n2) Map light and power targets under MAPPINGS.\n3) Use the created states (throws, traffic light, hardware) in your visualizations, scripts and scenes.",
+    "txt_one": "<b>This adapter connects your local Autodarts Board Manager to ioBroker.</b><br><br>1) Configure the connection under OPTIONS (host, port, polling, triple range).<br>2) Map light and power targets under MAPPINGS.<br>3) Use the created states (throws, traffic light, hardware) in your visualizations, scripts and scenes.",
     "light_txt": "Light Control Mapping (optional)",
     "light_txt_desc": "Get your lighting data points into the adapter objects.",
     "power_txt": "Power Control Mapping (optional)",
@@ -29,5 +29,14 @@
     "txt_two": "... more information coming soon!",
     "light_target_brightness": "LED-Target Brightness ID",
     "light_target_color": "LED-Target Color ID",
-    "paypal_donate": "Donate with PayPal"
+    "paypal_donate": "Donate with PayPal",
+    "tools_ip": "IP address of ioBroker",
+    "tools_ip_help": "IP or hostname where your ioBroker / simple-api adapter is reachable.",
+    "tools_port": "Port of the simple-api adapter",
+    "tools_port_help": "Default: 8087",
+    "tools_instance": "Autodarts instance number",
+    "tools_instance_help": "0 for autodarts.0, 1 for autodarts.1, etc.",
+    "tools_urls_info": "The final call URLs for Busted, Game on and Gameshot can be found in the states under autodarts.X.tools.config.* in the objects tree.<br><br>The URLs are then entered into the WLED integration (in the browser add-on)",
+    "tools_tab": "Tools Addon Integration",
+    "txt_tools": "This tab configures the integration with the “Tools for Autodarts” browser extension.<br><br>To use it, you must have the browser extension installed and the ioBroker simple-api adapter running and reachable from your browser."
 }

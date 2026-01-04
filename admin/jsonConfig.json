@@ -408,6 +408,78 @@
         }
       }
     },
+    "_tools": {
+      "type": "panel",
+      "label": "tools_tab",
+      "icon": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCI+PHBhdGggZmlsbD0iY3VycmVudENvbG9yIiBkPSJNMjAsN0g5VjVoMTFWN00yMCw5SDlWN0gyMFY5TTE1LDExSDEyVjEzSDE1VjExTTE5LDEwSDZ2MTBoMTNWMTBaTTEwLDE2SDhWMTlIMTBWMTZaIiAvPjwvc3ZnPg==",
+      "items": {
+        "txtTools": {
+          "type": "staticText",
+          "text": "txt_tools",
+          "newLine": true,
+          "xs": 12,
+          "sm": 12,
+          "md": 6,
+          "lg": 6,
+          "xl": 6,
+          "style": {
+            "marginTop": "0px",
+            "marginBottom": "20px",
+            "fontSize": "14px"
+          }
+        },
+        "toolsIp": {
+          "type": "text",
+          "label": "tools_ip",
+          "help": "tools_ip_help",
+          "default": "",
+          "newLine": true,
+          "xs": 12,
+          "sm": 12,
+          "md": 4,
+          "lg": 4,
+          "xl": 4
+        },
+        "toolsPort": {
+          "type": "number",
+          "label": "tools_port",
+          "help": "tools_port_help",
+          "default": 8087,
+          "newLine": false,
+          "xs": 12,
+          "sm": 12,
+          "md": 4,
+          "lg": 4,
+          "xl": 4
+        },
+        "toolsInstance": {
+          "type": "number",
+          "label": "tools_instance",
+          "help": "tools_instance_help",
+          "default": 0,
+          "newLine": false,
+          "xs": 12,
+          "sm": 12,
+          "md": 4,
+          "lg": 4,
+          "xl": 4
+        },
+        "toolsUrlsInfo": {
+          "type": "staticText",
+          "text": "tools_urls_info",
+          "newLine": true,
+          "xs": 12,
+          "sm": 12,
+          "md": 12,
+          "lg": 12,
+          "xl": 12,
+          "style": {
+            "marginTop": "30px",
+            "fontSize": "13px"
+          }
+        }
+      }
+    },
     "_help": {
       "type": "panel",
       "label": "helps",
