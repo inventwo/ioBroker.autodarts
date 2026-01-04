@@ -1,8 +1,21 @@
 {
   "common": {
     "name": "autodarts",
-    "version": "0.7.3",
+    "version": "0.8.0",
     "news": {
+      "0.8.0": {
+        "en": "Added: New **TOOLS ADDON INTEGRATION** tab and runtime-generated URL states under `tools.config.*` for browser-based integrations (e.g. Tools for Autodarts).",
+        "de": "Hinzugefügt: Neue **TOOLS ADDON INTEGRATION** und Runtime-generierte URL-Staaten unter `tools.config.* für Browser-basierte Integrationen (z.B. Tools for Autodarts).",
+        "ru": "Добавлено: новая вкладка **TOOLS ADDON INTEGRATION** и URL-адреса, генерируемые во время выполнения, в разделе «tools.config.*» для интеграций на основе браузера (например, Tools for Autodarts).",
+        "pt": "Adicionado: Novo **TOOLS ADDON INTEGRATION** aba e estados de URL gerados em tempo de execução em `tools.config.*` para integrações baseadas em navegador (por exemplo, Ferramentas para Autodarts).",
+        "nl": "Toegevoegd: Nieuwe **TOOLS ADDON INTEGRATION** tabblad en runtime-gegenereerde URL-toestanden onder .",
+        "fr": "Ajouté : nouvel onglet **TOOLS ADDON INTEGRATION** et états d'URL générés par l'exécution sous `tools.config.*` pour les intégrations basées sur le navigateur (par exemple Outils pour Autodarts).",
+        "it": "Aggiunto: New **TOOLS ADDON INTEGRATION** tab and runtime-generated URL stati sotto `tools.config.*` per le integrazioni basate sul browser (ad esempio Strumenti per Autodarts).",
+        "es": "Añadido: Nuevo **TOOLS ADDON INTEGRATION** pestaña y estados URL generados por tiempo de ejecución bajo `tools.config.*` para integraciones basadas en el navegador (por ejemplo, Herramientas para Autodarts).",
+        "pl": "Dodano: New ** TOOLS ADDON INTEGRATION* * tab and runtime- genered URL states under 'tools.config.*' for browser- based integrations (np. Tools for Autodarts). ",
+        "uk": "Додано: New **TOOLS ADDON INTEGRATION*** вкладка та пускові дегенеровані стани URL під `tools.config.*` для інтеграції браузера (наприклад, Інструменти для Autodarts).",
+        "zh-cn": "添加:在“tools.config.QQ”下新建 **TOOLS ADDON INTEGINation**标签和运行时间生成的URL状态,用于基于浏览器的集成(例如,用于自动化的工具)."
+      },
       "0.7.3": {
         "en": "Fix Adapter Checker Warnings",
         "de": "Fix Adapter Checker Warnungen",
@@ -80,19 +93,6 @@
         "pl": "Ulepszone: Strona ustawień przepracowała użycie trzech kart (\"OPTIONS\", \"MAPPINGS\" i \"HELP & FAQ\") dla większej jasności.",
         "uk": "Удосконалено: Настроювання сторінки, що перетворюються на використання трьох вкладок (`OPTIONS`, `MAPPINGS` та `HELP & FAQ`) для кращої чіткості.",
         "zh-cn": "改进:重新编译了设置页,以使用三个标签(`OPTIONS ' 、`MAPPINGS ' 和`HELP & FAQ` ' ),以便更加清晰."
-      },
-      "0.6.1": {
-        "en": "New: Settings page reworked to use two tabs (`OPTIONS` and `MAPPINGS`) for better clarity.\nNew: Mapping of ioBroker objects for board light and board power in the **MAPPINGS** tab.\nImproved: Layout of the configuration page (field widths, spacing, texts) for a more symmetric and clean UI.\nImproved: Updated option descriptions in the admin UI.",
-        "de": "Neu: Einstellungen Seite neu bearbeitet, um zwei Registerkarten (`OPTIONS` und `MAPPINGS`) für bessere Klarheit zu verwenden.\nNeu: Mapping von ioBroker Objekten für Board-Licht und Board-Power im **MAPPINGS** Tab.\nVerbessert: Layout der Konfigurationsseite (Feldbreiten, Abstand, Texte) für eine symmetrischere und sauberere UI.\nVerbessert: Aktualisierte Optionsbeschreibungen im Admin UI.",
-        "ru": "Новая страница настроек, переработанная для использования двух вкладок («ВЫБОРЫ» и «МАППИНГЫ») для большей ясности.\nНовое: Картирование объектов ioBroker для освещения доски и питания доски во вкладке **MAPPINGS**.\nУлучшено: Раскладка страницы конфигурации (ширина поля, интервал, тексты) для более симметричного и чистого пользовательского интерфейса.\nУлучшенный: Обновленные описания опций в пользовательском интерфейсе администратора.",
-        "pt": "Novo: Página de configurações retrabalhou para usar duas abas (`OPTIONS' e `APPPINGS`) para melhor clareza.\nNovo: Mapeamento de objetos ioBroker para luz de placa e poder de placa na aba ** MAPPINGS**.\nMelhorado: Disposição da página de configuração (larguras de campo, espaçamento, textos) para uma interface mais simétrica e limpa.\nMelhorado: Descrições atualizadas da opção na interface de administração.",
-        "nl": "Nieuw: De pagina Instellingen herwerkt om twee tabbladen te gebruiken voor een betere helderheid.\nNieuw: Mapping van ioBroker objecten voor board licht en board power in de **MAPPINGS** tab.\nVerbeterd: Indeling van de configuratiepagina (veldbreedtes, afstand, teksten) voor een meer symmetrische en schone UI.\nVerbeterd: Bijgewerkte optiebeschrijvingen in de admin UI.",
-        "fr": "Nouveau : la page Paramètres a été retravaillée pour utiliser deux onglets (`OPTIONS` et `MAPPINGS`) pour une meilleure clarté.\nNouveau : Cartographie des objets ioBroker pour la lumière et la puissance de la planche dans l'onglet **MAPPINGS**.\nAmélioration : Mise en page de configuration (largeurs de champs, espacement, textes) pour une interface utilisateur plus symétrique et propre.\nAmélioration : Mise à jour des descriptions des options dans l'interface utilisateur admin.",
-        "it": "Nuovo: Impostazioni pagina rielaborata per utilizzare due schede (`OPTIONS` e `MAPPINGS`) per una migliore chiarezza.\nNuovo: mappatura di oggetti ioBroker per luce di bordo e alimentazione di bordo nella scheda **MAPPINGS**.\nMigliorato: Layout della pagina di configurazione (larghezza campo, spaziatura, testi) per un'interfaccia utente più simmetrica e pulita.\nMigliorato: le descrizioni delle opzioni aggiornate nell'interfaccia utente di admin.",
-        "es": "Nuevo: página Ajustes reelaborado para utilizar dos pestañas (`OPTIONS` y `MAPPINGS') para una mejor claridad.\nNuevo: Mapping of ioBroker objects for board light and board power in the **MAPPINGS** tab.\nMejorado: Diseño de la página de configuración (ancho de campo, espaciado, textos) para una interfaz de usuario más simétrica y limpia.\nMejorado: Actualización de las descripciones de opciones en la interfaz de usuario del administrador.",
-        "pl": "Nowy: Strona Ustawienia przepracowała, aby użyć dwóch kart (\"OPTIONS\" i \"MAPPINGS\") dla większej jasności.\nNowy: Mapowanie obiektów jOBroker dla oświetlenia planszy i mocy planszy w zakładce ** MAPPINGS* *. \nUlepszony: Układ strony konfiguracji (szerokość pola, odstępy, teksty) dla bardziej symetrycznego i czystego interfejsu użytkownika.\nUlepszone: Aktualizacja opisów opcji w Interfejsie administracyjnym.",
-        "uk": "Новинка: Настроювання сторінки, що перетворюються на використання двох вкладок (`OPTIONS` і `MAPPINGS`) для кращої чіткості.\nНовий: Mapping of ioBroker об'єктів для плати світла і потужності дошки в вкладці **MAPPINGS***.\nПокращується: Схема розміщення сторінки конфігурації (ширині поля, інтервали, тексти) для більш симетричного і чистого інтерфейсу.\nПокращено: Оновлено описи опцій в адмін UI.",
-        "zh-cn": "新建: 设置页面重修, 使用两个标签( \" OPTIONS \" 和 \" MAPPINGS \" ) , 以便更加清晰.\nNew:在**MAPPINGS**标签中绘制用于板光和板电的ioBroker对象的映射.\n改进:配置页面的布局(字段宽度,间距,文本),用于更加对称和干净的UI.\n改进:更新了管理员UI中的选项描述."
       }
     },
     "titleLang": {
