@@ -5,7 +5,7 @@
 
 - [Optionen](config.md)
 - [Hardware-Zuweisungen](mapping.md)
-- [Tools Addon Integration](tools)
+- [Tools Addon Integration](tools.md)
 - [Hilfe & FAQ](faq.md)
 
 #### ioBroker-seitig
