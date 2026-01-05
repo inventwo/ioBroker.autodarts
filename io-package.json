@@ -1,8 +1,21 @@
 {
   "common": {
     "name": "autodarts",
-    "version": "0.8.0",
+    "version": "0.8.1",
     "news": {
+      "0.8.1": {
+        "en": "Added: New DE/EN adapter documentation under `/docs` with separate pages for all config tabs (Options, Mappings, Tools addon integration, Help & FAQ).\nImproved: Main README cleaned up and linked to the new documentation (badges, feature overview, configuration section).\nImproved: Clarified Tools addon integration flow (Simple-API requirements, generated URLs, WLED usage).",
+        "de": "Hinzugefügt: Neue DE/EN-Adapterdokumentation unter `/docs` mit separaten Seiten für alle Config-Tabs (Optionen, Mappings, Tools Addon Integration, Help & FAQ).\nVerbessert: Haupt-README gereinigt und mit der neuen Dokumentation verknüpft (Badges, Funktionsübersicht, Konfigurationsabschnitt).\nVerbessert: Clarified Tools Addon Integration Flow (Simple-API Anforderungen, generierte URLs, WLED-Nutzung).",
+        "ru": "Добавлена: новая адаптерная документация DE/EN в разделе «/docs» с отдельными страницами для всех вкладок конфигураций (Options, Mappings, Tools addon integration, Help & FAQ).\nУлучшенный: основной README очищен и связан с новой документацией (знаки, обзор функций, раздел конфигурации).\nУлучшенный: поток интеграции дополнений Clarified Tools (простые требования API, генерируемые URL-адреса, использование WLED).",
+        "pt": "Adicionado: Nova documentação do adaptador DE/EN sob `/docs` com páginas separadas para todas as abas de configuração (Opções, Mapeamentos, Integração addon de Ferramentas, Ajuda e FAQ).\nMelhorado: Principal README limpou e vinculado à nova documentação (falhas, visão geral do recurso, seção de configuração).\nMelhorado: Fluxo de integração addon de Ferramentas Clarificadas (Requisitos API simples, URLs geradas, uso WLED).",
+        "nl": "Toegevoegd: Nieuwe DE/EN-adapterdocumentatie onder .\nVerbeterd: Main README opgeruimd en gekoppeld aan de nieuwe documentatie (badges, functie overzicht, configuratie sectie).\nVerbeterd: Clarified Tools addon integration flow (Simple-API eisen, gegenereerde URL's, WLED gebruik).",
+        "fr": "Ajouté: Nouvelle documentation d'adaptateur DE/EN sous `/docs` avec des pages séparées pour tous les onglets de configuration (Options, Mappings, Outils d'intégration, Aide & FAQ).\nAmélioration: Main README nettoyé et relié à la nouvelle documentation (mauvaises, aperçu des fonctionnalités, section de configuration).\nAmélioration : flux d'intégration addon d'outils clarifiés (exigences Simple-API, URL générée, utilisation WLED).",
+        "it": "Aggiunto: Nuova documentazione dell'adattatore DE/EN sotto `/docs` con pagine separate per tutte le schede di configurazione (Options, Mappings, Tools addon integration, Help & FAQ).\nMigliorato: README principale ripulito e collegato alla nuova documentazione (cattivi, panoramica delle caratteristiche, sezione configurazione).\nMigliorato: Clarified Tools addon integration flow (requisiti Simple-API, URL generati, utilizzo WLED).",
+        "es": "Añadido: Nueva documentación de adaptador DE/EN bajo `/docs` con páginas separadas para todas las pestañas de configuración (Opciones, Mappings, integración de herramientas addon, Ayuda > FAQ).\nMejorado: El README principal se limpió y se vinculó con la nueva documentación (badges, descripción de características, sección de configuración).\nMejorado: Flujo de integración de Herramientas Aclaradas (requisitos Simple-API, URLs generadas, uso WLED).",
+        "pl": "Dodano: Nowa dokumentacja adaptera DE / EN pod '/ docs' z osobnymi stronami dla wszystkich kart konfiguracyjnych (Opcje, Mappings, Narzędzia integracji addon, Pomoc & FAQ).\nUlepszony: Główny README wyczyścił i podłączony do nowej dokumentacji (odznaki, przegląd funkcji, sekcja konfiguracji).\nUlepszone: Klarowne narzędzia przepływu integracji addon (wymagania Simplemen- API, generowane adresy URL, wykorzystanie WLED).",
+        "uk": "Додано: Нова документація адаптера DE/EN під `/docs` з окремими сторінками для всіх вкладок налаштувань (Options, Mappings, Tools addon інтеграції, Допомога & FAQ).\nУдосконалено: Головне ОБМЕЖЕННЕ очищення та пов’язане з новою документацією (податки, огляд функцій, розділ конфігурації).\nУдосконалено: Уточнено інтеграційний потік кларатифікованих інструментів (для вимог АПІ, створених URL-адрес, використання WLED).",
+        "zh-cn": "添加: \" /docs \" 下新的DE/EN适配文件,所有配置标签(选项、绘图、工具添加集成、帮助和FAQ)都有单独的网页.\n改进:主要README清理并连接到新的文档(栏目,特征概述,配置部分).\n改进:claized Tools addon集成流(Simple-API要求,生成URL,WLED使用)."
+      },
       "0.8.0": {
         "en": "Added: New **TOOLS ADDON INTEGRATION** tab and runtime-generated URL states under `tools.config.*` for browser-based integrations (e.g. Tools for Autodarts).",
         "de": "Hinzugefügt: Neue **TOOLS ADDON INTEGRATION** und Runtime-generierte URL-Staaten unter `tools.config.* für Browser-basierte Integrationen (z.B. Tools for Autodarts).",
@@ -80,19 +93,6 @@
         "pl": "Ulepszone: Obsługa połączeń używa teraz 'info.connection' i wyraźnie oznacza, że adapter jest offline, gdy menedżer Zarządu Autodarts nie jest osiągalny (w tym lepszy czas / obsługa ECONNRESET).\nZmieniono: Zmniejszony hałas logowania, gdy deska jest offline - tylko jedno ostrzeżenie jest logowane, gdy połączenie jest utracone, kolejne timeout są zapisywane jako wiadomości debugowania.\nPoprawa: Drobne poprawki do tekstów zakładek HELP & FAQ i opisów konfiguracji.",
         "uk": "Удосконалено: З'єднання, що працює зараз, використовує `info.connection` і чітко позначається перехідник в автономному режимі, коли Менеджер по роботі з клієнтами Autodarts не досягається (включаючи кращий час / ECONNRESET).\nЗмінено: Зменшення шуму логіну, коли плата відсутня – тільки одна попередження ввійде, коли з'єднання втрачено, подальші часові маршрути письмові як дебвугові повідомлення.\nПокращений: Ми можемо самі зателефонувати одержувачу і узгодити зручний час.",
         "zh-cn": "改进:连接处理现在使用“info.connection”,并在自动调试板管理员无法到达时(包括更好的超时/ECONRESET处理)将适配器明确标记为离线.\n已更改 : 当棋盘下线时减少日志噪声——当连接丢失时只记录一个警告,随后的超时被写成调试消息.\n改进: 微调到 Help & FAQ 标签文本和配置描述 ."
-      },
-      "0.6.2": {
-        "en": "Improved: Settings page reworked to use three tabs (`OPTIONS`, `MAPPINGS` and `HELP & FAQ`) for better clarity.",
-        "de": "Verbessert: Einstellungen Seite neu bearbeitet, um drei Registerkarten (`OPTIONS`, `MAPPINGS` und `HELP & FAQ`) für bessere Klarheit zu verwenden.",
-        "ru": "Улучшенная: страница настроек, переработанная для использования трех вкладок («ВЫБОРЫ», «МАППИНГЫ» и «HELP & FAQ») для большей ясности.",
-        "pt": "Melhorado: Página de configurações retrabalhada para usar três abas (`OPTIONS', `APPPINGS' e `HELP & FAQ`) para melhor clareza.",
-        "nl": "Verbeterd: De pagina Instellingen herwerkt om drie tabbladen te gebruiken voor een betere helderheid.",
-        "fr": "Amélioration : La page Paramètres a été retravaillée pour utiliser trois onglets (`OPTIONS`, `MAPPINGS` et `HELP & FAQ`) pour une meilleure clarté.",
-        "it": "Migliorato: Impostazioni pagina rielaborata per utilizzare tre schede (`OPTIONS`, `MAPPINGS` e `HELP & FAQ`) per una migliore chiarezza.",
-        "es": "Mejorado: la página Ajustes se reelaboró para utilizar tres pestañas ( \" OPCIONES \" , \" MAPPINGS \" y \" HELP \" FAQ \" ) para mayor claridad.",
-        "pl": "Ulepszone: Strona ustawień przepracowała użycie trzech kart (\"OPTIONS\", \"MAPPINGS\" i \"HELP & FAQ\") dla większej jasności.",
-        "uk": "Удосконалено: Настроювання сторінки, що перетворюються на використання трьох вкладок (`OPTIONS`, `MAPPINGS` та `HELP & FAQ`) для кращої чіткості.",
-        "zh-cn": "改进:重新编译了设置页,以使用三个标签(`OPTIONS ' 、`MAPPINGS ' 和`HELP & FAQ` ' ),以便更加清晰."
       }
     },
     "titleLang": {
