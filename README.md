@@ -18,6 +18,12 @@ Connects to your local Autodarts Board Manager (via IP and port, e.g. `192.168.x
 - Control board hardware (lighting, power)
 - Trigger any other ioBroker automation based on dart events
 
+## Documentation
+
+- 🇺🇸 [Documentation](./docs/en/README.md)
+- 🇩🇪 [Dokumentation](./docs/de/README.md)
+
+
 ## Features
 
 ### Game State & Throws
@@ -67,7 +73,7 @@ All data stays local on your ioBroker system.
 
 ![Configuration Screenshot](docs/config-screenshot.png)
 
-### The adapter settings are split into four tabs: **OPTIONS**, **MAPPINGS**, **TOOLS ADDON INTEGRATION** and **HELPS**.
+### The adapter settings are split into four tabs: **OPTIONS**, **MAPPINGS**, **TOOLS ADDON INTEGRATION** and **HELP & FAQ**.
 
 ### Tab: OPTIONS
 
@@ -126,6 +132,11 @@ In **HELP & FAQ** you will find general information and help about the adapter a
 <!--
 	### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+- (skvarel) Added: New DE/EN adapter documentation under `/docs` with separate pages for all config tabs (Options, Mappings, Tools addon integration, Help & FAQ).
+- (skvarel) Improved: Main README cleaned up and linked to the new documentation (badges, feature overview, configuration section).
+- (skvarel) Improved: Clarified Tools addon integration flow (Simple-API requirements, generated URLs, WLED usage).
+
 ### 0.8.0 (2026-01-04)
 - (skvarel) Added: New **TOOLS ADDON INTEGRATION** tab and runtime-generated URL states under `tools.config.*` for browser-based integrations (e.g. Tools for Autodarts).
 
