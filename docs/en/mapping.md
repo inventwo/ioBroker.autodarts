@@ -4,7 +4,7 @@
 
 ## Hardware assignments
 
-![Hardware assignments tab](img/tabMappingEn.png)
+![Hardware assignments tab](img/tabMappingEn.PNG)
 
 The **Hardware assignments** tab links optional ioBroker data points to the Autodarts objects, for example for light and power control.
 

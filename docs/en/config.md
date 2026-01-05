@@ -4,7 +4,7 @@
 
 ## Options
 
-![Options tab](img/tabConfigEn.png)
+![Options tab](img/tabConfigEn.PNG)
 
 The **Options** tab contains the general connection settings for the Autodarts Boardmanager as well as a few parameters for the trigger logic.
 

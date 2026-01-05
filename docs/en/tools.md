@@ -4,11 +4,11 @@
 
 ## Tools addon integration
 
-![Tools tab](img/tabToolsEn.png)
+![Tools tab](img/tabToolsEn.PNG)
 
 The **Tools addon integration** tab connects your ioBroker system with the **“Tools for Autodarts”** browser extension (tested with Chrome and Firefox).
 
-![Tools for Autodarts](img/toolsForAutodarts.png)
+![Tools for Autodarts](img/toolsForAutodarts.PNG)
 
 ## Requirements
 
@@ -26,7 +26,7 @@ In the **Tools addon integration** tab you enter the following information:
 After saving, the adapter automatically generates three URLs.  
 You can find them in the adapter objects under:
 
-![Tools objects](img/toolsObject.png)
+![Tools objects](img/toolsObject.PNG)
 
 ### Example URLs
 
@@ -44,11 +44,11 @@ The URLs follow the usual Simple-API pattern `http://<ip>:<port>/set/<stateId>?v
 These URLs are entered in the **WLED settings** of the Tools addon  
 (*Autodarts Tools → Sounds & Animations → WLED*).
 
-![WLED list](img/toolsWLED1.png)
+![WLED list](img/toolsWLED1.PNG)
 
 Use the pencil icon to edit an entry and paste the corresponding URL:
 
-![WLED details](img/toolsWLED2.png)
+![WLED details](img/toolsWLED2.PNG)
 
 Any warnings shown by the addon for these URLs can be ignored as long as the call itself is correct.
 
@@ -58,6 +58,6 @@ Once the URLs are configured, the addon sends an HTTP request to your ioBroker i
 
 The adapter then briefly sets the matching trigger data point (for example `autodarts.0.tools.busted`, `...gameon`, `...gameshot`) to `true`:
 
-![Trigger objects](img/toolsObject2.png)
+![Trigger objects](img/toolsObject2.PNG)
 
 You can use these trigger data points as starting points for further **automations** in scripts, scenes or other adapters (e.g. WLED effects, room lighting, sounds).

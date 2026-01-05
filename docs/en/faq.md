@@ -4,7 +4,7 @@
 
 ## Help & FAQ
 
-![Help tab](img/tabFaqEn.png)
+![Help tab](img/tabFaqEn.PNG)
 
 This tab provides short answers to common questions and issues related to the adapter.
 
