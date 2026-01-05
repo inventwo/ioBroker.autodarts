@@ -132,7 +132,7 @@ In **HELP & FAQ** you will find general information and help about the adapter a
 <!--
 	### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 0.8.2 (2026-01-05)
 - (skvarel) Fixed: ImageURL
 
 ### 0.8.1 (2026-01-05)

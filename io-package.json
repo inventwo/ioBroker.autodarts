@@ -1,8 +1,21 @@
 {
   "common": {
     "name": "autodarts",
-    "version": "0.8.1",
+    "version": "0.8.2",
     "news": {
+      "0.8.2": {
+        "en": "Fixed: ImageURL",
+        "de": "Behoben: ImageURL",
+        "ru": "Выпущено: ImageURL",
+        "pt": "Fixo: ImageURL",
+        "nl": "Vast: ImageURL",
+        "fr": "Correction : ImageURL",
+        "it": "Fisso: ImageURL",
+        "es": "Fijo: ImageURL",
+        "pl": "Naprawiono: ImageURL",
+        "uk": "Виправлено: Зображення",
+        "zh-cn": "固定: 图像URL"
+      },
       "0.8.1": {
         "en": "Added: New DE/EN adapter documentation under `/docs` with separate pages for all config tabs (Options, Mappings, Tools addon integration, Help & FAQ).\nImproved: Main README cleaned up and linked to the new documentation (badges, feature overview, configuration section).\nImproved: Clarified Tools addon integration flow (Simple-API requirements, generated URLs, WLED usage).",
         "de": "Hinzugefügt: Neue DE/EN-Adapterdokumentation unter `/docs` mit separaten Seiten für alle Config-Tabs (Optionen, Mappings, Tools Addon Integration, Help & FAQ).\nVerbessert: Haupt-README gereinigt und mit der neuen Dokumentation verknüpft (Badges, Funktionsübersicht, Konfigurationsabschnitt).\nVerbessert: Clarified Tools Addon Integration Flow (Simple-API Anforderungen, generierte URLs, WLED-Nutzung).",
@@ -80,19 +93,6 @@
         "pl": "Dodano: Nowy stan 'status.boardStatus'. Wskaźnik stanu zdarzenia planszowego (np. \"Zatrzymał\", \"Kalibracja zakończona\", \"Rozpoczęty\").",
         "uk": "Додано: Новий стан `status.boardStatus`. Індикатор стану походу дошки (наприклад, ```'', ''''''', '''''''.",
         "zh-cn": "添加:新的`状态.boardstatus'状态。 板块事件的状况指标(例如`停止'、`完成的校准'、`开始')."
-      },
-      "0.6.3": {
-        "en": "Improved: Connection handling now uses `info.connection` and clearly marks the adapter as offline when the Autodarts Board Manager is not reachable (including better timeout/ECONNRESET handling).\nChanged: Reduced log noise when the board is offline – only one warning is logged when the connection is lost, subsequent timeouts are written as debug messages.\nImproved: Minor tweaks to the HELP & FAQ tab texts and configuration descriptions.",
-        "de": "Verbessert: Die Verbindungshandhabung nutzt jetzt `info.connection` und markiert den Adapter als offline, wenn der Autodarts Board Manager nicht erreichbar ist (einschließlich besserer Timeout/ECONNRESET Handling).\nGeändert: Reduziertes Log-Rausch, wenn das Board offline ist – nur eine Warnung wird eingeloggt, wenn die Verbindung verloren ist, werden nachfolgende Timeouts als Debug-Nachrichten geschrieben.\nVerbessert: Minor tweaks auf die Registerkarte HELP & FAQ Texte und Konfigurationsbeschreibungen.",
-        "ru": "Улучшенная: обработка соединения теперь использует «info.connection» и четко обозначает адаптер как автономный, когда до менеджера совета директоров Autodarts не достижимо (включая лучшую обработку тайм-аута / ECONNRESET).\nИзменилось: Сниженный лог-шум при отключении платы — регистрируется только одно предупреждение при потере соединения, последующие тайм-ауты записываются как сообщения отладки.\nУлучшение: Незначительные изменения в текстах вкладок HELP & FAQ и описаниях конфигурации.",
-        "pt": "Melhorado: O manuseio da conexão agora usa `info.connection` e marca claramente o adaptador como offline quando o Autodarts Board Manager não é acessível (incluindo melhor timeout/ECONNRESET).\nAlterado: Ruído de log reduzido quando o tabuleiro está offline – apenas um aviso é registrado quando a conexão é perdida, os prazos subsequentes são escritos como mensagens de depuração.\nMelhorado: Pequenos ajustes nos textos da aba Ajuda & FAQ e descrições de configuração.",
-        "nl": "Verbeterd: Verbindingsafhandeling maakt nu gebruik van .\nGewijzigd: Minder logruis wanneer het bord offline is .\nBeter: Kleine aanpassingen aan het HELP & FAQ-tabblad teksten en configuratiebeschrijvingen.",
-        "fr": "Amélioration : La gestion de la connexion utilise désormais `info.connection` et marque clairement l'adaptateur comme hors ligne lorsque le gestionnaire de conseil d'administration Autodarts n'est pas accessible (y compris une meilleure gestion timeout/ECONNESET).\nChangement : Diminution du bruit de log lorsque la carte est hors ligne – un seul avertissement est enregistré lorsque la connexion est perdue, les timeouts ultérieurs sont écrits comme des messages de débogage.\nAmélioration : Modifications mineures aux textes de l'onglet HELP & FAQ et aux descriptions de configuration.",
-        "it": "Migliorata: la gestione della connessione utilizza ora `info.connection` e contrassegna chiaramente l'adattatore come offline quando il Manager di bordo di Autodarts non è raggiungibile (compreso il timeout migliore / ECONNRESET di gestione).\nCambiato: Riduzione del rumore di registro quando la scheda è offline – solo un avviso viene registrato quando la connessione viene persa, i timeout successivi vengono scritti come messaggi di debug.\nMigliorato: Tagli minori ai testi della scheda HELP & FAQ e descrizioni delle configurazioni.",
-        "es": "Mejorado: el manejo de conexión ahora utiliza 'info.connection' y claramente marca el adaptador como offline cuando el Administrador de la Junta de Autodarts no es accesible (incluyendo un mejor tiempo / manejo de ECNNRESET).\nCambio: El ruido de registro reducido cuando el tablero está fuera de línea – sólo una advertencia se registra cuando la conexión se pierde, los plazos posteriores se escriben como mensajes de depuración.\nMejorado: Ajustes menores a los textos de pestañas HELP & FAQ y descripciones de configuración.",
-        "pl": "Ulepszone: Obsługa połączeń używa teraz 'info.connection' i wyraźnie oznacza, że adapter jest offline, gdy menedżer Zarządu Autodarts nie jest osiągalny (w tym lepszy czas / obsługa ECONNRESET).\nZmieniono: Zmniejszony hałas logowania, gdy deska jest offline - tylko jedno ostrzeżenie jest logowane, gdy połączenie jest utracone, kolejne timeout są zapisywane jako wiadomości debugowania.\nPoprawa: Drobne poprawki do tekstów zakładek HELP & FAQ i opisów konfiguracji.",
-        "uk": "Удосконалено: З'єднання, що працює зараз, використовує `info.connection` і чітко позначається перехідник в автономному режимі, коли Менеджер по роботі з клієнтами Autodarts не досягається (включаючи кращий час / ECONNRESET).\nЗмінено: Зменшення шуму логіну, коли плата відсутня – тільки одна попередження ввійде, коли з'єднання втрачено, подальші часові маршрути письмові як дебвугові повідомлення.\nПокращений: Ми можемо самі зателефонувати одержувачу і узгодити зручний час.",
-        "zh-cn": "改进:连接处理现在使用“info.connection”,并在自动调试板管理员无法到达时(包括更好的超时/ECONRESET处理)将适配器明确标记为离线.\n已更改 : 当棋盘下线时减少日志噪声——当连接丢失时只记录一个警告,随后的超时被写成调试消息.\n改进: 微调到 Help & FAQ 标签文本和配置描述 ."
       }
     },
     "titleLang": {
