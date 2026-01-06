@@ -20,7 +20,7 @@
     "mappings": "Hardware Mappings",
     "options_connection": "Connection Options",
     "options_logic": "Logic Options",
-    "txt_one": "<b>This adapter connects your local Autodarts Board Manager to ioBroker.</b><br><br>1) Configure the connection under OPTIONS (host, port, polling, triple range).<br>2) Map light and power targets under MAPPINGS.<br>3) Use the created states (throws, traffic light, hardware) in your visualizations, scripts and scenes.",
+    "txt_one": "<b>This adapter connects your local Autodarts Board Manager to ioBroker.</b><br><br>• Configure the connection under OPTIONS (host, port, polling, triple range).<br>• Map light and power targets under MAPPINGS.<br>• Use the created states (throws, traffic light, hardware) in your visualizations, scripts and scenes.<br> • Link Tools for Autodarts with the adapter.",
     "light_txt": "Light Control Mapping (optional)",
     "light_txt_desc": "Get your lighting data points into the adapter objects.",
     "power_txt": "Power Control Mapping (optional)",

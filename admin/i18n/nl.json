@@ -25,7 +25,7 @@
     "reset": "Trigger-reset (s)",
     "reset_help": "Reset de drievoudige, dubbele, bullseye- en miss-trigger na x seconden (0 = geen reset).",
     "tools_instance": "Autodarts-instantienummer",
-    "tools_instance_help": "0 voor autodarts.0, 1 voor autodarts.1, etc.",
+    "tools_instance_help": "0 voor autodarts.0, 1 voor autodarts.1, enz.",
     "tools_ip": "IP-adres van ioBroker",
     "tools_ip_help": "IP- of hostnaam waar uw ioBroker / simple-api-adapter bereikbaar is.",
     "tools_port": "Poort van de Simple-API-adapter",
@@ -36,7 +36,7 @@
     "triple_flag2": "Maximaal veld voor de drievoudige trigger",
     "triple_flag2_help": "Maximaal scoreveld voor de drievoudige trigger. Darten met een score boven deze waarde activeren het Triple-Trigger-datapunt niet.",
     "triple_flag_help": "Minimumscoreveld voor de drievoudige trigger. Darten met een score onder deze waarde activeren het Triple-Trigger-datapunt niet.",
-    "txt_one": "<b>Deze adapter verbindt uw lokale Autodarts Board Manager met ioBroker.</b><br><br>1) Configureer de verbinding onder OPTIES (host, poort, polling, drievoudig bereik).<br>2) Breng licht- en stroomdoelen in kaart onder MAPPINGS.<br>3) Gebruik de gemaakte statussen (worpen, verkeerslicht, hardware) in uw visualisaties, scripts en scènes.",
-    "txt_tools": "Op dit tabblad wordt de integratie met de browserextensie 'Tools for Autodarts' geconfigureerd.<br>Om deze te gebruiken, moet de browserextensie zijn geïnstalleerd en moet de ioBroker simple-api-adapter actief zijn en bereikbaar zijn vanuit uw browser.",
+    "txt_one": "<b>Deze adapter verbindt uw lokale Autodarts Board Manager met ioBroker.</b><br><br>• Configureer de verbinding onder OPTIES (host, poort, polling, drievoudig bereik).<br>• Breng licht- en stroomdoelen in kaart onder MAPPINGS.<br>• Gebruik de gemaakte statussen (worpen, verkeerslicht, hardware) in uw visualisaties, scripts en scènes.<br> • Koppel tools voor Autodarts met de adapter.",
+    "txt_tools": "Op dit tabblad wordt de integratie met de browserextensie 'Tools for Autodarts' geconfigureerd.<br><br>Om deze te gebruiken, moet de browserextensie zijn geïnstalleerd en moet de ioBroker simple-api-adapter actief zijn en bereikbaar zijn vanuit uw browser.",
     "txt_two": "... binnenkort meer informatie!"
 }

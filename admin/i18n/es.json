@@ -36,7 +36,7 @@
     "triple_flag2": "Campo máximo para el triple disparador",
     "triple_flag2_help": "Campo de puntuación máxima para el triple disparador. Los dardos con una puntuación superior a este valor no activarán el punto de datos Triple-Trigger.",
     "triple_flag_help": "Campo de puntuación mínima para el triple disparador. Los dardos con una puntuación inferior a este valor no activarán el punto de datos Triple-Trigger.",
-    "txt_one": "<b>Este adaptador conecta su Autodarts Board Manager local a ioBroker.</b><br><br>1) Configure la conexión en OPCIONES (host, puerto, sondeo, rango triple).<br>2) Asigne objetivos de luz y energía en MAPAS.<br>3) Utilice los estados creados (tiros, semáforo, hardware) en sus visualizaciones, scripts y escenas.",
-    "txt_tools": "Esta pestaña configura la integración con la extensión del navegador “Herramientas para Autodarts”.<br>Para usarla, debe tener la extensión del navegador instalada y el adaptador ioBroker simple-api ejecutándose y accesible desde su navegador.",
+    "txt_one": "<b>Este adaptador conecta su Autodarts Board Manager local a ioBroker.</b><br><br>• Configure la conexión en OPCIONES (host, puerto, sondeo, rango triple).<br>• Asigne objetivos de luz y energía en MAPEO.<br>• Utilice los estados creados (tiros, semáforo, hardware) en sus visualizaciones, scripts y escenas.<br> • Vincule herramientas para Autodarts con el adaptador.",
+    "txt_tools": "Esta pestaña configura la integración con la extensión del navegador “Herramientas para Autodarts”.<br><br>Para usarla, debe tener la extensión del navegador instalada y el adaptador ioBroker simple-api ejecutándose y accesible desde su navegador.",
     "txt_two": "... ¡más información próximamente!"
 }

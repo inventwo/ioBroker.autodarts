@@ -27,7 +27,7 @@
     "tools_instance": "Numero di istanza di Autodarts",
     "tools_instance_help": "0 per autodarts.0, 1 per autodarts.1, ecc.",
     "tools_ip": "Indirizzo IP di ioBroker",
-    "tools_ip_help": "IP o nome host in cui è raggiungibile il tuo ioBroker/adattatore simple-api.",
+    "tools_ip_help": "IP o nome host in cui il tuo ioBroker/adattatore simple-api è raggiungibile.",
     "tools_port": "Porta dell'adattatore API semplice",
     "tools_port_help": "Predefinito: 8087",
     "tools_tab": "Integrazione dei componenti aggiuntivi degli strumenti",
@@ -36,7 +36,7 @@
     "triple_flag2": "Campo massimo per il triplo trigger",
     "triple_flag2_help": "Campo del punteggio massimo per il triplo trigger. Le freccette con un punteggio superiore a questo valore non attiveranno il punto dati Triple-Trigger.",
     "triple_flag_help": "Campo del punteggio minimo per il triplo trigger. Le freccette con un punteggio inferiore a questo valore non attiveranno il punto dati Triple-Trigger.",
-    "txt_one": "<b>Questo adattatore collega il tuo Autodarts Board Manager locale a ioBroker.</b><br><br>1) Configura la connessione in OPZIONI (host, porta, polling, tripla portata).<br>2) Mappa gli obiettivi di luce e potenza in MAPPINGS.<br>3) Utilizza gli stati creati (lanci, semaforo, hardware) nelle tue visualizzazioni, script e scene.",
-    "txt_tools": "Questa scheda configura l'integrazione con l'estensione del browser \"Strumenti per Autodarts\".<br>Per utilizzarla, è necessario avere l'estensione del browser installata e l'adattatore ioBroker simple-api in esecuzione e raggiungibile dal browser.",
+    "txt_one": "<b>Questo adattatore collega il tuo Autodarts Board Manager locale a ioBroker.</b><br><br>• Configura la connessione in OPZIONI (host, porta, polling, tripla portata).<br>• Mappa gli obiettivi di luce e potenza in MAPPINGS.<br>• Utilizza gli stati creati (lanci, semaforo, hardware) nelle tue visualizzazioni, script e scene.<br> • Collega Strumenti per Autodarts con l'adattatore.",
+    "txt_tools": "Questa scheda configura l'integrazione con l'estensione del browser \"Strumenti per Autodarts\".<br><br>Per utilizzarla, è necessario avere l'estensione del browser installata e l'adattatore ioBroker simple-api in esecuzione e raggiungibile dal browser.",
     "txt_two": "...maggiori informazioni in arrivo!"
 }

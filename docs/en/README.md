@@ -11,8 +11,8 @@
 #### ioBroker requirements
 
 1. nodejs 20.0 or newer  
-2. js-controller 6.0.0 or newer  
-3. Admin adapter 6.0.0 or newer  
+2. js-controller 6.0.11 (or newer)
+3. Admin-Adapter 7.6.17 (or newer)
 4. Simple-API adapter (optional for the tools integration)
 
 #### Darts requirements

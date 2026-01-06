@@ -36,7 +36,7 @@
     "triple_flag2": "三重触发器的最大字段",
     "triple_flag2_help": "三重触发器的最大分数字段。分数高于此值的飞镖将不会触发三重触发数据点。",
     "triple_flag_help": "三重触发器的最低分数字段。分数低于此值的飞镖将不会触发三重触发数据点。",
-    "txt_one": "<b>此适配器将您本地的 Autodarts Board Manager 连接到 ioBroker。</b><br><br>1) 在“选项”（主机、端口、轮询、三重范围）下配置连接。<br>2) 在“映射”下映射灯光和功率目标。<br>3) 在可视化、脚本和场景中使用创建的状态（投掷、红绿灯、硬件）。",
-    "txt_tools": "此选项卡配置与“Tools for Autodarts”浏览器扩展的集成。<br>要使用它，您必须安装浏览器扩展，并且 ioBroker simple-api 适配器正在运行并可通过浏览器访问。",
+    "txt_one": "<b>此适配器将您本地的 Autodarts Board Manager 连接到 ioBroker。</b><br><br>• 在“选项”（主机、端口、轮询、三重范围）下配置连接。<br>• 在“映射”下映射灯光和功率目标。<br>• 在可视化、脚本和场景中使用创建的状态（投掷、交通灯、硬件）。<br>• 将 Autodarts 工具与适配器链接。",
+    "txt_tools": "此选项卡配置与“Tools for Autodarts”浏览器扩展的集成。<br><br>要使用它，您必须安装浏览器扩展，并且 ioBroker simple-api 适配器正在运行并可通过浏览器访问。",
     "txt_two": "...更多信息即将推出！"
 }

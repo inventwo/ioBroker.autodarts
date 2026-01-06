@@ -132,6 +132,10 @@ In **HELP & FAQ** you will find general information and help about the adapter a
 <!--
 	### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+- (skvarel) Added: CHANGELOG_OLD.md
+- (skvarel) Improved: Link to documentation added to the help section.
+
 ### 0.8.2 (2026-01-05)
 - (skvarel) Fixed: ImageURL
 
@@ -228,6 +232,9 @@ In **HELP & FAQ** you will find general information and help about the adapter a
 
 ### 0.0.14 - 0.0.2 (2025-12-21 - 2025-12-22)
 - (skvarel) Initial release with multiple fixes for adapter checker compliance and documentation improvements
+
+## Older changes
+- [CHANGELOG_OLD.md](CHANGELOG_OLD.md)
 
 ## License
 MIT License

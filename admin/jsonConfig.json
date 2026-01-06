@@ -515,7 +515,10 @@
         },
         "txtTwo": {
           "type": "staticText",
-          "text": "txt_two",
+          "text": {
+            "en": "For complete documentation, click here below:<br><br>• <a href=\"https://github.com/inventwo/ioBroker.autodarts/blob/main/docs/en/README.md\">Adapter documentation</a>",
+            "de": "Für eine vollständige Dokumentation klicke hier unten:<br><br>• <a href=\"https://github.com/inventwo/ioBroker.autodarts/blob/main/docs/de/README.md\">Adapter-Dokumentation</a>"
+          },
           "newLine": true,
           "xs": 12,
           "sm": 12,
@@ -524,7 +527,7 @@
           "xl": 6,
           "style": {
             "marginTop": "50px",
-            "fontSize": "12px"
+            "fontSize": "16px"
           }
         },
         "logo": {

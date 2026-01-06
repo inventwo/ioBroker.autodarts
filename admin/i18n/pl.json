@@ -36,7 +36,7 @@
     "triple_flag2": "Maksymalne pole dla potrójnego wyzwalacza",
     "triple_flag2_help": "Pole maksymalnego wyniku dla potrójnego wyzwalacza. Rzutki z wynikiem powyżej tej wartości nie uruchomią punktu danych Triple-Trigger.",
     "triple_flag_help": "Pole minimalnego wyniku dla potrójnego wyzwalacza. Rzutki z wynikiem poniżej tej wartości nie uruchomią punktu danych Triple-Trigger.",
-    "txt_one": "<b>Ten adapter łączy lokalnego menedżera tablicy Autodarts z ioBrokerem.</b><br><br>1) Skonfiguruj połączenie w OPCJACH (host, port, odpytywanie, potrójny zasięg).<br>2) Mapuj cele świetlne i energetyczne w sekcji MAPPINGS.<br>3) Wykorzystaj utworzone stany (rzuty, sygnalizacja świetlna, sprzęt) w swoich wizualizacjach, skryptach i scenach.",
-    "txt_tools": "Ta zakładka umożliwia skonfigurowanie integracji z rozszerzeniem przeglądarki „Narzędzia dla Autodarts”.<br>Aby z niego skorzystać, musisz mieć zainstalowane rozszerzenie przeglądarki oraz działający adapter prostego interfejsu API ioBroker, dostępny z poziomu przeglądarki.",
+    "txt_one": "<b>Ten adapter łączy lokalnego menedżera Autodarts Board z ioBroker.</b><br><br> • Skonfiguruj połączenie w OPCJACH (host, port, odpytywanie, potrójny zasięg).<br> • Mapuj cele świetlne i energetyczne w obszarze MAPPINGS.<br> • Wykorzystaj utworzone stany (rzuty, sygnalizacja świetlna, sprzęt) w swoich wizualizacjach, skryptach i scenach.<br> • Połącz narzędzia dla Autodarts z adapterem.",
+    "txt_tools": "W tej zakładce konfigurowana jest integracja z rozszerzeniem przeglądarki „Narzędzia dla Autodarts”.<br><br>Aby z niego skorzystać, musisz mieć zainstalowane rozszerzenie przeglądarki oraz działający adapter prostego interfejsu API ioBroker, dostępny z poziomu przeglądarki.",
     "txt_two": "...więcej informacji już wkrótce!"
 }
