@@ -1,8 +1,21 @@
 {
   "common": {
     "name": "autodarts",
-    "version": "0.8.2",
+    "version": "0.8.3",
     "news": {
+      "0.8.3": {
+        "en": "Added: CHANGELOG_OLD.md\nImproved: Link to documentation added to the help section.",
+        "de": "Hinzugefügt: CHANGELOG_OLD.md\nVerbessert: Link zur Dokumentation, die im Hilfebereich hinzugefügt wird.",
+        "ru": "Добавлено: CHANGELOG_OLD.md\nУлучшено: Ссылка на документацию, добавленную в раздел справки.",
+        "pt": "Adicionado: MUDANÇA_OLD.md\nMelhorado: Link para documentação adicionada à seção de ajuda.",
+        "nl": "Toegevoegd: VERANDERINGLOG_OLD.md\nVerbeterd: Link naar documentatie toegevoegd aan de help sectie.",
+        "fr": "Ajouté : CHANGELOG_OLD.md\nAmélioration : Lien vers la documentation ajoutée à la section d'aide.",
+        "it": "Aggiunto: CHANGELOG_OLD.md\nMigliorato: Link alla documentazione aggiunta alla sezione di aiuto.",
+        "es": "Añadido: CHANGELOG_OLD.md\nMejorado: Enlace a la documentación agregada a la sección de ayuda.",
+        "pl": "Dodano: CHANGELOG _ OLD.md\nUlepszone: Link do dokumentacji dodanej do sekcji pomocy.",
+        "uk": "Доданий: CHANGELOG_OLD.md\nУдосконалено: Посилання на документацію, додану до розділу допомоги.",
+        "zh-cn": "添加:变换组_OLD.md\n改进:与帮助部分新增的文件链接."
+      },
       "0.8.2": {
         "en": "Fixed: ImageURL",
         "de": "Behoben: ImageURL",
@@ -80,19 +93,6 @@
         "pl": "Zmiana: Zmniejszone opóźnienie ponownego połączenia po offline.",
         "uk": "Змінено: Зменшення затримки відключення після вимкнення.",
         "zh-cn": "更改:下线后减少重联延迟."
-      },
-      "0.7.0": {
-        "en": "Added: New `status.boardStatus` state. Status indicator of board event (e.g. `\"Stopped\"`, `\"Calibration finished\"`, `\"Started\"`).",
-        "de": "Hinzugefügt: Neu `status.boardStatus` Zustand. Statusanzeige des Board-Events (z.B. \"Stopped\", \"Calibration fertig\", \"Started\"\").",
-        "ru": "Добавлено: Новое состояние \"status.boardStatus\". Индикатор состояния события на борту (например, \"Остановилось\", \"Калибровка завершена\", \"Начало\").",
-        "pt": "Adicionado: Novo estado `status.boardStatus`. Indicador de estado do evento de tabuleiro (por exemplo, `\"Parado\"`, `\"A calibração terminou\"`, `\"Iniciado\"`).",
-        "nl": "Toegevoegd: Nieuwe status.boardStatus Status-indicator van de gebeurtenis van het bord (bv. \"Stopped,\" \"Calibration finished\" en \"Started\").",
-        "fr": "Ajouté : Nouveau état `status.boardStatus`. Indicateur de l'état de l'événement du conseil d'administration (par exemple, ``Stopupped'``, `'Calibration terminée'`, `'Started'`).",
-        "it": "Aggiunto: New `status.boardStatus` state. Indicatore di stato dell'evento di bordo (ad esempio `\"Stopped\"`, `\"Calibrazione finita\"`, `\"Started\"`).",
-        "es": "Añadido: Nuevo estado de `status.boardStatus`. Indicador de estado del evento de la junta (por ejemplo, `\"Stopped\"`, `\"Calibration completed\" `, `\"Started').",
-        "pl": "Dodano: Nowy stan 'status.boardStatus'. Wskaźnik stanu zdarzenia planszowego (np. \"Zatrzymał\", \"Kalibracja zakończona\", \"Rozpoczęty\").",
-        "uk": "Додано: Новий стан `status.boardStatus`. Індикатор стану походу дошки (наприклад, ```'', ''''''', '''''''.",
-        "zh-cn": "添加:新的`状态.boardstatus'状态。 板块事件的状况指标(例如`停止'、`完成的校准'、`开始')."
       }
     },
     "titleLang": {
