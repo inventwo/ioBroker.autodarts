@@ -133,15 +133,14 @@ In **HELP & FAQ** you will find general information and help about the adapter a
 	### **WORK IN PROGRESS**
 -->
 ### **WORK IN PROGRESS**
-**BREAKING CHANGE** All triggers -> trigger.is* structure
-
-Old -> New:
+- (skvarel) BREAKING CHANGE: All triggers -> trigger.is* structure
+- Old -> New:
 throw.isTriple/isBullseye/isDouble/isMiss -> trigger.isTriple/isBullseye/isDouble/isMiss
 tools.180/busted/gameon/gameshot/matchshot/takeout -> trigger.is180/isBusted/isGameon/isGameshot/isMatchshot/isTakeout
 
-⚠️ Manual Cleanup Required: Delete old datapoints after update:
-1. autodarts.X.throw.isTriple/isBullseye/isDouble/isMiss  
-2. autodarts.X.tools.180/busted/gameon/gameshot/matchshot/takeout
+Manual Cleanup Required: Delete old datapoints after update:
+- Autodarts.X.throw.isTriple/isBullseye/isDouble/isMiss  
+- autodarts.X.tools.180/busted/gameon/gameshot/matchshot/takeout
 
 Unchanged: tools.RAW, tools.config.url*, all functionality/timers​
 
