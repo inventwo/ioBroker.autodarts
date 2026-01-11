@@ -1,5 +1,4 @@
 # Older changes
-
 ## 0.7.2 (2026-01-03)
 - (skvarel) Fix Copyright Year
 

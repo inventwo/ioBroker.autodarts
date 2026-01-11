@@ -133,25 +133,17 @@ In **HELP & FAQ** you will find general information and help about the adapter a
 	### **WORK IN PROGRESS**
 -->
 ### **WORK IN PROGRESS**
-**BREAKING CHANGE** All triggers moved to unified `trigger.is*` structure
+**BREAKING CHANGE** All triggers -> trigger.is* structure
 
-**Old → New:**
-- throw.isTriple/isBullseye/isDouble/isMiss → trigger.isTriple/isBullseye/isDouble/isMiss
-- tools.180/busted/gameon/gameshot/matchshot/takeout → trigger.is180/isBusted/isGameon/isGameshot/isMatchshot/isTakeout
+Old -> New:
+throw.isTriple/isBullseye/isDouble/isMiss -> trigger.isTriple/isBullseye/isDouble/isMiss
+tools.180/busted/gameon/gameshot/matchshot/takeout -> trigger.is180/isBusted/isGameon/isGameshot/isMatchshot/isTakeout
 
-**Update Notice:** Existing scripts/automations need path adjustment from `throw.is*`/`tools.*` to `trigger.is*`
+⚠️ Manual Cleanup Required: Delete old datapoints after update:
+1. autodarts.X.throw.isTriple/isBullseye/isDouble/isMiss  
+2. autodarts.X.tools.180/busted/gameon/gameshot/matchshot/takeout
 
-**⚠️ Manual Cleanup Required:**
-After update, **delete old datapoints manually**:
-1. `autodarts.X.throw.isTriple/isBullseye/isDouble/isMiss`
-2. `autodarts.X.tools.180/busted/gameon/gameshot/matchshot/takeout`
-
-**Unchanged:**
-- `tools.RAW` (incoming HTTP events)
-- `tools.config.url*` (outgoing HTTP URLs)
-- All auto-reset timers (`config.triggerResetSec`)
-- All functionality (`throw.updateThrow()`, `tools.handleStateChange()`)
-​
+Unchanged: tools.RAW, tools.config.url*, all functionality/timers​
 
 ### 0.8.3 (2026-01-06)
 - (skvarel) Added: CHANGELOG_OLD.md
@@ -167,7 +159,7 @@ After update, **delete old datapoints manually**:
 
 ### 0.8.0 (2026-01-04)
 - (skvarel) Added: New **TOOLS ADDON INTEGRATION** tab and runtime-generated URL states under `tools.config.*` for browser-based integrations (e.g. Tools for Autodarts).
-  
+
 ## 0.7.3 (2026-01-03)
 - (skvarel) Fix Adapter Checker Warnings
 
