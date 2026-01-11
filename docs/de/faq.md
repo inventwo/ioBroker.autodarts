@@ -26,7 +26,7 @@ In diesem Tab findest du kurze Antworten auf typische Fragen und Probleme rund u
 
 ### Die Tools-URLs funktionieren im Browser, aber meine Automation reagiert nicht
 
-- Schau im Objektbaum nach, ob sich die Datenpunkte `autodarts.0.tools.busted`, `...gameon`, `...gameshot` beim Test auf `true` setzen.  
+- Schau im Objektbaum nach, ob sich die Datenpunkte `autodarts.0.trigger.isBusted`, `...isGameon`, `...isGameshot` beim Test auf `true` setzen.  
 - Wenn ja, liegt das Problem in der nachgelagerten Logik (Script, Szene o. Ä.) – dort den entsprechenden Trigger-Datenpunkt als Auslöser hinterlegen.
 
 ---

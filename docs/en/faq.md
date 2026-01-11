@@ -26,7 +26,7 @@ This tab provides short answers to common questions and issues related to the ad
 
 ### Tools URLs work in the browser, but my automation does nothing
 
-- In the object tree, check whether the data points `autodarts.0.tools.busted`, `...gameon`, `...gameshot` are set to `true` when you test the URLs.  
+- In the object tree, check whether the data points `autodarts.0.trigger.isBusted`, `...isGameon`, `...isGameshot` are set to `true` when you test the URLs.  
 - If they are, the issue is in your downstream logic (script, scene, etc.) – make sure the corresponding trigger data point is used as the trigger there.
 
 ---
