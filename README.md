@@ -29,10 +29,10 @@ Connects to your local Autodarts Board Manager (via IP and port, e.g. `192.168.x
 ### Game State & Throws
 - **`visit.score`**: Total score of the last complete visit (3 darts)
 - **`throw.current`**: Numeric score of the last thrown dart
-- **`throw.isTriple`**: Boolean flag for triple hits within configurable segment range (default: 1–20)
-- **`throw.isDouble`**: Boolean flag for double hits only (all segments)
-- **`throw.isBullseye`**: Boolean flag for bullseye hits only
-- **`throw.isMiss`**: Boolean flag that is true when the dart does not hit any valid scoring segment (pure miss, no score)
+- **`trigger.isTriple`**: Boolean flag for triple hits within configurable segment range (default: 1–20)
+- **`trigger.isDouble`**: Boolean flag for double hits only (all segments)
+- **`trigger.isBullseye`**: Boolean flag for bullseye hits only
+- **`trigger.isMiss`**: Boolean flag that is true when the dart does not hit any valid scoring segment (pure miss, no score)
 
 ### Board Status
 - **`status.boardStatus`**: Status indicator of board event (e.g. `"Stopped"`, `"Calibration finished"`, `"Started"`).
@@ -86,7 +86,7 @@ In **OPTIONS** you configure how the adapter connects to your local Autodarts Bo
   TCP port of the Board Manager (usually `3180`).
 
 - **Triple trigger range**  
-  Two dropdowns to define the **minimum** and **maximum** field number (1–20) that should be considered for `throw.isTriple`.  
+  Two dropdowns to define the **minimum** and **maximum** field number (1–20) that should be considered for `trigger.isTriple`.  
   Triples outside this range will not trigger the flag.
 
 - **Trigger reset (s)**  
@@ -131,8 +131,10 @@ In **HELP & FAQ** you will find general information and help about the adapter a
 ## Changelog
 <!--
 	### **WORK IN PROGRESS**
--->
 
+### **WORK IN PROGRESS**
+- (skvarel) Fixed: Changlog error at readme.md
+-->
 ### 1.0.0 (2026-01-11)
 - (skvarel) BREAKING CHANGE: All triggers to unified trigger.is structure
 - (skvarel) Manual cleanup required: Delete old autodarts.X.throw.is and tools. states after update
