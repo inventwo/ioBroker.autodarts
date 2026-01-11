@@ -132,8 +132,6 @@ In **HELP & FAQ** you will find general information and help about the adapter a
 <!--
 	### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
-- (skvarel) Fixed: Changlog error at readme.md
 
 ### 1.0.0 (2026-01-11)
 - (skvarel) BREAKING CHANGE: All triggers to unified trigger.is structure
