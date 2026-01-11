@@ -1,8 +1,21 @@
 {
   "common": {
     "name": "autodarts",
-    "version": "0.8.3",
+    "version": "1.0.0",
     "news": {
+      "1.0.0": {
+        "en": "BREAKING CHANGE: All triggers to unified trigger.is structure\nManual cleanup required: Delete old autodarts.X.throw.is and tools. states after update\nUnchanged: tools.RAW, tools.config.url, all timers/functionality",
+        "de": "BREAKING CHANGE: Alle Auslöser zum vereinheitlichten Auslöser. ist Struktur\nManuelle Reinigung erforderlich: Löschen Sie alte Autodarts. X.throw.is und Werkzeuge. Zustände nach Update\nUnverändert: Werkzeuge. RAW, tools.config.url, alle Timer/Funktionalität",
+        "ru": "Изменить дыхание: Все триггеры в единый триггер. структура\nТребуется ручная очистка: Удалите старые автодарты. X.throw.is и инструменты. государства после обновления\nБез изменений: инструменты. RAW, tools.config.url, все таймеры/функциональность",
+        "pt": "MUDANÇAS DE RISCO: Todos os gatilhos para o gatilho unificado. é estrutura\nLimpeza manual necessária: Apagar os autodarts antigos. X.throw.is e ferramentas. estados após a atualização\nInalterado: ferramentas. RAW, tools.config.url, todos os timers/funcionalidade",
+        "nl": "Breaking VERANDERING: Alle triggers naar uniforme trekker. is structuur\nHandmatig opruimen vereist: Verwijder oude autodarts. X.throw.is en gereedschap. staat na update\nOngewijzigd: gereedschap. RAW, tools.config.url, all timers/functionaliteit",
+        "fr": "CHANGEMENT DE BREAING: Tous les déclencheurs au déclencheur unifié. est la structure\nNettoyage manuel requis: Supprimer les anciens autodarts. X.throw. est et outils. États après mise à jour\nSans changement : outils. RAW, tools.config.url, toutes les minuteries/fonctionnalité",
+        "it": "CAMBIO DI BREAKING: Tutti i trigger per attivare unificato. è struttura\nPulizia manuale necessaria: Eliminare vecchi autodarts. X.throw.is e strumenti. stati dopo l'aggiornamento\nSvariato: strumenti. RAW, tools.config.url, tutti i timer/funzionalità",
+        "es": "Cambiando: Todos disparan al gatillo unificado. estructura\nLimpieza manual requerida: Eliminar viejos autodarts. X.throw.is y herramientas. estados después de la actualización\nSin cambios: herramientas. RAW, tools.config.url, todos los temporizadores/funcionalidad",
+        "pl": "ZMIANA ZBIORCZA: Wszystkie wyzwalacze do jednego zapalnika. jest strukturą\nWymagane jest ręczne czyszczenie: Usuń stare autodoty. X.throw.is i narzędzia. stany po aktualizacji\nBez zmian: narzędzia. RAW, narzędzia .config.url, wszystkie timery / funkcjonalność",
+        "uk": "БРЕАКІНГ ЗМІН: Всі тригери для уніфікованого тригера. структура\nВимоги: Видалити старі автодарти. X.throw.is та інструменти. стани після оновлення\nНезмінені: інструменти. RAW, інструменти.config.url, всі таймери/функціональність",
+        "zh-cn": "打破变化: 所有触发器统一触发. 是结构\n需要进行人工清理: 删除旧的自定义 。 X. throw.is和工具。 更新后状态\n未更改:工具。 RAW,工具.config.url,所有计时器/功能"
+      },
       "0.8.3": {
         "en": "Added: CHANGELOG_OLD.md\nImproved: Link to documentation added to the help section.",
         "de": "Hinzugefügt: CHANGELOG_OLD.md\nVerbessert: Link zur Dokumentation, die im Hilfebereich hinzugefügt wird.",
@@ -80,19 +93,6 @@
         "pl": "Napraw rok Copyright",
         "uk": "Фіксація авторського права",
         "zh-cn": "修复版权年"
-      },
-      "0.7.1": {
-        "en": "Changed: Reduced reconnect delay after offline.",
-        "de": "Geändert: Reduzierte Reconnect-Verzögerung nach Offline.",
-        "ru": "Изменение: снижение задержки повторного подключения после офлайна.",
-        "pt": "Alterado: Reconectar atraso reduzido após offline.",
-        "nl": "Veranderd: Verminderde reconnect vertraging na offline.",
-        "fr": "Changed: Réduction du délai de reconnect après hors ligne.",
-        "it": "Cambiato: Riduzione del ritardo di ricollegamento dopo offline.",
-        "es": "Cambio: Reducir el retraso de reconexión después de fuera de línea.",
-        "pl": "Zmiana: Zmniejszone opóźnienie ponownego połączenia po offline.",
-        "uk": "Змінено: Зменшення затримки відключення після вимкнення.",
-        "zh-cn": "更改:下线后减少重联延迟."
       }
     },
     "titleLang": {

@@ -132,7 +132,7 @@ In **HELP & FAQ** you will find general information and help about the adapter a
 <!--
 	### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 1.0.0 (2026-01-11)
 - (skvarel) BREAKING CHANGE: All triggers to unified trigger.is structure
 - (skvarel) Manual cleanup required: Delete old autodarts.X.throw.is and tools. states after update
 - (skvarel) Unchanged: tools.RAW, tools.config.url, all timers/functionality
