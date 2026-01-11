@@ -58,7 +58,7 @@
 - (skvarel) Changed: Object creation now uses extendObjectAsync with proper roles and types instead of setObjectNotExistsAsync.
 
 ## 0.3.0 (2025-12-26)
-- (skvarel) Added traffic light datapoints (`status.trafficLightColor`, `status.trafficLightState`) mapped from Board Manager status (`Throw` / `Takeout` / connection errors).
+- (skvarel) Added traffic light states (`status.trafficLightColor`, `status.trafficLightState`) mapped from Board Manager status (`Throw` / `Takeout` / connection errors).
 - (skvarel) Refactored code: visit handling, throw handling (triple / bull) and traffic light logic moved to separate modules.
 
 ## 0.2.2 (2025-12-25)
@@ -74,7 +74,7 @@
 - (skvarel) Warning in log cleared
 
 ## 0.1.0 (2025-12-23)
-- (skvarel) Added: Datapoints for visit score, current dart score, triple-hit flag with configurable minimum score
+- (skvarel) Added: States for visit score, current dart score, triple-hit flag with configurable minimum score
 - (skvarel) Added: Camera configuration states (cam0–cam2)
 - (skvarel) Changed: Cleaned up adapter logic and internal polling/timing
 - (skvarel) Changed: Updated translations
