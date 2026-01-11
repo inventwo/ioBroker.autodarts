@@ -132,6 +132,9 @@ In **HELP & FAQ** you will find general information and help about the adapter a
 <!--
 	### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+- (skvarel) Fixed: Changlog error at readme.md
+
 ### 1.0.0 (2026-01-11)
 - (skvarel) BREAKING CHANGE: All triggers to unified trigger.is structure
 - (skvarel) Manual cleanup required: Delete old autodarts.X.throw.is and tools. states after update
@@ -152,7 +155,7 @@ In **HELP & FAQ** you will find general information and help about the adapter a
 ### 0.8.0 (2026-01-04)
 - (skvarel) Added: New **TOOLS ADDON INTEGRATION** tab and runtime-generated URL states under `tools.config.*` for browser-based integrations (e.g. Tools for Autodarts).
 
-## 0.7.3 (2026-01-03)
+### 0.7.3 (2026-01-03)
 - (skvarel) Fix Adapter Checker Warnings
 
 ## Older changes
