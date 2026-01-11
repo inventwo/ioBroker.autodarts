@@ -56,9 +56,9 @@ Connects to your local Autodarts Board Manager (via IP and port, e.g. `192.168.x
 - **`config.triggerResetSec`**: Auto-reset time for triple/double/bullseye/miss flags
 
 ### Tools Addon Integration
-- **`tools.RAW`**: Input state used to receive events from browser tools (e.g. busted, gameon, gameshot).
-- **`tools.busted/tools.gameon/tools.gameshot`**: Read-only trigger flags that are set when the corresponding event is received via tools.RAW.
-- **`tools.config.urlBusted/urlGameon/urlGameshot`**: Pre-generated HTTP URLs (simple-api calls) that can be copied into the Tools for Autodarts browser extension.
+- **`tools.RAW`**: Input state used to receive events from browser tools (e.g. busted, gameon, gameshot, 180, matchshot, takeout).
+- **`trigger.is180/isBusted/isGameon/isGameshot/isMatchshot/isTakeout`**: Read-only trigger flags set when corresponding events received via `tools.RAW`.
+- **`tools.config.url*`**: Pre-generated HTTP URLs (simple-api calls) that can be copied into Tools for Autodarts browser extension.
 
 ## What this adapter does NOT do
 
@@ -132,6 +132,26 @@ In **HELP & FAQ** you will find general information and help about the adapter a
 <!--
 	### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+**BREAKING CHANGE** All triggers moved to unified `trigger.is*` structure
+
+**Old → New:**
+- throw.isTriple/isBullseye/isDouble/isMiss → trigger.isTriple/isBullseye/isDouble/isMiss
+- tools.180/busted/gameon/gameshot/matchshot/takeout → trigger.is180/isBusted/isGameon/isGameshot/isMatchshot/isTakeout
+
+**Update Notice:** Existing scripts/automations need path adjustment from `throw.is*`/`tools.*` to `trigger.is*`
+
+**⚠️ Manual Cleanup Required:**
+After update, **delete old datapoints manually**:
+1. `autodarts.X.throw.isTriple/isBullseye/isDouble/isMiss`
+2. `autodarts.X.tools.180/busted/gameon/gameshot/matchshot/takeout`
+
+**Unchanged:**
+- `tools.RAW` (incoming HTTP events)
+- `tools.config.url*` (outgoing HTTP URLs)
+- All auto-reset timers (`config.triggerResetSec`)
+- All functionality (`throw.updateThrow()`, `tools.handleStateChange()`)
+​
 ### 0.8.3 (2026-01-06)
 - (skvarel) Added: CHANGELOG_OLD.md
 - (skvarel) Improved: Link to documentation added to the help section.

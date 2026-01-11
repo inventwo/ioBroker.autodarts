@@ -35,6 +35,7 @@ class Autodarts extends utils.Adapter {
 		// Reset-Timeout + Timer für isTriple/isBullseye/isDouble/isMiss
 		this.triggerResetSecRuntime = null;
 		this.resetTimer = null;
+		this.resetTimers = {}; // NEU: Objekt für individuelle Timer initialisieren
 	}
 
 	async onReady() {
@@ -72,6 +73,18 @@ class Autodarts extends utils.Adapter {
 
 		// Visit-Struktur anlegen (ausgelagert)
 		await visit.init(this);
+
+		// Trigger-Channel für alle is*-Trigger
+		await this.extendObjectAsync("trigger", {
+			type: "channel",
+			common: {
+				name: {
+					en: "Trigger states",
+					de: "Trigger-Zustände",
+				},
+			},
+			native: {},
+		});
 
 		// Throw-Channel und States anlegen (ausgelagert)
 		await throwLogic.init(this);
@@ -483,12 +496,12 @@ class Autodarts extends utils.Adapter {
 				native: {},
 			});
 
-			await this.extendObjectAsync("tools.busted", {
+			await this.extendObjectAsync("trigger.isBusted", {
 				type: "state",
 				common: {
 					name: {
-						en: "Busted (trigger)",
-						de: "Busted (Trigger)",
+						en: "Busted (trigger from tools)",
+						de: "Busted (Trigger aus Tools)",
 					},
 					type: "boolean",
 					role: "indicator",
@@ -498,12 +511,12 @@ class Autodarts extends utils.Adapter {
 				native: {},
 			});
 
-			await this.extendObjectAsync("tools.gameon", {
+			await this.extendObjectAsync("trigger.isGameon", {
 				type: "state",
 				common: {
 					name: {
-						en: "Game on (trigger)",
-						de: "Game on (Trigger)",
+						en: "Game on (trigger from tools)",
+						de: "Game on (Trigger aus Tools)",
 					},
 					type: "boolean",
 					role: "indicator",
@@ -513,12 +526,12 @@ class Autodarts extends utils.Adapter {
 				native: {},
 			});
 
-			await this.extendObjectAsync("tools.gameshot", {
+			await this.extendObjectAsync("trigger.isGameshot", {
 				type: "state",
 				common: {
 					name: {
-						en: "Gameshot (trigger)",
-						de: "Gameshot (Trigger)",
+						en: "Gameshot (trigger from tools)",
+						de: "Gameshot (Trigger aus Tools)",
 					},
 					type: "boolean",
 					role: "indicator",
@@ -527,14 +540,48 @@ class Autodarts extends utils.Adapter {
 				},
 				native: {},
 			});
-			// NEU: Unter-Channel für URL-Infos
-			await this.extendObjectAsync("tools.config", {
-				type: "channel",
+
+			await this.extendObjectAsync("trigger.is180", {
+				type: "state",
 				common: {
 					name: {
-						en: "Tools configuration",
-						de: "Tools-Konfiguration",
+						en: "180 (trigger from tools)",
+						de: "180 (Trigger aus Tools)",
 					},
+					type: "boolean",
+					role: "indicator",
+					read: true,
+					write: false,
+				},
+				native: {},
+			});
+
+			await this.extendObjectAsync("trigger.isMatchshot", {
+				type: "state",
+				common: {
+					name: {
+						en: "Matchshot (trigger from tools)",
+						de: "Matchshot (Trigger aus Tools)",
+					},
+					type: "boolean",
+					role: "indicator",
+					read: true,
+					write: false,
+				},
+				native: {},
+			});
+
+			await this.extendObjectAsync("trigger.isTakeout", {
+				type: "state",
+				common: {
+					name: {
+						en: "Takeout (trigger from tools)",
+						de: "Takeout (Trigger aus Tools)",
+					},
+					type: "boolean",
+					role: "indicator",
+					read: true,
+					write: false,
 				},
 				native: {},
 			});
@@ -575,6 +622,49 @@ class Autodarts extends utils.Adapter {
 					name: {
 						en: "URL for Gameshot",
 						de: "URL für Gameshot",
+					},
+					type: "string",
+					role: "text.url",
+					read: true,
+					write: false,
+				},
+				native: {},
+			});
+
+			await this.extendObjectAsync("tools.config.url180", {
+				type: "state",
+				common: {
+					name: {
+						en: "URL for 180",
+						de: "URL für 180",
+					},
+					type: "string",
+					role: "text.url",
+					read: true,
+					write: false,
+				},
+				native: {},
+			});
+			await this.extendObjectAsync("tools.config.urlMatchshot", {
+				type: "state",
+				common: {
+					name: {
+						en: "URL for Matchshot",
+						de: "URL für Matchshot",
+					},
+					type: "string",
+					role: "text.url",
+					read: true,
+					write: false,
+				},
+				native: {},
+			});
+			await this.extendObjectAsync("tools.config.urlTakeout", {
+				type: "state",
+				common: {
+					name: {
+						en: "URL for Takeout",
+						de: "URL für Takeout",
 					},
 					type: "string",
 					role: "text.url",
@@ -776,6 +866,9 @@ class Autodarts extends utils.Adapter {
 			await this.setStateAsync("tools.config.urlBusted", { val: "", ack: true });
 			await this.setStateAsync("tools.config.urlGameon", { val: "", ack: true });
 			await this.setStateAsync("tools.config.urlGameshot", { val: "", ack: true });
+			await this.setStateAsync("tools.config.url180", { val: "", ack: true });
+			await this.setStateAsync("tools.config.urlMatchshot", { val: "", ack: true });
+			await this.setStateAsync("tools.config.urlTakeout", { val: "", ack: true });
 			return;
 		}
 
@@ -785,12 +878,20 @@ class Autodarts extends utils.Adapter {
 		const urlBusted = `${base}/set/${id}.tools.RAW?value=busted`;
 		const urlGameon = `${base}/set/${id}.tools.RAW?value=gameon`;
 		const urlGameshot = `${base}/set/${id}.tools.RAW?value=gameshot`;
+		const url180 = `${base}/set/${id}.tools.RAW?value=180`;
+		const urlMatchshot = `${base}/set/${id}.tools.RAW?value=matchshot`;
+		const urlTakeout = `${base}/set/${id}.tools.RAW?value=takeout`;
 
 		await this.setStateAsync("tools.config.urlBusted", { val: urlBusted, ack: true });
 		await this.setStateAsync("tools.config.urlGameon", { val: urlGameon, ack: true });
 		await this.setStateAsync("tools.config.urlGameshot", { val: urlGameshot, ack: true });
+		await this.setStateAsync("tools.config.url180", { val: url180, ack: true });
+		await this.setStateAsync("tools.config.urlMatchshot", { val: urlMatchshot, ack: true });
+		await this.setStateAsync("tools.config.urlTakeout", { val: urlTakeout, ack: true });
 
-		this.log.debug(`Updated Tools URLs: ${urlBusted}, ${urlGameon}, ${urlGameshot}`);
+		this.log.debug(
+			`Updated Tools URLs: ${urlBusted}, ${urlGameon}, ${urlGameshot}, ${url180}, ${urlMatchshot}, ${urlTakeout}`,
+		);
 	}
 
 	/**
@@ -999,6 +1100,13 @@ class Autodarts extends utils.Adapter {
 			if (this.versionTimer) {
 				clearInterval(this.versionTimer);
 			}
+			// NEU: Alle individuellen Tools-Timer löschen
+			if (this.resetTimers) {
+				for (const id in this.resetTimers) {
+					clearTimeout(this.resetTimers[id]);
+				}
+			}
+			// Den alten einzelnen Timer (falls noch genutzt) ebenfalls löschen
 			if (this.resetTimer) {
 				clearTimeout(this.resetTimer);
 			}
