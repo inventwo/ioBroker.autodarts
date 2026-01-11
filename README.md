@@ -132,7 +132,7 @@ In **HELP & FAQ** you will find general information and help about the adapter a
 <!--
 	### **WORK IN PROGRESS**
 -->
-### 1.0.0 (2026-01-11)
+### **WORK IN PROGRESS**
 **BREAKING CHANGE** All triggers moved to unified `trigger.is*` structure
 
 **Old → New:**
@@ -167,6 +167,9 @@ After update, **delete old datapoints manually**:
 
 ### 0.8.0 (2026-01-04)
 - (skvarel) Added: New **TOOLS ADDON INTEGRATION** tab and runtime-generated URL states under `tools.config.*` for browser-based integrations (e.g. Tools for Autodarts).
+  
+## 0.7.3 (2026-01-03)
+- (skvarel) Fix Adapter Checker Warnings
 
 ## Older changes
 - [CHANGELOG_OLD.md](CHANGELOG_OLD.md)
