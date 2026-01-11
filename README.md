@@ -132,13 +132,6 @@ In **HELP & FAQ** you will find general information and help about the adapter a
 <!--
 	### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
-- (skvarel) BREAKING CHANGE: All triggers to unified trigger.is* structure
-- (skvarel) Moved: throw.is to trigger.isTriple/isBullseye/isDouble/isMiss  
-- (skvarel) Moved: tools.180/busted/gameon/gameshot/matchshot/takeout to trigger.is180/isBusted/isGameon/isGameshot/isMatchshot/isTakeout
-- (skvarel) Manual cleanup required: Delete old autodarts.X.throw.is* and tools.* states after update
-- (skvarel) Unchanged: tools.RAW, tools.config.url*, all timers/functionality
-
 ### 0.8.3 (2026-01-06)
 - (skvarel) Added: CHANGELOG_OLD.md
 - (skvarel) Improved: Link to documentation added to the help section.
