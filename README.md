@@ -132,7 +132,7 @@ In **HELP & FAQ** you will find general information and help about the adapter a
 <!--
 	### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 1.0.0 (2026-01-11)
 **BREAKING CHANGE** All triggers moved to unified `trigger.is*` structure
 
 **Old → New:**
@@ -152,6 +152,7 @@ After update, **delete old datapoints manually**:
 - All auto-reset timers (`config.triggerResetSec`)
 - All functionality (`throw.updateThrow()`, `tools.handleStateChange()`)
 ​
+
 ### 0.8.3 (2026-01-06)
 - (skvarel) Added: CHANGELOG_OLD.md
 - (skvarel) Improved: Link to documentation added to the help section.
@@ -166,9 +167,6 @@ After update, **delete old datapoints manually**:
 
 ### 0.8.0 (2026-01-04)
 - (skvarel) Added: New **TOOLS ADDON INTEGRATION** tab and runtime-generated URL states under `tools.config.*` for browser-based integrations (e.g. Tools for Autodarts).
-
-### 0.7.3 (2026-01-03)
-- (skvarel) Fix Adapter Checker Warnings
 
 ## Older changes
 - [CHANGELOG_OLD.md](CHANGELOG_OLD.md)
