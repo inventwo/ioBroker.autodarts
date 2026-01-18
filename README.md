@@ -133,6 +133,7 @@ In **HELP & FAQ** you will find general information and help about the adapter a
 	### **WORK IN PROGRESS**
 
 ### **WORK IN PROGRESS**
+- (copilot) **ENHANCED**: Updated all Node.js built-in module imports to use 'node:' prefix format for better clarity and security
 - (skvarel) Fixed: Changlog error at readme.md
 - (skvarel) Improved: FAQ because of the new structure
 -->
