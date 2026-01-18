@@ -135,6 +135,7 @@ In **HELP & FAQ** you will find general information and help about the adapter a
 ### **WORK IN PROGRESS**
 - (skvarel) Fixed: Changlog error at readme.md
 - (skvarel) Improved: FAQ because of the new structure
+- (copilot) **FIXED**: State roles now comply with ioBroker standards - config states use `level.*` roles, read-only color uses `text` role
 -->
 ### 1.0.0 (2026-01-11)
 - (skvarel) BREAKING CHANGE: All triggers to unified trigger.is structure
