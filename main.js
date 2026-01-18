@@ -118,7 +118,7 @@ class Autodarts extends utils.Adapter {
 					de: "Board-Ereignis-Status",
 				},
 				type: "string",
-				role: "info",
+				role: "info.status",
 				read: true,
 				write: false,
 				desc: {
@@ -418,7 +418,7 @@ class Autodarts extends utils.Adapter {
 					de: "Triple Mindestpunktzahl",
 				},
 				type: "number",
-				role: "value",
+				role: "level",
 				read: true,
 				write: true,
 				desc: {
@@ -437,7 +437,7 @@ class Autodarts extends utils.Adapter {
 					de: "Triple Maximalpunktzahl",
 				},
 				type: "number",
-				role: "value",
+				role: "level",
 				read: true,
 				write: true,
 				desc: {
@@ -456,7 +456,7 @@ class Autodarts extends utils.Adapter {
 					de: "Triple/Bull Reset (s)",
 				},
 				type: "number",
-				role: "value",
+				role: "level.timer",
 				read: true,
 				write: true,
 				desc: {
