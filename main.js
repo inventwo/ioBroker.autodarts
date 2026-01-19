@@ -418,7 +418,7 @@ class Autodarts extends utils.Adapter {
 					de: "Triple Mindestpunktzahl",
 				},
 				type: "number",
-				role: "level",
+				role: "level.min",
 				read: true,
 				write: true,
 				desc: {
@@ -437,7 +437,7 @@ class Autodarts extends utils.Adapter {
 					de: "Triple Maximalpunktzahl",
 				},
 				type: "number",
-				role: "level",
+				role: "level.max",
 				read: true,
 				write: true,
 				desc: {
