@@ -1,4 +1,10 @@
 # Older changes
+## 0.8.0 (2026-01-04)
+- (skvarel) **Added**: New **TOOLS ADDON INTEGRATION** tab and runtime-generated URL states under `tools.config.*` for browser-based integrations (e.g. Tools for Autodarts).
+
+## 0.7.3 (2026-01-03)
+- (skvarel) **Fixed**: Adapter Checker Warnings
+
 ## 0.7.2 (2026-01-03)
 - (skvarel) **Fixed**: Copyright Year
 
