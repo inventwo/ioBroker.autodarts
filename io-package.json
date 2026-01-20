@@ -1,8 +1,21 @@
 {
   "common": {
     "name": "autodarts",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "news": {
+      "1.0.1": {
+        "en": "Enhanced: Updated all Node.js built-in module imports to use 'node:' prefix format for better clarity and security\nFixed: Changlog error at readme.md\nImproved: FAQ because of the new structure\nFixed: State roles now comply with ioBroker standards - config states use `level.*` roles, read-only color uses `text` role",
+        "de": "Verbessert: Aktualisiert alle Node.js-Einbau-Modulimporte, um 'node:' Präfix-Format für bessere Klarheit und Sicherheit\nBehoben: Changlog-Fehler bei readme. md\nVerbessert: FAQ wegen der neuen Struktur\nBehoben: Die staatlichen Rollen entsprechen jetzt ioBroker Standards - config Staaten verwenden `level.* ` Rollen, Nur lesen Farbe verwendet `text` Rolle",
+        "ru": "Улучшено: Обновлен весь импорт встроенных модулей Node.js для использования формата префикса «узел:» для большей ясности и безопасности\nИсправлено: ошибка Changlog в readme. мд\nУлучшенный: FAQ из-за новой структуры\nИсправлено: государственные роли теперь соответствуют стандартам ioBroker - конфигурационные состояния используют роли «уровня»",
+        "pt": "Melhorado: Updated all Node.js built-in module importations to use 'node:' prefixo format for better clear and security\nCorrigido: Changlog erro no readme. md\nMelhorado: FAQ por causa da nova estrutura\nFixado: As funções do estado agora cumprem com os padrões do ioBroker - os estados de configuração usam as funções `level.*', a cor somente para leitura usa a função `text'",
+        "nl": "Verbeterd: Bijgewerkt alle Node.js ingebouwde module import om 'node:' prefix formaat te gebruiken voor meer duidelijkheid en veiligheid\nFixed: Changlog fout bij readme. md\nVerbeterd: FAQ vanwege de nieuwe structuur\nFixed: State rollen nu voldoen aan joBroker normen - config states maken gebruik van ",
+        "fr": "Amélioration : Mise à jour de toutes les importations de modules intégrés Node.js pour utiliser le format préfixe 'node:' pour une meilleure clarté et sécurité\nCorrection : erreur Changlog à la lecture. md\nAmélioration : FAQ en raison de la nouvelle structure\nCorrection : les rôles de l'État sont désormais conformes aux normes ioBroker - les États de configuration utilisent les rôles `level.*`, la couleur en lecture seule utilise le rôle `text`",
+        "it": "Migliorato: Aggiornato tutte le importazioni del modulo incorporato Node.js per usare il formato 'nodo:' prefisso per una migliore chiarezza e sicurezza\nRisolto: Errore Changlog a readme. M\nMigliorato: FAQ a causa della nuova struttura\nRisolto: i ruoli di stato sono ora conformi agli standard ioBroker - gli stati di configurazione usano i ruoli `level.*`, il colore di sola lettura utilizza il ruolo `text`",
+        "es": "Mejorado: Actualizado todas las importaciones de módulos integrados Node.js para utilizar 'node:' formato prefijo para una mejor claridad y seguridad\nCorregido: Error de Changlog en readme. md\nMejorado: FAQ debido a la nueva estructura\nCorregido: Los papeles del Estado cumplen ahora con las normas de yoBroker - los estados de config utilizan roles de 'nivel.*`, sólo el color de lectura utiliza 'texto' papel",
+        "pl": "Wzmocnione: Aktualizacja wszystkich Node.js built- w imporcie modułu do użycia 'node:' format prefix dla większej jasności i bezpieczeństwa\nNaprawiono: błąd Changlog przy readme. md\nUlepszone: FAQ ze względu na nową strukturę\nStała: Role stanu są teraz zgodne ze standardami jOBrokera - stany konfiguracyjne używają 'level. *' roles, kolor tylko read- wykorzystuje 'text' role",
+        "uk": "Підвищений: Оновлено всі імпорт модуля Node.js для використання 'node:' prefix формат для кращої чіткості та безпеки\nВиправлено: Похибка Changlog на readme. мд\nПокращується: FAQ через нову структуру\nВиправлено: Державні ролі тепер відповідають нормам ioBroker - конфігураційні стани використовують `level.*`````````````````text```",
+        "zh-cn": "增强: 更新所有节点.js内置模块导入以使用“ 节点:” 前缀格式以提高清晰度和安全性\n固定: 朗洛格在readme错误. 微额\n改进:因新结构而提出问题\n固定:国家角色现在符合ioBroker标准 - 配置状态使用“级别”。 角色,只读颜色使用“文本”角色"
+      },
       "1.0.0": {
         "en": "BREAKING CHANGE: All triggers to unified trigger.is structure\nManual cleanup required: Delete old autodarts.X.throw.is and tools. states after update\nUnchanged: tools.RAW, tools.config.url, all timers/functionality",
         "de": "BREAKING CHANGE: Alle Auslöser zum vereinheitlichten Auslöser. ist Struktur\nManuelle Reinigung erforderlich: Löschen Sie alte Autodarts. X.throw.is und Werkzeuge. Zustände nach Update\nUnverändert: Werkzeuge. RAW, tools.config.url, alle Timer/Funktionalität",
@@ -80,19 +93,6 @@
         "pl": "Napraw ostrzeżenia dotyczące kontroli adaptera",
         "uk": "Перевірити попередження адаптера",
         "zh-cn": "修正适配器检查器警告"
-      },
-      "0.7.2": {
-        "en": "Fix Copyright Year",
-        "de": "Urheberrecht Jahr",
-        "ru": "Год исправления авторских прав",
-        "pt": "Corrigir o Ano de Direitos Autorais",
-        "nl": "Copyrightjaar repareren",
-        "fr": "Fixer l'année du droit d'auteur",
-        "it": "Fissare l'Anno Copyright",
-        "es": "Ejercicio de derechos de autor",
-        "pl": "Napraw rok Copyright",
-        "uk": "Фіксація авторського права",
-        "zh-cn": "修复版权年"
       }
     },
     "titleLang": {
