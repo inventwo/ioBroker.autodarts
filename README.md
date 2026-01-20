@@ -1,9 +1,9 @@
 ![Logo](admin/autodarts.svg)
 ## Adapter for Autodarts Integration
 
-![Number of Installations](https://iobroker.live/badges/autodarts-installed.svg)<!--![Current version in stable repository](https://iobroker.live/badges/autodarts-stable.svg)-->
+![Number of Installations](https://iobroker.live/badges/autodarts-installed.svg) ![Current version in stable repository](https://iobroker.live/badges/autodarts-stable.svg)
 [![NPM Version](https://nodei.co/npm/iobroker.autodarts.svg?style=shields&data=v,u,d&color=orange)](https://www.npmjs.com/package/iobroker.autodarts)
-<!--[![Downloads](https://img.shields.io/npm/dm/iobroker.autodarts.svg)](https://www.npmjs.com/package/iobroker.autodarts)-->
+[![Downloads](https://img.shields.io/npm/dm/iobroker.autodarts.svg)](https://www.npmjs.com/package/iobroker.autodarts)
 
 [![Paypal Donation](https://img.shields.io/badge/paypal-donate%20|%20spenden-green.svg)](https://www.paypal.com/donate/?hosted_button_id=7W6M3TFZ4W9LW)
 
@@ -131,35 +131,35 @@ In **HELP & FAQ** you will find general information and help about the adapter a
 ## Changelog
 <!--
 	### **WORK IN PROGRESS**
-
-### **WORK IN PROGRESS**
-- (copilot) **ENHANCED**: Updated all Node.js built-in module imports to use 'node:' prefix format for better clarity and security
-- (skvarel) Fixed: Changlog error at readme.md
-- (skvarel) Improved: FAQ because of the new structure
-- (copilot) **FIXED**: State roles now comply with ioBroker standards - config states use `level.*` roles, read-only color uses `text` role
 -->
+### **WORK IN PROGRESS**
+- (copilot) **Enhanced**: Updated all Node.js built-in module imports to use 'node:' prefix format for better clarity and security
+- (skvarel) **Fixed**: Changlog error at readme.md
+- (skvarel) **Improved**: FAQ because of the new structure
+- (copilot) **Fixed**: State roles now comply with ioBroker standards - config states use `level.*` roles, read-only color uses `text` role
+
 ### 1.0.0 (2026-01-11)
-- (skvarel) BREAKING CHANGE: All triggers to unified trigger.is structure
-- (skvarel) Manual cleanup required: Delete old autodarts.X.throw.is and tools. states after update
-- (skvarel) Unchanged: tools.RAW, tools.config.url, all timers/functionality
+- (skvarel) **BREAKING CHANGE**: All triggers to unified trigger.is structure
+- (skvarel) **Manual cleanup required**: Delete old autodarts.X.throw.is and tools. states after update
+- (skvarel) **Unchanged**: tools.RAW, tools.config.url, all timers/functionality
 
 ### 0.8.3 (2026-01-06)
-- (skvarel) Added: CHANGELOG_OLD.md
-- (skvarel) Improved: Link to documentation added to the help section.
+- (skvarel) **Added**: CHANGELOG_OLD.md
+- (skvarel) **Improved**: Link to documentation added to the help section.
 
 ### 0.8.2 (2026-01-05)
-- (skvarel) Fixed: ImageURL
+- (skvarel) **Fixed**: ImageURL
 
 ### 0.8.1 (2026-01-05)
-- (skvarel) Added: New DE/EN adapter documentation under `/docs` with separate pages for all config tabs (Options, Mappings, Tools addon integration, Help & FAQ).
-- (skvarel) Improved: Main README cleaned up and linked to the new documentation (badges, feature overview, configuration section).
-- (skvarel) Improved: Clarified Tools addon integration flow (Simple-API requirements, generated URLs, WLED usage).
+- (skvarel) **Added**: New DE/EN adapter documentation under `/docs` with separate pages for all config tabs (Options, Mappings, Tools addon integration, Help & FAQ).
+- (skvarel) **Improved**: Main README cleaned up and linked to the new documentation (badges, feature overview, configuration section).
+- (skvarel) **Improved**: Clarified Tools addon integration flow (Simple-API requirements, generated URLs, WLED usage).
 
 ### 0.8.0 (2026-01-04)
-- (skvarel) Added: New **TOOLS ADDON INTEGRATION** tab and runtime-generated URL states under `tools.config.*` for browser-based integrations (e.g. Tools for Autodarts).
+- (skvarel) **Added**: New **TOOLS ADDON INTEGRATION** tab and runtime-generated URL states under `tools.config.*` for browser-based integrations (e.g. Tools for Autodarts).
 
 ### 0.7.3 (2026-01-03)
-- (skvarel) Fix Adapter Checker Warnings
+- (skvarel) **Fixed**: Adapter Checker Warnings
 
 ## Older changes
 - [CHANGELOG_OLD.md](CHANGELOG_OLD.md)
