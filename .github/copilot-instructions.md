@@ -1,20 +1,27 @@
-# ioBroker Adapter Development with GitHub Copilot
+# GitHub Copilot Instructions: ioBroker Autodarts Adapter
 
-**Version:** 0.4.2
-**Template Source:** https://github.com/DrozmotiX/ioBroker-Copilot-Instructions
+**Version:** 1.0.2  
+**Project:** ioBroker.autodarts - Dartboard integration  
+**Architecture:** Modular polling-based adapter with state management & hardware control  
 
-This file contains instructions and best practices for GitHub Copilot when working on ioBroker adapter development.
+## Quick Start for AI Agents
 
-## Project Context
+This is an **ioBroker adapter** that connects a local Autodarts Board Manager (HTTP polling) to ioBroker's state system. Key files:
+- **[main.js](main.js)** - Adapter entry point with polling loop & state routing
+- **[lib/](lib/)** - Modular logic split by concern (throw, visit, trafficLight, hardware, config, etc.)
+- **[admin/jsonConfig.json](admin/jsonConfig.json)** - UI config form (JSON-Config format)
+- **[test/integration.js](test/integration.js)** - Integration tests via `@iobroker/testing`
 
-You are working on an ioBroker adapter. ioBroker is an integration platform for the Internet of Things, focused on building smart home and industrial IoT solutions. Adapters are plugins that connect ioBroker to external systems, devices, or services.
+**Core Pattern:** Load data from Board Manager → route through lib modules → write to ioBroker states
+
+## Architecture Overview
 
 ### Autodarts Adapter Specifics
 
 This adapter integrates with **Autodarts Board Manager**, a local system for electronic dartboard scoring and automation. Key characteristics:
 
 - **Local Network Communication**: The adapter connects to a local Autodarts Board Manager via HTTP (default port 3180)
-- **Polling Architecture**: Uses configurable polling intervals (default 2000ms) to fetch game state updates
+- **Polling Architecture**: Uses configurable polling intervals in seconds (default 1s, calculated to milliseconds in code) to fetch game state updates
 - **No Cloud Dependencies**: All data stays local - no external API, authentication, or cloud services required
 - **Real-time Game Events**: Tracks dart throws, visits (3-dart sequences), player information, and board status
 - **State Management**: Creates ioBroker states for:
@@ -33,16 +40,20 @@ This adapter integrates with **Autodarts Board Manager**, a local system for ele
 #### Configuration Options
 - `host`: IP address of Autodarts Board Manager (e.g., "192.168.178.50")
 - `port`: Board Manager port (default: 3180)
-- `interval`: Polling interval in milliseconds (default: 2000)
+- `intervalSec`: Polling interval in seconds (default: 1)
 - `tripleMinScore`: Minimum score for triple detection flag (default: 1)
 - `tripleMaxScore`: Maximum score for triple detection flag (default: 20)
-- `triggerResetMs`: Auto-reset time for throw triggers in milliseconds (0 = disabled)
+- `triggerResetSec`: Auto-reset time for throw triggers in seconds (0 = disabled)
+- `toolsIp`: IP address for Tools addon integration (optional)
+- `toolsPort`: Port for Tools addon (default: 8087)
+- `toolsInstance`: ioBroker instance number for Tools (default: 0)
 
 #### API Endpoints
 The adapter polls these Board Manager endpoints:
-- `/api/match` - Current game state and throws
+- `/api/state` - Current game state and throws
 - `/api/version` - Board Manager version
-- `/api/configuration` - Camera and system configuration
+- `/api/config` - System configuration
+- `/api/host` - Host information
 
 #### Error Handling Patterns
 - Gracefully handle network timeouts and connection failures
@@ -50,6 +61,188 @@ The adapter polls these Board Manager endpoints:
 - Update traffic light to red on connection errors
 - Log detailed error messages for troubleshooting
 - Implement retry logic with configurable intervals
+
+## Codebase Architecture
+
+### Module Organization (`lib/` directory)
+
+The adapter uses **modular design** where each concern is isolated. Each module exports `init()` and processing functions:
+
+#### Core Modules
+
+1. **`lib/httpHelper.js`** - HTTP abstraction layer
+   - `makeRequest(adapter, path, timeout)` - Handles GET requests to Board Manager
+   - Used by all modules to fetch data from `/api/state`, `/api/version`, `/api/config`, `/api/host`
+   - Returns Promise<string>; handles timeouts and errors
+   - `updateThrow(adapter, lastDart)` - Detects dart throws, sets trigger flags based on score range
+   - Tracks **triple** (configurable range via tripleMinScore/tripleMaxScore), **bullseye** (50 points), **double** (multiplier = 2), **miss** (0 points) triggers
+   - Implements auto-reset timers for triggers via `triggerResetSecRuntime` stored in `adapter.resetTimers` objectgs)
+   - `processThrow(adapter, currentThrows, lastThrowsCount)` - Detects new throws, sets trigger flags
+   - Tracks **triple** (configurable range), **bullseye**, **double**, **miss** triggers
+   - Implements auto-reset timers for triggers via `triggerResetSecRuntime`
+all darts in a visit, updates score when new throws detected
+   - Returns new `lastThrowsCount` for change detection (stored in adapter.lastThrowsCount)
+   - `init(adapter)` - Creates `visit.score` state
+   - `updateVisit(adapter, currentThrows, lastThrowsCount)` - Sums 3 darts when visit completes
+   - Returns new `lastThrowsCount` for signature-based deduplication
+
+4. **`lib/trafficLight.js`** - Board status indicator
+   - `init(adapter)` - Creates `status.trafficLightColor` and `status.trafficLightState` states
+   - Maps board events (Stopped, Running, Calibration) to traffic light colors (red, yellow, green)
+   - Also updates `status.boardStatus` text state
+
+5. **`lib/config.js`** - Runtime configuration management
+   - `init(adapter)` - Creates `config.tripleMinScore`, `config.tripleMaxScore`, `config.triggerResetSec` states
+   - `initializeRuntimeValues(adapter)` - Loads defaults from adapter settings
+   - `handleStateChange(adapter, idShort, state)` - Updates runtime values when user changes config states
+
+6. **`lib/hardware.js`** - Board hardware control & bidirectional sync
+   - `init(adapter)` - Creates `system.hardware.light` and `system.hardware.power` states
+   - `subscribeForeignStates(adapter)` - Sets up subscriptions for external ioBroker states (e.g., smart lights)
+   - `handleForeignStateChange(adapter, id, state)` - Syncs external state changes to adapter hardware states
+   - `handleStateChange(adapter, idShort, state)` - Syncs adapter hardware state changes to external states
+
+7. **`lib/systemInfo.js`** - System and camera information
+   - `init(adapter)` - Creates `system.software.*`, `system.hardware.*`, `system.cams.*` states
+   - `fetchHost(adapter)`, `fetchConfig(adapter)` - Called on startup and every 5 minutes by timer in main.js (versionTimer)
+
+8. **`lib/tools.js`** - Tools addon integration (browser extension events)
+   - `init(adapter)` - Creates `tools.RAW` input state and `tools.config.url*` states
+   - Generates HTTP URLs for browser extension based on configured toolsIp, toolsPort, toolsInstance
+   - Supports Busted, GameOn, Gameshot events
+   - `handleStateChange(adapter, idShort, state)` - Processes incoming tool events
+
+#### Main Adapter Flow (`main.js`)
+
+```javascript
+class Autodarts extends utils.Adapter {
+  constructor() {
+    // Timer placeholders: pollTimer, versionTimer, resetTimers
+    this.lastSignature = ""; // Deduplicates API responses
+    this.lastThrowsCount = 0; // Tracks throw count for visit detection
+  }
+
+  async onReady() {
+    // 1. Load & apply defaults from config
+    // 2. Initialize all modules in order (hardware → systemInfo → config → visit → throw → trafficLight → tools)
+    // 3. Subscribe to foreign states for hardware sync
+    // 4. Start pollLoop()
+    // 5. Schedule systemInfo refresh every 5 minutes
+  }
+
+  pollLoop() {
+    // 1. Make HTTP request to /api/state
+    // 2. If connection error: set online=false, trafficLight=red, skip processing
+    // 3. If valid response:
+    //    - Calculate signature from throws array for deduplication (JSON.stringify)
+    //    - Check if signature changed - skip processing if unchanged (lastSignature check)
+    //    - Route data to: trafficLight.update() → visit.updateVisit() → throw.updateThrow() → config updates
+    //    - Set online=true
+    // 4. Reschedule based on configured onlineIntervalMs (polling interval in milliseconds)
+  }
+
+  async onStateChange(id, state) {
+    // Route state changes to modules in order:
+    // 1. hardware.handleForeignStateChange() - external state sync
+    // 2. tools.handleStateChange() - tool events
+    // 3. config.handleStateChange() - config updates
+    // 4. hardware.handleStateChange() - hardware control
+  }
+}
+```
+
+### Data Flow Diagram
+
+```
+Board Manager API
+    ↓
+httpHelper.makeRequest()
+    ↓
+[Signature deduplication: lastSignature check]
+    ↓
+┌─ trafficLight.update() → status.trafficLight*
+├─ visit.updateVisit() → visit.score
+├─ throw.processThrow() → throw.current, trigger.is*
+├─ config.updateRuntime() → config.*
+├─ tools.update() → tools.*
+└─ systemInfo.update() → system.*
+    ↓
+onlineIntervalMs reschedule
+```
+
+### Key Patterns
+
+#### Signature-Based Deduplication
+The adapter prevents duplicate processing of unchanged API responses:
+```javascript
+const signature = JSON.stringify(matchData.throws || []);
+if (signature === this.lastSignature) {
+  // Skip processing if throws array is identical
+  this.log.debug("Skipping processing - no new throws");
+  // Still reschedule the next poll
+  this.pollTimer = setTimeout(() => this.pollLoop(), this.onlineIntervalMs);
+  return;
+}
+this.lastSignature = signature;
+```
+
+#### Module Initialization Pattern
+Every module follows this contract:
+```javascript
+// Module exports
+async function init(adapter) { /* Create states */ }
+async function updateX/miss flags auto-reset based on `triggerResetSecRuntime`:
+```javascript
+// In throw.js updateThrow()
+if (isTriple) {
+  await adapter.setStateAsync('trigger.isTriple', true);
+  // Clear existing timer if present
+  if (adapter.resetTimers.isTriple) {
+    clearTimeout(adapter.resetTimers.isTriple);
+  }
+  // Set auto-reset timer if configured
+  if (adapter.triggerResetSecRuntime > 0) {
+    adapter.resetTimers.isTriple = setTimeout(() => {
+      adapter.setStateAsyncThrow()
+if (shouldTriggerTriple) {
+  adapter.setState('trigger.isTriple', true);
+  clearTimeout(adapter.resetTimers.triple);
+  if (adapter.triggerResetSecRuntime > 0) {
+    adapter.resetTimers.triple = setTimeout(() => {
+      adapter.setState('trigger.isTriple', false);
+    }, adapter.triggerResetSecRuntime * 1000);
+  }
+}
+```
+
+#### Multilingual State Names
+All states use structured `name` and `desc` with English & German:
+```javascript
+common: {
+  name: { en: "Current dart score", de: "Punkte aktueller Dart" },
+  desc: { en: "Score of last thrown dart", de: "Punktzahl des letzten Wurfs" }
+}
+```
+
+### Development Commands
+
+| Command | Purpose |
+|---------|---------|
+| `npm run check` | TypeScript type checking (no emit) |
+| `npm run lint` | ESLint code validation |
+| `npm run test:js` | Run Jest unit tests (*.test.js files) |
+| `npm test` | Run `test:js` + `test:package` |
+| `npm run test:integration` | Run @iobroker/testing integration tests |
+| `npm run dev-server` | Start dev server for admin UI testing |
+
+### Code Style Rules
+
+- **Imports**: Use `node:` prefix for Node.js built-ins (e.g., `const http = require("node:http")`)
+- **Async/Await**: Preferred over callbacks where possible
+- **Timer Cleanup**: Always clear timers in `onUnload()` to prevent memory leaks
+- **State Roles**: Follow ioBroker role conventions (`indicator`, `value`, `level.*`, `text`, etc.)
+- **Configuration**: Runtime values stored in adapter instance (e.g., `this.tripleMinScoreRuntime`)
+- **Error Handling**: Catch HTTP errors, set `online=false`, log with `this.log.error()`
 
 ## Testing
 
@@ -812,7 +1005,7 @@ Use Node.js built-in `http` module for polling the Board Manager:
 const options = {
     hostname: this.config.host,
     port: this.config.port,
-    path: "/api/match",
+    path: "/api/state",
     method: "GET",
     timeout: 5000
 };
@@ -882,24 +1075,19 @@ await throwLogic.init(this);
 
 #### Timer Cleanup Pattern
 Always clean up timers in `onUnload` to prevent memory leaks:
-```javascript
-class Autodarts extends utils.Adapter {
-    constructor(options) {
-        super(options);
-        this.pollTimer = null;
-        this.versionTimer = null;
-        this.resetTimer = null;
-        this.bullResetTimer = null;
-    }
+    this.pollTimer = null;           // Polling loop timer
+    this.versionTimer = null;        // System info refresh timer (5 min interval)
+    this.resetTimers = {};           // Object for individual trigger reset timers
+  }
 
-    onUnload(callback) {
-        try {
-            if (this.pollTimer) clearTimeout(this.pollTimer);
-            if (this.versionTimer) clearTimeout(this.versionTimer);
-            if (this.resetTimer) clearTimeout(this.resetTimer);
-            if (this.bullResetTimer) clearTimeout(this.bullResetTimer);
-            callback();
-        } catch (e) {
+  onUnload(callback) {
+    try {
+      if (this.pollTimer) clearTimeout(this.pollTimer);
+      if (this.versionTimer) clearInterval(this.versionTimer);
+      // Clear all individual reset timers
+      Object.values(this.resetTimers).forEach(timer => {
+        if (timer) clearTimeout(timer);
+      });       } catch (e) {
             callback();
         }
     }
