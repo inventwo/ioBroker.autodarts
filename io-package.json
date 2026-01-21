@@ -1,8 +1,21 @@
 {
   "common": {
     "name": "autodarts",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "news": {
+      "1.0.2": {
+        "en": "ENHANCED: Refactored adapter code into modular architecture for improved maintainability and code quality – no functional changes for end users",
+        "de": "ENHANCED: Refactored adapter code in modulare Architektur für verbesserte Aufrechterhaltungs- und Codequalität – keine funktionalen Änderungen für Endanwender",
+        "ru": "Рефакторированный код адаптера в модульную архитектуру для улучшения ремонтопригодности и качества кода - никаких функциональных изменений для конечных пользователей",
+        "pt": "REHANCED: Código adaptador refatorizado em arquitetura modular para melhor manutenção e qualidade de código – sem alterações funcionais para usuários finais",
+        "nl": "VERHAALD: Gerefactoreerde adaptercode in modulaire architectuur voor verbeterde onderhoudbaarheid en codekwaliteit",
+        "fr": "RENFORCEMENT: Refactored adaptateur code en architecture modulaire pour améliorer la maintenance et la qualité du code – aucun changement fonctionnel pour les utilisateurs finaux",
+        "it": "ENHANCED: Codice adattatore in architettura modulare per una migliore manutenbilità e qualità del codice – nessun cambiamento funzionale per gli utenti finali",
+        "es": "ENHANCED: Código de adaptador refactorizado en arquitectura modular para mejorar la calidad de mantenimiento y código – no hay cambios funcionales para los usuarios finales",
+        "pl": "ENHANCED: Przekształcony kod adaptera w architekturę modułową dla poprawy zachowania i jakości kodu - brak zmian funkcjonalnych dla użytkowników końcowych",
+        "uk": "ENHANCED: Відновлений код адаптера в модульну архітектуру для підвищення стійкості та якості коду - не функціональні зміни для кінцевих користувачів",
+        "zh-cn": "EnhancedD:重构适配器代码为模块架构,以提高可维护性和代码质量 — 对最终用户没有功能变化"
+      },
       "1.0.1": {
         "en": "Enhanced: Updated all Node.js built-in module imports to use 'node:' prefix format for better clarity and security\nFixed: Changlog error at readme.md\nImproved: FAQ because of the new structure\nFixed: State roles now comply with ioBroker standards - config states use `level.*` roles, read-only color uses `text` role",
         "de": "Verbessert: Aktualisiert alle Node.js-Einbau-Modulimporte, um 'node:' Präfix-Format für bessere Klarheit und Sicherheit\nBehoben: Changlog-Fehler bei readme. md\nVerbessert: FAQ wegen der neuen Struktur\nBehoben: Die staatlichen Rollen entsprechen jetzt ioBroker Standards - config Staaten verwenden `level.* ` Rollen, Nur lesen Farbe verwendet `text` Rolle",
@@ -80,19 +93,6 @@
         "pl": "Dodano: New ** TOOLS ADDON INTEGRATION* * tab and runtime- genered URL states under 'tools.config.*' for browser- based integrations (np. Tools for Autodarts). ",
         "uk": "Додано: New **TOOLS ADDON INTEGRATION*** вкладка та пускові дегенеровані стани URL під `tools.config.*` для інтеграції браузера (наприклад, Інструменти для Autodarts).",
         "zh-cn": "添加:在“tools.config.QQ”下新建 **TOOLS ADDON INTEGINation**标签和运行时间生成的URL状态,用于基于浏览器的集成(例如,用于自动化的工具)."
-      },
-      "0.7.3": {
-        "en": "Fix Adapter Checker Warnings",
-        "de": "Fix Adapter Checker Warnungen",
-        "ru": "Fix Adapter Checker Предупреждения",
-        "pt": "Corrigir avisos de verificação do adaptador",
-        "nl": "Waarschuwingen voor adaptercontrole herstellen",
-        "fr": "Correction des avertissements du vérificateur d'adaptateur",
-        "it": "Risolvere le avvertenze dell'adattatore",
-        "es": "Advertencias de adaptador de fijación",
-        "pl": "Napraw ostrzeżenia dotyczące kontroli adaptera",
-        "uk": "Перевірити попередження адаптера",
-        "zh-cn": "修正适配器检查器警告"
       }
     },
     "titleLang": {

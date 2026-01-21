@@ -1,4 +1,9 @@
 # Older changes
+## 0.8.1 (2026-01-05)
+- (skvarel) Added: New DE/EN adapter documentation under `/docs` with separate pages for all config tabs (Options, Mappings, Tools addon integration, Help & FAQ).
+- (skvarel) Improved: Main README cleaned up and linked to the new documentation (badges, feature overview, configuration section).
+- (skvarel) Improved: Clarified Tools addon integration flow (Simple-API requirements, generated URLs, WLED usage).
+
 ## 0.8.0 (2026-01-04)
 - (skvarel) **Added**: New **TOOLS ADDON INTEGRATION** tab and runtime-generated URL states under `tools.config.*` for browser-based integrations (e.g. Tools for Autodarts).
 

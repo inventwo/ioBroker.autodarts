@@ -132,7 +132,7 @@ In **HELP & FAQ** you will find general information and help about the adapter a
 <!--
 	### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 1.0.2 (2026-01-21)
 - (copilot) ENHANCED: Refactored adapter code into modular architecture for improved maintainability and code quality – no functional changes for end users
 
 ### 1.0.1 (2026-01-20)
@@ -152,11 +152,6 @@ In **HELP & FAQ** you will find general information and help about the adapter a
 
 ### 0.8.2 (2026-01-05)
 - (skvarel) Fixed: ImageURL
-
-### 0.8.1 (2026-01-05)
-- (skvarel) Added: New DE/EN adapter documentation under `/docs` with separate pages for all config tabs (Options, Mappings, Tools addon integration, Help & FAQ).
-- (skvarel) Improved: Main README cleaned up and linked to the new documentation (badges, feature overview, configuration section).
-- (skvarel) Improved: Clarified Tools addon integration flow (Simple-API requirements, generated URLs, WLED usage).
 
 ## Older changes
 - [CHANGELOG_OLD.md](CHANGELOG_OLD.md)
