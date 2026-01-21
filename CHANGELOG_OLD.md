@@ -1,4 +1,7 @@
 # Older changes
+## 0.8.2 (2026-01-05)
+- (skvarel) Fixed: ImageURL
+
 ## 0.8.1 (2026-01-05)
 - (skvarel) Added: New DE/EN adapter documentation under `/docs` with separate pages for all config tabs (Options, Mappings, Tools addon integration, Help & FAQ).
 - (skvarel) Improved: Main README cleaned up and linked to the new documentation (badges, feature overview, configuration section).

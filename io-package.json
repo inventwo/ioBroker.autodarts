@@ -1,8 +1,21 @@
 {
   "common": {
     "name": "autodarts",
-    "version": "1.0.2",
+    "version": "1.0.3",
     "news": {
+      "1.0.3": {
+        "en": "FIXED: Use setStateAsync() instead of setState() for trigger resets in throw.js to ensure database reliability\nENHANCED: Corrected API endpoints in copilot-instructions.md - now documents /api/state, /api/config, /api/host, /api/version correctly\nTESTING: Added comprehensive unit tests for core modules (throw, visit, config, trafficLight, httpHelper)",
+        "de": "FIXED: Verwenden Sie setStateAsync() anstatt setState() für Trigger-Resets im Wurf. js zur Sicherstellung der Datenbanksicherheit\nENHANCED: Berichtigte API-Endpunkte in Copilot-Anweisungen. md - jetzt Dokumente /api/state, /api/config, /api/host, /api/version korrekt\nTESTING: Ergänzende Unit-Tests für Kernmodule (Drei, Besuch, Config, TrafficLight, httpHelper)",
+        "ru": "FIXED: Используйте setStateAsync() вместо setState() для сброса триггера в броске. js для обеспечения надежности базы данных\nИсправленные конечные точки API в инструкциях копилота. md - теперь документы /api/state, /api/config, /api/host, /api/version правильно\nТестирование: Добавлены комплексные единичные тесты для основных модулей (брос, посещение, конфигурация, TrafficLight, httpHelper)",
+        "pt": "FIXED: Use setStateAsync() em vez de setState() para resets de gatilho. js para garantir a confiabilidade do banco de dados\nEnhanced: Endpoints de API corrigidos em instruções de copiloto. md - agora documentos /api/state, /api/config, /api/host, /api/version corretamente\nTESTAMENTO: Adicionados testes unitários abrangentes para módulos centrais (jogar, visitar, configurar, trafficLight, httpHelper)",
+        "nl": "VAST: Gebruik setStateAsync() in plaats van setState() voor trigger resets in de worp. js om de betrouwbaarheid van de database te garanderen\nVERHAALD: gecorrigeerde API-eindpunten in instructies voor de copiloot. md - nu documenten /api/state, /api/config, /api/host, /api/version correct\nTESTEN: Toegevoegd uitgebreide unit testen voor kernmodules (gooien, bezoeken, config, verkeerLight, httpHelper)",
+        "fr": "FIXÉ: Utilisez setStateAsync() au lieu de setState() pour réinitialiser le déclencheur en lancer. js pour assurer la fiabilité de la base de données\nRENFORCEMENT: Correction des paramètres de l'API dans les instructions de copilote. md - maintenant documents /api/state, /api/config, /api/host, /api/version correctement\nESSAI: Ajout de tests unitaires complets pour les modules de base (jetez, visitez, config, trafficLight, httpHelper)",
+        "it": "FISSO: Utilizzare setStateAsync() invece di setState() per reset di trigger in lancio. js per garantire l'affidabilità del database\nENHANCED: endpoint API corretti in istruzioni copilota. md - ora documenti /api/state, /api/config, /api/host, /api/version correttamente\nTESTING: Aggiunti test unitari completi per moduli core (freccia, visita, configurazione, trafficoLuce, httpHelper)",
+        "es": "FIXED: Use setStateAsync() en lugar de setState() para activar resetes en tiro. js para garantizar la fiabilidad de la base de datos\nENHANCED: Puntos finales de API corregidos en instrucciones de copiloto. md - ahora documentos /api/state, /api/config, /api/host, /api/version correctamente\nTESTING: Se han añadido pruebas de unidad integrales para módulos básicos (hacia, visita, config, trafficLight, httpHelper)",
+        "pl": "FIXED: Użyj setStateAsync () zamiast setState () dla resetów w rzucie. js w celu zapewnienia niezawodności bazy danych\nPOPRAWKA: Skorygowane punkty końcowe API w instrukcjach copilot-. md - teraz dokumenty / api / state, / api / config, / api / host, / api / version poprawnie\nTESTING: Dodano kompleksowe testy jednostkowe dla modułów podstawowych (rzut, wizyta, config, traffic Light, httpHelper)",
+        "uk": "FIXED: Використовуйте setStateAsync() замість setState() для запуску скидання в кисті. js для забезпечення надійності бази даних\nENHANCED: Виправлені кінцеві точки API в копілот-інструкції. md - тепер документи /api/state, /api/config, /api/host, /api/version правильно\nTESTING: Додано комплексні тести для базових модулів (рядок, візит, налаштування, трафікLight, httpHelper)",
+        "zh-cn": "FIXED: 使用setStateAsync () 而不是setState () 来重击触发器 。 js,以确保数据库的可靠性\n增强:在副驾驶指令中纠正API端点. md - 现在文档 /api/ state,/api/config,/api/host,/api/版本正确\nTESTING:核心模块(推、访问、配置、交通灯、httphelper)的新增综合单元测试"
+      },
       "1.0.2": {
         "en": "ENHANCED: Refactored adapter code into modular architecture for improved maintainability and code quality – no functional changes for end users",
         "de": "ENHANCED: Refactored adapter code in modulare Architektur für verbesserte Aufrechterhaltungs- und Codequalität – keine funktionalen Änderungen für Endanwender",
@@ -80,19 +93,6 @@
         "pl": "Dodano: Nowa dokumentacja adaptera DE / EN pod '/ docs' z osobnymi stronami dla wszystkich kart konfiguracyjnych (Opcje, Mappings, Narzędzia integracji addon, Pomoc & FAQ).\nUlepszony: Główny README wyczyścił i podłączony do nowej dokumentacji (odznaki, przegląd funkcji, sekcja konfiguracji).\nUlepszone: Klarowne narzędzia przepływu integracji addon (wymagania Simplemen- API, generowane adresy URL, wykorzystanie WLED).",
         "uk": "Додано: Нова документація адаптера DE/EN під `/docs` з окремими сторінками для всіх вкладок налаштувань (Options, Mappings, Tools addon інтеграції, Допомога & FAQ).\nУдосконалено: Головне ОБМЕЖЕННЕ очищення та пов’язане з новою документацією (податки, огляд функцій, розділ конфігурації).\nУдосконалено: Уточнено інтеграційний потік кларатифікованих інструментів (для вимог АПІ, створених URL-адрес, використання WLED).",
         "zh-cn": "添加: \" /docs \" 下新的DE/EN适配文件,所有配置标签(选项、绘图、工具添加集成、帮助和FAQ)都有单独的网页.\n改进:主要README清理并连接到新的文档(栏目,特征概述,配置部分).\n改进:claized Tools addon集成流(Simple-API要求,生成URL,WLED使用)."
-      },
-      "0.8.0": {
-        "en": "Added: New **TOOLS ADDON INTEGRATION** tab and runtime-generated URL states under `tools.config.*` for browser-based integrations (e.g. Tools for Autodarts).",
-        "de": "Hinzugefügt: Neue **TOOLS ADDON INTEGRATION** und Runtime-generierte URL-Staaten unter `tools.config.* für Browser-basierte Integrationen (z.B. Tools for Autodarts).",
-        "ru": "Добавлено: новая вкладка **TOOLS ADDON INTEGRATION** и URL-адреса, генерируемые во время выполнения, в разделе «tools.config.*» для интеграций на основе браузера (например, Tools for Autodarts).",
-        "pt": "Adicionado: Novo **TOOLS ADDON INTEGRATION** aba e estados de URL gerados em tempo de execução em `tools.config.*` para integrações baseadas em navegador (por exemplo, Ferramentas para Autodarts).",
-        "nl": "Toegevoegd: Nieuwe **TOOLS ADDON INTEGRATION** tabblad en runtime-gegenereerde URL-toestanden onder .",
-        "fr": "Ajouté : nouvel onglet **TOOLS ADDON INTEGRATION** et états d'URL générés par l'exécution sous `tools.config.*` pour les intégrations basées sur le navigateur (par exemple Outils pour Autodarts).",
-        "it": "Aggiunto: New **TOOLS ADDON INTEGRATION** tab and runtime-generated URL stati sotto `tools.config.*` per le integrazioni basate sul browser (ad esempio Strumenti per Autodarts).",
-        "es": "Añadido: Nuevo **TOOLS ADDON INTEGRATION** pestaña y estados URL generados por tiempo de ejecución bajo `tools.config.*` para integraciones basadas en el navegador (por ejemplo, Herramientas para Autodarts).",
-        "pl": "Dodano: New ** TOOLS ADDON INTEGRATION* * tab and runtime- genered URL states under 'tools.config.*' for browser- based integrations (np. Tools for Autodarts). ",
-        "uk": "Додано: New **TOOLS ADDON INTEGRATION*** вкладка та пускові дегенеровані стани URL під `tools.config.*` для інтеграції браузера (наприклад, Інструменти для Autodarts).",
-        "zh-cn": "添加:在“tools.config.QQ”下新建 **TOOLS ADDON INTEGINation**标签和运行时间生成的URL状态,用于基于浏览器的集成(例如,用于自动化的工具)."
       }
     },
     "titleLang": {

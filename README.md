@@ -132,7 +132,7 @@ In **HELP & FAQ** you will find general information and help about the adapter a
 <!--
 	### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 1.0.3 (2026-01-21)
 - (copilot) FIXED: Use setStateAsync() instead of setState() for trigger resets in throw.js to ensure database reliability
 - (copilot) ENHANCED: Corrected API endpoints in copilot-instructions.md - now documents /api/state, /api/config, /api/host, /api/version correctly
 - (copilot) TESTING: Added comprehensive unit tests for core modules (throw, visit, config, trafficLight, httpHelper)
@@ -154,9 +154,6 @@ In **HELP & FAQ** you will find general information and help about the adapter a
 ### 0.8.3 (2026-01-06)
 - (skvarel) Added: CHANGELOG_OLD.md
 - (skvarel) Improved: Link to documentation added to the help section.
-
-### 0.8.2 (2026-01-05)
-- (skvarel) Fixed: ImageURL
 
 ## Older changes
 - [CHANGELOG_OLD.md](CHANGELOG_OLD.md)
