@@ -6,6 +6,9 @@ const throwLogic = require("./lib/throw");
 const visit = require("./lib/visit");
 const trafficLight = require("./lib/trafficLight");
 const tools = require("./lib/tools");
+const config = require("./lib/config");
+const hardware = require("./lib/hardware");
+const systemInfo = require("./lib/systemInfo");
 const httpHelper = require("./lib/httpHelper");
 
 class Autodarts extends utils.Adapter {
@@ -41,29 +44,13 @@ class Autodarts extends utils.Adapter {
 	async onReady() {
 		this.log.info("Autodarts adapter started");
 
-		// Initial connection state
-		await this.extendObjectAsync("info.connection", {
-			type: "state",
-			common: {
-				name: "Connected to Autodarts Board Manager",
-				type: "boolean",
-				role: "indicator.connected",
-				read: true,
-				write: false,
-			},
-			native: {},
-		});
-		await this.setStateAsync("info.connection", false, true);
-
 		// Defaults aus io-package.json absichern
 		this.config.host ??= "127.0.0.1";
 		this.config.port ??= 3180;
-		this.config.intervalSec ??= 1; // Sekunden
+		this.config.intervalSec ??= 1;
 		this.config.tripleMinScore ??= 1;
 		this.config.tripleMaxScore ??= 20;
-		this.config.triggerResetSec ??= 0; // 0 = kein Auto-Reset
-
-		// NEU: Defaults für Tools-URLs
+		this.config.triggerResetSec ??= 0;
 		this.config.toolsIp ??= "";
 		this.config.toolsPort ??= 8087;
 		this.config.toolsInstance ??= 0;
@@ -71,655 +58,20 @@ class Autodarts extends utils.Adapter {
 		// Polling-Intervall aus Sekunden in Millisekunden berechnen
 		this.onlineIntervalMs = (Number(this.config.intervalSec) || 1) * 1000;
 
-		// Visit-Struktur anlegen (ausgelagert)
+		// Module initialisieren
+		await hardware.init(this);
+		await systemInfo.init(this);
+		await config.init(this);
 		await visit.init(this);
-
-		// Trigger-Channel für alle is*-Trigger
-		await this.extendObjectAsync("trigger", {
-			type: "channel",
-			common: {
-				name: {
-					en: "Trigger states",
-					de: "Trigger-Zustände",
-				},
-			},
-			native: {},
-		});
-
-		// Throw-Channel und States anlegen (ausgelagert)
 		await throwLogic.init(this);
-
-		// Online-Datenpunkt
-		await this.extendObjectAsync("online", {
-			type: "state",
-			common: {
-				name: {
-					en: "Autodarts board online",
-					de: "Autodarts Board online",
-				},
-				type: "boolean",
-				role: "indicator.reachable",
-				read: true,
-				write: false,
-				desc: {
-					en: "true = Board reachable, false = Board not reachable",
-					de: "true = Board erreichbar, false = Board nicht erreichbar",
-				},
-			},
-			native: {},
-		});
-
-		// status.board als String-Datenpunkt im bestehenden status-Channel anlegen
-		await this.extendObjectAsync("status.boardStatus", {
-			type: "state",
-			common: {
-				name: {
-					en: "Board event status",
-					de: "Board-Ereignis-Status",
-				},
-				type: "string",
-				role: "info.status",
-				read: true,
-				write: false,
-				desc: {
-					en: "Current event value from /api/state",
-					de: "Aktueller event-Wert aus /api/state",
-				},
-			},
-			native: {},
-		});
-
-		// WICHTIG: Grundzustand setzen, bevor Polling startet
-		await this.setStateAsync("online", false, true);
-		await this.setStateAsync("info.connection", false, true);
-		await this.setStateAsync("status.boardStatus", { val: "offline", ack: true });
-
-		// System-Channel und Unter-Channels
-		await this.extendObjectAsync("system", {
-			type: "channel",
-			common: {
-				name: {
-					en: "Information about the system",
-					de: "Informationen zum System",
-				},
-			},
-			native: {},
-		});
-
-		await this.extendObjectAsync("system.hardware", {
-			type: "channel",
-			common: {
-				name: {
-					en: "Hardware",
-					de: "Hardware",
-				},
-			},
-			native: {},
-		});
-
-		await this.extendObjectAsync("system.software", {
-			type: "channel",
-			common: {
-				name: {
-					en: "Software",
-					de: "Software",
-				},
-			},
-			native: {},
-		});
-
-		await this.extendObjectAsync("system.cams", {
-			type: "channel",
-			common: {
-				name: {
-					en: "Camera configuration",
-					de: "Kamera-Konfiguration",
-				},
-			},
-			native: {},
-		});
-
-		// Software-Infos
-		await this.extendObjectAsync("system.software.desktopVersion", {
-			type: "state",
-			common: {
-				name: {
-					en: "Desktop version",
-					de: "Desktop-Version",
-				},
-				type: "string",
-				role: "info.version",
-				read: true,
-				write: false,
-				desc: {
-					en: "Version of the Autodarts desktop application",
-					de: "Version der Autodarts Desktop-Anwendung",
-				},
-			},
-			native: {},
-		});
-
-		await this.extendObjectAsync("system.software.boardVersion", {
-			type: "state",
-			common: {
-				name: {
-					en: "Board manager version",
-					de: "Version des Board-Manager",
-				},
-				type: "string",
-				role: "info.version",
-				read: true,
-				write: false,
-				desc: {
-					en: "Version of the board manager",
-					de: "Version des Board-Manager",
-				},
-			},
-			native: {},
-		});
-
-		await this.extendObjectAsync("system.software.platform", {
-			type: "state",
-			common: {
-				name: {
-					en: "Platform",
-					de: "Plattform",
-				},
-				type: "string",
-				role: "info.name",
-				read: true,
-				write: false,
-				desc: {
-					en: "Operating system platform",
-					de: "Betriebssystem-Plattform",
-				},
-			},
-			native: {},
-		});
-
-		await this.extendObjectAsync("system.software.os", {
-			type: "state",
-			common: {
-				name: {
-					en: "Operating system",
-					de: "Betriebssystem",
-				},
-				type: "string",
-				role: "info.name",
-				read: true,
-				write: false,
-				desc: {
-					en: "Operating system name as reported by Autodarts host",
-					de: "Vom Autodarts-Host gemeldetes Betriebssystem",
-				},
-			},
-			native: {},
-		});
-
-		// Hardware-Infos
-		await this.extendObjectAsync("system.hardware.kernelArch", {
-			type: "state",
-			common: {
-				name: {
-					en: "Kernel architecture",
-					de: "Kernel-Architektur",
-				},
-				type: "string",
-				role: "info.name",
-				read: true,
-				write: false,
-				desc: {
-					en: "System kernel architecture (e.g., x86_64, arm64)",
-					de: "System-Kernel-Architektur (z.B. x86_64, arm64)",
-				},
-			},
-			native: {},
-		});
-
-		await this.extendObjectAsync("system.hardware.cpuModel", {
-			type: "state",
-			common: {
-				name: {
-					en: "CPU model",
-					de: "CPU-Modell",
-				},
-				type: "string",
-				role: "info.name",
-				read: true,
-				write: false,
-				desc: {
-					en: "CPU model name",
-					de: "CPU-Modellbezeichnung",
-				},
-			},
-			native: {},
-		});
-
-		await this.extendObjectAsync("system.hardware.hostname", {
-			type: "state",
-			common: {
-				name: {
-					en: "Hostname",
-					de: "Hostname",
-				},
-				type: "string",
-				role: "info.name",
-				read: true,
-				write: false,
-				desc: {
-					en: "Hostname of the Autodarts system",
-					de: "Hostname des Autodarts-Systems",
-				},
-			},
-			native: {},
-		});
-
-		// LED State anlegen
-		await this.extendObjectAsync("system.hardware.light", {
-			type: "state",
-			common: {
-				name: { en: "Board light", de: "Board-Beleuchtung" },
-				type: "boolean",
-				role: "switch.light",
-				read: true,
-				write: true,
-			},
-			native: {},
-		});
-
-		// POWER State anlegen
-		await this.extendObjectAsync("system.hardware.power", {
-			type: "state",
-			common: {
-				name: { en: "Board power", de: "Board-Strom" },
-				type: "boolean",
-				role: "switch.power",
-				read: true,
-				write: true,
-			},
-			native: {},
-		});
-
-		// Kamera-Infos als JSON-States
-		await this.extendObjectAsync("system.cams.cam0", {
-			type: "state",
-			common: {
-				name: {
-					en: "Camera 0 config",
-					de: "Kamera 0 Konfiguration",
-				},
-				type: "string",
-				role: "json",
-				read: true,
-				write: false,
-				desc: {
-					en: "JSON with camera 0 parameters (width, height, fps)",
-					de: "JSON mit Kamera-0-Parametern (width, height, fps)",
-				},
-			},
-			native: {},
-		});
-
-		await this.extendObjectAsync("system.cams.cam1", {
-			type: "state",
-			common: {
-				name: {
-					en: "Camera 1 config",
-					de: "Kamera 1 Konfiguration",
-				},
-				type: "string",
-				role: "json",
-				read: true,
-				write: false,
-				desc: {
-					en: "JSON with camera 1 parameters (width, height, fps)",
-					de: "JSON mit Kamera-1-Parametern (width, height, fps)",
-				},
-			},
-			native: {},
-		});
-
-		await this.extendObjectAsync("system.cams.cam2", {
-			type: "state",
-			common: {
-				name: {
-					en: "Camera 2 config",
-					de: "Kamera 2 Konfiguration",
-				},
-				type: "string",
-				role: "json",
-				read: true,
-				write: false,
-				desc: {
-					en: "JSON with camera 2 parameters (width, height, fps)",
-					de: "JSON mit Kamera-2-Parametern (width, height, fps)",
-				},
-			},
-			native: {},
-		});
-
-		// Config-Channel und States für tripleMinScore / tripleMaxScore / triggerResetSec
-		await this.extendObjectAsync("config", {
-			type: "channel",
-			common: {
-				name: {
-					en: "Runtime configuration",
-					de: "Laufzeitkonfiguration",
-				},
-			},
-			native: {},
-		});
-
-		await this.extendObjectAsync("config.tripleMinScore", {
-			type: "state",
-			common: {
-				name: {
-					en: "Triple minimum score",
-					de: "Triple Mindestpunktzahl",
-				},
-				type: "number",
-				role: "level.min",
-				read: true,
-				write: true,
-				desc: {
-					en: "Minimum score for triple flag (overrides adapter config while running)",
-					de: "Mindestpunktzahl für den Triple-Trigger (überschreibt Adapter-Config zur Laufzeit)",
-				},
-			},
-			native: {},
-		});
-
-		await this.extendObjectAsync("config.tripleMaxScore", {
-			type: "state",
-			common: {
-				name: {
-					en: "Triple maximum score",
-					de: "Triple Maximalpunktzahl",
-				},
-				type: "number",
-				role: "level.max",
-				read: true,
-				write: true,
-				desc: {
-					en: "Maximum score for triple flag (overrides adapter config while running)",
-					de: "Maximalpunktzahl für den Triple-Trigger (überschreibt Adapter-Config zur Laufzeit)",
-				},
-			},
-			native: {},
-		});
-
-		await this.extendObjectAsync("config.triggerResetSec", {
-			type: "state",
-			common: {
-				name: {
-					en: "Triple/Bull reset (s)",
-					de: "Triple/Bull Reset (s)",
-				},
-				type: "number",
-				role: "level.timer",
-				read: true,
-				write: true,
-				desc: {
-					en: "Time in seconds after which isTriple and isBullseye are reset to false",
-					de: "Zeit in Sekunden, nach der isTriple und isBullseye wieder auf false gesetzt werden",
-				},
-			},
-			native: {},
-		});
-
-		// tools-Channel und States anlegen
-		const toolsIpTrimmed = (this.config.toolsIp || "").trim();
-		if (toolsIpTrimmed) {
-			await this.extendObjectAsync("tools", {
-				type: "channel",
-				common: {
-					name: {
-						en: "Tools for Autodarts integration",
-						de: "Tools for Autodarts Integration",
-					},
-				},
-				native: {},
-			});
-
-			await this.extendObjectAsync("tools.RAW", {
-				type: "state",
-				common: {
-					name: {
-						en: "RAW event from Tools for Autodarts",
-						de: "RAW-Ereignis von Tools for Autodarts",
-					},
-					type: "string",
-					role: "text",
-					read: true,
-					write: true,
-				},
-				native: {},
-			});
-
-			await this.extendObjectAsync("trigger.isBusted", {
-				type: "state",
-				common: {
-					name: {
-						en: "Busted (trigger from tools)",
-						de: "Busted (Trigger aus Tools)",
-					},
-					type: "boolean",
-					role: "indicator",
-					read: true,
-					write: false,
-				},
-				native: {},
-			});
-
-			await this.extendObjectAsync("trigger.isGameon", {
-				type: "state",
-				common: {
-					name: {
-						en: "Game on (trigger from tools)",
-						de: "Game on (Trigger aus Tools)",
-					},
-					type: "boolean",
-					role: "indicator",
-					read: true,
-					write: false,
-				},
-				native: {},
-			});
-
-			await this.extendObjectAsync("trigger.isGameshot", {
-				type: "state",
-				common: {
-					name: {
-						en: "Gameshot (trigger from tools)",
-						de: "Gameshot (Trigger aus Tools)",
-					},
-					type: "boolean",
-					role: "indicator",
-					read: true,
-					write: false,
-				},
-				native: {},
-			});
-
-			await this.extendObjectAsync("trigger.is180", {
-				type: "state",
-				common: {
-					name: {
-						en: "180 (trigger from tools)",
-						de: "180 (Trigger aus Tools)",
-					},
-					type: "boolean",
-					role: "indicator",
-					read: true,
-					write: false,
-				},
-				native: {},
-			});
-
-			await this.extendObjectAsync("trigger.isMatchshot", {
-				type: "state",
-				common: {
-					name: {
-						en: "Matchshot (trigger from tools)",
-						de: "Matchshot (Trigger aus Tools)",
-					},
-					type: "boolean",
-					role: "indicator",
-					read: true,
-					write: false,
-				},
-				native: {},
-			});
-
-			await this.extendObjectAsync("trigger.isTakeout", {
-				type: "state",
-				common: {
-					name: {
-						en: "Takeout (trigger from tools)",
-						de: "Takeout (Trigger aus Tools)",
-					},
-					type: "boolean",
-					role: "indicator",
-					read: true,
-					write: false,
-				},
-				native: {},
-			});
-
-			await this.extendObjectAsync("tools.config.urlBusted", {
-				type: "state",
-				common: {
-					name: {
-						en: "URL for Busted",
-						de: "URL für Busted",
-					},
-					type: "string",
-					role: "text.url",
-					read: true,
-					write: false,
-				},
-				native: {},
-			});
-
-			await this.extendObjectAsync("tools.config.urlGameon", {
-				type: "state",
-				common: {
-					name: {
-						en: "URL for Game on",
-						de: "URL für Game on",
-					},
-					type: "string",
-					role: "text.url",
-					read: true,
-					write: false,
-				},
-				native: {},
-			});
-
-			await this.extendObjectAsync("tools.config.urlGameshot", {
-				type: "state",
-				common: {
-					name: {
-						en: "URL for Gameshot",
-						de: "URL für Gameshot",
-					},
-					type: "string",
-					role: "text.url",
-					read: true,
-					write: false,
-				},
-				native: {},
-			});
-
-			await this.extendObjectAsync("tools.config.url180", {
-				type: "state",
-				common: {
-					name: {
-						en: "URL for 180",
-						de: "URL für 180",
-					},
-					type: "string",
-					role: "text.url",
-					read: true,
-					write: false,
-				},
-				native: {},
-			});
-			await this.extendObjectAsync("tools.config.urlMatchshot", {
-				type: "state",
-				common: {
-					name: {
-						en: "URL for Matchshot",
-						de: "URL für Matchshot",
-					},
-					type: "string",
-					role: "text.url",
-					read: true,
-					write: false,
-				},
-				native: {},
-			});
-			await this.extendObjectAsync("tools.config.urlTakeout", {
-				type: "state",
-				common: {
-					name: {
-						en: "URL for Takeout",
-						de: "URL für Takeout",
-					},
-					type: "string",
-					role: "text.url",
-					read: true,
-					write: false,
-				},
-				native: {},
-			});
-
-			// Tools-Integration initialisieren
-			await tools.init(this);
-
-			// Tools-URLs aus Config generieren (für Admin-Tab)
-			await this.updateToolsUrls();
-		} else {
-			this.log.info("Tools integration disabled: no toolsIp configured");
-		}
-
-		// Laufzeitwerte initial aus Adapter-Config setzen
-		this.tripleMinScoreRuntime = Number(this.config.tripleMinScore) || 1;
-		this.tripleMaxScoreRuntime = Number(this.config.tripleMaxScore) || 20;
-		this.triggerResetSecRuntime = Number(this.config.triggerResetSec) || 0; // 0 = kein Auto-Reset
-
-		await this.setStateAsync("config.tripleMinScore", {
-			val: this.tripleMinScoreRuntime,
-			ack: true,
-		});
-		await this.setStateAsync("config.tripleMaxScore", {
-			val: this.tripleMaxScoreRuntime,
-			ack: true,
-		});
-		await this.setStateAsync("config.triggerResetSec", {
-			val: this.triggerResetSecRuntime,
-			ack: true,
-		});
-
-		// Ampel-States anlegen
 		await trafficLight.init(this);
+		await tools.init(this);
 
-		// Auf Änderungen am Config-State hören
-		this.subscribeStates("config.tripleMinScore");
-		this.subscribeStates("config.tripleMaxScore");
-		this.subscribeStates("config.triggerResetSec");
+		// Runtime-Werte initialisieren
+		await config.initializeRuntimeValues(this);
 
-		// Auf Hardware-Schalter hören (eigene States)
-		this.subscribeStates("system.hardware.light");
-		this.subscribeStates("system.hardware.power");
-
-		// Ziel-States (0_userdata o.ä.) nur abonnieren, wenn konfiguriert
-		if (this.config.lightTargetId) {
-			this.subscribeForeignStates(this.config.lightTargetId);
-		}
-		if (this.config.powerTargetId) {
-			this.subscribeForeignStates(this.config.powerTargetId);
-		}
+		// Hardware-Subscriptions
+		hardware.subscribeForeignStates(this);
 
 		// Zustand zurücksetzen
 		this.lastThrowsCount = 0;
@@ -729,12 +81,12 @@ class Autodarts extends utils.Adapter {
 		this.pollLoop();
 
 		// Host-Informationen und Kameras abfragen und alle 5 Minuten aktualisieren
-		this.fetchHost();
-		this.fetchConfig();
+		await systemInfo.fetchHost(this);
+		await systemInfo.fetchConfig(this);
 		this.versionTimer = setInterval(
-			() => {
-				this.fetchHost();
-				this.fetchConfig();
+			async () => {
+				await systemInfo.fetchHost(this);
+				await systemInfo.fetchConfig(this);
 			},
 			5 * 60 * 1000,
 		);
@@ -766,132 +118,32 @@ class Autodarts extends utils.Adapter {
 
 		const idShort = id.replace(`${this.namespace}.`, "");
 
-		// Tools-RAW zuerst behandeln (nur eigene States, nur bei ack=false)
-		if (!state.ack && idShort.startsWith("tools.")) {
-			await tools.handleStateChange(this, idShort, state);
+		// Foreign State Changes (bidirektionale Synchronisation)
+		if (hardware.handleForeignStateChange(this, id, state)) {
 			return;
 		}
 
-		// 1) Rückrichtung: Foreign-States -> eigene Schalter (immer reagieren)
-		if (this.config.lightTargetId && id === this.config.lightTargetId) {
-			await this.setStateAsync("system.hardware.light", { val: state.val, ack: true });
-			return;
-		}
-		if (this.config.powerTargetId && id === this.config.powerTargetId) {
-			await this.setStateAsync("system.hardware.power", { val: state.val, ack: true });
-			return;
-		}
-
-		// 2) Ab hier nur noch eigene States: nur bei ack === false reagieren
+		// Ab hier nur noch eigene States: nur bei ack === false reagieren
 		if (state.ack) {
 			return;
 		}
 
-		// Tools-Config (IP/Port/Instanz)
-		if (idShort === "toolsIp" || idShort === "toolsPort" || idShort === "toolsInstance") {
-			const val = state.val;
-
-			if (idShort === "toolsIp") {
-				this.config.toolsIp = String(val || "");
-			} else if (idShort === "toolsPort") {
-				this.config.toolsPort = Number(val) || 8087;
-			} else if (idShort === "toolsInstance") {
-				this.config.toolsInstance = Number(val) || 0;
+		// Tools-Events
+		if (!state.ack && idShort.startsWith("tools.")) {
+			if (await tools.handleStateChange(this, idShort, state)) {
+				return;
 			}
+		}
 
-			await this.updateToolsUrls();
+		// Config-States
+		if (await config.handleStateChange(this, idShort, state)) {
 			return;
 		}
 
-		if (idShort === "config.tripleMinScore") {
-			const val = Number(state.val);
-			if (!Number.isFinite(val) || val <= 0) {
-				this.log.warn(`Invalid tripleMinScore value: ${state.val}`);
-				return;
-			}
-
-			this.tripleMinScoreRuntime = val;
-			this.log.info(`Runtime tripleMinScore updated to ${val}`);
-			await this.setStateAsync("config.tripleMinScore", { val, ack: true });
-		} else if (idShort === "config.tripleMaxScore") {
-			const val = Number(state.val);
-			if (!Number.isFinite(val) || val <= 0) {
-				this.log.warn(`Invalid tripleMaxScore value: ${state.val}`);
-				return;
-			}
-
-			this.tripleMaxScoreRuntime = val;
-			this.log.info(`Runtime tripleMaxScore updated to ${val}`);
-			await this.setStateAsync("config.tripleMaxScore", { val, ack: true });
-		} else if (idShort === "config.triggerResetSec") {
-			const val = Number(state.val);
-			if (!Number.isFinite(val) || val < 0) {
-				this.log.warn(`Invalid triggerResetSec value: ${state.val}`);
-				return;
-			}
-
-			this.triggerResetSecRuntime = val;
-			this.log.info(`Runtime triggerResetSec updated to ${val} s`);
-			await this.setStateAsync("config.triggerResetSec", { val, ack: true });
-		} else if (idShort === "system.hardware.light") {
-			if (this.config.lightTargetId) {
-				await this.setForeignStateAsync(this.config.lightTargetId, state.val, false);
-			} else {
-				this.log.warn("Light state changed, but no lightTargetId configured");
-			}
-		} else if (idShort === "system.hardware.power") {
-			if (this.config.powerTargetId) {
-				await this.setForeignStateAsync(this.config.powerTargetId, state.val, false);
-			} else {
-				this.log.warn("Power state changed, but no powerTargetId configured");
-			}
-		}
-	}
-
-	/**
-	 * Aus toolsIp/toolsPort/toolsInstance drei fertige URLs erzeugen
-	 * und in native.toolsUrl* schreiben (für die Admin-Config-Anzeige).
-	 */
-	/**
-	 * Aus toolsIp/toolsPort/toolsInstance drei fertige URLs erzeugen
-	 * und in tools.config.url* schreiben.
-	 */
-	async updateToolsUrls() {
-		const ip = (this.config.toolsIp || "").trim();
-		const port = Number(this.config.toolsPort) || 8087;
-		const inst = Number(this.config.toolsInstance) || 0;
-
-		// Wenn keine IP gesetzt ist: URLs leeren
-		if (!ip) {
-			await this.setStateAsync("tools.config.urlBusted", { val: "", ack: true });
-			await this.setStateAsync("tools.config.urlGameon", { val: "", ack: true });
-			await this.setStateAsync("tools.config.urlGameshot", { val: "", ack: true });
-			await this.setStateAsync("tools.config.url180", { val: "", ack: true });
-			await this.setStateAsync("tools.config.urlMatchshot", { val: "", ack: true });
-			await this.setStateAsync("tools.config.urlTakeout", { val: "", ack: true });
+		// Hardware-Control
+		if (await hardware.handleStateChange(this, idShort, state)) {
 			return;
 		}
-
-		const base = `http://${ip}:${port}`;
-		const id = `autodarts.${inst}`;
-
-		const urlBusted = `${base}/set/${id}.tools.RAW?value=busted`;
-		const urlGameon = `${base}/set/${id}.tools.RAW?value=gameon`;
-		const urlGameshot = `${base}/set/${id}.tools.RAW?value=gameshot`;
-		const url180 = `${base}/set/${id}.tools.RAW?value=180`;
-		const urlMatchshot = `${base}/set/${id}.tools.RAW?value=matchshot`;
-		const urlTakeout = `${base}/set/${id}.tools.RAW?value=takeout`;
-
-		await this.setStateAsync("tools.config.urlBusted", { val: urlBusted, ack: true });
-		await this.setStateAsync("tools.config.urlGameon", { val: urlGameon, ack: true });
-		await this.setStateAsync("tools.config.urlGameshot", { val: urlGameshot, ack: true });
-		await this.setStateAsync("tools.config.url180", { val: url180, ack: true });
-		await this.setStateAsync("tools.config.urlMatchshot", { val: urlMatchshot, ack: true });
-		await this.setStateAsync("tools.config.urlTakeout", { val: urlTakeout, ack: true });
-
-		this.log.debug(
-			`Updated Tools URLs: ${urlBusted}, ${urlGameon}, ${urlGameshot}, ${url180}, ${urlMatchshot}, ${urlTakeout}`,
-		);
 	}
 
 	/**
@@ -1005,93 +257,6 @@ class Autodarts extends utils.Adapter {
 		this.scheduleNextPoll();
 	}
 
-	/**
-	 * Board-Konfiguration abfragen (Kameras)
-	 */
-	async fetchConfig() {
-		try {
-			const data = await httpHelper.makeRequest(this, "/api/config");
-			const cfg = JSON.parse(data);
-
-			const cam = cfg.cam || {};
-			const camInfo = {
-				width: cam.width ?? 1280,
-				height: cam.height ?? 720,
-				fps: cam.fps ?? 20,
-			};
-
-			const json = JSON.stringify(camInfo);
-
-			await this.setStateAsync("system.cams.cam0", { val: json, ack: true });
-			await this.setStateAsync("system.cams.cam1", { val: json, ack: true });
-			await this.setStateAsync("system.cams.cam2", { val: json, ack: true });
-		} catch (error) {
-			if (
-				error &&
-				typeof error === "object" &&
-				typeof error.message === "string" &&
-				error.message.includes("JSON")
-			) {
-				this.log.debug(`Could not parse camera config: ${error.message}`);
-			}
-		}
-	}
-
-	/**
-	 * Host-Informationen abfragen
-	 */
-	async fetchHost() {
-		try {
-			const data = await httpHelper.makeRequest(this, "/api/host");
-			const host = JSON.parse(data);
-
-			// clientVersion als boardVersion schreiben
-			await this.setStateAsync("system.software.boardVersion", {
-				val: host.clientVersion || "",
-				ack: true,
-			});
-			// desktopVersion
-			await this.setStateAsync("system.software.desktopVersion", {
-				val: host.desktopVersion || "",
-				ack: true,
-			});
-			// platform
-			await this.setStateAsync("system.software.platform", {
-				val: host.platform || "",
-				ack: true,
-			});
-			// os (Software)
-			await this.setStateAsync("system.software.os", {
-				val: host.os || "",
-				ack: true,
-			});
-			// kernelArch
-			await this.setStateAsync("system.hardware.kernelArch", {
-				val: host.kernelArch || "",
-				ack: true,
-			});
-			// cpuModel (aus cpu.model)
-			await this.setStateAsync("system.hardware.cpuModel", {
-				val: host.cpu?.model || "",
-				ack: true,
-			});
-			// hostname (Hardware)
-			await this.setStateAsync("system.hardware.hostname", {
-				val: host.hostname || "",
-				ack: true,
-			});
-		} catch (error) {
-			if (
-				error &&
-				typeof error === "object" &&
-				typeof error.message === "string" &&
-				error.message.includes("JSON")
-			) {
-				this.log.debug(`Could not parse host info: ${error.message}`);
-			}
-		}
-	}
-
 	onUnload(callback) {
 		try {
 			if (this.pollTimer) {
@@ -1100,15 +265,11 @@ class Autodarts extends utils.Adapter {
 			if (this.versionTimer) {
 				clearInterval(this.versionTimer);
 			}
-			// NEU: Alle individuellen Tools-Timer löschen
+			// Alle individuellen Timer löschen
 			if (this.resetTimers) {
 				for (const id in this.resetTimers) {
 					clearTimeout(this.resetTimers[id]);
 				}
-			}
-			// Den alten einzelnen Timer (falls noch genutzt) ebenfalls löschen
-			if (this.resetTimer) {
-				clearTimeout(this.resetTimer);
 			}
 			callback();
 		} catch {
