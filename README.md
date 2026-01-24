@@ -132,7 +132,7 @@ In **HELP & FAQ** you will find general information and help about the adapter a
 <!--
 	### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 1.0.4 (2026-01-24)
 - (skvarel) FIXED: Reverted to setState() from deprecated setStateAsync()
 
 ### 1.0.3 (2026-01-21)
@@ -153,10 +153,6 @@ In **HELP & FAQ** you will find general information and help about the adapter a
 - (skvarel) BREAKING CHANGE: All triggers to unified trigger.is structure
 - (skvarel) Manual cleanup required**: Delete old autodarts.X.throw.is and tools. states after update
 - (skvarel) Unchanged: tools.RAW, tools.config.url, all timers/functionality
-
-### 0.8.3 (2026-01-06)
-- (skvarel) Added: CHANGELOG_OLD.md
-- (skvarel) Improved: Link to documentation added to the help section.
 
 ## Older changes
 - [CHANGELOG_OLD.md](CHANGELOG_OLD.md)

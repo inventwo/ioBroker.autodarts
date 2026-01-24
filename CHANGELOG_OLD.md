@@ -1,4 +1,8 @@
 # Older changes
+## 0.8.3 (2026-01-06)
+- (skvarel) Added: CHANGELOG_OLD.md
+- (skvarel) Improved: Link to documentation added to the help section.
+
 ## 0.8.2 (2026-01-05)
 - (skvarel) Fixed: ImageURL
 

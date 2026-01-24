@@ -1,8 +1,21 @@
 {
   "common": {
     "name": "autodarts",
-    "version": "1.0.3",
+    "version": "1.0.4",
     "news": {
+      "1.0.4": {
+        "en": "FIXED: Reverted to setState() from deprecated setStateAsync()",
+        "de": "FIXED: Revertiert auf setState() von deprecated setStateAsync()",
+        "ru": "FIXED: Reverted to setState() from deprecated setStateAsync()",
+        "pt": "FIXED: Revertido para setState() do setStateAsync() desactualizado",
+        "nl": "VASTE: Teruggekeerd naar setState() van verouderde setStateAsync()",
+        "fr": "FIXÉ: Réverti à setState() de setStateAsync()",
+        "it": "FISSO: Revertito per impostareState() da set deprecatoStateAsync()",
+        "es": "FIXED: Revertido a establecer el Estado() de un estado precatadoAsync()",
+        "pl": "FIXED: Odwrócony do setState () z deprecated setStateAsync ()",
+        "uk": "FIXED: Перевернуто до setState() від deprecated setStateAsync()",
+        "zh-cn": "FIXED: 从已贬值的设置中恢复为设置状态( ) State Async ()"
+      },
       "1.0.3": {
         "en": "FIXED: Reverted to setState() from deprecated setStateAsync() - setState returns a Promise when used without callback (ioBroker best practice)\nENHANCED: Corrected API endpoints in copilot-instructions.md - now documents /api/state, /api/config, /api/host, /api/version correctly\nTESTING: Added comprehensive unit tests for core modules (throw, visit, config, trafficLight, httpHelper)",
         "de": "KORREKTUR: Zurück zu setState() von veraltetem setStateAsync() - setState gibt Promise zurück, wenn ohne Callback verwendet (ioBroker Best Practice)\nVERBESSERUNG: Berichtigte API-Endpunkte in copilot-instructions.md - dokumentiert nun korrekt /api/state, /api/config, /api/host, /api/version\nTESTING: Ergänzende Unit-Tests für Kernmodule (throw, visit, config, trafficLight, httpHelper)",
@@ -80,19 +93,6 @@
         "pl": "Naprawiono: ImageURL",
         "uk": "Виправлено: Зображення",
         "zh-cn": "固定: 图像URL"
-      },
-      "0.8.1": {
-        "en": "Added: New DE/EN adapter documentation under `/docs` with separate pages for all config tabs (Options, Mappings, Tools addon integration, Help & FAQ).\nImproved: Main README cleaned up and linked to the new documentation (badges, feature overview, configuration section).\nImproved: Clarified Tools addon integration flow (Simple-API requirements, generated URLs, WLED usage).",
-        "de": "Hinzugefügt: Neue DE/EN-Adapterdokumentation unter `/docs` mit separaten Seiten für alle Config-Tabs (Optionen, Mappings, Tools Addon Integration, Help & FAQ).\nVerbessert: Haupt-README gereinigt und mit der neuen Dokumentation verknüpft (Badges, Funktionsübersicht, Konfigurationsabschnitt).\nVerbessert: Clarified Tools Addon Integration Flow (Simple-API Anforderungen, generierte URLs, WLED-Nutzung).",
-        "ru": "Добавлена: новая адаптерная документация DE/EN в разделе «/docs» с отдельными страницами для всех вкладок конфигураций (Options, Mappings, Tools addon integration, Help & FAQ).\nУлучшенный: основной README очищен и связан с новой документацией (знаки, обзор функций, раздел конфигурации).\nУлучшенный: поток интеграции дополнений Clarified Tools (простые требования API, генерируемые URL-адреса, использование WLED).",
-        "pt": "Adicionado: Nova documentação do adaptador DE/EN sob `/docs` com páginas separadas para todas as abas de configuração (Opções, Mapeamentos, Integração addon de Ferramentas, Ajuda e FAQ).\nMelhorado: Principal README limpou e vinculado à nova documentação (falhas, visão geral do recurso, seção de configuração).\nMelhorado: Fluxo de integração addon de Ferramentas Clarificadas (Requisitos API simples, URLs geradas, uso WLED).",
-        "nl": "Toegevoegd: Nieuwe DE/EN-adapterdocumentatie onder .\nVerbeterd: Main README opgeruimd en gekoppeld aan de nieuwe documentatie (badges, functie overzicht, configuratie sectie).\nVerbeterd: Clarified Tools addon integration flow (Simple-API eisen, gegenereerde URL's, WLED gebruik).",
-        "fr": "Ajouté: Nouvelle documentation d'adaptateur DE/EN sous `/docs` avec des pages séparées pour tous les onglets de configuration (Options, Mappings, Outils d'intégration, Aide & FAQ).\nAmélioration: Main README nettoyé et relié à la nouvelle documentation (mauvaises, aperçu des fonctionnalités, section de configuration).\nAmélioration : flux d'intégration addon d'outils clarifiés (exigences Simple-API, URL générée, utilisation WLED).",
-        "it": "Aggiunto: Nuova documentazione dell'adattatore DE/EN sotto `/docs` con pagine separate per tutte le schede di configurazione (Options, Mappings, Tools addon integration, Help & FAQ).\nMigliorato: README principale ripulito e collegato alla nuova documentazione (cattivi, panoramica delle caratteristiche, sezione configurazione).\nMigliorato: Clarified Tools addon integration flow (requisiti Simple-API, URL generati, utilizzo WLED).",
-        "es": "Añadido: Nueva documentación de adaptador DE/EN bajo `/docs` con páginas separadas para todas las pestañas de configuración (Opciones, Mappings, integración de herramientas addon, Ayuda > FAQ).\nMejorado: El README principal se limpió y se vinculó con la nueva documentación (badges, descripción de características, sección de configuración).\nMejorado: Flujo de integración de Herramientas Aclaradas (requisitos Simple-API, URLs generadas, uso WLED).",
-        "pl": "Dodano: Nowa dokumentacja adaptera DE / EN pod '/ docs' z osobnymi stronami dla wszystkich kart konfiguracyjnych (Opcje, Mappings, Narzędzia integracji addon, Pomoc & FAQ).\nUlepszony: Główny README wyczyścił i podłączony do nowej dokumentacji (odznaki, przegląd funkcji, sekcja konfiguracji).\nUlepszone: Klarowne narzędzia przepływu integracji addon (wymagania Simplemen- API, generowane adresy URL, wykorzystanie WLED).",
-        "uk": "Додано: Нова документація адаптера DE/EN під `/docs` з окремими сторінками для всіх вкладок налаштувань (Options, Mappings, Tools addon інтеграції, Допомога & FAQ).\nУдосконалено: Головне ОБМЕЖЕННЕ очищення та пов’язане з новою документацією (податки, огляд функцій, розділ конфігурації).\nУдосконалено: Уточнено інтеграційний потік кларатифікованих інструментів (для вимог АПІ, створених URL-адрес, використання WLED).",
-        "zh-cn": "添加: \" /docs \" 下新的DE/EN适配文件,所有配置标签(选项、绘图、工具添加集成、帮助和FAQ)都有单独的网页.\n改进:主要README清理并连接到新的文档(栏目,特征概述,配置部分).\n改进:claized Tools addon集成流(Simple-API要求,生成URL,WLED使用)."
       }
     },
     "titleLang": {
