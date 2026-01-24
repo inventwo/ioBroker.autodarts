@@ -160,8 +160,8 @@ class Autodarts extends utils.Adapter {
 			this.offline = false;
 			this.isConnected = true;
 
-			await this.setStateAsync("online", true, true); // eigener Online-State
-			await this.setStateAsync("info.connection", true, true); // Admin-Status
+			await this.setState("online", true, true); // eigener Online-State
+			await this.setState("info.connection", true, true); // Admin-Status
 
 			try {
 				const state = JSON.parse(data);
@@ -175,7 +175,7 @@ class Autodarts extends utils.Adapter {
 
 				// Nur event-Wert in status.boardStatus schreiben
 				if (state.event !== undefined) {
-					await this.setStateAsync("status.boardStatus", {
+					await this.setState("status.boardStatus", {
 						val: state.event,
 						ack: true,
 					});
@@ -210,7 +210,7 @@ class Autodarts extends utils.Adapter {
 			} catch (e) {
 				this.log.warn(`Autodarts API Fehler: ${e.message} | Daten: ${data.substring(0, 200)}...`);
 				// Bei JSON-Fehler: Board war erreichbar, aber Antwort kaputt
-				await this.setStateAsync("online", true, true);
+				await this.setState("online", true, true);
 			}
 		} catch (error) {
 			const msg = error?.message || String(error);
@@ -233,9 +233,9 @@ class Autodarts extends utils.Adapter {
 
 				this.isConnected = false;
 				await trafficLight.setStatus(this, "red");
-				await this.setStateAsync("online", false, true);
-				await this.setStateAsync("info.connection", false, true);
-				await this.setStateAsync("status.boardStatus", {
+				await this.setState("online", false, true);
+				await this.setState("info.connection", false, true);
+				await this.setState("status.boardStatus", {
 					val: "offline",
 					ack: true,
 				});

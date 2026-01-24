@@ -23,7 +23,7 @@ describe("lib/throw.js => Throw detection and trigger management", () => {
 			tripleMaxScoreRuntime: 20,
 			triggerResetSecRuntime: 0,
 			resetTimers: {},
-			setStateAsync: sinon.stub().resolves(),
+			setState: sinon.stub().resolves(),
 			log: { error: sinon.stub() },
 			calcScore: (dart) => {
 				if (!dart?.segment) return 0;
@@ -45,7 +45,7 @@ describe("lib/throw.js => Throw detection and trigger management", () => {
 
 		await throwLogic.updateThrow(mockAdapter, dart);
 
-		const tripleCall = mockAdapter.setStateAsync.args.find((call) =>
+		const tripleCall = mockAdapter.setState.args.find((call) =>
 			call[0].includes("trigger.isTriple"),
 		);
 		expect(tripleCall).to.exist;
@@ -65,7 +65,7 @@ describe("lib/throw.js => Throw detection and trigger management", () => {
 
 		await throwLogic.updateThrow(mockAdapter, dart);
 
-		const bullseyeCall = mockAdapter.setStateAsync.args.find((call) =>
+		const bullseyeCall = mockAdapter.setState.args.find((call) =>
 			call[0].includes("trigger.isBullseye"),
 		);
 		expect(bullseyeCall).to.exist;
@@ -81,7 +81,7 @@ describe("lib/throw.js => Throw detection and trigger management", () => {
 
 		await throwLogic.updateThrow(mockAdapter, dart);
 
-		const missCall = mockAdapter.setStateAsync.args.find((call) =>
+		const missCall = mockAdapter.setState.args.find((call) =>
 			call[0].includes("trigger.isMiss"),
 		);
 		expect(missCall).to.exist;
@@ -101,7 +101,7 @@ describe("lib/throw.js => Throw detection and trigger management", () => {
 
 		await throwLogic.updateThrow(mockAdapter, dart);
 
-		const scoreCall = mockAdapter.setStateAsync.args.find((call) =>
+		const scoreCall = mockAdapter.setState.args.find((call) =>
 			call[0].includes("throw.current"),
 		);
 		expect(scoreCall).to.exist;
@@ -115,7 +115,8 @@ describe("lib/visit.js => Visit tracking (3-dart sequences)", () => {
 
 	beforeEach(() => {
 		mockAdapter = {
-			setStateAsync: sinon.stub().resolves(),
+			setState: sinon.stub().resolves(),
+			extendObjectAsync: sinon.stub().resolves(),
 			log: { error: sinon.stub() },
 			calcScore: (dart) => {
 				if (!dart?.segment) return 0;
@@ -137,7 +138,7 @@ describe("lib/visit.js => Visit tracking (3-dart sequences)", () => {
 		const newCount = await visit.updateVisit(mockAdapter, throws, 0);
 
 		expect(newCount).to.equal(3);
-		const visitCall = mockAdapter.setStateAsync.args.find((call) =>
+		const visitCall = mockAdapter.setState.args.find((call) =>
 			call[0].includes("visit.score"),
 		);
 		expect(visitCall).to.exist;
@@ -177,8 +178,9 @@ describe("lib/trafficLight.js => Board status indication", () => {
 
 	beforeEach(() => {
 		mockAdapter = {
-			setStateAsync: sinon.stub().resolves(),
-			log: { debug: sinon.stub() },
+			setState: sinon.stub().resolves(),
+			extendObjectAsync: sinon.stub().resolves(),
+			log: { debug: sinon.stub(), warn: sinon.stub() },
 		};
 	});
 
@@ -188,7 +190,7 @@ describe("lib/trafficLight.js => Board status indication", () => {
 
 		await trafficLight.setStatus(mockAdapter, "green");
 
-		const lightCall = mockAdapter.setStateAsync.args.find((call) =>
+		const lightCall = mockAdapter.setState.args.find((call) =>
 			call[0].includes("trafficLightColor"),
 		);
 		expect(lightCall).to.exist;
@@ -199,7 +201,7 @@ describe("lib/trafficLight.js => Board status indication", () => {
 
 		await trafficLight.setStatus(mockAdapter, "red");
 
-		const lightCall = mockAdapter.setStateAsync.args.find((call) =>
+		const lightCall = mockAdapter.setState.args.find((call) =>
 			call[0].includes("trafficLightColor"),
 		);
 		expect(lightCall).to.exist;
@@ -217,8 +219,11 @@ describe("lib/config.js => Runtime configuration management", () => {
 				tripleMaxScore: 15,
 				triggerResetSec: 3,
 			},
-			setStateAsync: sinon.stub().resolves(),
+			setState: sinon.stub().resolves(),
+			extendObjectAsync: sinon.stub().resolves(),
 			getStateAsync: sinon.stub().resolves({ val: null }),
+			subscribeStates: sinon.stub(),
+			log: { info: sinon.stub(), warn: sinon.stub() },
 		};
 	});
 
