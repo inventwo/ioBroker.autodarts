@@ -132,6 +132,9 @@ In **HELP & FAQ** you will find general information and help about the adapter a
 <!--
 	### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+- (skvarel) **FIXED**: Updated outdated dependencies - release-script packages to v5.1.x and admin globalDependency to v7.6.20 (fixes #23)
+
 ### 1.0.4 (2026-01-24)
 - (skvarel) FIXED: Reverted to setState() from deprecated setStateAsync()
 
