@@ -132,7 +132,7 @@ In **HELP & FAQ** you will find general information and help about the adapter a
 <!--
 	### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 1.0.5 (2026-02-28)
 - (skvarel) FIXED: Updated outdated dependencies - release-script packages to v5.1.x and admin globalDependency to v7.6.20 (fixes #23)
 
 ### 1.0.4 (2026-01-24)
@@ -151,11 +151,6 @@ In **HELP & FAQ** you will find general information and help about the adapter a
 - (skvarel) Fixed: Changlog error at readme.md
 - (skvarel) Improved: FAQ because of the new structure
 - (copilot) Fixed: State roles now comply with ioBroker standards - config states use `level.*` roles, read-only color uses `text` role
-
-### 1.0.0 (2026-01-11)
-- (skvarel) BREAKING CHANGE: All triggers to unified trigger.is structure
-- (skvarel) Manual cleanup required**: Delete old autodarts.X.throw.is and tools. states after update
-- (skvarel) Unchanged: tools.RAW, tools.config.url, all timers/functionality
 
 ## Older changes
 - [CHANGELOG_OLD.md](CHANGELOG_OLD.md)

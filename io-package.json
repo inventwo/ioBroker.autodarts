@@ -1,8 +1,21 @@
 {
   "common": {
     "name": "autodarts",
-    "version": "1.0.4",
+    "version": "1.0.5",
     "news": {
+      "1.0.5": {
+        "en": "FIXED: Updated outdated dependencies - release-script packages to v5.1.x and admin globalDependency to v7.6.20 (fixes #23)",
+        "de": "FIXED: Aktualisierte veraltete Abhängigkeiten - Release-script-Pakete zu v5.1.x und admin globalDependency to v7.6.20 (fixes #23)",
+        "ru": "FIXED: Обновленные устаревшие зависимости - пакеты релиз-скрипта для v5.1.x и админ GlobalDependency для v7.6.20 (фиксы #23)",
+        "pt": "FIXED: Dependências desatualizadas atualizadas - pacotes release-script para v5.1.x e administrador globalDependência para v7.6.20 (fixes #23)",
+        "nl": "VASTE: Bijgewerkt verouderde afhankelijkheden - release-script pakketten naar v5.1.x en admin globalDependency naar v7.6.20 (fixes #23)",
+        "fr": "FIXÉ: Mise à jour des dépendances obsolètes - paquets release-script vers v5.1.x et admin globalDependency vers v7.6.20 (fixes #23)",
+        "it": "FISSO: Aggiornato dipendenze obsolete - release-script package a v5.1.x e admin globalDependency a v7.6.20 (fissi n.23)",
+        "es": "FIXED: Actualización de dependencias obsoletas - paquetes de código de liberación a v5.1.x y administración globalDependencia a v7.6.20 (fijos #23)",
+        "pl": "FIXED: Aktualizacja przestarzałych zależności - pakiety release- script do v5.1.x i admin globalDependency do v7.6.20 (poprawki # 23)",
+        "uk": "FIXED: Оновлено застарілі залежності - випускні пакети до v5.1.x і admin GlobalDependency to v7.6.20 (фікси #23)",
+        "zh-cn": "FIXED: 更新过时的依赖性 - 发布标记包到 v5. 1. x 和 管理全局依赖性到 v7. 6. 20 (fixes #23)"
+      },
       "1.0.4": {
         "en": "FIXED: Reverted to setState() from deprecated setStateAsync()",
         "de": "FIXED: Revertiert auf setState() von deprecated setStateAsync()",
@@ -80,19 +93,6 @@
         "pl": "Dodano: CHANGELOG _ OLD.md\nUlepszone: Link do dokumentacji dodanej do sekcji pomocy.",
         "uk": "Доданий: CHANGELOG_OLD.md\nУдосконалено: Посилання на документацію, додану до розділу допомоги.",
         "zh-cn": "添加:变换组_OLD.md\n改进:与帮助部分新增的文件链接."
-      },
-      "0.8.2": {
-        "en": "Fixed: ImageURL",
-        "de": "Behoben: ImageURL",
-        "ru": "Выпущено: ImageURL",
-        "pt": "Fixo: ImageURL",
-        "nl": "Vast: ImageURL",
-        "fr": "Correction : ImageURL",
-        "it": "Fisso: ImageURL",
-        "es": "Fijo: ImageURL",
-        "pl": "Naprawiono: ImageURL",
-        "uk": "Виправлено: Зображення",
-        "zh-cn": "固定: 图像URL"
       }
     },
     "titleLang": {

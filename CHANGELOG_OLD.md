@@ -1,4 +1,9 @@
 # Older changes
+## 1.0.0 (2026-01-11)
+- (skvarel) BREAKING CHANGE: All triggers to unified trigger.is structure
+- (skvarel) Manual cleanup required**: Delete old autodarts.X.throw.is and tools. states after update
+- (skvarel) Unchanged: tools.RAW, tools.config.url, all timers/functionality
+
 ## 0.8.3 (2026-01-06)
 - (skvarel) Added: CHANGELOG_OLD.md
 - (skvarel) Improved: Link to documentation added to the help section.
