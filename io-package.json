@@ -1,8 +1,21 @@
 {
   "common": {
     "name": "autodarts",
-    "version": "1.0.5",
+    "version": "1.0.6",
     "news": {
+      "1.0.6": {
+        "en": "TESTING: Fixed test cleanup issues - added settled flag to httpHelper for proper Promise handling and --exit flag to test script to prevent hanging tests",
+        "de": "TESTING: Fixed Test Cleanup-Probleme - fügte dem httpHelper eine abgegrenzte Flagge für die ordnungsgemäße Promise-Handling und --exit-Flag zum Testskript hinzu, um hängende Tests zu verhindern",
+        "ru": "Тестирование: исправленные проблемы с очисткой тестов - добавлен урегулированный флаг для httpHelper для правильной обработки обещаний и флаг выхода для тестирования сценария для предотвращения испытаний на подвеску",
+        "pt": "TESTAMENTO: Problemas de limpeza de teste fixos - bandeira fixa adicionada ao httpHelper para o manuseio adequado do Promise e --exit flag para testar o script para evitar testes suspensos",
+        "nl": "TESTEN: Vaste test opschoning problemen - toegevoegd vaste vlag aan httpHelper voor de juiste belofte handling en --exit vlag om te testen script om opknoping testen te voorkomen",
+        "fr": "ESSAI: Correction des problèmes de nettoyage des tests - ajout d'un drapeau réglé à httpHelper pour une bonne manipulation de la promesse et --exit drapeau pour tester le script pour empêcher les tests suspendus",
+        "it": "TESTING: Problemi di pulizia del test fissi - ha aggiunto la bandiera fissa a httpHelper per una corretta gestione Promise e --exit bandiera per testare lo script per prevenire i test appesi",
+        "es": "TESTING: Problemas de limpieza de pruebas fijos - añadido bandera asentada a httpHelper para el manejo apropiado de la promesa y --exit flag para probar script para evitar pruebas de colgar",
+        "pl": "TESTING: Stałe problemy z czyszczeniem testów - dodano flagę rozliczoną do httpHelper dla prawidłowego obsługi obietnic i --exit flag do testowania skryptu, aby zapobiec powieszeniu testów",
+        "uk": "TESTING: Виправлені проблеми очищення тесту - додано валідований прапор до httpHelper для належного використання Promise і --exit прапор, щоб перевірити скрипт, щоб запобігти висихання тестів",
+        "zh-cn": "TESTING: 固定测试清理问题 - 在 httpHelper 中添加已结算的旗帜, 用于适当的承诺处理和 -- 退出旗帜, 用于测试脚本以防止悬挂测试"
+      },
       "1.0.5": {
         "en": "FIXED: Updated outdated dependencies - release-script packages to v5.1.x and admin globalDependency to v7.6.20 (fixes #23)",
         "de": "FIXED: Aktualisierte veraltete Abhängigkeiten - Release-script-Pakete zu v5.1.x und admin globalDependency to v7.6.20 (fixes #23)",
@@ -80,19 +93,6 @@
         "pl": "ZMIANA ZBIORCZA: Wszystkie wyzwalacze do jednego zapalnika. jest strukturą\nWymagane jest ręczne czyszczenie: Usuń stare autodoty. X.throw.is i narzędzia. stany po aktualizacji\nBez zmian: narzędzia. RAW, narzędzia .config.url, wszystkie timery / funkcjonalność",
         "uk": "БРЕАКІНГ ЗМІН: Всі тригери для уніфікованого тригера. структура\nВимоги: Видалити старі автодарти. X.throw.is та інструменти. стани після оновлення\nНезмінені: інструменти. RAW, інструменти.config.url, всі таймери/функціональність",
         "zh-cn": "打破变化: 所有触发器统一触发. 是结构\n需要进行人工清理: 删除旧的自定义 。 X. throw.is和工具。 更新后状态\n未更改:工具。 RAW,工具.config.url,所有计时器/功能"
-      },
-      "0.8.3": {
-        "en": "Added: CHANGELOG_OLD.md\nImproved: Link to documentation added to the help section.",
-        "de": "Hinzugefügt: CHANGELOG_OLD.md\nVerbessert: Link zur Dokumentation, die im Hilfebereich hinzugefügt wird.",
-        "ru": "Добавлено: CHANGELOG_OLD.md\nУлучшено: Ссылка на документацию, добавленную в раздел справки.",
-        "pt": "Adicionado: MUDANÇA_OLD.md\nMelhorado: Link para documentação adicionada à seção de ajuda.",
-        "nl": "Toegevoegd: VERANDERINGLOG_OLD.md\nVerbeterd: Link naar documentatie toegevoegd aan de help sectie.",
-        "fr": "Ajouté : CHANGELOG_OLD.md\nAmélioration : Lien vers la documentation ajoutée à la section d'aide.",
-        "it": "Aggiunto: CHANGELOG_OLD.md\nMigliorato: Link alla documentazione aggiunta alla sezione di aiuto.",
-        "es": "Añadido: CHANGELOG_OLD.md\nMejorado: Enlace a la documentación agregada a la sección de ayuda.",
-        "pl": "Dodano: CHANGELOG _ OLD.md\nUlepszone: Link do dokumentacji dodanej do sekcji pomocy.",
-        "uk": "Доданий: CHANGELOG_OLD.md\nУдосконалено: Посилання на документацію, додану до розділу допомоги.",
-        "zh-cn": "添加:变换组_OLD.md\n改进:与帮助部分新增的文件链接."
       }
     },
     "titleLang": {

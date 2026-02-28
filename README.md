@@ -132,7 +132,7 @@ In **HELP & FAQ** you will find general information and help about the adapter a
 <!--
 	### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 1.0.6 (2026-02-28)
 - (skvarel) TESTING: Fixed test cleanup issues - added settled flag to httpHelper for proper Promise handling and --exit flag to test script to prevent hanging tests
 
 ### 1.0.5 (2026-02-28)
@@ -148,12 +148,6 @@ In **HELP & FAQ** you will find general information and help about the adapter a
 
 ### 1.0.2 (2026-01-21)
 - (copilot) ENHANCED: Refactored adapter code into modular architecture for improved maintainability and code quality – no functional changes for end users
-
-### 1.0.1 (2026-01-20)
-- (copilot) Enhanced: Updated all Node.js built-in module imports to use 'node:' prefix format for better clarity and security
-- (skvarel) Fixed: Changlog error at readme.md
-- (skvarel) Improved: FAQ because of the new structure
-- (copilot) Fixed: State roles now comply with ioBroker standards - config states use `level.*` roles, read-only color uses `text` role
 
 ## Older changes
 - [CHANGELOG_OLD.md](CHANGELOG_OLD.md)
