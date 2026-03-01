@@ -1,8 +1,21 @@
 {
   "common": {
     "name": "autodarts",
-    "version": "1.0.6",
+    "version": "1.0.7",
     "news": {
+      "1.0.7": {
+        "en": "CI/CD: Updated GitHub Copilot instructions template to version 0.5.7 with latest ioBroker best practices (fixes #21, #25)",
+        "de": "CI/CD: Updated GitHub Copilot Anleitungsvorlage auf Version 0.5.7 mit neuesten ioBroker Best Practices (fixes #21, #25)",
+        "ru": "CI/CD: обновленный шаблон инструкций GitHub Copilot до версии 0.5.7 с последними лучшими практиками ioBroker (исправления #21, #25)",
+        "pt": "CI/CD: Modelo de instruções do GitHub Copilot atualizado para a versão 0.5.7 com as melhores práticas do ioBroker mais recentes (fixes #21, #25)",
+        "nl": "CI/CD: Bijgewerkt GitHub Copilot instructies template naar versie 0.5.7 met de nieuwste ioBroker best practices (fixes #21, #25)",
+        "fr": "CI/CD: Mise à jour du modèle d'instructions du copilote GitHub à la version 0.5.7 avec les dernières pratiques exemplaires ioBroker (fixes #21, #25)",
+        "it": "CI/CD: Aggiornato modello di istruzioni GitHub Copilot alla versione 0.5.7 con le migliori pratiche ioBroker (fissi #21, #25)",
+        "es": "CI/CD: Actualizada plantilla de instrucciones GitHub Copilot a la versión 0.5.7 con las mejores prácticas de yoBroker (fijos #21, #25)",
+        "pl": "CI / CD: Aktualizacja szablonu instrukcji GitHub Copilot do wersji 0.5.7 z najnowszymi najlepszymi praktykami ioBroker (poprawki # 21, # 25)",
+        "uk": "CI/CD: Оновлений шаблон інструкцій GitHub Copilot до версії 0.5.7 з новітніми ioBroker кращих практик (фікси #21, #25)",
+        "zh-cn": "CI/CD: 更新了 GitHub 副驾驶指令模板至 0.5.7 版本,并附有最新的 ioBroker 最佳做法 (fixes #21, #25)"
+      },
       "1.0.6": {
         "en": "TESTING: Fixed test cleanup issues - added settled flag to httpHelper for proper Promise handling and --exit flag to test script to prevent hanging tests",
         "de": "TESTING: Fixed Test Cleanup-Probleme - fügte dem httpHelper eine abgegrenzte Flagge für die ordnungsgemäße Promise-Handling und --exit-Flag zum Testskript hinzu, um hängende Tests zu verhindern",
@@ -80,19 +93,6 @@
         "pl": "Wzmocnione: Aktualizacja wszystkich Node.js built- w imporcie modułu do użycia 'node:' format prefix dla większej jasności i bezpieczeństwa\nNaprawiono: błąd Changlog przy readme. md\nUlepszone: FAQ ze względu na nową strukturę\nStała: Role stanu są teraz zgodne ze standardami jOBrokera - stany konfiguracyjne używają 'level. *' roles, kolor tylko read- wykorzystuje 'text' role",
         "uk": "Підвищений: Оновлено всі імпорт модуля Node.js для використання 'node:' prefix формат для кращої чіткості та безпеки\nВиправлено: Похибка Changlog на readme. мд\nПокращується: FAQ через нову структуру\nВиправлено: Державні ролі тепер відповідають нормам ioBroker - конфігураційні стани використовують `level.*`````````````````text```",
         "zh-cn": "增强: 更新所有节点.js内置模块导入以使用“ 节点:” 前缀格式以提高清晰度和安全性\n固定: 朗洛格在readme错误. 微额\n改进:因新结构而提出问题\n固定:国家角色现在符合ioBroker标准 - 配置状态使用“级别”。 角色,只读颜色使用“文本”角色"
-      },
-      "1.0.0": {
-        "en": "BREAKING CHANGE: All triggers to unified trigger.is structure\nManual cleanup required: Delete old autodarts.X.throw.is and tools. states after update\nUnchanged: tools.RAW, tools.config.url, all timers/functionality",
-        "de": "BREAKING CHANGE: Alle Auslöser zum vereinheitlichten Auslöser. ist Struktur\nManuelle Reinigung erforderlich: Löschen Sie alte Autodarts. X.throw.is und Werkzeuge. Zustände nach Update\nUnverändert: Werkzeuge. RAW, tools.config.url, alle Timer/Funktionalität",
-        "ru": "Изменить дыхание: Все триггеры в единый триггер. структура\nТребуется ручная очистка: Удалите старые автодарты. X.throw.is и инструменты. государства после обновления\nБез изменений: инструменты. RAW, tools.config.url, все таймеры/функциональность",
-        "pt": "MUDANÇAS DE RISCO: Todos os gatilhos para o gatilho unificado. é estrutura\nLimpeza manual necessária: Apagar os autodarts antigos. X.throw.is e ferramentas. estados após a atualização\nInalterado: ferramentas. RAW, tools.config.url, todos os timers/funcionalidade",
-        "nl": "Breaking VERANDERING: Alle triggers naar uniforme trekker. is structuur\nHandmatig opruimen vereist: Verwijder oude autodarts. X.throw.is en gereedschap. staat na update\nOngewijzigd: gereedschap. RAW, tools.config.url, all timers/functionaliteit",
-        "fr": "CHANGEMENT DE BREAING: Tous les déclencheurs au déclencheur unifié. est la structure\nNettoyage manuel requis: Supprimer les anciens autodarts. X.throw. est et outils. États après mise à jour\nSans changement : outils. RAW, tools.config.url, toutes les minuteries/fonctionnalité",
-        "it": "CAMBIO DI BREAKING: Tutti i trigger per attivare unificato. è struttura\nPulizia manuale necessaria: Eliminare vecchi autodarts. X.throw.is e strumenti. stati dopo l'aggiornamento\nSvariato: strumenti. RAW, tools.config.url, tutti i timer/funzionalità",
-        "es": "Cambiando: Todos disparan al gatillo unificado. estructura\nLimpieza manual requerida: Eliminar viejos autodarts. X.throw.is y herramientas. estados después de la actualización\nSin cambios: herramientas. RAW, tools.config.url, todos los temporizadores/funcionalidad",
-        "pl": "ZMIANA ZBIORCZA: Wszystkie wyzwalacze do jednego zapalnika. jest strukturą\nWymagane jest ręczne czyszczenie: Usuń stare autodoty. X.throw.is i narzędzia. stany po aktualizacji\nBez zmian: narzędzia. RAW, narzędzia .config.url, wszystkie timery / funkcjonalność",
-        "uk": "БРЕАКІНГ ЗМІН: Всі тригери для уніфікованого тригера. структура\nВимоги: Видалити старі автодарти. X.throw.is та інструменти. стани після оновлення\nНезмінені: інструменти. RAW, інструменти.config.url, всі таймери/функціональність",
-        "zh-cn": "打破变化: 所有触发器统一触发. 是结构\n需要进行人工清理: 删除旧的自定义 。 X. throw.is和工具。 更新后状态\n未更改:工具。 RAW,工具.config.url,所有计时器/功能"
       }
     },
     "titleLang": {

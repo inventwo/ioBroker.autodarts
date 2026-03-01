@@ -1,4 +1,7 @@
 # Older changes
+## 1.0.2 (2026-01-21)
+- (copilot) ENHANCED: Refactored adapter code into modular architecture for improved maintainability and code quality – no functional changes for end users
+
 ## 1.0.1 (2026-01-20)
 - (copilot) Enhanced: Updated all Node.js built-in module imports to use 'node:' prefix format for better clarity and security
 - (skvarel) Fixed: Changlog error at readme.md
