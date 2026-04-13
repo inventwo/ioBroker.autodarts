@@ -1,4 +1,9 @@
 # Older changes
+## 1.0.3 (2026-01-21)
+- (copilot) FIXED: Use setStateAsync() instead of setState() for trigger resets in throw.js to ensure database reliability
+- (copilot) ENHANCED: Corrected API endpoints in copilot-instructions.md - now documents /api/state, /api/config, /api/host, /api/version correctly
+- (copilot) TESTING: Added comprehensive unit tests for core modules (throw, visit, config, trafficLight, httpHelper)
+
 ## 1.0.2 (2026-01-21)
 - (copilot) ENHANCED: Refactored adapter code into modular architecture for improved maintainability and code quality – no functional changes for end users
 

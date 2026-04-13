@@ -132,7 +132,7 @@ In **HELP & FAQ** you will find general information and help about the adapter a
 <!--
 	### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 1.0.8 (2026-04-13)
 - (skvarel) Removed react and mui
 - (skvarel) Removed admin/style.css
 
@@ -147,11 +147,6 @@ In **HELP & FAQ** you will find general information and help about the adapter a
 
 ### 1.0.4 (2026-01-24)
 - (skvarel) FIXED: Reverted to setState() from deprecated setStateAsync()
-
-### 1.0.3 (2026-01-21)
-- (copilot) FIXED: Use setStateAsync() instead of setState() for trigger resets in throw.js to ensure database reliability
-- (copilot) ENHANCED: Corrected API endpoints in copilot-instructions.md - now documents /api/state, /api/config, /api/host, /api/version correctly
-- (copilot) TESTING: Added comprehensive unit tests for core modules (throw, visit, config, trafficLight, httpHelper)
 
 ## Older changes
 - [CHANGELOG_OLD.md](CHANGELOG_OLD.md)
