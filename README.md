@@ -151,6 +151,8 @@ In **HELP & FAQ** you will find general information and help about the adapter a
 ### 1.0.4 (2026-01-24)
 - (skvarel) FIXED: Reverted to setState() from deprecated setStateAsync()
 
+[Older changelogs can be found there](CHANGELOG_OLD.md)
+
 ## Older changes
 - [CHANGELOG_OLD.md](CHANGELOG_OLD.md)
 
