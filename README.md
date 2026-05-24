@@ -1,6 +1,6 @@
 ![Logo](admin/autodarts.svg)
 
-# ioBroker adapter for AUTODARTS integration
+# ioBroker adapter for AUTODARTS
 
 ![Number of Installations](https://iobroker.live/badges/autodarts-installed.svg) ![Current version in stable repository](https://iobroker.live/badges/autodarts-stable.svg)
 [![NPM Version](https://nodei.co/npm/iobroker.autodarts.svg?style=shields&data=v,u,d&color=orange)](https://www.npmjs.com/package/iobroker.autodarts)
