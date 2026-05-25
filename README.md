@@ -138,7 +138,7 @@ In **HELP & FAQ** you will find general information and help about the adapter a
 <!--
 	### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 1.0.9 (2026-05-25)
 - (skvarel) Adapter requires node.js >= 22 now
 - (skvarel) Updated @alcalzone/release-script und Plugins auf 5.2.0 aktualisiert (fixes #56)
 - (skvarel) Downgraded @types/node auf ^22.0.0 heruntergestuft (fixes #56)
@@ -155,9 +155,6 @@ In **HELP & FAQ** you will find general information and help about the adapter a
 
 ### 1.0.5 (2026-02-28)
 - (skvarel) FIXED: Updated outdated dependencies - release-script packages to v5.1.x and admin globalDependency to v7.6.20 (fixes #23)
-
-### 1.0.4 (2026-01-24)
-- (skvarel) FIXED: Reverted to setState() from deprecated setStateAsync()
 
 ## Older changes
 - [CHANGELOG_OLD.md](CHANGELOG_OLD.md)

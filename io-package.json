@@ -1,8 +1,21 @@
 {
   "common": {
     "name": "autodarts",
-    "version": "1.0.8",
+    "version": "1.0.9",
     "news": {
+      "1.0.9": {
+        "en": "Adapter requires node.js >= 22 now\nUpdated @alcalzone/release-script und Plugins auf 5.2.0 aktualisiert (fixes #56)\nDowngraded @types/node auf ^22.0.0 heruntergestuft (fixes #56)",
+        "de": "Adapter benötigt node.js >= 22 jetzt\n@alcalzone/release-script und Plugins auf 5.2.0 aktualisiert (fixes #56)\nDowngraded @types/node auf ^22.0.0 heruntergestuft (fixes #56)",
+        "ru": "Адаптер требует node.js >= 22 сейчас\nОбновленный @alcalzone/release-script und Plugins auf 5.2.0 aktualisiert (фиксы #56)\nDowngraded @types/node auf ^22.0.0 heruntergestuft (фиксы #56)",
+        "pt": "Adaptador requer nod.js >= 22 agora\nAtualizado @ alcalzone/release-script und Plugins auf 5.2.0 aktualisiert (fixos #56)\nDowngraded @types/node auf ^22.0.0 heruntergestuft (fixes #56)",
+        "nl": "Voor de adapter zijn node.js < 22 nu nodig\nBijgewerkt @alcalzone/release-script und Plugins auf 5.2.0 aktualisiert (fixes #56)\nDowngraded @types/node auf ^22.0.0 heruntergestuft (fixes #56)",
+        "fr": "Adaptateur nécessite node.js >= 22 maintenant\nMise à jour @alcalzone/release-script und Plugins auf 5.2.0 aktualisiert (fixes #56)\nDégradé @types/node auf ^22.0.0 heruntergestuft (fixes #56)",
+        "it": "Adattatore richiede node.js >= 22 ora\nAggiornato @alcalzone/release-script und Plugins auf 5.2.0 aktualisiert (fissi #56)\n@types/node auf ^22.0.0 heruntergestuft (fixs #56)",
+        "es": "Adaptador requiere node.js ю= 22 ahora\nActualizado @alcalzone/release-script und Plugins auf 5.2.0 aktualisiert (fixes #56)\nDegradado @tipos/nodo auf ^22.0.0 heruntergestuft (fixes #56)",
+        "pl": "Adapter wymaga node.js > = 22\nAktualizacja @ alcalzone / release- script und Plugins auf 5.2.0 aktualisiert (poprawki # 56)\nSkrócony @ types / node auf ^ 22.0.0 heruntergestuft (poprawki # 56)",
+        "uk": "Адаптер вимагає node.js >= 22 тепер\nОновлено @alcalzone/видання плагінів auf 5.2.0 aktualisiert (фікси #56)\nDowngraded @types/node auf ^22.0.0 heruntergestuft (фікси #56)",
+        "zh-cn": "适配器需要节点.js 现在22\n更新的 @alcalzone/release-scripts und 插件 auf 5.2.0 aktualisiert (fixes #56)\n降级@ types/ node auf ^22.0.0 heruntergestuft (fixes #56)"
+      },
       "1.0.8": {
         "en": "Removed react and mui\nRemoved admin/style.css",
         "de": "Reakt und Mui entfernt\nAdmin/style.css entfernt",
@@ -80,19 +93,6 @@
         "pl": "FIXED: Użyj setStateAsync () zamiast setState () dla resetów w rzucie. js w celu zapewnienia niezawodności bazy danych\nPOPRAWKA: Skorygowane punkty końcowe API w instrukcjach copilot-. md - teraz dokumenty / api / state, / api / config, / api / host, / api / version poprawnie\nTESTING: Dodano kompleksowe testy jednostkowe dla modułów podstawowych (rzut, wizyta, config, traffic Light, httpHelper)",
         "uk": "FIXED: Використовуйте setStateAsync() замість setState() для запуску скидання в кисті. js для забезпечення надійності бази даних\nENHANCED: Виправлені кінцеві точки API в копілот-інструкції. md - тепер документи /api/state, /api/config, /api/host, /api/version правильно\nTESTING: Додано комплексні тести для базових модулів (рядок, візит, налаштування, трафікLight, httpHelper)",
         "zh-cn": "FIXED: 使用setStateAsync () 而不是setState () 来重击触发器 。 js,以确保数据库的可靠性\n增强:在副驾驶指令中纠正API端点. md - 现在文档 /api/ state,/api/config,/api/host,/api/版本正确\nTESTING:核心模块(推、访问、配置、交通灯、httphelper)的新增综合单元测试"
-      },
-      "1.0.2": {
-        "en": "ENHANCED: Refactored adapter code into modular architecture for improved maintainability and code quality – no functional changes for end users",
-        "de": "ENHANCED: Refactored adapter code in modulare Architektur für verbesserte Aufrechterhaltungs- und Codequalität – keine funktionalen Änderungen für Endanwender",
-        "ru": "Рефакторированный код адаптера в модульную архитектуру для улучшения ремонтопригодности и качества кода - никаких функциональных изменений для конечных пользователей",
-        "pt": "REHANCED: Código adaptador refatorizado em arquitetura modular para melhor manutenção e qualidade de código – sem alterações funcionais para usuários finais",
-        "nl": "VERHAALD: Gerefactoreerde adaptercode in modulaire architectuur voor verbeterde onderhoudbaarheid en codekwaliteit",
-        "fr": "RENFORCEMENT: Refactored adaptateur code en architecture modulaire pour améliorer la maintenance et la qualité du code – aucun changement fonctionnel pour les utilisateurs finaux",
-        "it": "ENHANCED: Codice adattatore in architettura modulare per una migliore manutenbilità e qualità del codice – nessun cambiamento funzionale per gli utenti finali",
-        "es": "ENHANCED: Código de adaptador refactorizado en arquitectura modular para mejorar la calidad de mantenimiento y código – no hay cambios funcionales para los usuarios finales",
-        "pl": "ENHANCED: Przekształcony kod adaptera w architekturę modułową dla poprawy zachowania i jakości kodu - brak zmian funkcjonalnych dla użytkowników końcowych",
-        "uk": "ENHANCED: Відновлений код адаптера в модульну архітектуру для підвищення стійкості та якості коду - не функціональні зміни для кінцевих користувачів",
-        "zh-cn": "EnhancedD:重构适配器代码为模块架构,以提高可维护性和代码质量 — 对最终用户没有功能变化"
       }
     },
     "titleLang": {
