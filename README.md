@@ -139,7 +139,9 @@ In **HELP & FAQ** you will find general information and help about the adapter a
 	### **WORK IN PROGRESS**
 -->
 ### **WORK IN PROGRESS**
-- (copilot) Adapter requires node.js >= 22 now
+- (skvarel) Adapter requires node.js >= 22 now
+- (skvarel) Updated @alcalzone/release-script und Plugins auf 5.2.0 aktualisiert (fixes #56)
+- (skvarel) Downgraded @types/node auf ^22.0.0 heruntergestuft (fixes #56)
 
 ### 1.0.8 (2026-04-13)
 - (skvarel) Removed react and mui
