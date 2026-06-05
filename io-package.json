@@ -1,8 +1,21 @@
 {
   "common": {
     "name": "autodarts",
-    "version": "1.0.9",
+    "version": "1.0.10",
     "news": {
+      "1.0.10": {
+        "en": "Migrated project rules from GitHub Copilot to Cursor rules\nUpdated @alcalzone/release-script to 5.2.1 (fixes #59)\nReplaced plain setInterval() and setTimeout() with adapter-managed this.setInterval(), adapter.setTimeout() and corresponding clear methods (fixes #59)",
+        "de": "Geförderte Projektregeln von GitHub Copilot zu Cursor-Regeln\nAktualisiertes @alcalzone/Release-script auf 5.2.1 (fixes #59)\nErsetztes Klar-SetInterval() und setTimeout() mit adapter-managed this.setInterval(), adapter.setTimeout() und entsprechenden klaren Methoden (fixes #59)",
+        "ru": "Миграционные правила проекта от GitHub Copilot до Cursor\nОбновленный @alcalzone/release-script до 5.2.1 (фиксы #59)\nЗаменить простой набор Interval() и setTimeout() адаптер-управляемым этим.setInterval(), adapter.setTimeout() и соответствующие четкие методы (фиксы #59)",
+        "pt": "Regras de projeto modificadas do Copiloto GitHub para as regras do Cursor\nAtualizado em @ alcalzone/release-script para 5.2.1 (fixos # 59)\nSubstituido set simplesInterval() e setTimeout() com adaptador gerenciado this.setInterval(), adaptator.setTimeout() e correspondentes métodos claros (fixes #59)",
+        "nl": "Migrated project regels van GitHub Copilot naar Cursor regels\nBijgewerkt @alcalzone/release-script naar 5.2.1 (fixeert #59)\nVervangen platte setInterval() en setTimeout() met adapter-beheerd this.setInterval(), adapter.setTimeout() en bijbehorende duidelijke methoden (fixes #59)",
+        "fr": "Règles de projet modifiées du copilote GitHub aux règles Cursor\nMise à jour @alcalzone/release-script au 5.2.1 (fixes #59)\nRemplacé ensemble simpleInterval() et setTimeout() avec adaptateur géré ceci.setInterval(), adaptateur.setTimeout() et méthodes claires correspondantes (fixes #59)",
+        "it": "Regole di progetto migrate da GitHub Copilot a regole Cursor\nAggiornato @alcalzone/release-script a 5.2.1 (fissi #59)\nSet normale sostituitoInterval() e setTimeout() con adattatore gestito questo.setInterval(), adapter.setTimeout() e corrispondenti metodi chiari (fissi #59)",
+        "es": "Migrated project rules from GitHub Copilot to Cursor rules\nActualizado @alcalzone/release-script a 5.2.1 (fijos #59)\nConfiguración plana reemplazadaInterval() y setTimeout() con adaptador gestionado este.setInterval(), adaptador.setTimeout() y métodos claros correspondientes (fixes #59)",
+        "pl": "Migrowane zasady projektu z GitHub Copilot do zasad kursora\nAktualizacja @ alcalzone / release- script do 5.2.1 (poprawki # 59)\nZastąpione proste setInterval () i setTimeout () z adapter- managed this.setInterval (), adapter.setTimeout () i odpowiadające im jasne metody (poprawki # 59)",
+        "uk": "Миттєві правила проекту від GitHub Copilot до правил Cursor\nОновлено @alcalzone/видання до 5.2.1 (фікси #59)\nЗамінний plain setInterval() і setTimeout() з адаптером-managed this.setInterval(), адаптер.setTimeout() і відповідними чіткими методами (фікси #59)",
+        "zh-cn": "从 GitHub 副驾驶到光标规则\n更新为 @alcalzone/释放-script 至 5.2.1(第59号附件)\n用适配器管理 . set Interval (), 适配器. set Timeout () 和相应的清晰方法 (fixes #59) 替换纯版设置 Interval () 和设置 Timeout ()"
+      },
       "1.0.9": {
         "en": "Adapter requires node.js >= 22 now\nUpdated @alcalzone/release-script und Plugins auf 5.2.0 aktualisiert (fixes #56)\nDowngraded @types/node auf ^22.0.0 heruntergestuft (fixes #56)",
         "de": "Adapter benötigt node.js >= 22 jetzt\n@alcalzone/release-script und Plugins auf 5.2.0 aktualisiert (fixes #56)\nDowngraded @types/node auf ^22.0.0 heruntergestuft (fixes #56)",
@@ -80,19 +93,6 @@
         "pl": "FIXED: Odwrócony do setState () z deprecated setStateAsync ()",
         "uk": "FIXED: Перевернуто до setState() від deprecated setStateAsync()",
         "zh-cn": "FIXED: 从已贬值的设置中恢复为设置状态( ) State Async ()"
-      },
-      "1.0.3": {
-        "en": "FIXED: Reverted to setState() from deprecated setStateAsync() - setState returns a Promise when used without callback (ioBroker best practice)\nENHANCED: Corrected API endpoints in copilot-instructions.md - now documents /api/state, /api/config, /api/host, /api/version correctly\nTESTING: Added comprehensive unit tests for core modules (throw, visit, config, trafficLight, httpHelper)",
-        "de": "KORREKTUR: Zurück zu setState() von veraltetem setStateAsync() - setState gibt Promise zurück, wenn ohne Callback verwendet (ioBroker Best Practice)\nVERBESSERUNG: Berichtigte API-Endpunkte in copilot-instructions.md - dokumentiert nun korrekt /api/state, /api/config, /api/host, /api/version\nTESTING: Ergänzende Unit-Tests für Kernmodule (throw, visit, config, trafficLight, httpHelper)",
-        "ru": "FIXED: Используйте setStateAsync() вместо setState() для сброса триггера в броске. js для обеспечения надежности базы данных\nИсправленные конечные точки API в инструкциях копилота. md - теперь документы /api/state, /api/config, /api/host, /api/version правильно\nТестирование: Добавлены комплексные единичные тесты для основных модулей (брос, посещение, конфигурация, TrafficLight, httpHelper)",
-        "pt": "FIXED: Use setStateAsync() em vez de setState() para resets de gatilho. js para garantir a confiabilidade do banco de dados\nEnhanced: Endpoints de API corrigidos em instruções de copiloto. md - agora documentos /api/state, /api/config, /api/host, /api/version corretamente\nTESTAMENTO: Adicionados testes unitários abrangentes para módulos centrais (jogar, visitar, configurar, trafficLight, httpHelper)",
-        "nl": "VAST: Gebruik setStateAsync() in plaats van setState() voor trigger resets in de worp. js om de betrouwbaarheid van de database te garanderen\nVERHAALD: gecorrigeerde API-eindpunten in instructies voor de copiloot. md - nu documenten /api/state, /api/config, /api/host, /api/version correct\nTESTEN: Toegevoegd uitgebreide unit testen voor kernmodules (gooien, bezoeken, config, verkeerLight, httpHelper)",
-        "fr": "FIXÉ: Utilisez setStateAsync() au lieu de setState() pour réinitialiser le déclencheur en lancer. js pour assurer la fiabilité de la base de données\nRENFORCEMENT: Correction des paramètres de l'API dans les instructions de copilote. md - maintenant documents /api/state, /api/config, /api/host, /api/version correctement\nESSAI: Ajout de tests unitaires complets pour les modules de base (jetez, visitez, config, trafficLight, httpHelper)",
-        "it": "FISSO: Utilizzare setStateAsync() invece di setState() per reset di trigger in lancio. js per garantire l'affidabilità del database\nENHANCED: endpoint API corretti in istruzioni copilota. md - ora documenti /api/state, /api/config, /api/host, /api/version correttamente\nTESTING: Aggiunti test unitari completi per moduli core (freccia, visita, configurazione, trafficoLuce, httpHelper)",
-        "es": "FIXED: Use setStateAsync() en lugar de setState() para activar resetes en tiro. js para garantizar la fiabilidad de la base de datos\nENHANCED: Puntos finales de API corregidos en instrucciones de copiloto. md - ahora documentos /api/state, /api/config, /api/host, /api/version correctamente\nTESTING: Se han añadido pruebas de unidad integrales para módulos básicos (hacia, visita, config, trafficLight, httpHelper)",
-        "pl": "FIXED: Użyj setStateAsync () zamiast setState () dla resetów w rzucie. js w celu zapewnienia niezawodności bazy danych\nPOPRAWKA: Skorygowane punkty końcowe API w instrukcjach copilot-. md - teraz dokumenty / api / state, / api / config, / api / host, / api / version poprawnie\nTESTING: Dodano kompleksowe testy jednostkowe dla modułów podstawowych (rzut, wizyta, config, traffic Light, httpHelper)",
-        "uk": "FIXED: Використовуйте setStateAsync() замість setState() для запуску скидання в кисті. js для забезпечення надійності бази даних\nENHANCED: Виправлені кінцеві точки API в копілот-інструкції. md - тепер документи /api/state, /api/config, /api/host, /api/version правильно\nTESTING: Додано комплексні тести для базових модулів (рядок, візит, налаштування, трафікLight, httpHelper)",
-        "zh-cn": "FIXED: 使用setStateAsync () 而不是setState () 来重击触发器 。 js,以确保数据库的可靠性\n增强:在副驾驶指令中纠正API端点. md - 现在文档 /api/ state,/api/config,/api/host,/api/版本正确\nTESTING:核心模块(推、访问、配置、交通灯、httphelper)的新增综合单元测试"
       }
     },
     "titleLang": {

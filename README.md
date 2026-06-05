@@ -138,7 +138,7 @@ In **HELP & FAQ** you will find general information and help about the adapter a
 <!--
 	### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 1.0.10 (2026-06-05)
 - (skvarel) Migrated project rules from GitHub Copilot to Cursor rules
 - (skvarel) Updated @alcalzone/release-script to 5.2.1 (fixes #59)
 - (skvarel) Replaced plain setInterval() and setTimeout() with adapter-managed this.setInterval(), adapter.setTimeout() and corresponding clear methods (fixes #59)
@@ -157,9 +157,6 @@ In **HELP & FAQ** you will find general information and help about the adapter a
 
 ### 1.0.6 (2026-02-28)
 - (skvarel) TESTING: Fixed test cleanup issues - added settled flag to httpHelper for proper Promise handling and --exit flag to test script to prevent hanging tests
-
-### 1.0.5 (2026-02-28)
-- (skvarel) FIXED: Updated outdated dependencies - release-script packages to v5.1.x and admin globalDependency to v7.6.20 (fixes #23)
 
 ## Older changes
 - [CHANGELOG_OLD.md](CHANGELOG_OLD.md)

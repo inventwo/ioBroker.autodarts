@@ -1,4 +1,7 @@
 # Older changes
+## 1.0.5 (2026-02-28)
+- (skvarel) FIXED: Updated outdated dependencies - release-script packages to v5.1.x and admin globalDependency to v7.6.20 (fixes #23)
+
 ## 1.0.4 (2026-01-24)
 - (skvarel) FIXED: Reverted to setState() from deprecated setStateAsync()
 
