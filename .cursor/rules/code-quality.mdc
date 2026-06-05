@@ -1,0 +1,53 @@
+---
+description: ioBroker adapter code quality and JavaScript conventions
+globs: main.js,lib/**,eslint.config.mjs,prettier.config.mjs
+alwaysApply: false
+---
+
+# Code Quality
+
+## Style
+
+- async/await for asynchronous operations
+- JSDoc on public methods
+- Use `this.log.*` / adapter logging — never `console.log` in production code
+- Tabs, double quotes (see `prettier.config.mjs`)
+- ESLint via `@iobroker/eslint-config` (`eslint.config.mjs`) — run `npm run lint` after every change; CI treats warnings as errors (`--max-warnings 0`)
+
+## Resource cleanup
+
+Stop polling, timers, and intervals in `onUnload()`; always call `callback()`:
+
+```javascript
+onUnload(callback) {
+  try {
+    if (this.pollTimer) clearTimeout(this.pollTimer);
+    if (this.versionTimer) clearInterval(this.versionTimer);
+    Object.values(this.resetTimers || {}).forEach(timer => {
+      if (timer) clearTimeout(timer);
+    });
+    callback();
+  } catch {
+    callback();
+  }
+}
+```
+
+## Error handling
+
+- Wrap async/API work in try/catch; log errors, do not crash the adapter
+- Use adapter log levels: error, warn, info, debug
+- Handle network failures gracefully; set `online` state to `false` and traffic light to red
+- Do not retry failed API calls in a tight loop — wait for the next poll cycle
+
+## HTTP
+
+- **Preferred:** native `node:http` via `lib/httpHelper.js`
+- **Avoid:** axios, request, or other HTTP libraries
+
+## Dependencies
+
+- Use `npm ci` in CI; commit `package-lock.json` with `package.json`
+- Use `@iobroker/adapter-core`; avoid deprecated packages
+- Update dependencies in separate PRs only
+- Prefer built-in Node.js modules where possible

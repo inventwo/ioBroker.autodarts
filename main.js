@@ -83,7 +83,7 @@ class Autodarts extends utils.Adapter {
 		// Host-Informationen und Kameras abfragen und alle 5 Minuten aktualisieren
 		await systemInfo.fetchHost(this);
 		await systemInfo.fetchConfig(this);
-		this.versionTimer = setInterval(
+		this.versionTimer = this.setInterval(
 			async () => {
 				await systemInfo.fetchHost(this);
 				await systemInfo.fetchConfig(this);
@@ -260,15 +260,15 @@ class Autodarts extends utils.Adapter {
 	onUnload(callback) {
 		try {
 			if (this.pollTimer) {
-				clearTimeout(this.pollTimer);
+				this.clearTimeout(this.pollTimer);
 			}
 			if (this.versionTimer) {
-				clearInterval(this.versionTimer);
+				this.clearInterval(this.versionTimer);
 			}
 			// Alle individuellen Timer löschen
 			if (this.resetTimers) {
 				for (const id in this.resetTimers) {
-					clearTimeout(this.resetTimers[id]);
+					this.clearTimeout(this.resetTimers[id]);
 				}
 			}
 			callback();

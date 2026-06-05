@@ -1,0 +1,68 @@
+---
+description: Autodarts Board Manager and adapter-specific patterns
+globs: main.js,lib/**,docs/**
+alwaysApply: false
+---
+
+# Autodarts Patterns
+
+## Architecture
+
+- `main.js` — adapter entry (`Autodarts extends utils.Adapter`); polling loop, state routing
+- `lib/throw.js` — single throw logic
+- `lib/visit.js` — visit logic (3 darts)
+- `lib/trafficLight.js` — traffic light state management
+- `lib/hardware.js` — hardware control (lighting, power)
+- `lib/config.js` — configuration validation
+- `lib/httpHelper.js` — HTTP helper functions
+- `lib/systemInfo.js` — system info (version, host)
+- `lib/tools.js` — Tools addon integration
+
+## API communication
+
+- Local Board Manager at `http://<host>:<port>/`
+- No authentication required (local network only)
+- Endpoints: `/api/state`, `/api/version`, `/api/config`, `/api/host`
+- Use native `node:http` via `lib/httpHelper.makeRequest()`
+- On network error: set `online` to `false`, traffic light to red
+
+## Polling
+
+- Managed in `main.js` via chained `setTimeout` (not `setInterval`)
+- Interval: `adapter.config.intervalSec` (seconds, default 1)
+- Slower interval when offline (`offlineIntervalMs`)
+- Signature-based deduplication prevents processing duplicate throw data
+
+## State creation
+
+Use `extendObjectAsync` (not `setObjectNotExistsAsync`):
+
+```javascript
+await this.extendObjectAsync("throw.current", {
+  type: "state",
+  common: {
+    name: { en: "Current throw score", de: "Aktueller Wurf-Score" },
+    type: "number",
+    role: "value",
+    read: true,
+    write: false,
+  },
+  native: {},
+});
+```
+
+## State naming
+
+- Throws: `throw.*`, visits: `visit.*`
+- Traffic light: `trafficLight.*`
+- Connection: `online`
+- System info: `systemInfo.*`
+- Hardware: `hardware.*`
+- Tools addon: `tools.*`
+
+## Pitfalls
+
+- Do not add axios or other HTTP libraries
+- Always provide bilingual state names (`en` + `de`)
+- Clean up `pollTimer`, `versionTimer`, and `resetTimers` in `onUnload`
+- Use `setState()` without callback (returns Promise) — not deprecated `setStateAsync()`
