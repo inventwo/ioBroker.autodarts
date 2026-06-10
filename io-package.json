@@ -1,8 +1,21 @@
 {
   "common": {
     "name": "autodarts",
-    "version": "1.0.10",
+    "version": "1.0.11",
     "news": {
+      "1.0.11": {
+        "en": "Added meta object types for adapter and instance namespace",
+        "de": "Meta-Objekttypen für Adapter und Instanz-Namespace hinzugefügt",
+        "ru": "Добавлены типы метаобъектов для адаптера и пространства имен экземпляров",
+        "pt": "Tipos de meta- objecto adicionados para o espaço de nomes do adaptador e da instância",
+        "nl": "Toegevoegd meta-objecttypes voor adapter en instance namespace",
+        "fr": "Ajout de types d'objets méta pour l'adaptateur et l'espace de noms d'instance",
+        "it": "Aggiunti i tipi di meta oggetto per adattatore e namespace di istanza",
+        "es": "Se agregaron tipos de objetos meta para el adaptador y el espacio de nombres de instancia",
+        "pl": "Dodano typy metaobiektów dla adaptera i instancji przestrzeni nazw",
+        "uk": "Додано типи об'єктів метаданих для перетворення та простору імен",
+        "zh-cn": "添加适配器和实例命名空间的元对象类型"
+      },
       "1.0.10": {
         "en": "Migrated project rules from GitHub Copilot to Cursor rules\nUpdated @alcalzone/release-script to 5.2.1 (fixes #59)\nReplaced plain setInterval() and setTimeout() with adapter-managed this.setInterval(), adapter.setTimeout() and corresponding clear methods (fixes #59)",
         "de": "Geförderte Projektregeln von GitHub Copilot zu Cursor-Regeln\nAktualisiertes @alcalzone/Release-script auf 5.2.1 (fixes #59)\nErsetztes Klar-SetInterval() und setTimeout() mit adapter-managed this.setInterval(), adapter.setTimeout() und entsprechenden klaren Methoden (fixes #59)",
@@ -80,19 +93,6 @@
         "pl": "FIXED: Aktualizacja przestarzałych zależności - pakiety release- script do v5.1.x i admin globalDependency do v7.6.20 (poprawki # 23)",
         "uk": "FIXED: Оновлено застарілі залежності - випускні пакети до v5.1.x і admin GlobalDependency to v7.6.20 (фікси #23)",
         "zh-cn": "FIXED: 更新过时的依赖性 - 发布标记包到 v5. 1. x 和 管理全局依赖性到 v7. 6. 20 (fixes #23)"
-      },
-      "1.0.4": {
-        "en": "FIXED: Reverted to setState() from deprecated setStateAsync()",
-        "de": "FIXED: Revertiert auf setState() von deprecated setStateAsync()",
-        "ru": "FIXED: Reverted to setState() from deprecated setStateAsync()",
-        "pt": "FIXED: Revertido para setState() do setStateAsync() desactualizado",
-        "nl": "VASTE: Teruggekeerd naar setState() van verouderde setStateAsync()",
-        "fr": "FIXÉ: Réverti à setState() de setStateAsync()",
-        "it": "FISSO: Revertito per impostareState() da set deprecatoStateAsync()",
-        "es": "FIXED: Revertido a establecer el Estado() de un estado precatadoAsync()",
-        "pl": "FIXED: Odwrócony do setState () z deprecated setStateAsync ()",
-        "uk": "FIXED: Перевернуто до setState() від deprecated setStateAsync()",
-        "zh-cn": "FIXED: 从已贬值的设置中恢复为设置状态( ) State Async ()"
       }
     },
     "titleLang": {
