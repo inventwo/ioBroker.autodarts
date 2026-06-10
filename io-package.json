@@ -178,5 +178,18 @@
     "toolsUrlGameshot": ""
   },
   "objects": [],
-  "instanceObjects": []
+  "instanceObjects": [
+    {
+      "_id": "",
+      "type": "meta",
+      "common": {
+        "name": {
+          "en": "Autodarts integration instance",
+          "de": "Autodarts-Integrationsinstanz"
+        },
+        "type": "meta.folder"
+      },
+      "native": {}
+    }
+  ]
 }

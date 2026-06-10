@@ -138,6 +138,9 @@ In **HELP & FAQ** you will find general information and help about the adapter a
 <!--
 	### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+- (skvarel) Added meta object types for adapter and instance namespace
+
 ### 1.0.10 (2026-06-05)
 - (skvarel) Migrated project rules from GitHub Copilot to Cursor rules
 - (skvarel) Updated @alcalzone/release-script to 5.2.1 (fixes #59)

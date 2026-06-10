@@ -41,8 +41,36 @@ class Autodarts extends utils.Adapter {
 		this.resetTimers = {}; // NEU: Objekt für individuelle Timer initialisieren
 	}
 
+	/**
+	 * Ensures the adapter root namespace (autodarts) is typed as meta.
+	 */
+	async ensureAdapterRootMeta() {
+		const rootId = this.name;
+		const titleLang = this.ioPack?.common?.titleLang || {};
+		const metaObject = {
+			type: "meta",
+			common: {
+				name: titleLang[this.language] || titleLang.en || rootId,
+				type: "meta.folder",
+			},
+			native: {},
+		};
+
+		const existing = await this.getForeignObjectAsync(rootId);
+		if (!existing) {
+			await this.setForeignObjectAsync(rootId, metaObject);
+		} else if (existing.type !== "meta") {
+			await this.extendForeignObjectAsync(rootId, {
+				type: "meta",
+				common: metaObject.common,
+			});
+		}
+	}
+
 	async onReady() {
 		this.log.info("Autodarts adapter started");
+
+		await this.ensureAdapterRootMeta();
 
 		// Defaults aus io-package.json absichern
 		this.config.host ??= "127.0.0.1";
