@@ -1,8 +1,21 @@
 {
   "common": {
     "name": "autodarts",
-    "version": "1.0.11",
+    "version": "1.0.12",
     "news": {
+      "1.0.12": {
+        "en": "Fixed admin i18n labels flagged as untranslated by the repository checker (fixes #67)",
+        "de": "Fixed admin i18n labels gekennzeichnet als nicht übersetzt durch den Repository Checker (fixes #67)",
+        "ru": "Фиксированные ярлыки admin i18n, помеченные как нетранслируемые проверкой хранилища (фиксы #67)",
+        "pt": "Rótulos de administração i18n corrigidos marcados como não traduzidos pelo verificador de repositório (fixos #67)",
+        "nl": "Vaste admin i18n labels gemarkeerd als niet vertaald door de repository checker (fixes #67)",
+        "fr": "Correction des étiquettes d'administration i18n marquées comme non traduites par le vérificateur du dépôt (fixes #67)",
+        "it": "Etichette admin i18n fissate come non tradotte dal repository checker (fissi #67)",
+        "es": "Etiquetas de administración fija i18n marcadas como no traducidas por el verificador de repositorio (fixes #67)",
+        "pl": "Naprawiono etykiety admin i18n oznaczone jako nieprzetłumaczone przez sprawdzacz repozytorium (poprawki # 67)",
+        "uk": "Виправлені теги admin i18n позначені як untranslated by repository checker (фікси #67)",
+        "zh-cn": "被寄存器检查器标为未翻译的固定管理员 i18n 标签( zixes # 67)"
+      },
       "1.0.11": {
         "en": "Added meta object types for adapter and instance namespace",
         "de": "Meta-Objekttypen für Adapter und Instanz-Namespace hinzugefügt",
@@ -80,19 +93,6 @@
         "pl": "TESTING: Stałe problemy z czyszczeniem testów - dodano flagę rozliczoną do httpHelper dla prawidłowego obsługi obietnic i --exit flag do testowania skryptu, aby zapobiec powieszeniu testów",
         "uk": "TESTING: Виправлені проблеми очищення тесту - додано валідований прапор до httpHelper для належного використання Promise і --exit прапор, щоб перевірити скрипт, щоб запобігти висихання тестів",
         "zh-cn": "TESTING: 固定测试清理问题 - 在 httpHelper 中添加已结算的旗帜, 用于适当的承诺处理和 -- 退出旗帜, 用于测试脚本以防止悬挂测试"
-      },
-      "1.0.5": {
-        "en": "FIXED: Updated outdated dependencies - release-script packages to v5.1.x and admin globalDependency to v7.6.20 (fixes #23)",
-        "de": "FIXED: Aktualisierte veraltete Abhängigkeiten - Release-script-Pakete zu v5.1.x und admin globalDependency to v7.6.20 (fixes #23)",
-        "ru": "FIXED: Обновленные устаревшие зависимости - пакеты релиз-скрипта для v5.1.x и админ GlobalDependency для v7.6.20 (фиксы #23)",
-        "pt": "FIXED: Dependências desatualizadas atualizadas - pacotes release-script para v5.1.x e administrador globalDependência para v7.6.20 (fixes #23)",
-        "nl": "VASTE: Bijgewerkt verouderde afhankelijkheden - release-script pakketten naar v5.1.x en admin globalDependency naar v7.6.20 (fixes #23)",
-        "fr": "FIXÉ: Mise à jour des dépendances obsolètes - paquets release-script vers v5.1.x et admin globalDependency vers v7.6.20 (fixes #23)",
-        "it": "FISSO: Aggiornato dipendenze obsolete - release-script package a v5.1.x e admin globalDependency a v7.6.20 (fissi n.23)",
-        "es": "FIXED: Actualización de dependencias obsoletas - paquetes de código de liberación a v5.1.x y administración globalDependencia a v7.6.20 (fijos #23)",
-        "pl": "FIXED: Aktualizacja przestarzałych zależności - pakiety release- script do v5.1.x i admin globalDependency do v7.6.20 (poprawki # 23)",
-        "uk": "FIXED: Оновлено застарілі залежності - випускні пакети до v5.1.x і admin GlobalDependency to v7.6.20 (фікси #23)",
-        "zh-cn": "FIXED: 更新过时的依赖性 - 发布标记包到 v5. 1. x 和 管理全局依赖性到 v7. 6. 20 (fixes #23)"
       }
     },
     "titleLang": {

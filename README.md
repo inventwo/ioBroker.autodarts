@@ -138,7 +138,7 @@ In **HELP & FAQ** you will find general information and help about the adapter a
 <!--
 	### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 1.0.12 (2026-06-28)
 - (skvarel) Fixed admin i18n labels flagged as untranslated by the repository checker (fixes #67)
 
 ### 1.0.11 (2026-06-10)
@@ -157,9 +157,6 @@ In **HELP & FAQ** you will find general information and help about the adapter a
 ### 1.0.8 (2026-04-13)
 - (skvarel) Removed react and mui
 - (skvarel) Removed admin/style.css
-
-### 1.0.7 (2026-03-01)
-- (skvarel) CI/CD: Updated GitHub Copilot instructions template to version 0.5.7 with latest ioBroker best practices (fixes #21, #25)
 
 ## Older changes
 - [CHANGELOG_OLD.md](CHANGELOG_OLD.md)

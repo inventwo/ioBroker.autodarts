@@ -1,4 +1,7 @@
 # Older changes
+## 1.0.7 (2026-03-01)
+- (skvarel) CI/CD: Updated GitHub Copilot instructions template to version 0.5.7 with latest ioBroker best practices (fixes #21, #25)
+
 ## 1.0.6 (2026-02-28)
 - (skvarel) TESTING: Fixed test cleanup issues - added settled flag to httpHelper for proper Promise handling and --exit flag to test script to prevent hanging tests
 
