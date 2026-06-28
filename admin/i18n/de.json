@@ -1,8 +1,8 @@
 {
     "helps": "Hilfe & FAQ",
-    "host_ip": "Autodarts (Boardmanager) Host/IP",
+    "host_ip": "Host/IP des Autodarts-Boardmanagers",
     "host_ip_help": "IP-Adresse des lokalen Autodarts Boardmanagers.",
-    "host_port": "Autodarts (Boardmanager) Port",
+    "host_port": "Port des Autodarts-Boardmanagers",
     "host_port_help": "Portnummer des lokalen Autodarts Boardmanagers.",
     "intro_txt": "Hilfe & FAQ",
     "light_target": "LED-Ring-POWER Datenpunkt",

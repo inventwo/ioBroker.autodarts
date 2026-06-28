@@ -138,6 +138,9 @@ In **HELP & FAQ** you will find general information and help about the adapter a
 <!--
 	### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+- (skvarel) Fixed admin i18n labels flagged as untranslated by the repository checker (fixes #67)
+
 ### 1.0.11 (2026-06-10)
 - (skvarel) Added meta object types for adapter and instance namespace
 

@@ -1,6 +1,6 @@
 {
     "helps": "Pomoc i często zadawane pytania",
-    "host_ip": "Autodarts (Boardmanager) Host/IP",
+    "host_ip": "Host/IP menedżera Autodarts",
     "host_ip_help": "Adres IP lokalnego zarządcy Autodarts.",
     "host_port": "Port Autodarts (Boardmanager).",
     "host_port_help": "Numer portu lokalnego zarządcy Autodarts.",
