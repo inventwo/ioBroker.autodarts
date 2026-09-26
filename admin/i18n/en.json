@@ -1,6 +1,6 @@
 {
     "board_id": "Autodarts board ID",
-    "board_id_help": "Board ID from My Boards on play.autodarts.io (required for cloud mode).",
+    "board_id_help": "Required for cloud mode. Find it on play.autodarts.io → Boards / My Boards → open your board → copy the Board ID (UUID).",
     "cloud_email": "Autodarts email or username",
     "cloud_email_help": "Account used to log in to Autodarts. Disable 2FA for password login.",
     "cloud_password": "Autodarts password",

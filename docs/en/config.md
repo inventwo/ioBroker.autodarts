@@ -28,6 +28,15 @@ Change this only if the client runs on a different port.
 Your Autodarts account credentials and the board ID from **My Boards** on [play.autodarts.io](https://play.autodarts.io).  
 Disable two-factor authentication if password login fails. The password is stored encrypted in the adapter config.
 
+**How to find the board ID**
+
+1. Sign in at [play.autodarts.io](https://play.autodarts.io).
+2. Open **Boards** / **My Boards**.
+3. Open your board and copy the **Board ID** (UUID, e.g. `a1b2c3d4-e5f6-7890-abcd-ef1234567890`).
+4. Paste it into **Autodarts board ID** in the adapter options.
+
+See also the [FAQ](faq.md#where-do-i-find-the-autodarts-board-id-cloud--v2).
+
 ### Minimum field for triple trigger
 
 Smallest field number from which triple hits are evaluated (e.g. 15).  

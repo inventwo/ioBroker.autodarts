@@ -107,7 +107,9 @@ In **OPTIONS** you configure how the adapter connects to Autodarts:
   TCP port of the board client (usually `3180`).
 
 - **Cloud email / password / board ID** (cloud mode)  
-  Your Autodarts login and the board ID from My Boards on play.autodarts.io.
+  Your Autodarts login and the board ID from **My Boards** on [play.autodarts.io](https://play.autodarts.io).  
+  How to find the board ID: sign in → **Boards** / **My Boards** → open your board → copy the UUID board ID.  
+  Details: [English FAQ](./docs/en/faq.md) / [German FAQ](./docs/de/faq.md). Disable 2FA if password login fails.
 
 - **Triple trigger range**  
   Two dropdowns to define the **minimum** and **maximum** field number (1–20) that should be considered for `trigger.isTriple`.  
@@ -159,6 +161,7 @@ In **HELP & FAQ** you will find general information and help about the adapter a
 ### **WORK IN PROGRESS**
 - (skvarel) Documented Autodarts v2 incompatibility for local throw detection
 - (skvarel) Added optional cloud connection mode for Autodarts v2 throw events
+- (skvarel) Documented how to find the Autodarts board ID for cloud / v2 setup
 
 ### 1.0.12 (2026-06-28)
 - (skvarel) Fixed admin i18n labels flagged as untranslated by the repository checker (fixes #67)

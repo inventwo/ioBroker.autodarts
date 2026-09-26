@@ -27,6 +27,18 @@ Autodarts **v2.0+** deprecates the Board Manager UI. The local API on port `3180
 
 ---
 
+### Where do I find the Autodarts board ID? (cloud / v2)
+
+1. Open [play.autodarts.io](https://play.autodarts.io) and sign in.
+2. Go to **Boards** / **My Boards**.
+3. Open your board (or the board details / settings).
+4. Copy the **Board ID** — a UUID like `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`.
+5. Paste it into the adapter **Options** → **Autodarts board ID** (cloud mode).
+
+You need the same Autodarts account that owns (or can use) that board. Disable **2FA** on the account if password login fails.
+
+---
+
 ### No triggers for “busted / game on / game shot”
 
 - Make sure the Simple-API adapter is installed, running and correctly configured in the **Tools addon integration** tab (IP, port).  

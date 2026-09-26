@@ -27,6 +27,18 @@ Ab Autodarts **v2.0+** ist die Board-Manager-Oberfläche abgeschaltet. Die lokal
 
 ---
 
+### Wo finde ich die Autodarts-Board-ID? (Cloud / v2)
+
+1. [play.autodarts.io](https://play.autodarts.io) öffnen und anmelden.
+2. Zu **Boards** / **My Boards** wechseln.
+3. Dein Board öffnen (bzw. Board-Details / Einstellungen).
+4. Die **Board-ID** kopieren — eine UUID wie `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`.
+5. In den Adapter-**Optionen** unter **Autodarts-Board-ID** (Cloud-Modus) einfügen.
+
+Es muss dasselbe Autodarts-Konto sein, dem das Board gehört (oder das darauf Zugriff hat). **2FA** am Konto deaktivieren, falls der Passwort-Login fehlschlägt.
+
+---
+
 ### Es kommen keine Trigger für „busted / game on / game shot“ an
 
 - Stelle sicher, dass der Simple-API-Adapter installiert, gestartet und im Tab **Tools-Addon-Integration** korrekt konfiguriert ist (IP, Port). 

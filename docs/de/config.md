@@ -28,6 +28,15 @@ Nur anpassen, wenn der Client auf einem anderen Port läuft.
 Zugangsdaten deines Autodarts-Kontos und die Board-ID unter **My Boards** auf [play.autodarts.io](https://play.autodarts.io).  
 Zwei-Faktor-Authentifizierung bei Problemen mit dem Passwort-Login deaktivieren. Das Passwort wird verschlüsselt in der Adapter-Konfiguration gespeichert.
 
+**Board-ID finden**
+
+1. Bei [play.autodarts.io](https://play.autodarts.io) anmelden.
+2. **Boards** / **My Boards** öffnen.
+3. Dein Board öffnen und die **Board-ID** kopieren (UUID, z. B. `a1b2c3d4-e5f6-7890-abcd-ef1234567890`).
+4. In den Adapter-Optionen unter **Autodarts-Board-ID** einfügen.
+
+Siehe auch die [FAQ](faq.md#wo-finde-ich-die-autodarts-board-id-cloud--v2).
+
 ### Minimales Feld für den Triple-Trigger
 
 Kleinste Feldnummer, ab der Triple-Treffer ausgewertet werden (z. B. 15).  
