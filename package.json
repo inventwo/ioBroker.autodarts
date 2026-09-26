@@ -60,7 +60,7 @@
     "test:integration": "mocha test/integration --exit",
     "test": "npm run test:js && npm run test:package",
     "check": "tsc --noEmit -p tsconfig.check.json",
-    "lint": "eslint -c eslint.config.mjs .",
+    "lint": "eslint -c eslint.config.mjs . --max-warnings 0",
     "translate": "translate-adapter",
     "dev-server": "dev-server"
   },
