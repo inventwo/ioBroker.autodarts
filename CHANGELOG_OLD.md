@@ -1,4 +1,8 @@
 # Older changes
+## 1.0.8 (2026-04-13)
+- (skvarel) Removed react and mui
+- (skvarel) Removed admin/style.css
+
 ## 1.0.7 (2026-03-01)
 - (skvarel) CI/CD: Updated GitHub Copilot instructions template to version 0.5.7 with latest ioBroker best practices (fixes #21, #25)
 

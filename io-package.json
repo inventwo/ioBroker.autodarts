@@ -1,8 +1,21 @@
 {
   "common": {
     "name": "autodarts",
-    "version": "1.0.12",
+    "version": "1.1.0",
     "news": {
+      "1.1.0": {
+        "en": "Documented Autodarts v2 incompatibility for local throw detection\nAdded optional cloud connection mode for Autodarts v2 throw events\nDocumented how to find the Autodarts board ID for cloud / v2 setup",
+        "de": "Dokumentierte Autodarts v2-Inkompatibilität zur Lokalwurferkennung\nOptionaler Cloud-Modus für Autodarts v2 Wurfevents hinzugefügt\nDokumentiert, wie man die Autodarts Board ID für Cloud /v2 findet",
+        "ru": "Документированная несовместимость Autodarts v2 с точки зрения локального обнаружения бросков\nДобавлен дополнительный режим подключения к облаку для событий Autodarts v2 throw\nДокументировано, как найти идентификатор платы Autodarts для настройки cloud/v2",
+        "pt": "Incompatibilidade documentada do Autodarts v2 na detecção local\nAdicionado modo de conexão à nuvem para eventos Autodarts v2\nDocumentado como encontrar o ID da placa Autodarts na nuvem/v2",
+        "nl": "Gedocumenteerde incompatibiliteit met Autodarts v2 voor detectie van lokale worpen\nOptionele cloudverbindingsmodus toegevoegd voor Autodarts v2-worpevenementen\nGedocumenteerd hoe u de Autodarts-bord-ID kunt vinden voor de installatie van de cloud/v2",
+        "fr": "Incompatibilité documentée d'Autodarts v2 avec la détection locale\nAjout d'un mode de connexion cloud optionnel pour Autodarts v2 Throw Events\nA expliqué comment trouver l'identifiant Autodarts pour Cloud ou V2",
+        "it": "Incompatibilità documentata di Autodarts v2 per il rilevamento locale\nAggiunta una modalità cloud opzionale per Autodarts v2\nCome trovare l'ID scheda Autodarts per cloud/v2 setup",
+        "es": "Incompatibilidad documentada de Autodarts v2 con la detección local\nSe ha añadido el modo de conexión a la nube opcional para Autodarts v2\nDocumentó cómo encontrar el ID de Autodarts para la configuración nube/v2",
+        "pl": "Udokumentowana niezgodność Autodarts v2 do wykrywania lokalnego rzutu\nDodano opcjonalny tryb połączenia w chmurze dla zdarzeń rzucania Autodarts v2\nUdokumentowano sposób odnalezienia identyfikatora płyty Autodarts dla konfiguracji chmurowa/v2",
+        "uk": "Задокументована несумісність Autodarts v2 для локального виявлення кидання\nДодано додатковий режим хмарного підключення для подій кидання Autodarts v2\nДокументовано, як знайти ідентифікатор плати Autodarts для налаштування хмари/v2",
+        "zh-cn": "记录了 Autodarts v2 与本地投掷检测不兼容\n为 Autodarts v2 投掷事件添加了可选的云连接模式\n记录了如何查找 cloud/v2 设置的 Autodarts 主板 ID"
+      },
       "1.0.12": {
         "en": "Fixed admin i18n labels flagged as untranslated by the repository checker (fixes #67)",
         "de": "Fixed admin i18n labels gekennzeichnet als nicht übersetzt durch den Repository Checker (fixes #67)",
@@ -80,19 +93,6 @@
         "pl": "CI / CD: Aktualizacja szablonu instrukcji GitHub Copilot do wersji 0.5.7 z najnowszymi najlepszymi praktykami ioBroker (poprawki # 21, # 25)",
         "uk": "CI/CD: Оновлений шаблон інструкцій GitHub Copilot до версії 0.5.7 з новітніми ioBroker кращих практик (фікси #21, #25)",
         "zh-cn": "CI/CD: 更新了 GitHub 副驾驶指令模板至 0.5.7 版本,并附有最新的 ioBroker 最佳做法 (fixes #21, #25)"
-      },
-      "1.0.6": {
-        "en": "TESTING: Fixed test cleanup issues - added settled flag to httpHelper for proper Promise handling and --exit flag to test script to prevent hanging tests",
-        "de": "TESTING: Fixed Test Cleanup-Probleme - fügte dem httpHelper eine abgegrenzte Flagge für die ordnungsgemäße Promise-Handling und --exit-Flag zum Testskript hinzu, um hängende Tests zu verhindern",
-        "ru": "Тестирование: исправленные проблемы с очисткой тестов - добавлен урегулированный флаг для httpHelper для правильной обработки обещаний и флаг выхода для тестирования сценария для предотвращения испытаний на подвеску",
-        "pt": "TESTAMENTO: Problemas de limpeza de teste fixos - bandeira fixa adicionada ao httpHelper para o manuseio adequado do Promise e --exit flag para testar o script para evitar testes suspensos",
-        "nl": "TESTEN: Vaste test opschoning problemen - toegevoegd vaste vlag aan httpHelper voor de juiste belofte handling en --exit vlag om te testen script om opknoping testen te voorkomen",
-        "fr": "ESSAI: Correction des problèmes de nettoyage des tests - ajout d'un drapeau réglé à httpHelper pour une bonne manipulation de la promesse et --exit drapeau pour tester le script pour empêcher les tests suspendus",
-        "it": "TESTING: Problemi di pulizia del test fissi - ha aggiunto la bandiera fissa a httpHelper per una corretta gestione Promise e --exit bandiera per testare lo script per prevenire i test appesi",
-        "es": "TESTING: Problemas de limpieza de pruebas fijos - añadido bandera asentada a httpHelper para el manejo apropiado de la promesa y --exit flag para probar script para evitar pruebas de colgar",
-        "pl": "TESTING: Stałe problemy z czyszczeniem testów - dodano flagę rozliczoną do httpHelper dla prawidłowego obsługi obietnic i --exit flag do testowania skryptu, aby zapobiec powieszeniu testów",
-        "uk": "TESTING: Виправлені проблеми очищення тесту - додано валідований прапор до httpHelper для належного використання Promise і --exit прапор, щоб перевірити скрипт, щоб запобігти висихання тестів",
-        "zh-cn": "TESTING: 固定测试清理问题 - 在 httpHelper 中添加已结算的旗帜, 用于适当的承诺处理和 -- 退出旗帜, 用于测试脚本以防止悬挂测试"
       }
     },
     "titleLang": {

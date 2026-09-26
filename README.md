@@ -158,7 +158,7 @@ In **HELP & FAQ** you will find general information and help about the adapter a
 <!--
 	### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 1.1.0 (2026-09-26)
 - (skvarel) Documented Autodarts v2 incompatibility for local throw detection
 - (skvarel) Added optional cloud connection mode for Autodarts v2 throw events
 - (skvarel) Documented how to find the Autodarts board ID for cloud / v2 setup
@@ -178,10 +178,6 @@ In **HELP & FAQ** you will find general information and help about the adapter a
 - (skvarel) Adapter requires node.js >= 22 now
 - (skvarel) Updated @alcalzone/release-script und Plugins auf 5.2.0 aktualisiert (fixes #56)
 - (skvarel) Downgraded @types/node auf ^22.0.0 heruntergestuft (fixes #56)
-
-### 1.0.8 (2026-04-13)
-- (skvarel) Removed react and mui
-- (skvarel) Removed admin/style.css
 
 ## Older changes
 - [CHANGELOG_OLD.md](CHANGELOG_OLD.md)
