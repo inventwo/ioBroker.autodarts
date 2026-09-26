@@ -149,9 +149,6 @@
     "adminUI": {
       "config": "json"
     },
-    "encryptedNative": [
-      "cloudPassword"
-    ],
     "eraseOnUpload": true,
     "dependencies": [
       {
@@ -164,6 +161,9 @@
       }
     ]
   },
+  "encryptedNative": [
+    "cloudPassword"
+  ],
   "native": {
     "connectionMode": "local",
     "host": "127.0.0.1",
