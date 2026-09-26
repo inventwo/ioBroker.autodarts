@@ -17,6 +17,16 @@ In diesem Tab findest du kurze Antworten auf typische Fragen und Probleme rund u
 
 ---
 
+### Würfe / Trigger bleiben nach Autodarts-Update (v2) leer
+
+Ab Autodarts **v2.0+** ist die Board-Manager-Oberfläche abgeschaltet. Die lokale API auf Port `3180` kann weiterhin Verbindung, Kameras und Board-Status melden, liefert aber **keine Wurfinformationen** mehr (`throws` fehlt / `numThrows` ist `0`).
+
+- Für Autodarts v2 den **Verbindungsmodus** auf **Cloud** stellen und Autodarts-E-Mail, Passwort sowie Board-ID eintragen.
+- Der lokale Modus bleibt für Autodarts-Versionen vor v2.
+- Allein `info.connection = true` bedeutet nicht, dass Würfe verfügbar sind.
+
+---
+
 ### Es kommen keine Trigger für „busted / game on / game shot“ an
 
 - Stelle sicher, dass der Simple-API-Adapter installiert, gestartet und im Tab **Tools-Addon-Integration** korrekt konfiguriert ist (IP, Port). 

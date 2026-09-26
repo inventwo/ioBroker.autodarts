@@ -1,4 +1,14 @@
 {
+    "board_id": "Autodarts-Board-ID",
+    "board_id_help": "Board-ID unter „My Boards“ auf play.autodarts.io (erforderlich für den Cloud-Modus).",
+    "cloud_email": "Autodarts E-Mail oder Benutzername",
+    "cloud_email_help": "Konto für den Autodarts-Login. 2FA für Passwort-Login deaktivieren.",
+    "cloud_password": "Autodarts-Passwort",
+    "cloud_password_help": "Passwort deines Autodarts-Kontos (verschlüsselt gespeichert).",
+    "connection_mode": "Verbindungsmodus",
+    "connection_mode_cloud": "Cloud (Autodarts v2)",
+    "connection_mode_help": "Lokal: Abfrage IP:3180 (vor v2). Cloud: Autodarts-Konto für Wurf-Events unter v2.",
+    "connection_mode_local": "Lokaler Board-Client",
     "helps": "Hilfe & FAQ",
     "host_ip": "Host/IP des Autodarts-Boardmanagers",
     "host_ip_help": "IP-Adresse des lokalen Autodarts Boardmanagers.",
@@ -17,7 +27,7 @@
     "options_logic": "Logikoptionen",
     "paypal_donate": "Falls du uns unterstützen möchtest.",
     "polling": "Abfrageintervall (s)",
-    "polling_help": "Abfrageintervall in Sekunden zum Abrufen von Daten vom Autodarts Boardmanager.",
+    "polling_help": "Abfrageintervall in Sekunden zum Abrufen von Daten vom Autodarts Boardmanager (nur lokaler Modus).",
     "power_target": "Power-Datenpunkt",
     "power_target_help": "Datenpunkt der Server- oder Bildschirm-Steckdose zur Steuerung innerhalb des Autodarts-Adapters. Lasse das Feld leer, um die Leistungssteuerung zu deaktivieren.",
     "power_txt": "Zuweisungen der Leistungssteuerung (optional)",
@@ -36,7 +46,7 @@
     "triple_flag2": "Maximales Feld für den Triple-Trigger",
     "triple_flag2_help": "Feld „Maximale Punktzahl“ für den Triple-Trigger. Darts mit einer Punktzahl über diesem Wert lösen den Triple-Trigger-Datenpunkt nicht aus.",
     "triple_flag_help": "Feld „Mindestpunktzahl“ für den Triple-Trigger. Darts mit einer Punktzahl unter diesem Wert lösen den Triple-Trigger-Datenpunkt nicht aus.",
-    "txt_one": "<b>Dieser Adapter verbindet den lokalen Autodarts Board-Manager mit dem ioBroker.</b><br><br>• Konfiguriere die Verbindung unter <b>OPTIONEN</b> (Host, Port, Intervall, Triple Range).<br>• Ordne Licht- und Powerziele unter <b>ZUWEISUNGEN</b> zu.<br>• Nutze die erstellten Zustände (Würfe, Ampel, Hardware) in der Visualisierungen, den Skripten und Szenen.<br>• Verknüpfe Tools für Autodarts mit dem Adapter.",
+    "txt_one": "<b>Dieser Adapter verbindet Autodarts mit dem ioBroker.</b><br><br>• Konfiguriere die Verbindung unter <b>OPTIONEN</b> (lokale IP/Port oder Cloud-Login für Autodarts v2).<br>• Ordne Licht- und Powerziele unter <b>ZUWEISUNGEN</b> zu.<br>• Nutze die erstellten Zustände (Würfe, Ampel, Hardware) in der Visualisierungen, den Skripten und Szenen.<br>• Verknüpfe Tools für Autodarts mit dem Adapter.",
     "txt_tools": "Auf dieser Registerkarte wird die Integration mit der Browsererweiterung „Tools for Autodarts“ konfiguriert.<br><br>Um sie verwenden zu können, muss die Browsererweiterung installiert sein und der ioBroker Simple-API-Adapter ausgeführt und über deinen Browser erreichbar sein.",
     "txt_two": "... weitere Informationen folgen in Kürze!"
 }

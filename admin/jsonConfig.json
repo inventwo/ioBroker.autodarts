@@ -16,10 +16,37 @@
           "lg": 12,
           "xl": 12,
           "items": {
+            "connectionMode": {
+              "type": "select",
+              "label": "connection_mode",
+              "help": "connection_mode_help",
+              "default": "local",
+              "options": [
+                {
+                  "label": "connection_mode_local",
+                  "value": "local"
+                },
+                {
+                  "label": "connection_mode_cloud",
+                  "value": "cloud"
+                }
+              ],
+              "newLine": true,
+              "xs": 12,
+              "sm": 12,
+              "md": 12,
+              "lg": 12,
+              "xl": 12,
+              "style": {
+                "marginTop": "10px",
+                "marginBottom": "10px"
+              }
+            },
             "host": {
               "type": "text",
               "label": "host_ip",
               "help": "host_ip_help",
+              "hidden": "data.connectionMode === 'cloud'",
               "newLine": true,
               "xs": 12,
               "sm": 12,
@@ -35,12 +62,61 @@
               "type": "number",
               "label": "host_port",
               "help": "host_port_help",
+              "hidden": "data.connectionMode === 'cloud'",
               "newLine": false,
               "xs": 12,
               "sm": 12,
               "md": 6,
               "lg": 6,
               "xl": 6,
+              "style": {
+                "marginTop": "10px",
+                "marginBottom": "10px"
+              }
+            },
+            "cloudEmail": {
+              "type": "text",
+              "label": "cloud_email",
+              "help": "cloud_email_help",
+              "hidden": "data.connectionMode !== 'cloud'",
+              "newLine": true,
+              "xs": 12,
+              "sm": 12,
+              "md": 6,
+              "lg": 6,
+              "xl": 6,
+              "style": {
+                "marginTop": "10px",
+                "marginBottom": "10px"
+              }
+            },
+            "cloudPassword": {
+              "type": "password",
+              "label": "cloud_password",
+              "help": "cloud_password_help",
+              "hidden": "data.connectionMode !== 'cloud'",
+              "newLine": false,
+              "xs": 12,
+              "sm": 12,
+              "md": 6,
+              "lg": 6,
+              "xl": 6,
+              "style": {
+                "marginTop": "10px",
+                "marginBottom": "10px"
+              }
+            },
+            "boardId": {
+              "type": "text",
+              "label": "board_id",
+              "help": "board_id_help",
+              "hidden": "data.connectionMode !== 'cloud'",
+              "newLine": true,
+              "xs": 12,
+              "sm": 12,
+              "md": 12,
+              "lg": 12,
+              "xl": 12,
               "style": {
                 "marginTop": "10px",
                 "marginBottom": "10px"
@@ -274,6 +350,7 @@
               "label": "polling",
               "help": "polling_help",
               "default": 1,
+              "hidden": "data.connectionMode === 'cloud'",
               "options": [
                 {
                   "label": "0.25 s",

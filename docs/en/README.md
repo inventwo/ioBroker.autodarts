@@ -17,7 +17,7 @@
 
 #### Darts requirements
 
-1. Autodarts Boardmanager (or Autodarts Desktop)  
+1. Autodarts Board Client / Desktop (**before v2** → local mode) or Autodarts **v2** Desktop/Terminal (**cloud mode**)  
 2. “Tools for Autodarts” browser addon (optional)
 
 ## Quick start

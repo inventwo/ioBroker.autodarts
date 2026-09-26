@@ -17,6 +17,16 @@ This tab provides short answers to common questions and issues related to the ad
 
 ---
 
+### Throws / triggers stay empty after an Autodarts update (v2)
+
+Autodarts **v2.0+** deprecates the Board Manager UI. The local API on port `3180` may still report connection, cameras and board status, but **no longer includes throw data** (`throws` stays empty / `numThrows` is `0`).
+
+- For Autodarts v2, set **Connection mode** to **cloud** and enter your Autodarts email, password and board ID.
+- Local mode remains for Autodarts versions before v2.
+- `info.connection = true` alone does not mean throws are available.
+
+---
+
 ### No triggers for “busted / game on / game shot”
 
 - Make sure the Simple-API adapter is installed, running and correctly configured in the **Tools addon integration** tab (IP, port).  

@@ -149,6 +149,9 @@
     "adminUI": {
       "config": "json"
     },
+    "encryptedNative": [
+      "cloudPassword"
+    ],
     "eraseOnUpload": true,
     "dependencies": [
       {
@@ -162,9 +165,13 @@
     ]
   },
   "native": {
+    "connectionMode": "local",
     "host": "127.0.0.1",
     "port": 3180,
     "intervalSec": 1,
+    "cloudEmail": "",
+    "cloudPassword": "",
+    "boardId": "",
     "triggerResetSec": 0,
     "tripleMinScore": 1,
     "tripleMaxScore": 20,

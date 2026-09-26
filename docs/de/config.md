@@ -6,17 +6,27 @@
 
 ![Logo](img/tabConfigDe.PNG)
 
-Der Tab **Optionen** enthält die allgemeinen Verbindungseinstellungen zum Autodarts-Boardmanager sowie ein paar Parameter zur Trigger-Logik.
+Der Tab **Optionen** enthält die Verbindungseinstellungen zu Autodarts sowie Parameter zur Trigger-Logik.
 
-### Autodarts (Boardmanager) Host/IP
+### Verbindungsmodus
 
-IP-Adresse oder Hostname des lokalen Autodarts-Boardmanagers bzw. Autodarts-Desktop.  
-Die Instanz verbindet sich nur dann, wenn hier eine erreichbare Adresse eingetragen ist.
+- **Lokaler Board-Client** — Fragt den Autodarts-Board-Client im LAN ab (`IP:Port`). Für Autodarts-Versionen **vor v2**.
+- **Cloud (Autodarts v2)** — Meldet sich bei Autodarts an und empfängt Board-/Match-Events über die Cloud. Nutzen, wenn lokale `:3180` keine Würfe mehr liefert (Autodarts **v2.0+**).
 
-### Autodarts (Boardmanager) Port
+### Autodarts Host/IP (lokaler Modus)
 
-TCP-Port des Autodarts-Boardmanagers (Standard: `3180`).  
-Nur anpassen, wenn der Boardmanager auf einem anderen Port läuft.
+IP-Adresse oder Hostname des lokalen Autodarts-Board-Clients bzw. Desktop-PCs.  
+Nur im lokalen Modus relevant.
+
+### Autodarts Port (lokaler Modus)
+
+TCP-Port des Board-Clients (Standard: `3180`).  
+Nur anpassen, wenn der Client auf einem anderen Port läuft.
+
+### Autodarts E-Mail / Passwort / Board-ID (Cloud-Modus)
+
+Zugangsdaten deines Autodarts-Kontos und die Board-ID unter **My Boards** auf [play.autodarts.io](https://play.autodarts.io).  
+Zwei-Faktor-Authentifizierung bei Problemen mit dem Passwort-Login deaktivieren. Das Passwort wird verschlüsselt in der Adapter-Konfiguration gespeichert.
 
 ### Minimales Feld für den Triple-Trigger
 
@@ -35,5 +45,5 @@ Ein Wert von `0` deaktiviert das automatische Zurücksetzen (kein Reset).
 
 ### Abfrageintervall (s)
 
-Intervall in Sekunden, in dem der Adapter neue Daten vom Autodarts-Boardmanager abruft.  
+Intervall in Sekunden, in dem der Adapter neue Daten vom lokalen Board-Client abruft (**nur lokaler Modus**).  
 Kleinere Werte reagieren schneller, erzeugen aber mehr Last auf Board und ioBroker.

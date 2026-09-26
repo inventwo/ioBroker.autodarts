@@ -10,6 +10,7 @@ const config = require("./lib/config");
 const hardware = require("./lib/hardware");
 const systemInfo = require("./lib/systemInfo");
 const httpHelper = require("./lib/httpHelper");
+const { CloudClient } = require("./lib/cloud");
 
 class Autodarts extends utils.Adapter {
 	constructor(options) {
@@ -31,6 +32,7 @@ class Autodarts extends utils.Adapter {
 		this.lastSignature = ""; // Verhindert doppelte Verarbeitung gleicher Würfe
 		this.offline = false;
 		this.versionTimer = null; // Timer für Versions- und Config-Abfrage
+		this.cloudClient = null;
 
 		this.tripleMinScoreRuntime = null; // Laufzeitwert für Triple-Minschwelle
 		this.tripleMaxScoreRuntime = null; // Laufzeitwert für Triple-Maxschwelle
@@ -73,9 +75,13 @@ class Autodarts extends utils.Adapter {
 		await this.ensureAdapterRootMeta();
 
 		// Defaults aus io-package.json absichern
+		this.config.connectionMode ??= "local";
 		this.config.host ??= "127.0.0.1";
 		this.config.port ??= 3180;
 		this.config.intervalSec ??= 1;
+		this.config.cloudEmail ??= "";
+		this.config.cloudPassword ??= "";
+		this.config.boardId ??= "";
 		this.config.tripleMinScore ??= 1;
 		this.config.tripleMaxScore ??= 20;
 		this.config.triggerResetSec ??= 0;
@@ -105,19 +111,35 @@ class Autodarts extends utils.Adapter {
 		this.lastThrowsCount = 0;
 		this.lastSignature = "";
 
-		// Polling starten
-		this.pollLoop();
+		const cloudMode = this.config.connectionMode === "cloud";
 
-		// Host-Informationen und Kameras abfragen und alle 5 Minuten aktualisieren
-		await systemInfo.fetchHost(this);
-		await systemInfo.fetchConfig(this);
-		this.versionTimer = this.setInterval(
-			async () => {
-				await systemInfo.fetchHost(this);
-				await systemInfo.fetchConfig(this);
-			},
-			5 * 60 * 1000,
-		);
+		if (cloudMode) {
+			this.log.info("Starting Autodarts cloud connection mode (v2)");
+			this.cloudClient = new CloudClient(this);
+			try {
+				await this.cloudClient.start();
+			} catch (err) {
+				this.log.error(`Cloud connection failed: ${err.message}`);
+				await this.setState("online", false, true);
+				await this.setState("info.connection", false, true);
+				await trafficLight.setStatus(this, "red");
+			}
+		} else {
+			this.log.info("Starting Autodarts local connection mode");
+			// Polling starten
+			this.pollLoop();
+
+			// Host-Informationen und Kameras abfragen und alle 5 Minuten aktualisieren
+			await systemInfo.fetchHost(this);
+			await systemInfo.fetchConfig(this);
+			this.versionTimer = this.setInterval(
+				async () => {
+					await systemInfo.fetchHost(this);
+					await systemInfo.fetchConfig(this);
+				},
+				5 * 60 * 1000,
+			);
+		}
 	}
 
 	/**
@@ -175,6 +197,60 @@ class Autodarts extends utils.Adapter {
 	}
 
 	/**
+	 * Process board state (local poll or cloud message) into ioBroker states.
+	 *
+	 * @param {object} state Parsed Autodarts state
+	 */
+	async processBoardState(state) {
+		if (!state || typeof state !== "object") {
+			return;
+		}
+
+		const boardStatus = state.status || ""; // z.B. "Throw" oder "Takeout"
+
+		if (boardStatus === "Throw") {
+			await trafficLight.setStatus(this, "green");
+		} else if (boardStatus === "Takeout" || boardStatus === "Takeout in progress") {
+			await trafficLight.setStatus(this, "yellow");
+		}
+
+		// Nur event-Wert in status.boardStatus schreiben
+		if (state.event !== undefined) {
+			await this.setState("status.boardStatus", {
+				val: state.event,
+				ack: true,
+			});
+		}
+
+		// Nur weiter, wenn throws existieren, Array ist und nicht leer
+		if (!state.throws || !Array.isArray(state.throws) || state.throws.length === 0) {
+			return;
+		}
+
+		const currentThrows = state.throws;
+
+		// Prüfen, ob sich die Würfe geändert haben
+		const signature = JSON.stringify(
+			currentThrows.map(d => ({
+				name: d.segment?.name || "",
+				mult: d.segment?.multiplier || 0,
+			})),
+		);
+
+		if (signature === this.lastSignature) {
+			return;
+		}
+		this.lastSignature = signature;
+
+		// letzten Dart in States schreiben (ausgelagert)
+		const lastDart = currentThrows[currentThrows.length - 1];
+		await throwLogic.updateThrow(this, lastDart);
+
+		// Visit-Summe aktualisieren (ausgelagert)
+		this.lastThrowsCount = await visit.updateVisit(this, currentThrows, this.lastThrowsCount);
+	}
+
+	/**
 	 * Autodarts API abfragen und Visit-Summe schreiben
 	 */
 	async fetchState() {
@@ -193,48 +269,7 @@ class Autodarts extends utils.Adapter {
 
 			try {
 				const state = JSON.parse(data);
-				const boardStatus = state.status || ""; // z.B. "Throw" oder "Takeout"
-
-				if (boardStatus === "Throw") {
-					await trafficLight.setStatus(this, "green");
-				} else if (boardStatus === "Takeout") {
-					await trafficLight.setStatus(this, "yellow");
-				}
-
-				// Nur event-Wert in status.boardStatus schreiben
-				if (state.event !== undefined) {
-					await this.setState("status.boardStatus", {
-						val: state.event,
-						ack: true,
-					});
-				}
-
-				// Nur weiter, wenn throws existieren, Array ist und nicht leer
-				if (!state.throws || !Array.isArray(state.throws) || state.throws.length === 0) {
-					return;
-				}
-
-				const currentThrows = state.throws;
-
-				// Prüfen, ob sich die Würfe geändert haben
-				const signature = JSON.stringify(
-					currentThrows.map(d => ({
-						name: d.segment?.name || "",
-						mult: d.segment?.multiplier || 0,
-					})),
-				);
-
-				if (signature === this.lastSignature) {
-					return;
-				}
-				this.lastSignature = signature;
-
-				// letzten Dart in States schreiben (ausgelagert)
-				const lastDart = currentThrows[currentThrows.length - 1];
-				await throwLogic.updateThrow(this, lastDart);
-
-				// Visit-Summe aktualisieren (ausgelagert)
-				this.lastThrowsCount = await visit.updateVisit(this, currentThrows, this.lastThrowsCount);
+				await this.processBoardState(state);
 			} catch (e) {
 				this.log.warn(`Autodarts API Fehler: ${e.message} | Daten: ${data.substring(0, 200)}...`);
 				// Bei JSON-Fehler: Board war erreichbar, aber Antwort kaputt
@@ -287,6 +322,10 @@ class Autodarts extends utils.Adapter {
 
 	onUnload(callback) {
 		try {
+			if (this.cloudClient) {
+				this.cloudClient.stop();
+				this.cloudClient = null;
+			}
 			if (this.pollTimer) {
 				this.clearTimeout(this.pollTimer);
 			}
