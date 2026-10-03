@@ -158,6 +158,9 @@ In **HELP & FAQ** you will find general information and help about the adapter a
 <!--
 	### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+- (skvarel) Listed cloudPassword in protectedNative and replaced plain setTimeout in tools pulse helper (fixes #94)
+
 ### 1.1.0 (2026-09-26)
 - (skvarel) Documented Autodarts v2 incompatibility for local throw detection
 - (skvarel) Added optional cloud connection mode for Autodarts v2 throw events

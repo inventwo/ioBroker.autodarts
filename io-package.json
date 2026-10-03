@@ -164,6 +164,9 @@
   "encryptedNative": [
     "cloudPassword"
   ],
+  "protectedNative": [
+    "cloudPassword"
+  ],
   "native": {
     "connectionMode": "local",
     "host": "127.0.0.1",
