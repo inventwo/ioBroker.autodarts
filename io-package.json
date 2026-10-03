@@ -1,8 +1,21 @@
 {
   "common": {
     "name": "autodarts",
-    "version": "1.1.0",
+    "version": "1.1.1",
     "news": {
+      "1.1.1": {
+        "en": "Listed cloudPassword in protectedNative and replaced plain setTimeout in tools pulse helper (fixes #94)",
+        "de": "Listete CloudPassword in ProtectedNative auf und ersetzte setTimeout im Tools Pulse Helper (fixes #94)",
+        "ru": "Включил CloudPassword в ProtectedNative и заменил простой setTimeout в инструментах pulse helper (исправление #94)",
+        "pt": "Listou o CloudPassword no ProtectedNative e substituiu o setTimeout no pulse helper (correções #94)",
+        "nl": "CloudPassword vermeld in ProtectedNative en plain setTimeout vervangen in tools pulse helper (fixes #94)",
+        "fr": "CloudPassword a été classé dans ProtectedNative et a remplacé SetTimeout dans Tools Pulse Helper (fixes #94)",
+        "it": "Ha inserito CloudPassword in ProtectedNative e sostituito setTimeout in Tools Pulse Helper (fix #94)",
+        "es": "Incluyó CloudPassword en ProtectedNative y sustituyó a setTimeout en tools pulse helper (fix #94)",
+        "pl": "Wymieniono CloudPassword w ProtectedNative i zastąpiony zwykły setTimeout w pomocniku pulsu narzędzi (poprawki #94)",
+        "uk": "Перераховано CloudPassword у ProtectedNative та замінено звичайний setTimeout у допоміжному пульсі інструментів (виправлення #94)",
+        "zh-cn": "在 protectedNative 中列出了 CloudPassword，取代了工具脉冲助手中的普通 setTime #94"
+      },
       "1.1.0": {
         "en": "Documented Autodarts v2 incompatibility for local throw detection\nAdded optional cloud connection mode for Autodarts v2 throw events\nDocumented how to find the Autodarts board ID for cloud / v2 setup",
         "de": "Dokumentierte Autodarts v2-Inkompatibilität zur Lokalwurferkennung\nOptionaler Cloud-Modus für Autodarts v2 Wurfevents hinzugefügt\nDokumentiert, wie man die Autodarts Board ID für Cloud /v2 findet",
@@ -80,19 +93,6 @@
         "pl": "Usunięta reakcja i mui\nUsunięto admin / style.css",
         "uk": "Зняти реагацію і мус\nВидалити admin/style.css",
         "zh-cn": "删除反应和 mui\n删除的管理员/ type.css"
-      },
-      "1.0.7": {
-        "en": "CI/CD: Updated GitHub Copilot instructions template to version 0.5.7 with latest ioBroker best practices (fixes #21, #25)",
-        "de": "CI/CD: Updated GitHub Copilot Anleitungsvorlage auf Version 0.5.7 mit neuesten ioBroker Best Practices (fixes #21, #25)",
-        "ru": "CI/CD: обновленный шаблон инструкций GitHub Copilot до версии 0.5.7 с последними лучшими практиками ioBroker (исправления #21, #25)",
-        "pt": "CI/CD: Modelo de instruções do GitHub Copilot atualizado para a versão 0.5.7 com as melhores práticas do ioBroker mais recentes (fixes #21, #25)",
-        "nl": "CI/CD: Bijgewerkt GitHub Copilot instructies template naar versie 0.5.7 met de nieuwste ioBroker best practices (fixes #21, #25)",
-        "fr": "CI/CD: Mise à jour du modèle d'instructions du copilote GitHub à la version 0.5.7 avec les dernières pratiques exemplaires ioBroker (fixes #21, #25)",
-        "it": "CI/CD: Aggiornato modello di istruzioni GitHub Copilot alla versione 0.5.7 con le migliori pratiche ioBroker (fissi #21, #25)",
-        "es": "CI/CD: Actualizada plantilla de instrucciones GitHub Copilot a la versión 0.5.7 con las mejores prácticas de yoBroker (fijos #21, #25)",
-        "pl": "CI / CD: Aktualizacja szablonu instrukcji GitHub Copilot do wersji 0.5.7 z najnowszymi najlepszymi praktykami ioBroker (poprawki # 21, # 25)",
-        "uk": "CI/CD: Оновлений шаблон інструкцій GitHub Copilot до версії 0.5.7 з новітніми ioBroker кращих практик (фікси #21, #25)",
-        "zh-cn": "CI/CD: 更新了 GitHub 副驾驶指令模板至 0.5.7 版本,并附有最新的 ioBroker 最佳做法 (fixes #21, #25)"
       }
     },
     "titleLang": {
