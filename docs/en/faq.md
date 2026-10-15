@@ -32,8 +32,8 @@ Autodarts **v2.0+** deprecates the Board Manager UI. The local API on port `3180
 Set `system.cams.calibrate` to `true` (button). The adapter sends `POST /api/config/calibration/auto` to the **Board host/IP** and **Port** from Options (default `3180`).
 
 - This works with Autodarts v2 if the local API on that host still accepts the call (progress appears in `status.boardStatus`).
-- In cloud mode, host/port must still point at your Autodarts PC so the adapter can reach `:3180`.
-- If host/port is wrong or unreachable, calibration fails and an error is logged.
+- In cloud mode, set **Board host/IP** and **Port** to your Autodarts PC (e.g. `192.168.x.x:3180`). `127.0.0.1` only works if ioBroker runs on the same machine.
+- Watch the adapter log for `Starting auto camera calibration` / errors when you press the button.
 
 ---
 

@@ -169,7 +169,7 @@ class Autodarts extends utils.Adapter {
 		const idShort = id.replace(`${this.namespace}.`, "");
 
 		// Foreign State Changes (bidirektionale Synchronisation)
-		if (hardware.handleForeignStateChange(this, id, state)) {
+		if (await hardware.handleForeignStateChange(this, id, state)) {
 			return;
 		}
 

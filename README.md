@@ -101,11 +101,11 @@ In **OPTIONS** you configure how the adapter connects to Autodarts:
   - `local` — poll the board client on your LAN (`IP:port`, default for Autodarts before v2)  
   - `cloud` — Autodarts account + board ID (required for Autodarts v2 throw detection)
 
-- **Board host/IP** (local mode)  
-  IP address of your Autodarts PC (e.g. `192.168.178.50` or `127.0.0.1`).
+- **Board host/IP**  
+  IP address of your Autodarts PC (e.g. `192.168.178.50` or `127.0.0.1`). Used for local polling and for camera calibration (also in cloud mode).
 
-- **Port** (local mode)  
-  TCP port of the board client (usually `3180`).
+- **Port**  
+  TCP port of the local board API (usually `3180`). Needed for local mode and for `system.cams.calibrate`.
 
 - **Cloud email / password / board ID** (cloud mode)  
   Your Autodarts login and the board ID from **My Boards** on [play.autodarts.io](https://play.autodarts.io).  
@@ -156,6 +156,7 @@ In **HELP & FAQ** you will find general information and help about the adapter a
 - This adapter is designed to work only with your own dartboard.
 
 ## Changelog
+
 ### **WORK IN PROGRESS**
 - (skvarel) Added `system.cams.calibrate` button to start auto camera calibration via local Board Manager API
 
