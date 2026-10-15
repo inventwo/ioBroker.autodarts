@@ -61,6 +61,7 @@ Connects to Autodarts and exposes ioBroker states for home automation:
 - **`system.software.*`**: Autodarts versions (boardVersion, desktopVersion), OS and platform details
 - **`system.hardware.*`**: CPU model, kernel architecture, hostname
 - **`system.cams.cam0/1/2`**: Camera configuration (width, height, fps) as JSON
+- **`system.cams.calibrate`**: Button to start auto camera calibration via the local Board Manager API (`POST /api/config/calibration/auto`). Uses **Board host/IP** and **Port** from Options (works in local and cloud mode if `:3180` is reachable).
 
 ### Hardware Control
 - **`system.hardware.light`**: Control board lighting (bidirectional with external states)
@@ -155,9 +156,9 @@ In **HELP & FAQ** you will find general information and help about the adapter a
 - This adapter is designed to work only with your own dartboard.
 
 ## Changelog
-<!--
-	### **WORK IN PROGRESS**
--->
+### **WORK IN PROGRESS**
+- (skvarel) Added `system.cams.calibrate` button to start auto camera calibration via local Board Manager API
+
 ### 1.1.1 (2026-10-03)
 - (skvarel) Listed cloudPassword in protectedNative and replaced plain setTimeout in tools pulse helper (fixes #94)
 

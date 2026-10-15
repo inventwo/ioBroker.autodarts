@@ -190,6 +190,11 @@ class Autodarts extends utils.Adapter {
 			return;
 		}
 
+		// System / camera control (e.g. calibrate)
+		if (await systemInfo.handleStateChange(this, idShort, state)) {
+			return;
+		}
+
 		// Hardware-Control
 		if (await hardware.handleStateChange(this, idShort, state)) {
 			return;
