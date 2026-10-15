@@ -1,8 +1,21 @@
 {
   "common": {
     "name": "autodarts",
-    "version": "1.1.1",
+    "version": "1.2.0",
     "news": {
+      "1.2.0": {
+        "en": "Added `system.cams.calibrate` button to start auto camera calibration via local Board Manager API",
+        "de": "Button `system.cams.calibrate` hinzugefügt, um die Kamera über die lokale Board Manager API zu kalibrieren",
+        "ru": "Добавлена кнопка `system.cams.calibrate` для запуска автоматической калибровки камеры через локальный API Board Manager",
+        "pt": "Adicionado o botão `system.cams.calibrate` para autocalibração da câmera via API Board Manager",
+        "nl": "Knop `system.cams.calibrate` toegevoegd om de automatische camerakalibratie via de lokale Board Manager-API te starten",
+        "fr": "Ajout du bouton « system.cams.calibrate » pour démarrer le calibrage automatique de la caméra via l'API Board Manager",
+        "it": "Aggiunto il pulsante «system.cams.calibrate» tramite l'API locale di Board Manager",
+        "es": "Se ha añadido el botón «system.cams.calibrate» para iniciar la calibración automática de la cámara a través de la API local",
+        "pl": "Dodano przycisk „system.cams.calibrate”, aby rozpocząć automatyczną kalibrację kamery za pomocą lokalnego interfejsu API Board Manager",
+        "uk": "Додана кнопка `system.cams.calibrate` для запуску автоматичного калібрування камери через локальний API диспетчера дошки",
+        "zh-cn": "添加了 “system.cams.calibrate” 按钮，可通过本地 Board Manager API 开始自动相机校准"
+      },
       "1.1.1": {
         "en": "Listed cloudPassword in protectedNative and replaced plain setTimeout in tools pulse helper (fixes #94)",
         "de": "Listete CloudPassword in ProtectedNative auf und ersetzte setTimeout im Tools Pulse Helper (fixes #94)",
@@ -80,19 +93,6 @@
         "pl": "Adapter wymaga node.js > = 22\nAktualizacja @ alcalzone / release- script und Plugins auf 5.2.0 aktualisiert (poprawki # 56)\nSkrócony @ types / node auf ^ 22.0.0 heruntergestuft (poprawki # 56)",
         "uk": "Адаптер вимагає node.js >= 22 тепер\nОновлено @alcalzone/видання плагінів auf 5.2.0 aktualisiert (фікси #56)\nDowngraded @types/node auf ^22.0.0 heruntergestuft (фікси #56)",
         "zh-cn": "适配器需要节点.js 现在22\n更新的 @alcalzone/release-scripts und 插件 auf 5.2.0 aktualisiert (fixes #56)\n降级@ types/ node auf ^22.0.0 heruntergestuft (fixes #56)"
-      },
-      "1.0.8": {
-        "en": "Removed react and mui\nRemoved admin/style.css",
-        "de": "Reakt und Mui entfernt\nAdmin/style.css entfernt",
-        "ru": "Удаленная реакция и муи\nСнято admin/style.css",
-        "pt": "Reacção removida e mui\nAdministração/estilo.css removido",
-        "nl": "Verwijderde reactie en mui\nVerwijderd admin/style.css",
-        "fr": "Réaction et mui enlevés\nSupprimé admin/style.css",
-        "it": "Rimozione e mui\nRimuovi admin/style.css",
-        "es": "Reacción eliminada y mui\nAdmin/style.cs",
-        "pl": "Usunięta reakcja i mui\nUsunięto admin / style.css",
-        "uk": "Зняти реагацію і мус\nВидалити admin/style.css",
-        "zh-cn": "删除反应和 mui\n删除的管理员/ type.css"
       }
     },
     "titleLang": {

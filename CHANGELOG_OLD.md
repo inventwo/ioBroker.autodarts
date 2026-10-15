@@ -1,4 +1,9 @@
 # Older changes
+## 1.0.10 (2026-06-05)
+- (skvarel) Migrated project rules from GitHub Copilot to Cursor rules
+- (skvarel) Updated @alcalzone/release-script to 5.2.1 (fixes #59)
+- (skvarel) Replaced plain setInterval() and setTimeout() with adapter-managed this.setInterval(), adapter.setTimeout() and corresponding clear methods (fixes #59)
+
 ## 1.0.9 (2026-05-25)
 - (skvarel) Adapter requires node.js >= 22 now
 - (skvarel) Updated @alcalzone/release-script und Plugins auf 5.2.0 aktualisiert (fixes #56)

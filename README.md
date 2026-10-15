@@ -156,8 +156,7 @@ In **HELP & FAQ** you will find general information and help about the adapter a
 - This adapter is designed to work only with your own dartboard.
 
 ## Changelog
-
-### **WORK IN PROGRESS**
+### 1.2.0 (2026-10-15)
 - (skvarel) Added `system.cams.calibrate` button to start auto camera calibration via local Board Manager API
 
 ### 1.1.1 (2026-10-03)
@@ -173,11 +172,6 @@ In **HELP & FAQ** you will find general information and help about the adapter a
 
 ### 1.0.11 (2026-06-10)
 - (skvarel) Added meta object types for adapter and instance namespace
-
-### 1.0.10 (2026-06-05)
-- (skvarel) Migrated project rules from GitHub Copilot to Cursor rules
-- (skvarel) Updated @alcalzone/release-script to 5.2.1 (fixes #59)
-- (skvarel) Replaced plain setInterval() and setTimeout() with adapter-managed this.setInterval(), adapter.setTimeout() and corresponding clear methods (fixes #59)
 
 ## Older changes
 - [CHANGELOG_OLD.md](CHANGELOG_OLD.md)
